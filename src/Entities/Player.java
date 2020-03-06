@@ -1,5 +1,7 @@
 package Entities;
 
+import java.awt.Rectangle;
+
 public class Player extends Base {
 	private static final long serialVersionUID = 1L;
 	
@@ -26,6 +28,11 @@ public class Player extends Base {
 	 */
 	public int getDefaultSpeed(){
 		return DEFAULT_SPEED;
+	}
+
+	public Rectangle getCollisionBounds(int i, int j) {
+
+		return null;
 	}
 	
 }
