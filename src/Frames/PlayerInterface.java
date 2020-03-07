@@ -51,7 +51,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			e.printStackTrace();
 		}
 			
-		this.gm.drawHouse(new Building(100,200), g2, this);
+		this.gm.drawHouse(new Building(100,200,80,80), g2, this);
 		repaint();
 	}
 	
