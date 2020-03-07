@@ -8,20 +8,8 @@ import java.awt.Rectangle;
 public class Building extends EntityBase {
 	
 	private Rectangle interactionRectangle = new Rectangle();
-	private int xPos;
-	private int yPos;
-	private int buildingHeight;
-	private int buildingWidth;
-	
-	public Building(int xPos, int yPos, int buildingHeight, int buildingWidth){
-		super(xPos, yPos, buildingHeight, buildingWidth);
-		this.xPos = xPos;
-		this.yPos = yPos;
-		this.buildingHeight = buildingHeight;
-		this.buildingWidth = buildingWidth;
-	}
 
-	public Building(float x, float y, int height, int width) {
+	public Building(int x, int y, int height, int width) {
 		super(x, y, height, width);
 		 bounds.x = 0;
 	     bounds.y = 0;
@@ -29,8 +17,8 @@ public class Building extends EntityBase {
 	     bounds.height = 64;
 	     interactionRectangle.width =  64;
 	     interactionRectangle.height = 64;
-	     interactionRectangle.x = xPos + 50; // location of the box
-	     interactionRectangle.y = yPos + 50; // location of the box
+	     interactionRectangle.x = 50; // location of the box
+	     interactionRectangle.y = 50; // location of the box
 	}
 	
 	public void checkForPlayer(Graphics g, Player p) {
@@ -46,37 +34,5 @@ public class Building extends EntityBase {
 			buildingVisible = true;
 			count = 0;
 		}
-	}
-	
-	public int getxPos() {
-		return xPos;
-	}
-
-	public void setxPos(int xPos) {
-		this.xPos = xPos;
-	}
-
-	public int getyPos() {
-		return yPos;
-	}
-
-	public void setyPos(int yPos) {
-		this.yPos = yPos;
-	}
-
-	public int getBuildingHeight() {
-		return buildingHeight;
-	}
-
-	public void setBuildingHeight(int buildingHeight) {
-		this.buildingHeight = buildingHeight;
-	}
-
-	public int getBuildingWidth() {
-		return buildingWidth;
-	}
-
-	public void setBuildingWidth(int buildingWidth) {
-		this.buildingWidth = buildingWidth;
 	}
 }

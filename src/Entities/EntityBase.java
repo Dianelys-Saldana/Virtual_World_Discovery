@@ -6,13 +6,13 @@ import java.awt.*;
 
 
 public class EntityBase {
-	private float x;
-	private float y;
+	private int x;
+	private int y;
 	private int width;
 	private int height;
 	protected Rectangle bounds;
     
-    public EntityBase(float x, float y, int height, int width){
+    public EntityBase(int x, int y, int height, int width){
         this.x = x;
         this.y = y;
         this.width = width;
@@ -42,7 +42,7 @@ public class EntityBase {
         return x;
     }
 
-    public void setX(float x) {
+    public void setX(int x) {
         this.x = x;
     }
 
@@ -50,7 +50,7 @@ public class EntityBase {
         return y;
     }
 
-    public void setY(float y) {
+    public void setY(int y) {
         this.y = y;
     }
 
