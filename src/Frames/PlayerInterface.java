@@ -85,8 +85,8 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			this.gm.drawMegaFallL(player, g2d, this);
 		
 		}
-		
-	}
+	} 
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		repaint();
