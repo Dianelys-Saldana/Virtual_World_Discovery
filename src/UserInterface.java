@@ -2,10 +2,16 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class UserInterface {
+public class UserInterface extends JFrame {
 
-	private JFrame frame;
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -15,7 +21,7 @@ public class UserInterface {
 			public void run() {
 				try {
 					UserInterface window = new UserInterface();
-					window.frame.setVisible(true);
+					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -27,16 +33,20 @@ public class UserInterface {
 	 * Create the application.
 	 */
 	public UserInterface() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100,1024, 768);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 1024, 768);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnDev = new JButton("Developer");
+		btnDev.setBounds(250, 330, 240, 120);
+		contentPane.add(btnDev);
+		
+		JButton btnPlayer = new JButton("Player");
+		btnPlayer.setBounds(500, 330, 240, 120);
+		contentPane.add(btnPlayer);
 	}
 
 }
