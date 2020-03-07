@@ -1,7 +1,7 @@
 package Entities;
 
 import java.awt.Rectangle;
-
+//Carlos Rodriguez 3/6/2020
 public abstract class Base extends Rectangle{
 
 	private static final long serialVersionUID = 1L;
