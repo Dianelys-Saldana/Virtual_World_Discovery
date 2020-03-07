@@ -1,14 +1,17 @@
 package Inputs;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+//Carlos Rodriguez 3/6/2020
 public class KeyInputs implements KeyListener {
 
 	private boolean[] keys,justPressed,cantPress;
-	public boolean up=false, down=false, left=false, right=false;
-	public boolean attbut=false;
-	public boolean fattbut=false;
-	public boolean pbutt=false;
+	private boolean leftIsPressed;
+	
+
+	private boolean rightIsPressed;
+	private boolean downIsPressed;
+	private boolean upIsPressed;
+	
 
 
 	public KeyInputs(){
@@ -17,6 +20,21 @@ public class KeyInputs implements KeyListener {
 		justPressed = new boolean[keys.length];
 		cantPress = new boolean[keys.length];
 
+	}
+	public boolean isLeftIsPressed() {
+		return leftIsPressed;
+	}
+
+	public boolean isRightIsPressed() {
+		return rightIsPressed;
+	}
+
+	public boolean isDownIsPressed() {
+		return downIsPressed;
+	}
+
+	public boolean isUpIsPressed() {
+		return upIsPressed;
 	}
 
 	public void tick(){
@@ -33,15 +51,10 @@ public class KeyInputs implements KeyListener {
 			}
 		}
 
-		up = keys[KeyEvent.VK_W];
-		down = keys[KeyEvent.VK_S];
-		left = keys[KeyEvent.VK_A];
-		right = keys[KeyEvent.VK_D];
-
-		attbut = keys[KeyEvent.VK_E];
-		fattbut = keys[KeyEvent.VK_C];
-		pbutt = keys[KeyEvent.VK_ESCAPE];
-
+		this.upIsPressed = keys[KeyEvent.VK_UP];
+		this.downIsPressed = keys[KeyEvent.VK_DOWN];
+		this.leftIsPressed= keys[KeyEvent.VK_LEFT];
+		this.rightIsPressed = keys[KeyEvent.VK_RIGHT];
 	}
 
 	@Override
