@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 /Entities/
 /Frames/
 /Image/
 /Inputs/
-=======
-/Inputs/
 /UserInterface$1.class
 /UserInterface.class
-/Entities/
->>>>>>> branch 'master' of https://github.com/Dianelys-Saldana/Virtual_World_Discovery.git
+/UI/
