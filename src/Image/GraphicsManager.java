@@ -47,9 +47,9 @@ public class GraphicsManager {
 	 * @param g2d the graphics canvas
 	 * @param observer object to be notified
 	 */
-//	public void drawMegaManL (Player megaMan, Graphics2D g2d, ImageObserver observer){
-//		g2d.drawImage(megaManLImg, megaMan.x, megaMan.y, observer);	
-//	}
+	public void drawMegaManL (Player megaMan, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(megaManLImg, megaMan.x, megaMan.y, observer);	
+	}
 
 	public void drawMegaFallL (Player megaMan, Graphics2D g2d, ImageObserver observer){
 		g2d.drawImage(megaFallLImg, megaMan.x, megaMan.y, observer);	
