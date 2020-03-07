@@ -22,6 +22,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 
 	private long LastRefresh = System.currentTimeMillis();
 	private KeyInputs ki = new KeyInputs();
+	int direction=0;
 	private GraphicsManager gm= new GraphicsManager();
 	private Player player ;
 	Timer t = new Timer(5,this);
@@ -63,24 +64,24 @@ public class PlayerInterface extends JPanel implements ActionListener {
 	private void drawPlayer(Graphics g, ImageObserver observer) throws IOException {
 		//draw one of three possible MegaMan poses according to situation
 		Graphics2D g2d = (Graphics2D) g;
-		if (this.ki.isRightIsPressed()) {
+		if (this.direction==0) {
 			this.gm.drawMegaMan(player, g2d, this);
-			System.out.println("r");
+			
 		}
-		if (this.ki.isLeftIsPressed()) {
+		if (this.direction==1) {
 		
 			this.gm.drawMegaManL(player, g2d, this);
-			System.out.println("l");
-		}
-		if (this.ki.isUpIsPressed()) {
 			
-			this.gm.drawMegaFireL(player, g2d, this);
-			System.out.println("u");
 		}
-		if (this.ki.isDownIsPressed()) {
+		if (this.direction==3) {
+		
+			this.gm.drawMegaFireL(player, g2d, this);
+
+		}
+		if (this.direction==2) {
 			
 			this.gm.drawMegaFallL(player, g2d, this);
-			System.out.println("d");
+		
 		}
 		
 	}
@@ -88,9 +89,69 @@ public class PlayerInterface extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		repaint();
 		ki.tick();
-		
+		movePlayer();
 		
 	}
+	public void moveMegaManUp(){
+		if(player.getY() - player.getSpeed() >= 0){
+			player.translate(0, -player.getSpeed());
+		}
+	}
+
+	/**
+	 * Move the megaMan down
+	 * @param megaMan the megaMan
+	 */
+	public void moveMegaManDown(){
+			if(player.getY() + player.getSpeed() + player.height < getHeight() ){
+				player.translate(0, player.getSpeed());
+
+		}
+	}
+
+	/**
+	 * Move the megaMan left
+	 * @param megaMan the megaMan
+	 */
+	public void moveMegaManLeft(){
+		if(player.getX() - player.getSpeed() >= 0){
+			player.translate(-player.getSpeed(), 0);
+		}
+	}
+	public void moveMegaManRight(){
+		if(player.getX() + player.getSpeed() + player.width < getWidth()){
+			player.translate(player.getSpeed(), 0);
+		}
+	}
+	private void movePlayer() {
+		if (this.ki.isRightIsPressed()) {
+			this.moveMegaManRight();
+			this.direction=0;
+			
+		}
+		if (this.ki.isLeftIsPressed()) {
+			this.direction=1;
+			this.moveMegaManLeft();
+			
+			System.out.println("l");
+		}
+		if (this.ki.isUpIsPressed()) {
+			this.direction=3;
+		
+			this.moveMegaManUp();
+			System.out.println("u");
+		}
+		if (this.ki.isDownIsPressed()) {
+			this.direction=2;
+			this.moveMegaManDown();
+			System.out.println("d");
+		}
+	}
+	/**
+	 * Move the megaMan right
+	 * @param megaMan the megaMan
+	 */
+	
 	
 
 }
