@@ -85,7 +85,7 @@ public class PlayerInterface extends JFrame {
 	 */
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1024, 768);
+		setBounds(170, 0, 1024, 722);
 	}
 
 }
