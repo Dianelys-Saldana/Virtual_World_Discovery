@@ -38,7 +38,7 @@ public class EntityBase {
         return new Rectangle((int) (x + bounds.x + xOffset), (int) (y + bounds.y + yOffset), bounds.width, bounds.height);
     }
     
-    public float getX() {
+    public int getX() {
         return x;
     }
 
@@ -46,7 +46,7 @@ public class EntityBase {
         this.x = x;
     }
 
-    public float getY() {
+    public int getY() {
         return y;
     }
 
