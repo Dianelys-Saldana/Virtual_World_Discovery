@@ -11,6 +11,7 @@ public class Launch {
 		JFrame F = new JFrame();
 		F.add(new PlayerInterface());
 		F.setSize(1028,768);
+		 
 		F.setVisible(true);
 		F.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
