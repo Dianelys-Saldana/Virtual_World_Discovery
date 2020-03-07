@@ -34,7 +34,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		
 		this.addKeyListener(ki);
 		 this.setFocusable(true);
-		player = new Player(500,500);
+		player = new Player(0,620);
 //		setFocusable(true);
 
 	}
@@ -83,8 +83,8 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			this.gm.drawMegaFallL(player, g2d, this);
 		
 		}
-		
-	}
+	} 
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		repaint();
@@ -147,10 +147,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			System.out.println("d");
 		}
 	}
-	/**
-	 * Move the megaMan right
-	 * @param megaMan the megaMan
-	 */
+	
 	
 	
 
