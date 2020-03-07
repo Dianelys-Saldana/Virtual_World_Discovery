@@ -8,7 +8,7 @@ import java.awt.image.ImageObserver;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
-
+import Entities.Building;
 import Entities.Player;
 
 /**
@@ -20,6 +20,7 @@ public class GraphicsManager {
 	private BufferedImage megaFallLImg;
 	private BufferedImage megaFireLImg;
 	private BufferedImage megaManImg;
+	private BufferedImage house;
 	
 
 	/**
@@ -28,6 +29,7 @@ public class GraphicsManager {
 	public GraphicsManager(){
 		// load images
 		try {
+			this.house= ImageIO.read(getClass().getResource("../Image/casa.png"));
 			this.megaManLImg = ImageIO.read(getClass().getResource("../Image/megaMan3left.png"));
 			this.megaFallLImg = ImageIO.read(getClass().getResource("../Image/megaFallLeft.png"));
 			this.megaFireLImg = ImageIO.read(getClass().getResource("../Image/megaFireLeft.png"));
@@ -61,6 +63,9 @@ public class GraphicsManager {
 
 	public void drawMegaMan (Player megaMan, Graphics2D g2d, ImageObserver observer){
 		g2d.drawImage(megaManImg, megaMan.x, megaMan.y, observer);	
+	}
+	public void drawHouse (Building build, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(house, build.getX(), build.getY(), observer);	
 	}
 
 

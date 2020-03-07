@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import Entities.Building;
 import Entities.Player;
 import Image.GraphicsManager;
 
@@ -41,6 +42,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 	public void paintComponent(Graphics g)
 	{
 		super.paintComponent(g);
+		this.setBackground(Color.GREEN);
 		Graphics2D g2= (Graphics2D)g;
 		try {
 			drawPlayer(g2,this);
@@ -49,7 +51,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			e.printStackTrace();
 		}
 			
-		
+		this.gm.drawHouse(new Building(100,200), g2, this);
 		repaint();
 	}
 	
