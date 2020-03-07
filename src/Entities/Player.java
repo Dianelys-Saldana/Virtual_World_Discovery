@@ -1,6 +1,11 @@
 package Entities;
 
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
+
+import Frames.PlayerInterface;
+import Inputs.KeyInputs;
+import Main.Launch;
 
 //Carlos Rodriguez 3/6/2020
 public class Player extends Base {
@@ -8,14 +13,17 @@ public class Player extends Base {
 	
 	public static final int DEFAULT_SPEED = 5;
 	public static final int Y_OFFSET = 5; // initial y distance of the ship from the bottom of the screen 
-	
+	public int direction=0;
 	public static final int WIDTH = 42;
 	public static final int HEIGHT = 45;
+	
 	//public static final int speed = DEFAULT_SPEED;
 	
 	public Player(int xPos, int yPos){
 		super(xPos, yPos, WIDTH, HEIGHT);
 		this.setSpeed(DEFAULT_SPEED);
+
+		
 	}
 	
 	public int gtInitialYOffset() {
@@ -35,5 +43,6 @@ public class Player extends Base {
 
 		return null;
 	}
+	
 	
 }
