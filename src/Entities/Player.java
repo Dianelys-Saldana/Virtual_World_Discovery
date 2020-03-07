@@ -28,5 +28,10 @@ public class Player extends Base {
 	public int getDefaultSpeed(){
 		return DEFAULT_SPEED;
 	}
+
+	public Rectangle getCollisionBounds(int i, int j) {
+
+		return null;
+	}
 	
 }
