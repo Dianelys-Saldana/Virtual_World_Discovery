@@ -1,5 +1,6 @@
 package Frames;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -8,14 +9,15 @@ import java.io.IOException;
 
 import Inputs.KeyInputs;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import Entities.Player;
 import Image.GraphicsManager;
 
 @SuppressWarnings("serial")
-public class PlayerInterface extends JFrame {
+public class PlayerInterface extends JPanel {
 
-
+	private long LastRefresh = System.currentTimeMillis();
 	private KeyInputs ki = new KeyInputs();
 	private String direction = "right";
 	private GraphicsManager gm= new GraphicsManager();
@@ -23,18 +25,33 @@ public class PlayerInterface extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PlayerInterface window = new PlayerInterface();
-					window.setVisible(true);
-					window.setResizable(false);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+	public void paintComponent(Graphics g)
+	{
+		run();
+		try {
+			drawPlayer(g,this);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		
+		repaint();
+	}
+	
+	void run()
+	{
+		while(true)
+		{
+			double timeSLU = System.currentTimeMillis() - LastRefresh;
+						
+			if(timeSLU >= 1000.0/60.0)
+			{
+				
+				LastRefresh = System.currentTimeMillis();
+				break;
 			}
-		});
+		}
 	}
 	
 	
@@ -56,7 +73,9 @@ public class PlayerInterface extends JFrame {
 	 * Create the application.
 	 */
 	public PlayerInterface() {
-		initialize();
+		this.addKeyListener(ki);
+		
+		setFocusable(true);
 	}
 	private void drawPlayer(Graphics g, ImageObserver observer) throws IOException {
 		//draw one of three possible MegaMan poses according to situation
@@ -78,14 +97,6 @@ public class PlayerInterface extends JFrame {
 			this.direction = "down";
 			this.gm.drawMegaFallL(player, g2d, this);
 		}
-		
-	} 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1024, 768);
 	}
 
 }
