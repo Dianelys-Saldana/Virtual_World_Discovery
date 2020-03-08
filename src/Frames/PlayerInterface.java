@@ -157,17 +157,26 @@ public class PlayerInterface extends JPanel implements ActionListener {
 	public void checkBuildingColition() {
 		for(int i=0; i<this.buildings.size(); i++){
 			Building build = buildings.get(i);
-			if(player.intersects(build) && !build.getColition()){
-				numBuildings--;
-				build.setColition(true);
+			if(player.intersects(build) && build.getVisible()!=2){
+				if(this.direction==0)this.moveMegaManLeft();
+				if(this.direction==1)this.moveMegaManRight();
+				if(this.direction==2)this.moveMegaManUp();
+				if(this.direction==3)this.moveMegaManDown();
+				if(build.getVisible()==0)numBuildings--;
 				build.setVisible(1);
 				if(questions.visible()){  
 					build.setVisible(2);
 				}  
 				ki.reset();
-				break;
 			}
-
+			else if(player.intersects(build) && build.getVisible()==2) {
+				if(this.direction==0)this.moveMegaManLeft();
+				if(this.direction==1)this.moveMegaManRight();
+				if(this.direction==2)this.moveMegaManUp();
+				if(this.direction==3)this.moveMegaManDown();
+				ki.reset();
+			}
+			
 		}
 	}
 
@@ -205,12 +214,14 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		}
 	}
 	public void moveMegaManRight(){
+		
 		if(player.getX() + player.getSpeed() + player.width < getWidth()){
 			player.translate(player.getSpeed(), 0);
 		}
 	}
 	private void movePlayer() {
 		if (this.ki.isRightIsPressed()) {
+			
 			this.moveMegaManRight();
 			this.direction=0;
 			walkingTimer--;
@@ -221,6 +232,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 
 		}
 		if (this.ki.isLeftIsPressed()) {
+		
 			this.direction=1;
 			this.moveMegaManLeft();
 			walkingTimer--;
@@ -230,6 +242,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			}
 		}
 		if (this.ki.isUpIsPressed()) {
+		
 			this.direction=3;
 
 			this.moveMegaManUp();
