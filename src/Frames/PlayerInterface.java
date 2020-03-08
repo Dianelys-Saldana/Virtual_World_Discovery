@@ -2,12 +2,14 @@ package Frames;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.ImageObserver;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import Inputs.KeyInputs;
 import javax.swing.JFrame;
@@ -20,9 +22,10 @@ import Image.GraphicsManager;
 
 @SuppressWarnings("serial")
 public class PlayerInterface extends JPanel implements ActionListener {
-
+	//private ArrayList<Building> buildings = new ArrayList<Building>();
 	private boolean walking=false;
 	private int walkingTimer = 10;
+	private int buildings=4;
 	private KeyInputs ki = new KeyInputs();
 	int direction=0;
 	private GraphicsManager gm= new GraphicsManager();
@@ -40,19 +43,25 @@ public class PlayerInterface extends JPanel implements ActionListener {
 //		setFocusable(true);
 
 	}
-	public void paintComponent(Graphics g)
-	{
+	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		this.setBackground(Color.GREEN);
 		Graphics2D g2= (Graphics2D)g;
+		
+			
+		this.gm.drawHouse(new Building(90,100,80,80), g2, this);
+		this.gm.drawHouse(new Building(732,378,80,80), g2, this);
+		this.gm.drawHouse(new Building(500,500,80,80), g2, this);
+		this.gm.drawHouse(new Building(276,200,80,80), g2, this);
 		try {
 			drawPlayer(g2,this);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-			
-		this.gm.drawHouse(new Building(100,200,80,80), g2, this);
+		 g2.setColor(Color.black);
+		 g2.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
+		g2.drawString("Buildings left to explore: "+buildings, 500, 100);
 		repaint();
 	}
 	
