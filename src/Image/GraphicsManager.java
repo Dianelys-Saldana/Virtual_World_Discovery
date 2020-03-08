@@ -25,11 +25,11 @@ public class GraphicsManager {
 	private BufferedImage avatarD1Img;
 	private BufferedImage avatarD2Img;
 	private BufferedImage avatarRestingImg;
-	
-	private BufferedImage house;
-	
 
-	/**
+	private BufferedImage house;
+
+
+	/**Carlos Rodriguez 3/6/2020
 	 * Creates a new graphics manager and loads the game images.
 	 */
 	public GraphicsManager(){
@@ -45,15 +45,7 @@ public class GraphicsManager {
 			this.avatarU1Img = ImageIO.read(getClass().getResource("../Image/Up1.png"));
 			this.avatarU2Img = ImageIO.read(getClass().getResource("../Image/Up2.png"));
 			this.avatarRestingImg = ImageIO.read(getClass().getResource("../Image/Resting.png"));
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "The graphic files are either corrupt or missing.",
 					"VoidSpace - Fatal Error", JOptionPane.ERROR_MESSAGE);
@@ -62,9 +54,9 @@ public class GraphicsManager {
 		}
 	}
 
-	/**
-	 * Draws a MegaMan image to the specified graphics canvas.
-	 * @param MegaMan the ship to draw
+	/**Carlos Rodriguez 3/6/2020
+	 * Draws a Avatar image to the specified graphics canvas.
+	 * @param Avatar to draw
 	 * @param g2d the graphics canvas
 	 * @param observer object to be notified
 	 */
@@ -103,6 +95,6 @@ public class GraphicsManager {
 	}
 
 
-	
+
 
 }

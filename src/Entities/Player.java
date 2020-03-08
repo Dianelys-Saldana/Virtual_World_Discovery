@@ -16,8 +16,6 @@ public class Player extends Base {
 	public static final int WIDTH = 42;
 	public static final int HEIGHT = 45;
 	
-	//public static final int speed = DEFAULT_SPEED;
-	
 	public Player(int xPos, int yPos){
 		super(xPos, yPos, WIDTH, HEIGHT);
 		this.setSpeed(DEFAULT_SPEED);
@@ -27,18 +25,14 @@ public class Player extends Base {
 	
 	
 	
-	/**
-	 * Returns the default ship speed.
-	 * @return the default ship speed
+	/** Carlos Rodriguez 3/6/20
+	 * Returns the default player speed.
+	 * @return the default player speed
 	 */
 	public int getDefaultSpeed(){
 		return DEFAULT_SPEED;
 	}
 
-	public Rectangle getCollisionBounds(int i, int j) {
-
-		return null;
-	}
 	
 	
 }

@@ -2,6 +2,9 @@ package Inputs;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 //Carlos Rodriguez 3/6/2020
+/**
+ * Handles user input events.
+ */
 public class KeyInputs implements KeyListener {
 
 	private boolean[] keys,justPressed,cantPress;
@@ -57,13 +60,18 @@ public class KeyInputs implements KeyListener {
 		this.rightIsPressed = keys[KeyEvent.VK_RIGHT];
 	}
 
+	/** Carlos Rodriguez 3/6/2020
+	 * Handle a key input event.
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length)
 			return;
 		keys[e.getKeyCode()] = true;
 	}
-
+	/** Carlos Rodriguez 3/6/2020
+	 * Handle a key release event.
+	 */
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() < 0 || e.getKeyCode() >= keys.length)
@@ -75,6 +83,9 @@ public class KeyInputs implements KeyListener {
 	public void keyTyped(KeyEvent e) {
 
 	}
+	/** Carlos Rodriguez 3/7/2020
+	 * Create a new input handler
+	 */
 	public void reset() {
 		for(int i =0; i < keys.length;i++){
 			keys[i]=false;
@@ -82,12 +93,17 @@ public class KeyInputs implements KeyListener {
 			cantPress[i] = false;
 		}
 	}
-
+	/** Carlos Rodriguez 3/6/2020
+	 * Handle a key just pressed event.
+	 */
 	public boolean keyJustPressed(int keyCode){
 		if(keyCode < 0 || keyCode >= keys.length)
 			return false;
 		return justPressed[keyCode];
 	}
+	/** Carlos Rodriguez 3/6/2020
+	 *No key is pressed event.
+	 */
 	public boolean nothingPressed() {
 		if(!this.downIsPressed&&!this.leftIsPressed&&!this.rightIsPressed&&!this.upIsPressed)return true;
 		return false;
