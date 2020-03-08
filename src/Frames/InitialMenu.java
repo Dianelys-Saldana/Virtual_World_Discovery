@@ -12,17 +12,19 @@ import javax.swing.JFrame;
 public class InitialMenu extends JPanel {
 
 	public InitialMenu() {
+		setLayout(null);
 
 		JButton btnDev = new JButton("Developer");
-		btnDev.setBounds(250, 330, 240, 120);
+		btnDev.setBounds(66, 111, 125, 35);
 		add(btnDev);
 
 		JButton btnPlayer = new JButton("Player");
+		btnPlayer.setBounds(242, 111, 89, 35);
 		add(btnPlayer);
 		btnPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				JFrame F = new JFrame();
-				F.add(new PlayerInterface());
+				F.getContentPane().add(new PlayerInterface());
 				F.setSize(1460,735);
 				 
 				F.setVisible(true);
