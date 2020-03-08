@@ -16,10 +16,16 @@ import Entities.Player;
  * Carlos Rodriguez 3/6/2020
  */
 public class GraphicsManager {
-	private BufferedImage megaManLImg;
-	private BufferedImage megaFallLImg;
-	private BufferedImage megaFireLImg;
-	private BufferedImage megaManImg;
+	private BufferedImage avatarL1Img;
+	private BufferedImage avatarL2Img;
+	private BufferedImage avatarR1Img;
+	private BufferedImage avatarR2Img;
+	private BufferedImage avatarU1Img;
+	private BufferedImage avatarU2Img;
+	private BufferedImage avatarD1Img;
+	private BufferedImage avatarD2Img;
+	private BufferedImage avatarRestingImg;
+	
 	private BufferedImage house;
 	
 
@@ -30,10 +36,23 @@ public class GraphicsManager {
 		// load images
 		try {
 			this.house= ImageIO.read(getClass().getResource("../Image/casa.png"));
-			this.megaManLImg = ImageIO.read(getClass().getResource("../Image/megaMan3left.png"));
-			this.megaFallLImg = ImageIO.read(getClass().getResource("../Image/megaFallLeft.png"));
-			this.megaFireLImg = ImageIO.read(getClass().getResource("../Image/megaFireLeft.png"));
-			this.megaManImg = ImageIO.read(getClass().getResource("../Image/megaMan3.png"));
+			this.avatarL1Img = ImageIO.read(getClass().getResource("../Image/Left1.png"));
+			this.avatarL2Img = ImageIO.read(getClass().getResource("../Image/Left2.png"));
+			this.avatarR1Img = ImageIO.read(getClass().getResource("../Image/Right1.png"));
+			this.avatarR2Img = ImageIO.read(getClass().getResource("../Image/Right2.png"));
+			this.avatarD1Img = ImageIO.read(getClass().getResource("../Image/Down1.png"));
+			this.avatarD2Img = ImageIO.read(getClass().getResource("../Image/Down2.png"));
+			this.avatarU1Img = ImageIO.read(getClass().getResource("../Image/Up1.png"));
+			this.avatarU2Img = ImageIO.read(getClass().getResource("../Image/Up2.png"));
+			this.avatarRestingImg = ImageIO.read(getClass().getResource("../Image/Resting.png"));
+			
+			
+			
+			
+			
+			
+			
+			
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "The graphic files are either corrupt or missing.",
@@ -49,20 +68,35 @@ public class GraphicsManager {
 	 * @param g2d the graphics canvas
 	 * @param observer object to be notified
 	 */
-	public void drawMegaManL (Player megaMan, Graphics2D g2d, ImageObserver observer){
-		g2d.drawImage(megaManLImg, megaMan.x, megaMan.y, observer);	
+	public void drawAvatarL1 (Player avatar, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(avatarL1Img, avatar.x, avatar.y, observer);	
 	}
 
-	public void drawMegaFallL (Player megaMan, Graphics2D g2d, ImageObserver observer){
-		g2d.drawImage(megaFallLImg, megaMan.x, megaMan.y, observer);	
+	public void drawAvatarL2 (Player avatar, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(avatarL2Img, avatar.x, avatar.y, observer);	
 	}
 
-	public void drawMegaFireL (Player megaMan, Graphics2D g2d, ImageObserver observer){
-		g2d.drawImage(megaFireLImg, megaMan.x, megaMan.y, observer);	
+	public void drawAvatarD1 (Player avatar, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(avatarD1Img, avatar.x, avatar.y, observer);	
 	}
 
-	public void drawMegaMan (Player megaMan, Graphics2D g2d, ImageObserver observer){
-		g2d.drawImage(megaManImg, megaMan.x, megaMan.y, observer);	
+	public void drawAvatarD2 (Player avatar, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(avatarD2Img, avatar.x, avatar.y, observer);	
+	}
+	public void drawAvatarResting (Player player, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(avatarRestingImg, player.x, player.y, observer);	
+	}
+	public void drawAvatarR1 (Player player, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(avatarR1Img, player.x, player.y, observer);	
+	}
+	public void drawAvatarR2 (Player player, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(avatarR2Img, player.x, player.y, observer);	
+	}
+	public void drawAvatarU1 (Player player, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(avatarU1Img, player.x, player.y, observer);	
+	}
+	public void drawAvatarU2 (Player player, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(avatarU2Img, player.x, player.y, observer);	
 	}
 	public void drawHouse (Building build, Graphics2D g2d, ImageObserver observer){
 		g2d.drawImage(house, build.getX(), build.getY(), observer);	

@@ -21,7 +21,8 @@ import Image.GraphicsManager;
 @SuppressWarnings("serial")
 public class PlayerInterface extends JPanel implements ActionListener {
 
-	private long LastRefresh = System.currentTimeMillis();
+	private boolean walking=false;
+	private int walkingTimer = 10;
 	private KeyInputs ki = new KeyInputs();
 	int direction=0;
 	private GraphicsManager gm= new GraphicsManager();
@@ -67,22 +68,51 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		//draw one of three possible MegaMan poses according to situation
 		Graphics2D g2d = (Graphics2D) g;
 		if (this.direction==0) {
-			this.gm.drawMegaMan(player, g2d, this);
+			
+			if(walking) {
+				this.gm.drawAvatarR2(player, g2d, observer);
+				
+			}
+			else {
+				this.gm.drawAvatarR1(player, g2d, observer);
+			
+			}
 			
 		}
 		if (this.direction==1) {
 		
-			this.gm.drawMegaManL(player, g2d, this);
+			if(walking) {
+				this.gm.drawAvatarL1(player, g2d, observer);
+				
+			}
+			else {
+				this.gm.drawAvatarL2(player, g2d, observer);
+			
+			}
 			
 		}
 		if (this.direction==3) {
 		
-			this.gm.drawMegaFireL(player, g2d, this);
+			if(walking) {
+				this.gm.drawAvatarU1(player, g2d, observer);
+				
+			}
+			else{
+				this.gm.drawAvatarU2(player, g2d, observer);
+			
+			}
 
 		}
 		if (this.direction==2) {
 			
-			this.gm.drawMegaFallL(player, g2d, this);
+			if(walking) {
+				this.gm.drawAvatarD1(player, g2d, observer);
+				
+			}
+			else {
+				this.gm.drawAvatarD2(player, g2d, observer);
+				
+			}
 		
 		}
 	} 
@@ -129,24 +159,44 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		if (this.ki.isRightIsPressed()) {
 			this.moveMegaManRight();
 			this.direction=0;
+			walkingTimer--;
+			if(walkingTimer == 0) {
+				walking=!walking;
+				walkingTimer = 10;
+			}
 			
 		}
 		if (this.ki.isLeftIsPressed()) {
 			this.direction=1;
 			this.moveMegaManLeft();
-			
-			System.out.println("l");
+			walkingTimer--;
+			if(walkingTimer == 0) {
+				walking=!walking;
+				walkingTimer = 10;
+			}
 		}
 		if (this.ki.isUpIsPressed()) {
 			this.direction=3;
 		
 			this.moveMegaManUp();
-			System.out.println("u");
+			walkingTimer--;
+			if(walkingTimer == 0) {
+				walking=!walking;
+				walkingTimer = 10;
+			}
 		}
 		if (this.ki.isDownIsPressed()) {
 			this.direction=2;
 			this.moveMegaManDown();
-			System.out.println("d");
+			walkingTimer--;
+			if(walkingTimer == 0) {
+				walking=!walking;
+				walkingTimer = 10;
+			}
+		}
+		if(ki.nothingPressed()) {
+			walking=false;
+			walkingTimer = 10;
 		}
 	}
 	

@@ -81,5 +81,9 @@ public class KeyInputs implements KeyListener {
 			return false;
 		return justPressed[keyCode];
 	}
+	public boolean nothingPressed() {
+		if(!this.downIsPressed&&!this.leftIsPressed&&!this.rightIsPressed&&!this.upIsPressed)return true;
+		return false;
+	}
 
 }
