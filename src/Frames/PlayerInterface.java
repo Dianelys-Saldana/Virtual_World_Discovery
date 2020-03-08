@@ -154,6 +154,11 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		}
 	} 
 
+	//Jose A Velazquez Torres 03/07/2020
+	/**
+	 * in this method we check if the avatar makes contact with a building
+	here we manage the state of visibility of the building 
+	and the count of how many are left for discover */
 	public void checkBuildingColition() {
 		for(int i=0; i<this.buildings.size(); i++){
 			Building build = buildings.get(i);

@@ -3,7 +3,8 @@ package Entities;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-
+//Jose A Velazquez Torres 03/07/2020
+//here we manage the building entities
 
 public class Building extends Rectangle {
 	private int x;
@@ -34,9 +35,6 @@ public class Building extends Rectangle {
 	public double getX() {
 		return x;
 	}
-
-	
-	
 
 	public double getWidth() {
 		return width;
