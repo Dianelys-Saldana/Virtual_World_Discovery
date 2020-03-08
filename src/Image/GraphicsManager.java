@@ -99,7 +99,7 @@ public class GraphicsManager {
 		g2d.drawImage(avatarU2Img, player.x, player.y, observer);	
 	}
 	public void drawHouse (Building build, Graphics2D g2d, ImageObserver observer){
-		g2d.drawImage(house, build.getX(), build.getY(), observer);	
+		g2d.drawImage(house, (int) build.getX(), (int) build.getY(), observer);	
 	}
 
 

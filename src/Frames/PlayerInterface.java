@@ -22,15 +22,22 @@ import Image.GraphicsManager;
 
 @SuppressWarnings("serial")
 public class PlayerInterface extends JPanel implements ActionListener {
-	//private ArrayList<Building> buildings = new ArrayList<Building>();
+	private ArrayList<Building> buildings = new ArrayList<Building>();
 	private boolean walking=false;
 	private int walkingTimer = 10;
-	private int buildings=4;
+	private int numBuildings=4;
 	private KeyInputs ki = new KeyInputs();
 	int direction=0;
 	private GraphicsManager gm= new GraphicsManager();
 	private Player player ;
 	Timer t = new Timer(5,this);
+	
+	Building b1 = new Building(90,100,80,80);
+	Building b2 = new Building(732,378,80,80);
+	Building b3 = new Building(500,500,80,80);
+	Building b4 = new Building(276,200,80,80);
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -41,18 +48,23 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		 this.setFocusable(true);
 		player = new Player(0,620);
 //		setFocusable(true);
-
+		buildings.add(b1);
+		buildings.add(b2);
+		buildings.add(b3);
+		buildings.add(b4);
 	}
+	
+	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		this.setBackground(Color.GREEN);
 		Graphics2D g2= (Graphics2D)g;
 		
-			
-		this.gm.drawHouse(new Building(90,100,80,80), g2, this);
-		this.gm.drawHouse(new Building(732,378,80,80), g2, this);
-		this.gm.drawHouse(new Building(500,500,80,80), g2, this);
-		this.gm.drawHouse(new Building(276,200,80,80), g2, this);
+		this.gm.drawHouse(b1, g2, this);
+		this.gm.drawHouse(b2, g2, this);
+		this.gm.drawHouse(b3, g2, this);
+		this.gm.drawHouse(b4, g2, this);
+		 
 		try {
 			drawPlayer(g2,this);
 		} catch (IOException e) {
@@ -61,7 +73,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		}
 		 g2.setColor(Color.black);
 		 g2.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
-		g2.drawString("Buildings left to explore: "+buildings, 500, 100);
+		g2.drawString("Buildings left to explore: "+numBuildings, 500, 100);
 		repaint();
 	}
 	
@@ -126,12 +138,26 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		}
 	} 
 
+	public void checkBuildingColition() {
+		for(int i=0; i<this.buildings.size(); i++){
+			Building build = buildings.get(i);
+			if(player.intersects(build) && !build.getColition()){
+				// increase asteroids destroyed count
+				numBuildings--;
+				build.setColition(true);
+				System.out.printf("touched a building");
+				break;
+			}
+			
+		}
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		repaint();
 		ki.tick();
 		movePlayer();
-		
+		checkBuildingColition();
 	}
 	public void moveMegaManUp(){
 		if(player.getY() - player.getSpeed() >= 0){
@@ -149,6 +175,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 
 		}
 	}
+
 
 	/**
 	 * Move the megaMan left
@@ -208,8 +235,6 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			walkingTimer = 10;
 		}
 	}
-	
-	
 	
 
 }
