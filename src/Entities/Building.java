@@ -3,7 +3,7 @@ package Entities;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-//Angel Hernandez 3/6/2020
+
 
 public class Building extends Rectangle {
 	private int x;
@@ -11,6 +11,7 @@ public class Building extends Rectangle {
 	private int width;
 	private int height;
 	private boolean colition;
+	private int visible;
 	
 	public boolean getColition() {
 		return colition;
@@ -27,22 +28,36 @@ public class Building extends Rectangle {
 	     this.width = width;
 	     this.height = height;	     
 	     this.colition =false ;
+	     this.visible=0;
 	}
 	
 	public double getX() {
 		return x;
 	}
 
+	
+	
+
+	public double getWidth() {
+		return width;
+	}
+
+	public double getHeight() {
+		return height;
+	}
+
+	public int getVisible() {
+		return visible;
+	}
+
+	public void setVisible(int visible) {
+		this.visible = visible;
+	}
+
 	public double getY() {
 		return y;
 	}
 
-	public void makeBuildingVisible(boolean buildingVisible, int count) {
-		if(buildingVisible == false && (count == 3 || count == 4)) {
-			buildingVisible = true;
-			count = 0;
-		}
-	}
 	
 	
 }

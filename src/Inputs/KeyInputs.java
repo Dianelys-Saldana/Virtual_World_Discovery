@@ -75,6 +75,13 @@ public class KeyInputs implements KeyListener {
 	public void keyTyped(KeyEvent e) {
 
 	}
+	public void reset() {
+		for(int i =0; i < keys.length;i++){
+			keys[i]=false;
+			justPressed[i] = false;
+			cantPress[i] = false;
+		}
+	}
 
 	public boolean keyJustPressed(int keyCode){
 		if(keyCode < 0 || keyCode >= keys.length)

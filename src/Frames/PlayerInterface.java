@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import Inputs.KeyInputs;
+import Main.Questions;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -19,11 +21,15 @@ import javax.swing.Timer;
 import Entities.Building;
 import Entities.Player;
 import Image.GraphicsManager;
+import javax.swing.JTextPane;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 @SuppressWarnings("serial")
 public class PlayerInterface extends JPanel implements ActionListener {
 	private ArrayList<Building> buildings = new ArrayList<Building>();
 	private boolean walking=false;
+	private Questions questions= new Questions(this);
 	private int walkingTimer = 10;
 	private int numBuildings=4;
 	private KeyInputs ki = new KeyInputs();
@@ -31,110 +37,120 @@ public class PlayerInterface extends JPanel implements ActionListener {
 	private GraphicsManager gm= new GraphicsManager();
 	private Player player ;
 	Timer t = new Timer(5,this);
-	
+
 	Building b1 = new Building(90,100,80,80);
 	Building b2 = new Building(732,378,80,80);
 	Building b3 = new Building(500,500,80,80);
 	Building b4 = new Building(276,200,80,80);
-	
-	
+
+
 	/**
 	 * Launch the application.
 	 */
 	public PlayerInterface() {
 		t.start();
-		
+
 		this.addKeyListener(ki);
-		 this.setFocusable(true);
+		this.setFocusable(true);
+		setLayout(null);
+
+
+
+
 		player = new Player(0,620);
-//		setFocusable(true);
+		//		setFocusable(true);
 		buildings.add(b1);
 		buildings.add(b2);
 		buildings.add(b3);
 		buildings.add(b4);
 	}
-	
-	
+
+
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		this.setBackground(Color.GREEN);
 		Graphics2D g2= (Graphics2D)g;
-		
-		this.gm.drawHouse(b1, g2, this);
-		this.gm.drawHouse(b2, g2, this);
-		this.gm.drawHouse(b3, g2, this);
-		this.gm.drawHouse(b4, g2, this);
-		 
+		for(int i=0;i<buildings.size();i++) {
+			if(buildings.get(i).getVisible()==2) {
+
+				this.gm.drawHouse(buildings.get(i), g2, this);
+			}
+			else if(buildings.get(i).getVisible()==1) {
+				g2.drawRect((int)buildings.get(i).getX(), (int)buildings.get(i).getY(), 
+						(int)buildings.get(i).getWidth(), (int)buildings.get(i).getHeight());
+			}
+		}
+
 		try {
 			drawPlayer(g2,this);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 g2.setColor(Color.black);
-		 g2.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
+		g2.setColor(Color.black);
+		g2.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
 		g2.drawString("Buildings left to explore: "+numBuildings, 500, 100);
 		repaint();
 	}
-	
-	
-	
-	
+
+
+
+
 
 	/**
 	 * Create the application.
 	 */
-	
+
 	private void drawPlayer(Graphics g, ImageObserver observer) throws IOException {
 		//draw one of three possible MegaMan poses according to situation
 		Graphics2D g2d = (Graphics2D) g;
 		if (this.direction==0) {
-			
+
 			if(walking) {
 				this.gm.drawAvatarR2(player, g2d, observer);
-				
+
 			}
 			else {
 				this.gm.drawAvatarR1(player, g2d, observer);
-			
+
 			}
-			
+
 		}
 		if (this.direction==1) {
-		
+
 			if(walking) {
 				this.gm.drawAvatarL1(player, g2d, observer);
-				
+
 			}
 			else {
 				this.gm.drawAvatarL2(player, g2d, observer);
-			
+
 			}
-			
+
 		}
 		if (this.direction==3) {
-		
+
 			if(walking) {
 				this.gm.drawAvatarU1(player, g2d, observer);
-				
+
 			}
 			else{
 				this.gm.drawAvatarU2(player, g2d, observer);
-			
+
 			}
 
 		}
 		if (this.direction==2) {
-			
+
 			if(walking) {
 				this.gm.drawAvatarD1(player, g2d, observer);
-				
+
 			}
 			else {
 				this.gm.drawAvatarD2(player, g2d, observer);
-				
+
 			}
-		
+
 		}
 	} 
 
@@ -142,16 +158,19 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		for(int i=0; i<this.buildings.size(); i++){
 			Building build = buildings.get(i);
 			if(player.intersects(build) && !build.getColition()){
-				// increase asteroids destroyed count
 				numBuildings--;
 				build.setColition(true);
-				System.out.printf("touched a building");
+				build.setVisible(1);
+				if(questions.visible()){  
+					build.setVisible(2);
+				}  
+				ki.reset();
 				break;
 			}
-			
+
 		}
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		repaint();
@@ -170,16 +189,15 @@ public class PlayerInterface extends JPanel implements ActionListener {
 	 * @param megaMan the megaMan
 	 */
 	public void moveMegaManDown(){
-			if(player.getY() + player.getSpeed() + player.height < getHeight() ){
-				player.translate(0, player.getSpeed());
+		if(player.getY() + player.getSpeed() + player.height < getHeight() ){
+			player.translate(0, player.getSpeed());
 
 		}
 	}
 
 
 	/**
-	 * Move the megaMan left
-	 * @param megaMan the megaMan
+	 * Move the Player left
 	 */
 	public void moveMegaManLeft(){
 		if(player.getX() - player.getSpeed() >= 0){
@@ -200,7 +218,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 				walking=!walking;
 				walkingTimer = 10;
 			}
-			
+
 		}
 		if (this.ki.isLeftIsPressed()) {
 			this.direction=1;
@@ -213,7 +231,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		}
 		if (this.ki.isUpIsPressed()) {
 			this.direction=3;
-		
+
 			this.moveMegaManUp();
 			walkingTimer--;
 			if(walkingTimer == 0) {
@@ -235,6 +253,4 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			walkingTimer = 10;
 		}
 	}
-	
-
 }
