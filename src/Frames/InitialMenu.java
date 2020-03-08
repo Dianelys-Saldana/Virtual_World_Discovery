@@ -4,36 +4,44 @@ import javax.swing.JPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
-// Dianelys Saldana 3/7/2020
+/**Dianelys Saldana 03/07/2020
+** Class for initial frame of the game
+*/
 public class InitialMenu extends JPanel {
-
-	public InitialMenu() {
+	
+	public InitialMenu() throws IOException {
 		setLayout(null);
-
-		JButton btnDev = new JButton("Developer");
-		btnDev.setBounds(66, 111, 125, 35);
+		setBounds(100, 100, 1024,735);
+		
+		JButton btnDev = new JButton("Map Designer");
+		btnDev.setBounds(430, 380, 185, 90);
 		add(btnDev);
 
 		JButton btnPlayer = new JButton("Player");
-		btnPlayer.setBounds(242, 111, 89, 35);
+		btnPlayer.setBounds(430, 241, 185, 90);
 		add(btnPlayer);
 		btnPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				JFrame F = new JFrame();
 				F.getContentPane().add(new PlayerInterface());
-				F.setSize(1460,735);
-				 
+				F.setSize(1024,735);
 				F.setVisible(true);
 				F.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			}
 		});
+		
+		JLabel lblNewLabel = new JLabel("Background");
+		lblNewLabel.setIcon(new ImageIcon(InitialMenu.class.getResource("/Image/Game-background.png")));
+		lblNewLabel.setBounds(0, 0, 1024, 735);
+		add(lblNewLabel);
 
 	}
-
 }
 
 

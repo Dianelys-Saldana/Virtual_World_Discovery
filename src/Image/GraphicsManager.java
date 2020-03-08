@@ -13,7 +13,7 @@ import Entities.Player;
 
 /**
  * Manages and draws game graphics and images.
- * Carlos Rodriguez 3/6/2020
+ * Carlos Rodriguez 03/06/2020
  */
 public class GraphicsManager {
 	private BufferedImage avatarL1Img;
@@ -28,8 +28,7 @@ public class GraphicsManager {
 
 	private BufferedImage house;
 
-
-	/**Carlos Rodriguez 3/6/2020
+	/**Carlos Rodriguez 03/06/2020
 	 * Creates a new graphics manager and loads the game images.
 	 */
 	public GraphicsManager(){
@@ -54,7 +53,7 @@ public class GraphicsManager {
 		}
 	}
 
-	/**Carlos Rodriguez 3/6/2020
+	/**Carlos Rodriguez 03/06/2020
 	 * Draws a Avatar image to the specified graphics canvas.
 	 * @param Avatar to draw
 	 * @param g2d the graphics canvas
@@ -93,8 +92,5 @@ public class GraphicsManager {
 	public void drawHouse (Building build, Graphics2D g2d, ImageObserver observer){
 		g2d.drawImage(house, (int) build.getX(), (int) build.getY(), observer);	
 	}
-
-
-
 
 }

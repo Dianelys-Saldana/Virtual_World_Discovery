@@ -1,7 +1,10 @@
 package Entities;
 
 import java.awt.Rectangle;
-//Carlos Rodriguez 3/6/2020
+
+/**Carlos Rodriguez 03/06/2020
+** Class for making the questions on the PlayerInterface
+*/
 public abstract class Base extends Rectangle{
 
 	private static final long serialVersionUID = 1L;

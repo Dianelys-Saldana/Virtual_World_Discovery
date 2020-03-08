@@ -1,11 +1,10 @@
 package Entities;
 
-import java.awt.Graphics;
 import java.awt.Rectangle;
 
-//Jose A Velazquez Torres 03/07/2020
-//here we manage the building entities
-
+/**Jose A Velazquez Torres 03/07/2020
+** Here we manage the building entities
+*/
 public class Building extends Rectangle {
 	private int x;
 	private int y;
@@ -56,6 +55,4 @@ public class Building extends Rectangle {
 		return y;
 	}
 
-	
-	
 }

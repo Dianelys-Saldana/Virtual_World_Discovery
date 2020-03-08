@@ -27,17 +27,18 @@ import javax.swing.JOptionPane;
 
 @SuppressWarnings("serial")
 
-//Created by Carlos Rodriguez 3/6/2020
+//Created by Carlos Rodriguez 03/06/2020
 public class PlayerInterface extends JPanel implements ActionListener {
 	private ArrayList<Building> buildings = new ArrayList<Building>();
 	private boolean walking=false;
-	private Questions questions= new Questions(this);
+	private Questions questions = new Questions(this);
 	private int walkingTimer = 10;
-	private int numBuildings=4;
+	private int numBuildings = 4;
 	private KeyInputs ki = new KeyInputs();
-	int direction=0;
-	private GraphicsManager gm= new GraphicsManager();
+	int direction = 0;
+	private GraphicsManager gm = new GraphicsManager();
 	private Player player ;
+	private Color bColor = new Color (116, 174, 109);
 	Timer t = new Timer(5,this);
 
 	Building b1 = new Building(90,100,80,80);
@@ -52,9 +53,6 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		this.setFocusable(true);
 		setLayout(null);
 
-
-
-
 		player = new Player(0,620);
 		//		setFocusable(true);
 		buildings.add(b1);
@@ -63,12 +61,12 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		buildings.add(b4);
 	}
 
-	/**Created by Carlos Rodriguez 3/6/2020
+	/**Created by Carlos Rodriguez 03/06/2020
 	 * Draw all the components on the JPanel.
 	 */
 	public void paintComponent(Graphics g){
-		super.paintComponent(g);
-		this.setBackground(Color.GREEN);
+		super.paintComponent(g);  
+		this.setBackground(bColor); 
 		Graphics2D g2= (Graphics2D)g;
 		for(int i=0;i<buildings.size();i++) {
 			if(buildings.get(i).getVisible()==2) {
@@ -84,25 +82,19 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		try {
 			drawPlayer(g2,this);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		g2.setColor(Color.black);
-		g2.setFont(new Font("TimesRoman", Font.PLAIN, 30)); 
+		g2.setFont(new Font("Arial", Font.BOLD, 30)); 
 		g2.drawString("Buildings left to explore: "+numBuildings, 500, 100);
 		repaint();
 	}
 
-
-
-
-
-	/**Created by Carlos Rodriguez 3/6/2020
-	 * Draw the Avatar.
+	/**Created by Carlos Rodriguez 03/06/2020
+	 **Draw the Avatar.
 	 */
-
 	private void drawPlayer(Graphics g, ImageObserver observer) throws IOException {
-		//draw one of three possible MegaMan poses according to situation
+		//draw one of three possible poses according to situation
 		Graphics2D g2d = (Graphics2D) g;
 		if (this.direction==0) {
 
@@ -154,11 +146,11 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		}
 	} 
 
-	//Jose A Velazquez Torres 03/07/2020
-	/**
-	 * in this method we check if the avatar makes contact with a building
+	/** Jose A Velazquez Torres 03/07/2020
+	 ** In this method we check if the avatar makes contact with a building
 	here we manage the state of visibility of the building 
-	and the count of how many are left for discover */
+	and the count of how many are left for discover
+	*/
 	public void checkBuildingColition() {
 		for(int i=0; i<this.buildings.size(); i++){
 			Building build = buildings.get(i);
@@ -184,8 +176,8 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			
 		}
 	}
-	/**Created by Carlos Rodriguez 3/6/2020
-	 * Make actions in specific times.
+	/**Created by Carlos Rodriguez 03/06/2020
+	 **Make actions in specific times.
 	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -194,7 +186,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		movePlayer();
 		checkBuildingColition();
 	}
-	/**Created by Carlos Rodriguez 3/6/2020
+	/**Created by Carlos Rodriguez 03/06/2020
 	 * Move the Avatar up  
 	 */
 	public void moveAvatarUp(){
@@ -203,7 +195,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		}
 	}
 
-	/**Created by Carlos Rodriguez 3/6/2020
+	/**Created by Carlos Rodriguez 03/06/2020
 	 * Move the Avatar down
 	 */
 	public void moveMegaManDown(){
@@ -213,8 +205,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 		}
 	}
 
-
-	/**Created by Carlos Rodriguez 3/6/2020
+	/**Created by Carlos Rodriguez 03/06/2020
 	 * Move the Avatar to the left
 	 */
 	public void moveMegaManLeft(){
@@ -222,21 +213,21 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			player.translate(-player.getSpeed(), 0);
 		}
 	}
-	/**Created by Carlos Rodriguez 3/6/2020
+	
+	/**Created by Carlos Rodriguez 03/06/2020
 	 * Move the Avatar to the right
 	 */
 	public void moveMegaManRight(){
-		
 		if(player.getX() + player.getSpeed() + player.width < getWidth()){
 			player.translate(player.getSpeed(), 0);
 		}
 	}
-	/**Created by Carlos Rodriguez 3/6/2020
+	
+	/**Created by Carlos Rodriguez 03/06/2020
 	 * Make the Avatar move pressing arrow
 	 */
 	private void movePlayer() {
 		if (this.ki.isRightIsPressed()) {
-			
 			this.moveMegaManRight();
 			this.direction=0;
 			walkingTimer--;
@@ -246,9 +237,9 @@ public class PlayerInterface extends JPanel implements ActionListener {
 			}
 
 		}
-		if (this.ki.isLeftIsPressed()) {
 		
-			this.direction=1;
+		if (this.ki.isLeftIsPressed()) {
+			this.direction = 1;
 			this.moveMegaManLeft();
 			walkingTimer--;
 			if(walkingTimer == 0) {
@@ -256,10 +247,9 @@ public class PlayerInterface extends JPanel implements ActionListener {
 				walkingTimer = 10;
 			}
 		}
-		if (this.ki.isUpIsPressed()) {
 		
-			this.direction=3;
-
+		if (this.ki.isUpIsPressed()) {
+			this.direction = 3;
 			this.moveAvatarUp();
 			walkingTimer--;
 			if(walkingTimer == 0) {
@@ -267,8 +257,9 @@ public class PlayerInterface extends JPanel implements ActionListener {
 				walkingTimer = 10;
 			}
 		}
+		
 		if (this.ki.isDownIsPressed()) {
-			this.direction=2;
+			this.direction = 2;
 			this.moveMegaManDown();
 			walkingTimer--;
 			if(walkingTimer == 0) {
@@ -276,6 +267,7 @@ public class PlayerInterface extends JPanel implements ActionListener {
 				walkingTimer = 10;
 			}
 		}
+		
 		if(ki.nothingPressed()) {
 			walking=false;
 			walkingTimer = 10;
