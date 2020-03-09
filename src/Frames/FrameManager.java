@@ -5,12 +5,11 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class FrameManager {
+public class FrameManager extends JFrame{
 	
-	JFrame f = new JFrame();
-	
+
 	public JPanel getInitial() throws IOException {
-		return new InitialMenu();
+		return new InitialMenu(this);
 	}
 	
 	public JPanel getPlayer() {
@@ -18,15 +17,22 @@ public class FrameManager {
 	}
 
 	public void frame() throws IOException {
-		f.add(this.getPlayer());
-		f.add(this.getInitial());
-		f.setSize(1024,735);
-		f.setVisible(true);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		add(this.getInitial());
+		setSize(1024,735);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public void hideInitialFrame() throws IOException {
-		f.remove(this.getInitial()); // ?
+		
+		this.setVisible(false);
+		JFrame j = new JFrame();
+		j.add(this.getPlayer());
+		j.setSize(1024,735);
+		j.setVisible(true);
+		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		System.out.println("ya");
 	}
 	
 }
