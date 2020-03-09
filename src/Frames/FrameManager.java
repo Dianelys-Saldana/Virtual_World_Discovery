@@ -5,9 +5,11 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/** Dianelys Saldana 03/08/2020
+**	Class to manage frames 
+*/
 public class FrameManager extends JFrame{
 	
-
 	public JPanel getInitial() throws IOException {
 		return new InitialMenu(this);
 	}
