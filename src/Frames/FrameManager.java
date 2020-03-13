@@ -5,6 +5,8 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import Main.Questions;
+
 /** Dianelys Saldana 03/08/2020
 **	Class to manage frames 
 */
@@ -33,8 +35,6 @@ public class FrameManager extends JFrame{
 		j.setSize(1024,735);
 		j.setVisible(true);
 		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		System.out.println("ya");
 	}
 	
 }

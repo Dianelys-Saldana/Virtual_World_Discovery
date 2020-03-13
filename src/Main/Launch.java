@@ -1,12 +1,7 @@
 package Main;
 
 import java.io.IOException;
-import javax.swing.JFrame;
-
 import Frames.FrameManager;
-import Frames.InitialMenu;
-import Frames.PlayerInterface;
-
 /**Dianelys Saldana 03/07/2020
 ** Class for launching the program
 */
@@ -21,5 +16,6 @@ public class Launch {
 		
 		FrameManager f = new FrameManager();
 		f.frame();
+		
 	}
 }

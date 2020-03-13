@@ -28,7 +28,7 @@ import javax.swing.JOptionPane;
 @SuppressWarnings("serial")
 
 //Created by Carlos Rodriguez 03/06/2020
-public class PlayerInterface extends JPanel implements ActionListener {
+public class PlayerInterface extends JPanel implements ActionListener  {
 	private ArrayList<Building> buildings = new ArrayList<Building>();
 	private boolean walking=false;
 	private Questions questions = new Questions(this);
