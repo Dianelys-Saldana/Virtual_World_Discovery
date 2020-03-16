@@ -7,6 +7,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 import java.awt.image.ImageObserver;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,15 +17,19 @@ import java.util.ArrayList;
 import Inputs.KeyInputs;
 import Main.Questions;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import Entities.Building;
 import Entities.Player;
+import Entities.Tree;
 import Image.GraphicsManager;
 import javax.swing.JTextPane;
 import javax.swing.JList;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 @SuppressWarnings("serial")
@@ -39,6 +46,9 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	private GraphicsManager gm = new GraphicsManager();
 	private Player player ;
 	private Color bColor = new Color (116, 174, 109);
+	private boolean characterSelected = false;
+	private boolean avatar1 = false;
+	private boolean avatar2 = false;
 	Timer t = new Timer(5,this);
 
 	Building b1 = new Building(90,100,80,80);
@@ -48,7 +58,8 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 	public PlayerInterface() {
 		t.start();
-
+		initialize();
+		
 		this.addKeyListener(ki);
 		this.setFocusable(true);
 		setLayout(null);
@@ -80,16 +91,21 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 
 		try {
-			drawPlayer(g2,this);
+			if(avatar1) {
+				drawPlayer(g2,this);
+			}
+			if(avatar2) {
+				drawPlayer2(g2,this);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		g2.setColor(Color.black);
 		g2.setFont(new Font("Arial", Font.BOLD, 30)); 
-		g2.drawString("Buildings left to explore: "+numBuildings, 500, 100);
+		g2.drawString("Buildings left to explore: "+numBuildings, 620, 30);
 		repaint();
 	}
-
+	
 	/**Created by Carlos Rodriguez 03/06/2020
 	 **Draw the Avatar.
 	 */
@@ -140,11 +156,83 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			}
 			else {
 				this.gm.drawAvatarD2(player, g2d, observer);
-
 			}
-
 		}
 	} 
+	
+	/**Created by Carlos Rodriguez 03/06/2020
+	 **Draw the Avatar.
+	 */
+	private void drawPlayer2(Graphics g, ImageObserver observer) throws IOException {
+		//draw one of three possible poses according to situation
+		Graphics2D g2d = (Graphics2D) g;
+		if (this.direction==0) {
+			if(walking) {
+				this.gm.drawAvatar2R1(player, g2d, observer);
+			}
+			else {
+				this.gm.drawAvatar2RR(player, g2d, observer);
+			}
+		}
+		if (this.direction==1) {
+
+			if(walking) {
+				this.gm.drawAvatar2L1(player, g2d, observer);
+			}
+			else {
+				this.gm.drawAvatar2LR(player, g2d, observer);
+			}
+		}
+		if (this.direction==3) {
+
+			if(walking) {
+				this.gm.drawAvatar2U1(player, g2d, observer);
+			}
+			else{
+				this.gm.drawAvatar2UR(player, g2d, observer);
+			}
+		}
+		if (this.direction==2) {
+
+			if(walking) {
+				this.gm.drawAvatar2D1(player, g2d, observer);
+			}
+			else {
+				this.gm.drawAvatar2DR(player, g2d, observer);
+			}
+		}
+	}
+	
+	private void initialize() {
+		
+		this.setFocusable(true);
+		setLayout(null);
+		ImageIcon Character1img = new ImageIcon(getClass().getResource("../Image/Resting.png"));
+		ImageIcon Character2img = new ImageIcon(getClass().getResource("../Image/angel resting.png"));
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 450, 54);
+		add(menuBar);
+
+		JMenuItem character1 = new JMenuItem("Link",Character1img);
+		menuBar.add(character1);
+		character1.addMouseListener(new MouseAdapter() {
+			@Override
+			 public void mouseClicked(MouseEvent arg0) {
+				avatar1 = true;
+				characterSelected = true;
+			}
+		});
+		
+		JMenuItem character2 = new JMenuItem("Israfil",Character2img);
+		menuBar.add(character2);
+		character2.addMouseListener(new MouseAdapter() {
+			@Override
+			 public void mouseClicked(MouseEvent arg0) {
+				avatar2 = true;
+				characterSelected = true;
+			}
+		});
+	}
 
 	/** Jose A Velazquez Torres 03/07/2020
 	 ** In this method we check if the avatar makes contact with a building
@@ -173,7 +261,6 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				if(this.direction==3)this.moveMegaManDown();
 				ki.reset();
 			}
-			
 		}
 	}
 	/**Created by Carlos Rodriguez 03/06/2020

@@ -26,6 +26,14 @@ public class GraphicsManager {
 	private BufferedImage avatarD1Img;
 	private BufferedImage avatarD2Img;
 	private BufferedImage avatarRestingImg;
+	private BufferedImage avatar2LRImg;
+	private BufferedImage avatar2L1Img;
+	private BufferedImage avatar2RRImg;
+	private BufferedImage avatar2R1Img;
+	private BufferedImage avatar2URImg;
+	private BufferedImage avatar2U1Img;
+	private BufferedImage avatar2DRImg;
+	private BufferedImage avatar2D1Img;
 	private BufferedImage tree3;
 	private BufferedImage tree2;
 	private BufferedImage tree1;
@@ -50,6 +58,16 @@ public class GraphicsManager {
 			this.tree1 = ImageIO.read(getClass().getResource("../Image/Tree1.png"));
 			this.tree2 = ImageIO.read(getClass().getResource("../Image/Tree2.png"));
 			this.tree3 = ImageIO.read(getClass().getResource("../Image/Tree3.png"));
+			//Angel Hernandez
+			this.avatar2LRImg = ImageIO.read(getClass().getResource("../Image/angel left resting.png"));
+			this.avatar2L1Img = ImageIO.read(getClass().getResource("../Image/angel left 1.png"));
+			this.avatar2RRImg = ImageIO.read(getClass().getResource("../Image/angel right resting.png"));
+			this.avatar2R1Img = ImageIO.read(getClass().getResource("../Image/angel right 1.png"));
+			this.avatar2URImg = ImageIO.read(getClass().getResource("../Image/angel up resting.png"));
+			this.avatar2U1Img = ImageIO.read(getClass().getResource("../Image/angel up 1.png"));
+			this.avatar2DRImg = ImageIO.read(getClass().getResource("../Image/angel resting.png"));
+			this.avatar2D1Img = ImageIO.read(getClass().getResource("../Image/angel down 1.png"));
+
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "The graphic files are either corrupt or missing.",
@@ -106,6 +124,39 @@ public class GraphicsManager {
 	}
 	public void drawTree3 (Tree tree, Graphics2D g2d, ImageObserver observer){
 		g2d.drawImage(tree3, (int) tree.getX(), (int) tree.getY(), observer);	
+	}
+
+	// Angel Hernandez
+	public void drawAvatar2LR(Player avatar, Graphics2D g2d, ImageObserver observer) {
+		g2d.drawImage(avatar2LRImg, avatar.x, avatar.y, observer);
+	}
+
+	public void drawAvatar2L1(Player avatar, Graphics2D g2d, ImageObserver observer) {
+		g2d.drawImage(avatar2L1Img, avatar.x, avatar.y, observer);
+	}
+
+	public void drawAvatar2DR(Player avatar, Graphics2D g2d, ImageObserver observer) {
+		g2d.drawImage(avatar2DRImg, avatar.x, avatar.y, observer);
+	}
+
+	public void drawAvatar2D1(Player avatar, Graphics2D g2d, ImageObserver observer) {
+		g2d.drawImage(avatar2D1Img, avatar.x, avatar.y, observer);
+	}
+
+	public void drawAvatar2RR(Player player, Graphics2D g2d, ImageObserver observer) {
+		g2d.drawImage(avatar2RRImg, player.x, player.y, observer);
+	}
+
+	public void drawAvatar2R1(Player player, Graphics2D g2d, ImageObserver observer) {
+		g2d.drawImage(avatar2R1Img, player.x, player.y, observer);
+	}
+
+	public void drawAvatar2UR(Player player, Graphics2D g2d, ImageObserver observer) {
+		g2d.drawImage(avatar2URImg, player.x, player.y, observer);
+	}
+
+	public void drawAvatar2U1(Player player, Graphics2D g2d, ImageObserver observer) {
+		g2d.drawImage(avatar2U1Img, player.x, player.y, observer);
 	}
 
 }
