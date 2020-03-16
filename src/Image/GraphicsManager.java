@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 
 import Entities.Building;
 import Entities.Player;
+import Entities.Tree;
 
 /**
  * Manages and draws game graphics and images.
@@ -25,7 +26,9 @@ public class GraphicsManager {
 	private BufferedImage avatarD1Img;
 	private BufferedImage avatarD2Img;
 	private BufferedImage avatarRestingImg;
-
+	private BufferedImage tree3;
+	private BufferedImage tree2;
+	private BufferedImage tree1;
 	private BufferedImage house;
 
 	/**Carlos Rodriguez 03/06/2020
@@ -44,6 +47,9 @@ public class GraphicsManager {
 			this.avatarU1Img = ImageIO.read(getClass().getResource("../Image/Up1.png"));
 			this.avatarU2Img = ImageIO.read(getClass().getResource("../Image/Up2.png"));
 			this.avatarRestingImg = ImageIO.read(getClass().getResource("../Image/Resting.png"));
+			this.tree1 = ImageIO.read(getClass().getResource("../Image/Tree1.png"));
+			this.tree2 = ImageIO.read(getClass().getResource("../Image/Tree2.png"));
+			this.tree3 = ImageIO.read(getClass().getResource("../Image/Tree3.png"));
 
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "The graphic files are either corrupt or missing.",
@@ -91,6 +97,15 @@ public class GraphicsManager {
 	}
 	public void drawHouse (Building build, Graphics2D g2d, ImageObserver observer){
 		g2d.drawImage(house, (int) build.getX(), (int) build.getY(), observer);	
+	}
+	public void drawTree1 (Tree tree, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(tree1, (int) tree.getX(), (int) tree.getY(), observer);	
+	}
+	public void drawTree2 (Tree tree, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(tree2, (int) tree.getX(), (int) tree.getY(), observer);	
+	}
+	public void drawTree3 (Tree tree, Graphics2D g2d, ImageObserver observer){
+		g2d.drawImage(tree3, (int) tree.getX(), (int) tree.getY(), observer);	
 	}
 
 }

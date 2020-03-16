@@ -26,6 +26,18 @@ public class InitialMenu extends JPanel {
 		JButton btnDev = new JButton("Map Designer");
 		btnDev.setBounds(430, 380, 185, 90);
 		add(btnDev);
+		btnDev.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				try {
+					f.hide2();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+		});
+		
 
 		JButton btnPlayer = new JButton("Player");
 		btnPlayer.setBounds(430, 241, 185, 90);

@@ -1,35 +1,35 @@
-1.	¿Cuál es el lugar más frío de la tierra? ,La Antártida,no,no,no
-2.	¿Quién escribió La Odisea?, Homero,no,no,no
-3.	¿Cuál es el río más largo del mundo?, Amazonas,no,no,no
-4.	¿Cómo se llama la Reina del Reino Unido? ,Isabel II,no,no,no
-5.	¿En qué continente está Ecuador? ,América,no,no,no
-6.	¿Dónde originaron los juegos olímpicos?, Grecia,no,no,no
-7.	¿Qué tipo de animal es la ballena? ,Mamífero,no,no,no
-8.	¿De qué colores es la bandera de México?, Rojo/verde/blanco,no,no,no
-9.	¿Qué cantidad de huesos en el cuerpo humano?, 206,no,no,no
-10.	¿Cuándo acabó la II Guerra Mundial?, 1945,no,no,no
-11.	¿Quién es el autor de el Quijote? ,Miguel de Cervantes,no,no,no
-12.	¿Quién pintó “la última cena”? ,Leonardo da Vinci,no,non,o
-13.	¿En qué país se encuentra la torre de Pisa?, Italia,no,nonn,no
-14.	 ¿Qué son los humanos: omnívoros, herbívoros o carnívoros?, Omnívoros,no,no,no
-15.	 ¿Cuál es el océano más grande?, Pacífico,no,no,no
-16.	¿Qué año llegó Cristóbal Colón a América? ,1942,no,no,no
-17.	 ¿Cuál es el disco más vendido de la historia? ,Thriller,no,no,no
-18.	¿Cuál es el país más grande del mundo?, Rusia,no,no,no
-19.	Si 50 es el 100%, ¿cuánto es el 90%? ,45,no,no,no
-20.	 ¿Cuál es tercer planeta en el sistema solar?, La Tierra,no,no,no
-21.	¿Qué país tiene forma de bota? ,Italia,no,no,no
-22.	¿Cual es el país más poblado de la Tierra?, China,no,no,no
-23.	¿En qué lugar del cuerpo se produce la insulina?, Páncreas,no,no,no
-24.	¿Qué rama de la Biología estudia los animales?, Zoología,no,no,no
-25.	¿Con qué se fabricaba el pergamino? ,Piel de animales,no,no,no
-26.	¿Cuántas patas tiene la araña? ,8,no,no,no
-27.	¿Cómo se llama el animal más rápido del mundo? ,Guepardo,no,no,no
-28.	¿A qué país pertenecen los cariocas? ,personas nacidas en Río de Janeiro en Brasil,no,no,no
-29.	¿Quién era el general de los nazis en la Segunda Guerra Mundial? ,Adolf Hitler,no,no,no
-30.	¿Cuál fue el primer metal que empleó el hombre? ,Cobre,no,no,no
-31.	¿Qué instrumento óptico permite ver los astros de cerca?, Telescopio,no,no,no
-32.	¿Cuál es el primero de la lista de los números primos? ,2,no,no,no
-33.	¿Quién ganó el mundial de 2014? ,Alemania,no ,no ,no
-34.	¿Quién escribió “Hamlet”?, William Shakespeare,no ,no ,no
-35.	¿Cuál es la nacionalidad de Pablo Neruda? ,Chile,no, no ,no 
+¿Cuál es el lugar más frío de la tierra? ,La Antártida,no,no,no
+¿Quién escribió La Odisea?, Homero,no,no,no
+¿Cuál es el río más largo del mundo?, Amazonas,no,no,no
+¿Cómo se llama la Reina del Reino Unido? ,Isabel II,no,no,no
+¿En qué continente está Ecuador? ,América,no,no,no
+¿Dónde originaron los juegos olímpicos?, Grecia,no,no,no
+¿Qué tipo de animal es la ballena? ,Mamífero,no,no,no
+¿De qué colores es la bandera de México?, Rojo/verde/blanco,no,no,no
+¿Qué cantidad de huesos en el cuerpo humano?, 206,no,no,no
+¿Cuándo acabó la II Guerra Mundial?, 1945,no,no,no
+¿Quién es el autor de el Quijote? ,Miguel de Cervantes,no,no,no
+¿Quién pintó “la última cena”? ,Leonardo da Vinci,no,non,o
+¿En qué país se encuentra la torre de Pisa?, Italia,no,nonn,no
+¿Qué son los humanos: omnívoros, herbívoros o carnívoros?, Omnívoros,no,no,no
+¿Cuál es el océano más grande?, Pacífico,no,no,no
+¿Qué año llegó Cristóbal Colón a América? ,1942,no,no,no
+¿Cuál es el disco más vendido de la historia? ,Thriller,no,no,no
+¿Cuál es el país más grande del mundo?, Rusia,no,no,no
+Si 50 es el 100%, ¿cuánto es el 90%? ,45,no,no,no
+¿Cuál es tercer planeta en el sistema solar?, La Tierra,no,no,no
+¿Qué país tiene forma de bota? ,Italia,no,no,no
+¿Cual es el país más poblado de la Tierra?, China,no,no,no
+¿En qué lugar del cuerpo se produce la insulina?, Páncreas,no,no,no
+¿Qué rama de la Biología estudia los animales?, Zoología,no,no,no
+¿Con qué se fabricaba el pergamino? ,Piel de animales,no,no,no
+¿Cuántas patas tiene la araña? ,8,no,no,no
+¿Cómo se llama el animal más rápido del mundo? ,Guepardo,no,no,no
+¿A qué país pertenecen los cariocas? ,personas nacidas en Río de Janeiro en Brasil,no,no,no
+¿Quién era el general de los nazis en la Segunda Guerra Mundial? ,Adolf Hitler,no,no,no
+¿Cuál fue el primer metal que empleó el hombre? ,Cobre,no,no,no
+¿Qué instrumento óptico permite ver los astros de cerca?, Telescopio,no,no,no
+¿Cuál es el primero de la lista de los números primos? ,2,no,no,no
+¿Quién ganó el mundial de 2014? ,Alemania,no ,no ,no
+¿Quién escribió “Hamlet”?, William Shakespeare,no ,no ,no
+¿Cuál es la nacionalidad de Pablo Neruda? ,Chile,no, no ,no 

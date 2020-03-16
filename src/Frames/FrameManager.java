@@ -19,6 +19,9 @@ public class FrameManager extends JFrame{
 	public JPanel getPlayer() {
 		return new PlayerInterface();
 	}
+	public JPanel getDev() {
+		return new MapDesigner();
+	}
 
 	public void frame() throws IOException {
 		add(this.getInitial());
@@ -32,6 +35,15 @@ public class FrameManager extends JFrame{
 		this.setVisible(false);
 		JFrame j = new JFrame();
 		j.add(this.getPlayer());
+		j.setSize(1024,735);
+		j.setVisible(true);
+		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public void hide2() throws IOException {
+		
+		this.setVisible(false);
+		JFrame j = new JFrame();
+		j.add(this.getDev());
 		j.setSize(1024,735);
 		j.setVisible(true);
 		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
