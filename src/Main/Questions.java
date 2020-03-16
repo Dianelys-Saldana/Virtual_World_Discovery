@@ -11,6 +11,7 @@ import java.util.Random;
 
 import javax.swing.JOptionPane;
 
+import Entities.Building;
 import Text.Readers;
 
 /** Carlos Rodriguez 3/8/2020
@@ -20,17 +21,12 @@ public class Questions {
 	private Component c;
 	private ArrayList<String> questions;
 	private List<String> answer;
-	private Readers r= new Readers();
 	private int correctnum;
-	public Questions(Component C)  {
+	private Building build;
+	
+	public Questions(Component C, Building build)  {
 		this.c=C;
-		try {
-			r.scan();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		questions= r.getQuestions();
+		this.build=build;
 		
 	}
 	
@@ -47,9 +43,10 @@ public class Questions {
 	 * method to create a random question
 	 */
 	public int question1() {
+		questions= build.getQuestions();
 		Random ran= new Random();
-		int num= ran.nextInt(32);
-		answer= r.getAnswer().get(num);
+		int num= ran.nextInt(4);
+		answer= build.getAnswer().get(num);
 		String correct = answer.get(0);
 		String[] options = this.shuffle(answer.toArray());
 		correctnum=this.correctAnswer(options, correct);
@@ -59,6 +56,8 @@ public class Questions {
 		return response;
 	}
 	
+	
+
 	/** Carlos Rodriguez 03/08/2020
 	 * method to answer a specific questions
 	 * @return True if there are more than 3 correct answers
@@ -93,5 +92,7 @@ public class Questions {
 		}	
 		return 0;
 	}
-	
+	public void setBuild(Building build) {
+		this.build = build;
+	}
 }

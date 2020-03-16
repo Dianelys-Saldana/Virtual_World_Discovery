@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 import Inputs.KeyInputs;
 import Main.Questions;
+import Text.BuildingReader;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -36,11 +37,12 @@ import javax.swing.JOptionPane;
 
 //Created by Carlos Rodriguez 03/06/2020
 public class PlayerInterface extends JPanel implements ActionListener  {
-	private ArrayList<Building> buildings = new ArrayList<Building>();
+	private BuildingReader br= new BuildingReader();
+	private ArrayList<Building> buildings = new ArrayList<>() ;
 	private boolean walking=false;
-	private Questions questions = new Questions(this);
+	private Questions questions = new Questions(this,null);
 	private int walkingTimer = 10;
-	private int numBuildings = 4;
+	private int numBuildings ;
 	private KeyInputs ki = new KeyInputs();
 	int direction = 0;
 	private GraphicsManager gm = new GraphicsManager();
@@ -51,26 +53,31 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	private boolean avatar2 = false;
 	Timer t = new Timer(5,this);
 
-	Building b1 = new Building(90,100,80,80);
-	Building b2 = new Building(732,378,80,80);
-	Building b3 = new Building(500,500,80,80);
-	Building b4 = new Building(276,200,80,80);
 
 	public PlayerInterface() {
 		t.start();
 		initialize();
-		
+		try {
+			br.scan();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for(int i=0;i<br.getBuildings().size();i++) {
+			Building build =  new Building((int)br.getBuildings().get(i).getX(),(int)br.getBuildings().get(i).getY(),80,80);
+			//System.out.println(br.getBuildings().get(i).getAnswer().size());
+			build.setAnswer(br.getBuildings().get(i).getAnswer());
+			build.setQuestions(br.getBuildings().get(i).getQuestions());
+			buildings.add(build);
+		}
+		numBuildings = buildings.size();
 		this.addKeyListener(ki);
 		this.setFocusable(true);
 		setLayout(null);
 
 		player = new Player(0,620);
 		//		setFocusable(true);
-		buildings.add(b1);
-		buildings.add(b2);
-		buildings.add(b3);
-		buildings.add(b4);
-	}
+		}
 
 	/**Created by Carlos Rodriguez 03/06/2020
 	 * Draw all the components on the JPanel.
@@ -241,7 +248,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	and the count of how many are left for discover
 	*/
 	public void checkBuildingColition() {
-		for(int i=0; i<this.buildings.size(); i++){
+		for(int i=0; i<buildings.size(); i++){
 			Building build = buildings.get(i);
 			if(player.intersects(build) && build.getVisible()!=2){
 				if(this.direction==0)this.moveMegaManLeft();
@@ -250,6 +257,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				if(this.direction==3)this.moveMegaManDown();
 				if(build.getVisible()==0)numBuildings--;
 				build.setVisible(1);
+				questions.setBuild(build);
 				if(questions.visible()){  
 					build.setVisible(2);
 				}  
@@ -262,6 +270,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				if(this.direction==3)this.moveMegaManDown();
 				ki.reset();
 			}
+			
 		}
 	}
 	/**Created by Carlos Rodriguez 03/06/2020
