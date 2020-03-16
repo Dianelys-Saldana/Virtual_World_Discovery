@@ -58,7 +58,7 @@ public class GraphicsManager {
 			this.tree1 = ImageIO.read(getClass().getResource("../Image/Tree1.png"));
 			this.tree2 = ImageIO.read(getClass().getResource("../Image/Tree2.png"));
 			this.tree3 = ImageIO.read(getClass().getResource("../Image/Tree3.png"));
-			//Angel Hernandez
+			//Angel Hernandez 03/16/2020
 			this.avatar2LRImg = ImageIO.read(getClass().getResource("../Image/angel left resting.png"));
 			this.avatar2L1Img = ImageIO.read(getClass().getResource("../Image/angel left 1.png"));
 			this.avatar2RRImg = ImageIO.read(getClass().getResource("../Image/angel right resting.png"));
@@ -126,7 +126,12 @@ public class GraphicsManager {
 		g2d.drawImage(tree3, (int) tree.getX(), (int) tree.getY(), observer);	
 	}
 
-	// Angel Hernandez
+	/**Angel Hernandez 03/16/2020
+	 * Draws a Avatar image to the specified graphics canvas.
+	 * @param Avatar to draw
+	 * @param g2d the graphics canvas
+	 * @param observer object to be notified
+	 */
 	public void drawAvatar2LR(Player avatar, Graphics2D g2d, ImageObserver observer) {
 		g2d.drawImage(avatar2LRImg, avatar.x, avatar.y, observer);
 	}

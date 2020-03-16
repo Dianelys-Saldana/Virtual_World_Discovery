@@ -160,7 +160,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 	} 
 	
-	/**Created by Carlos Rodriguez 03/06/2020
+	/**Created by Angel Hernandez 03/16/2020
 	 **Draw the Avatar.
 	 */
 	private void drawPlayer2(Graphics g, ImageObserver observer) throws IOException {
@@ -203,6 +203,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 	}
 	
+	//Created by Angel Hernandez 03/16/2020
 	private void initialize() {
 		
 		this.setFocusable(true);
@@ -210,7 +211,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		ImageIcon Character1img = new ImageIcon(getClass().getResource("../Image/Resting.png"));
 		ImageIcon Character2img = new ImageIcon(getClass().getResource("../Image/angel resting.png"));
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 450, 54);
+		menuBar.setBounds(0, 0, 350, 54);
 		add(menuBar);
 
 		JMenuItem character1 = new JMenuItem("Link",Character1img);
@@ -219,7 +220,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			@Override
 			 public void mouseClicked(MouseEvent arg0) {
 				avatar1 = true;
-				characterSelected = true;
+				menuBar.setVisible(false);
 			}
 		});
 		
@@ -229,7 +230,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			@Override
 			 public void mouseClicked(MouseEvent arg0) {
 				avatar2 = true;
-				characterSelected = true;
+				menuBar.setVisible(false);
 			}
 		});
 	}
