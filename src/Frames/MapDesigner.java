@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseAdapter;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 public class MapDesigner extends JPanel   {
 
@@ -66,15 +68,17 @@ public class MapDesigner extends JPanel   {
 		ImageIcon Tree2img= new ImageIcon(getClass().getResource("../Image/Tree2.png"));
 		ImageIcon Tree3img= new ImageIcon(getClass().getResource("../Image/Tree3.png"));
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 71, 54);
+		menuBar.setBounds(0, 0, 450, 54);
 		add(menuBar);
+	
+		JTextPane xCoor = new JTextPane();
+		xCoor.setBounds(834, 594, 45, 32);
+		add(xCoor);
 		
-		JMenu mnMenu = new JMenu("Menu");
-		menuBar.add(mnMenu);
-		
-		JMenu mnNewMenu = new JMenu("Tree");
-		mnMenu.add(mnNewMenu);
-		
+		JTextPane yCoor = new JTextPane();
+		yCoor.setBounds(921, 594, 45, 32);
+		add(yCoor);
+
 		JMenuItem tree1 = new JMenuItem("Tree 1",Tree1img);
 		tree1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -90,14 +94,15 @@ public class MapDesigner extends JPanel   {
 				rec=true;
 				mouseX=arg0.getXOnScreen();
 				mouseY=arg0.getYOnScreen();
-				
+				xCoor.setText(""+mouseX);
+				yCoor.setText(""+mouseY);
 				repaint();
 			}
 		});
-		mnNewMenu.add(tree1);
+		menuBar.add(tree1);
 		
 		JMenuItem tree2 = new JMenuItem("Tree 2",Tree2img);
-		mnNewMenu.add(tree2);
+		menuBar.add(tree2);
 		tree2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
@@ -112,13 +117,14 @@ public class MapDesigner extends JPanel   {
 				rec=true;
 				mouseX=arg0.getXOnScreen();
 				mouseY=arg0.getYOnScreen();
-				
+				xCoor.setText(""+mouseX);
+				yCoor.setText(""+mouseY);
 				repaint();
 			}
 		});
 		
 		JMenuItem tree3 = new JMenuItem("Tree 3",Tree3img);
-		mnNewMenu.add(tree3);
+		menuBar.add(tree3);
 		tree3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
@@ -133,18 +139,18 @@ public class MapDesigner extends JPanel   {
 				rec=true;
 				mouseX=arg0.getXOnScreen();
 				mouseY=arg0.getYOnScreen();
-				
+				xCoor.setText(""+mouseX);
+				yCoor.setText(""+mouseY);
 				repaint();
 			}
 		});
 		
 		JMenuItem building = new JMenuItem("Building");
-		mnMenu.add(building);
-
+		menuBar.add(building);
+		
+		
         
         
       
 	}
-
-	
 }
