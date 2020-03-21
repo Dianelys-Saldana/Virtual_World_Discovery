@@ -95,4 +95,16 @@ public class Questions {
 	public void setBuild(Building build) {
 		this.build = build;
 	}
+	
+	/** Jose Velazquez 03/21/2020
+	 * creates panel to input the height of the wall to be
+	 * created 
+	 */
+	public int wallHeight() {
+		String wall_height;
+		 wall_height = JOptionPane.showInputDialog("Wall height in meters");
+		int height = Integer.parseInt(wall_height);
+		return height;
+	}
+	
 }

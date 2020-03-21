@@ -15,9 +15,12 @@ import javax.swing.Timer;
 import Entities.Tree;
 import Image.GraphicsManager;
 import Util.Pair;
+import Main.Questions;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -50,6 +53,7 @@ public class MapDesigner extends JPanel   {
 	private JMenuItem building;
 	private ArrayList<JMenuItem> items= new ArrayList<>();
 	private int gray;
+	private Questions question = new Questions(this,null);
 
 	/**
 	 * Create the application.
@@ -155,6 +159,7 @@ public class MapDesigner extends JPanel   {
 				resetColor(3);
 
 				repaint();
+				  question.wallHeight();
 			}
 		});
 
@@ -198,6 +203,7 @@ public class MapDesigner extends JPanel   {
 		}
 	}
 
+	
 	public void resetColor(int x) {
 		if(x==0) {
 			this.tree1.setBackground(Color.GRAY);
