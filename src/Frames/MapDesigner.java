@@ -42,18 +42,27 @@ public class MapDesigner extends JPanel   {
 	private ArrayList<Pair> point = new ArrayList<>();
 	private Color neutralColor;
 	private int tree ;
-	JTextPane xCoor = new JTextPane();
-	JTextPane yCoor = new JTextPane();
+	private JTextPane xCoor = new JTextPane();
+	private JTextPane yCoor = new JTextPane();
+	private JMenuItem tree1;
+	private JMenuItem tree2;
+	private JMenuItem tree3;
+	private JMenuItem building;
+	private ArrayList<JMenuItem> items= new ArrayList<>();
+	private int gray;
 
 	/**
 	 * Create the application.
 	 */
 	public MapDesigner() {
-		
-		
+		items.add(tree1);
+		items.add(tree2);
+		items.add(tree3);
+		items.add(building);
+
 		initialize();
 	}
-	
+
 
 	/**Carlos Rodriguez 3/15/2020
 	 * Initialize the contents of the frame.
@@ -85,69 +94,77 @@ public class MapDesigner extends JPanel   {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 450, 54);
 		add(menuBar);
-	
-		
+
+
 		xCoor.setBounds(834, 594, 45, 32);
 		add(xCoor);
-		
-		
+
+
 		yCoor.setBounds(921, 594, 45, 32);
 		add(yCoor);
 
-		JMenuItem tree1 = new JMenuItem("Tree 1",Tree1img);
+		tree1 = new JMenuItem("Tree 1",Tree1img);
 		tree1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				draw=false;
 				rec=true;
 				tree=1;
 				repaint();
+				resetColor(0);
 			}
 		});
-		
+
 		menuBar.add(tree1);
-		
-		JMenuItem tree2 = new JMenuItem("Tree 2",Tree2img);
+
+		tree2 = new JMenuItem("Tree 2",Tree2img);
 		menuBar.add(tree2);
 		tree2.addMouseListener(new MouseAdapter() {
-				@Override
-				public void mousePressed(MouseEvent e) {
-					rec=true;
-					tree=2;
-					repaint();
-				}
-			});
-		
-		JMenuItem tree3 = new JMenuItem("Tree 3",Tree3img);
+			@Override
+			public void mousePressed(MouseEvent e) {
+				draw=false;
+				rec=true;
+				tree=2;
+				repaint();
+				resetColor(1);
+			}
+		});
+
+		tree3 = new JMenuItem("Tree 3",Tree3img);
 		menuBar.add(tree3);
 		tree3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				draw=false;
 				rec=true;
 				tree=3;
 				repaint();
+				resetColor(2);
 			}
 		});
-		
-		
-		JMenuItem building = new JMenuItem("Building");
+
+
+		building = new JMenuItem("Building");
 		building.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				rec=false;
 				neutralColor= building.getBackground();
 				draw=true;
-				setColor(building, Color.gray);
+				
+				resetColor(3);
+
 				repaint();
 			}
 		});
-		
-			
+
+
 		menuBar.add(building);
-		
-		
-        
-        
-      
+
+
+
+
+
 	}
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);  
@@ -156,7 +173,7 @@ public class MapDesigner extends JPanel   {
 		g2.setColor(Color.BLACK);
 		if(rec) {
 			g2.drawRect(mouseX, mouseY, 50, 50);
-			
+
 			xCoor.setText(""+mouseX);
 			yCoor.setText(""+mouseY);
 			repaint();
@@ -180,11 +197,31 @@ public class MapDesigner extends JPanel   {
 			g2.draw(new Line2D.Double(point.get(i - 1).getX(), point.get(i - 1).getY(),point.get(i).getX(),point.get(i).getY()));
 		}
 	}
-	
-	public void setColor(Component c,Color color) {
-		for(int i=0;i<this.getComponentCount();i++) {
-			if(this.getComponent(i).equals(c))c.setBackground(color);;
-			this.getComponent(i).setBackground(neutralColor);
+
+	public void resetColor(int x) {
+		if(x==0) {
+			this.tree1.setBackground(Color.GRAY);
+			this.tree2.setBackground(neutralColor);
+			this.tree3.setBackground(neutralColor);
+			this.building.setBackground(neutralColor);
+		}
+		if(x==1) {
+			this.tree1.setBackground(neutralColor);
+			this.tree2.setBackground(Color.GRAY);
+			this.tree3.setBackground(neutralColor);
+			this.building.setBackground(neutralColor);
+		}
+		if(x==2) {
+			this.tree1.setBackground(neutralColor);
+			this.tree2.setBackground(neutralColor);
+			this.tree3.setBackground(Color.GRAY);
+			this.building.setBackground(neutralColor);
+		}
+		if(x==3) {
+			this.tree1.setBackground(neutralColor);
+			this.tree2.setBackground(neutralColor);
+			this.tree3.setBackground(neutralColor);
+			this.building.setBackground(Color.GRAY);
 		}
 	}
 }
