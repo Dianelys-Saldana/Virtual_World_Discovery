@@ -15,9 +15,9 @@ import java.awt.Window;
 
 public class FrameManager extends JFrame{
 	JLayeredPane layeredPane = new JLayeredPane();
-	InitialMenu menu = new InitialMenu(this);
-	PlayerInterface player = new PlayerInterface(this);
-	MapDesigner map = new MapDesigner(this);
+	private InitialMenu menu = new InitialMenu(this);
+	private PlayerInterface player = new PlayerInterface(this);
+	private MapDesigner map = new MapDesigner(this);
 	
 	public FrameManager() {
 		getContentPane().setLayout(null);

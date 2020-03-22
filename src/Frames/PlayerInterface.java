@@ -36,6 +36,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JMenu;
+import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 
@@ -64,7 +65,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	public PlayerInterface(FrameManager f) {
 		t.start();
 		worldSize= new File(getClass().getResource("../World").getFile()).listFiles().length;
-		
+
 		this.f = f;
 		initialize();
 
@@ -72,27 +73,37 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		this.setFocusable(true);
 		setLayout(null);
 
-//		worldScan();
+		JButton back = new JButton("Home");
+		back.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				f.menu();
+			}
+		});
+		back.setBounds(847, 72, 141, 35);
+		add(back);
+
+		//		worldScan();
 
 
 
 
 		player = new Player(0,620);
-	
+
 	}
 
 	/**Created by Carlos Rodriguez 03/06/2020
 	 * Draw all the components on the JPanel.
 	 */
 	public void paintComponent(Graphics g){
-		if(sele==0) {
-			t.stop();
-			worldScan();
-			t.restart();
-		}
+		//		if(sele==0) {
+		//			t.stop();
+		//			worldScan();
+		//			t.restart();
+		//		}
 		super.paintComponent(g);  
 		this.setBackground(bColor);
-		
+
 		Graphics2D g2= (Graphics2D)g;
 		for(int i=0;i<buildings.size();i++) {
 			if(buildings.get(i).getVisible()==2) {
@@ -223,10 +234,15 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			for(int i=1;i<this.worldSize+1;i++) {
 				arr.add("world"+i);
 			}
-			sel=questions.arraySelection(arr.toArray(), "Que mundo desea utilizar")+1;
+			sel=questions.arraySelection(arr.toArray(), "Que mundo desea utilizar");
+			if(sel==JOptionPane.CLOSED_OPTION) {
+				f.menu();
+				return;
+			}
+			sel++;
 			sele=1;
 		}
-		 if(sele==1) {
+		if(sele==1) {
 			scan();
 			sele=2;
 		}
@@ -241,12 +257,12 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 		for(int i=0;i<br.getBuildings().size();i++) {
 			Building build =  new Building((int)br.getBuildings().get(i).getX(),(int)br.getBuildings().get(i).getY(),80,80);
-			
+
 			build.setAnswer(br.getBuildings().get(i).getAnswer());
 			build.setQuestions(br.getBuildings().get(i).getQuestions());
 			buildings.add(build);
 		}
-		
+
 		numBuildings = buildings.size();
 	}
 
@@ -277,6 +293,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				avatar2 = true;
 				menuBar.setVisible(false);
 				lblNewLabel.setVisible(false);
+				worldScan();
 			}
 		});
 		character1.addMouseListener(new MouseAdapter() {
@@ -285,9 +302,10 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				avatar1 = true;
 				menuBar.setVisible(false);
 				lblNewLabel.setVisible(false);
+				worldScan();
 			}
 		});
-		
+
 	}
 
 	/** Jose A Velazquez Torres 03/07/2020
@@ -330,6 +348,11 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		ki.tick();
 		movePlayer();
 		checkBuildingColition();
+		//		if(sele==0) {
+		//			t.stop();
+		//			worldScan();
+		//			t.restart();
+		//		}
 	}
 	/**Created by Carlos Rodriguez 03/06/2020
 	 * Move the Avatar up  
