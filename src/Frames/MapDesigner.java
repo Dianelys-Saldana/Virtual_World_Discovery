@@ -1,17 +1,12 @@
 package Frames;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
 import javax.swing.JPanel;
-import javax.swing.Timer;
-
 import Entities.Tree;
 import Image.GraphicsManager;
 import Util.Pair;
@@ -19,18 +14,11 @@ import Main.Questions;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseAdapter;
-import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 public class MapDesigner extends JPanel   {
@@ -52,7 +40,6 @@ public class MapDesigner extends JPanel   {
 	private JMenuItem tree3;
 	private JMenuItem building;
 	private ArrayList<JMenuItem> items= new ArrayList<>();
-	private int gray;
 	private Questions question = new Questions(this,null);
 
 	/**
@@ -155,11 +142,11 @@ public class MapDesigner extends JPanel   {
 				rec=false;
 				neutralColor= building.getBackground();
 				draw=true;
-				
+
 				resetColor(3);
 
 				repaint();
-				  question.wallHeight();
+				question.wallHeight();
 			}
 		});
 
@@ -203,7 +190,7 @@ public class MapDesigner extends JPanel   {
 		}
 	}
 
-	
+
 	public void resetColor(int x) {
 		if(x==0) {
 			this.tree1.setBackground(Color.GRAY);
