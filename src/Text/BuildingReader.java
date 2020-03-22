@@ -21,10 +21,10 @@ public class BuildingReader
 	/** Carlos Rodriguez 03/13/2020
 	 * method to scan the answer and questions on the file
 	 */
-	public void scan() throws IOException {
+	public void scan(String s) throws IOException {
 
 		@SuppressWarnings("resource")
-		BufferedReader file = new BufferedReader(new FileReader(cL.getResource("World/world1.txt").getFile()));
+		BufferedReader file = new BufferedReader(new FileReader(cL.getResource("World/"+s+".txt").getFile()));
 		String line = null;
 		Scanner scanner = null;
 		int index = 0;

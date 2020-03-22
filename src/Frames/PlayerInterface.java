@@ -11,6 +11,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.image.ImageObserver;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -33,6 +35,7 @@ import javax.swing.JList;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JMenu;
 
 @SuppressWarnings("serial")
 
@@ -43,49 +46,52 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	private boolean walking=false;
 	private Questions questions = new Questions(this,null);
 	private int walkingTimer = 10;
-	private int numBuildings ;
+	private int numBuildings=0 ;
+	private int sel;
 	private KeyInputs ki = new KeyInputs();
 	int direction = 0;
 	private GraphicsManager gm = new GraphicsManager();
 	private Player player ;
 	private Color bColor = new Color (116, 174, 109);
-	private boolean characterSelected = false;
+	private String worldSelected;
+	private int sele=0;
 	private boolean avatar1 = false;
 	private boolean avatar2 = false;
+	private int worldSize ;
 	Timer t = new Timer(5,this);
 
 
 	public PlayerInterface() {
 		t.start();
+		worldSize= new File(getClass().getResource("../World").getFile()).listFiles().length;
+		
 		initialize();
-		try {
-			br.scan();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		for(int i=0;i<br.getBuildings().size();i++) {
-			Building build =  new Building((int)br.getBuildings().get(i).getX(),(int)br.getBuildings().get(i).getY(),80,80);
-			//System.out.println(br.getBuildings().get(i).getAnswer().size());
-			build.setAnswer(br.getBuildings().get(i).getAnswer());
-			build.setQuestions(br.getBuildings().get(i).getQuestions());
-			buildings.add(build);
-		}
-		numBuildings = buildings.size();
+
 		this.addKeyListener(ki);
 		this.setFocusable(true);
 		setLayout(null);
 
+//		worldScan();
+
+
+
+
 		player = new Player(0,620);
-		//		setFocusable(true);
-		}
+	
+	}
 
 	/**Created by Carlos Rodriguez 03/06/2020
 	 * Draw all the components on the JPanel.
 	 */
 	public void paintComponent(Graphics g){
+		if(sele==0) {
+			t.stop();
+			worldScan();
+			t.restart();
+		}
 		super.paintComponent(g);  
-		this.setBackground(bColor); 
+		this.setBackground(bColor);
+		
 		Graphics2D g2= (Graphics2D)g;
 		for(int i=0;i<buildings.size();i++) {
 			if(buildings.get(i).getVisible()==2) {
@@ -110,10 +116,10 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 		g2.setColor(Color.black);
 		g2.setFont(new Font("Arial", Font.BOLD, 30)); 
-		g2.drawString("Buildings left to explore: "+numBuildings, 620, 30);
+		if(sele==2)g2.drawString("Buildings left to explore: "+numBuildings, 620, 30);
 		repaint();
 	}
-	
+
 	/**Created by Carlos Rodriguez 03/06/2020
 	 **Draw the Avatar.
 	 */
@@ -167,7 +173,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			}
 		}
 	} 
-	
+
 	/**Created by Angel Hernandez 03/16/2020
 	 **Draw the Avatar.
 	 */
@@ -210,10 +216,42 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			}
 		}
 	}
-	
+	private void worldScan() {
+		if(sele==0) {
+			ArrayList<String> arr= new ArrayList<>();
+			for(int i=1;i<this.worldSize+1;i++) {
+				arr.add("world"+i);
+			}
+			sel=questions.arraySelection(arr.toArray(), "Que mundo desea utilizar")+1;
+			sele=1;
+		}
+		 if(sele==1) {
+			scan();
+			sele=2;
+		}
+		else return;
+	}
+	private void scan() {
+		try {
+			br.scan("world"+sel);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for(int i=0;i<br.getBuildings().size();i++) {
+			Building build =  new Building((int)br.getBuildings().get(i).getX(),(int)br.getBuildings().get(i).getY(),80,80);
+			
+			build.setAnswer(br.getBuildings().get(i).getAnswer());
+			build.setQuestions(br.getBuildings().get(i).getQuestions());
+			buildings.add(build);
+		}
+		
+		numBuildings = buildings.size();
+	}
+
 	//Created by Angel Hernandez 03/16/2020
 	private void initialize() {
-		
+
 		this.setFocusable(true);
 		setLayout(null);
 		JLabel lblNewLabel = new JLabel("Select a character");
@@ -226,35 +264,36 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 30, 350, 54);
 		add(menuBar);
+
+		JMenuItem character1 = new JMenuItem("Link",Character1img);
+		menuBar.add(character1);
+
+		JMenuItem character2 = new JMenuItem("Israfil",Character2img);
+		menuBar.add(character2);
+		character2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				avatar2 = true;
+				menuBar.setVisible(false);
+				lblNewLabel.setVisible(false);
+			}
+		});
+		character1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				avatar1 = true;
+				menuBar.setVisible(false);
+				lblNewLabel.setVisible(false);
+			}
+		});
 		
-				JMenuItem character1 = new JMenuItem("Link",Character1img);
-				menuBar.add(character1);
-				
-				JMenuItem character2 = new JMenuItem("Israfil",Character2img);
-				menuBar.add(character2);
-				character2.addMouseListener(new MouseAdapter() {
-					@Override
-					 public void mouseClicked(MouseEvent arg0) {
-						avatar2 = true;
-						menuBar.setVisible(false);
-						lblNewLabel.setVisible(false);
-					}
-				});
-				character1.addMouseListener(new MouseAdapter() {
-					@Override
-					 public void mouseClicked(MouseEvent arg0) {
-						avatar1 = true;
-						menuBar.setVisible(false);
-						lblNewLabel.setVisible(false);
-					}
-				});
 	}
 
 	/** Jose A Velazquez Torres 03/07/2020
 	 ** In this method we check if the avatar makes contact with a building
 	here we manage the state of visibility of the building 
 	and the count of how many are left for discover
-	*/
+	 */
 	public void checkBuildingColition() {
 		for(int i=0; i<buildings.size(); i++){
 			Building build = buildings.get(i);
@@ -278,7 +317,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				if(this.direction==3)this.moveMegaManDown();
 				ki.reset();
 			}
-			
+
 		}
 	}
 	/**Created by Carlos Rodriguez 03/06/2020
@@ -318,7 +357,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			player.translate(-player.getSpeed(), 0);
 		}
 	}
-	
+
 	/**Created by Carlos Rodriguez 03/06/2020
 	 * Move the Avatar to the right
 	 */
@@ -327,7 +366,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			player.translate(player.getSpeed(), 0);
 		}
 	}
-	
+
 	/**Created by Carlos Rodriguez 03/06/2020
 	 * Make the Avatar move pressing arrow
 	 */
@@ -342,7 +381,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			}
 
 		}
-		
+
 		if (this.ki.isLeftIsPressed()) {
 			this.direction = 1;
 			this.moveMegaManLeft();
@@ -352,7 +391,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				walkingTimer = 10;
 			}
 		}
-		
+
 		if (this.ki.isUpIsPressed()) {
 			this.direction = 3;
 			this.moveAvatarUp();
@@ -362,7 +401,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				walkingTimer = 10;
 			}
 		}
-		
+
 		if (this.ki.isDownIsPressed()) {
 			this.direction = 2;
 			this.moveMegaManDown();
@@ -372,7 +411,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				walkingTimer = 10;
 			}
 		}
-		
+
 		if(ki.nothingPressed()) {
 			walking=false;
 			walkingTimer = 10;

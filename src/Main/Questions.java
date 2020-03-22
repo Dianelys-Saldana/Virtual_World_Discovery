@@ -107,4 +107,11 @@ public class Questions {
 		return height;
 	}
 	
+	public int arraySelection(Object[] arr, String s) {
+		int response = JOptionPane.showOptionDialog(c, s, "Question",
+				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
+				null, arr, arr[0]);
+		return response;
+	}
+	
 }
