@@ -1,52 +1,72 @@
 package Frames;
 
-import java.io.IOException;
-
 import javax.swing.JFrame;
+import java.awt.CardLayout;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Window;
 
-import Main.Questions;
-
-/** Dianelys Saldana 03/08/2020
-**	Class to manage frames 
-*/
 public class FrameManager extends JFrame{
+	JLayeredPane layeredPane = new JLayeredPane();
+	InitialMenu menu = new InitialMenu(this);
+	PlayerInterface player = new PlayerInterface(this);
+	MapDesigner map = new MapDesigner(this);
 	
-	public JPanel getInitial() throws IOException {
-		return new InitialMenu(this);
-	}
-	
-	public JPanel getPlayer() {
-		return new PlayerInterface();
-	}
-	public JPanel getDev() {
-		return new MapDesigner();
-	}
-
-	public void frame() throws IOException {
-		add(this.getInitial());
-		setSize(1024,735);
-		setVisible(true);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	
-	public void hideInitialFrame() throws IOException {
+	public FrameManager() {
+		getContentPane().setLayout(null);
+		getContentPane().setBounds(0, 0, 1024,735);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		this.setVisible(false);
-		JFrame j = new JFrame();
-		j.add(this.getPlayer());
-		j.setSize(1024,735);
-		j.setVisible(true);
-		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-	public void hide2() throws IOException {
 		
-		this.setVisible(false);
-		JFrame j = new JFrame();
-		j.add(this.getDev());
-		j.setSize(1024,735);
-		j.setVisible(true);
-		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		layeredPane.setBounds(0, 0, 1024,735);
+		getContentPane().add(layeredPane);
+		layeredPane.setLayout(new CardLayout(0, 0));
+		
+		
+		layeredPane.add(menu, "name_597514722666874");
+		menu.setBounds(0, 0, 1024,735);
+		menu.setLayout(null);
+		
+		
+		layeredPane.add(player, "name_597269377797559");
+		player.setBounds(0, 0, 1024,735);
+		player.setLayout(null);
+		
+		
+		layeredPane.add(map, "name_597355690056223");
+		map.setBounds(0, 0, 1024,735);
+		map.setLayout(null);
+		
 	}
 	
+	public void menu() {
+		layeredPane.removeAll();
+		layeredPane.add(menu);
+		layeredPane.repaint();
+		layeredPane.revalidate();
+		this.setVisible(true);
+	}
+	
+	public void player() {
+		layeredPane.removeAll();
+		layeredPane.add(player);
+		layeredPane.repaint();
+		layeredPane.revalidate();
+		this.setVisible(true);
+	}
+	
+	public void map() {
+		layeredPane.removeAll();
+		layeredPane.add(map);
+		layeredPane.repaint();
+		layeredPane.revalidate();
+		this.setVisible(true);
+	}
 }

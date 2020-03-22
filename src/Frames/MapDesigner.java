@@ -18,6 +18,8 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.awt.event.MouseMotionAdapter;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import javax.swing.JTextPane;
 
@@ -39,18 +41,22 @@ public class MapDesigner extends JPanel   {
 	private JMenuItem tree2;
 	private JMenuItem tree3;
 	private JMenuItem building;
+	private JMenuItem home;
 	private ArrayList<JMenuItem> items= new ArrayList<>();
 	private Questions question = new Questions(this,null);
+	private FrameManager f;
 
 	/**
 	 * Create the application.
 	 */
-	public MapDesigner() {
+	public MapDesigner(FrameManager f) {
 		items.add(tree1);
 		items.add(tree2);
 		items.add(tree3);
 		items.add(building);
-
+		items.add(home);
+		this.f = f;
+		
 		initialize();
 	}
 
@@ -149,15 +155,18 @@ public class MapDesigner extends JPanel   {
 				question.wallHeight();
 			}
 		});
-
-
 		menuBar.add(building);
-
-
-
-
+		
+		home = new JMenuItem("Home");
+		home.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				f.menu();
+			}
+		});
+		menuBar.add(home);
 
 	}
+	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);  
 		this.setBackground(Color.CYAN); 

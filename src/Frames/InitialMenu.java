@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
  ** Class for initial frame of the game
  */
 public class InitialMenu extends JPanel {
-
+	
 	private FrameManager f;
 
 	public InitialMenu(FrameManager f) {
@@ -28,13 +28,7 @@ public class InitialMenu extends JPanel {
 		add(btnDev);
 		btnDev.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				try {
-					f.hide2();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
+				f.map();
 			}
 		});
 		
@@ -44,12 +38,7 @@ public class InitialMenu extends JPanel {
 		add(btnPlayer);
 		btnPlayer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
-				try {
-					f.hideInitialFrame();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				f.player();
 
 			}
 		});

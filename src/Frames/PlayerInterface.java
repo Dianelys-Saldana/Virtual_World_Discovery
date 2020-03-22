@@ -59,12 +59,13 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	private boolean avatar2 = false;
 	private int worldSize ;
 	Timer t = new Timer(5,this);
+	FrameManager f;
 
-
-	public PlayerInterface() {
+	public PlayerInterface(FrameManager f) {
 		t.start();
 		worldSize= new File(getClass().getResource("../World").getFile()).listFiles().length;
 		
+		this.f = f;
 		initialize();
 
 		this.addKeyListener(ki);
