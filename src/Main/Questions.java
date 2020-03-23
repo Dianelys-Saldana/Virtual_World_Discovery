@@ -12,7 +12,6 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 
 import Entities.Building;
-import Text.Readers;
 
 /** Carlos Rodriguez 3/8/2020
  ** Class for make the questions on the PlayerInterface

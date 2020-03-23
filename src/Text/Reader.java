@@ -8,14 +8,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Entities.Building; 
+import Entities.Building;
+import Entities.Tree; 
 //Carlos Rodriguez 3/12/2020
-public class BuildingReader 
+public class Reader 
 { 
 	ArrayList<String> questions = new ArrayList<>();
 	ClassLoader cL = ClassLoader.getSystemClassLoader();
 	ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>();
 	ArrayList<Building> builds = new ArrayList<>();
+	ArrayList<Tree>trees= new ArrayList<>();
 
 
 	/** Carlos Rodriguez 03/13/2020
@@ -28,7 +30,7 @@ public class BuildingReader
 		String line = null;
 		Scanner scanner = null;
 		int index = 0;
-		
+		boolean isTree=false;
 		int pos = 0;
 		while ((line = file.readLine()) != null) {
 			
@@ -36,20 +38,28 @@ public class BuildingReader
 			scanner.useDelimiter(","); 
 			while (scanner.hasNext()) {
 				String data = scanner.next();
+				if(data.equals("Tree"))isTree=true;
 				if(pos==0) {
-					
+					if(isTree) {
+						trees.add(new Tree(0,0,0));
+						pos++;
+					}
+					else {
 					builds.add(new Building(0,0,80,80));
 					pos++;
+					}
 				}
 				else if(pos==1) {
 					if (index==0) {
 
 					}
 					else if (index == 1) {
-						builds.get(builds.size()-1).setX(Integer.parseInt(data));
+						if(isTree)trees.get(trees.size()-1).setX(Integer.parseInt(data));
+						else builds.get(builds.size()-1).setX(Integer.parseInt(data));
 					}
 					else {
-						builds.get(builds.size()-1).setY(Integer.parseInt(data));
+						if(isTree)trees.get(trees.size()-1).setY(Integer.parseInt(data));
+						else builds.get(builds.size()-1).setY(Integer.parseInt(data));
 						pos++;
 					}
 					index++;
@@ -59,6 +69,7 @@ public class BuildingReader
 
 					}
 					else if (index == 1) {
+						if(isTree)trees.get(trees.size()-1).setVar(Integer.parseInt(data));
 						builds.get(builds.size()-1).setImage(data);;
 						pos++;
 					}
@@ -77,12 +88,19 @@ public class BuildingReader
 						index++;
 					}
 					else {
-				
+						if(isTree) {
+							pos=0;
+							isTree=false;
+						}
+						else {
+							
+						
 						builds.get(builds.size()-1).setAnswer((ArrayList<ArrayList<String>>) answer.clone());
 						builds.get(builds.size()-1).setQuestions((ArrayList<String>) questions.clone());;
 						answer.clear();
 						questions.clear();
 						pos=0;
+						}
 					}
 				}
 				
@@ -91,6 +109,10 @@ public class BuildingReader
 			index = 0;
 
 		}
+	}
+
+	public ArrayList<Tree> getTrees() {
+		return trees;
 	}
 
 	public ArrayList<ArrayList<String>> getAnswer() {

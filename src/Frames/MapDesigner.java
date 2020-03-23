@@ -11,11 +11,14 @@ import Entities.Tree;
 import Image.GraphicsManager;
 import Util.Pair;
 import Main.Questions;
+import Text.Writer;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.ActionEvent;
@@ -45,11 +48,13 @@ public class MapDesigner extends JPanel   {
 	private ArrayList<JMenuItem> items= new ArrayList<>();
 	private Questions question = new Questions(this,null);
 	private FrameManager f;
-
+	private Writer writer ;
+	private int worldSize= new File(getClass().getResource("../World").getFile()).listFiles().length+1;
 	/**
 	 * Create the application.
 	 */
 	public MapDesigner(FrameManager f) {
+		writer= new Writer("world"+worldSize);
 		items.add(tree1);
 		items.add(tree2);
 		items.add(tree3);
@@ -63,8 +68,15 @@ public class MapDesigner extends JPanel   {
 
 	/**Carlos Rodriguez 3/15/2020
 	 * Initialize the contents of the frame.
+	 * @throws IOException 
 	 */
 	private void initialize() {
+		try {
+			writer.create();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

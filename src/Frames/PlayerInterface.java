@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import Inputs.KeyInputs;
 import Main.Questions;
-import Text.BuildingReader;
+import Text.Reader;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -42,8 +42,9 @@ import javax.swing.JButton;
 
 //Created by Carlos Rodriguez 03/06/2020
 public class PlayerInterface extends JPanel implements ActionListener  {
-	private BuildingReader br= new BuildingReader();
+	private Reader br= new Reader();
 	private ArrayList<Building> buildings = new ArrayList<>() ;
+	private ArrayList<Tree> trees = new ArrayList<>() ;
 	private boolean walking=false;
 	private Questions questions = new Questions(this,null);
 	private int walkingTimer = 10;
@@ -96,11 +97,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	 * Draw all the components on the JPanel.
 	 */
 	public void paintComponent(Graphics g){
-		//		if(sele==0) {
-		//			t.stop();
-		//			worldScan();
-		//			t.restart();
-		//		}
+	
 		super.paintComponent(g);  
 		this.setBackground(bColor);
 
@@ -114,6 +111,12 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				g2.drawRect((int)buildings.get(i).getX(), (int)buildings.get(i).getY(), 
 						(int)buildings.get(i).getWidth(), (int)buildings.get(i).getHeight());
 			}
+		}
+		for(int i=0;i<trees.size();i++) {
+			int var=trees.get(i).getVar();
+			if(var==1)this.gm.drawTree1(trees.get(i), g2, this);
+			else if(var==2)this.gm.drawTree2(trees.get(i), g2, this);
+			else if(var==3)this.gm.drawTree3(trees.get(i), g2, this);
 		}
 
 		try {
@@ -249,12 +252,14 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		else return;
 	}
 	private void scan() {
+		
 		try {
 			br.scan("world"+sel);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		trees=br.getTrees();
 		for(int i=0;i<br.getBuildings().size();i++) {
 			Building build =  new Building((int)br.getBuildings().get(i).getX(),(int)br.getBuildings().get(i).getY(),80,80);
 
@@ -264,6 +269,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 
 		numBuildings = buildings.size();
+		
 	}
 
 	//Created by Angel Hernandez 03/16/2020

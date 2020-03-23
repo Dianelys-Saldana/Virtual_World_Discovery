@@ -1,15 +1,25 @@
 package Text;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class Writer {
-	public Writer() {
-		
+	File file;
+	public Writer(String str) {
+		file = new File("src/World/"+str+".txt");
 	}
-	public void writer() throws IOException {
-		FileWriter myWriter = new FileWriter("world1.txt");
-	    myWriter.write("Files in Java might be tricky, but it is fun enough!");
-	    myWriter.close();
+	public void create() throws IOException  {
+		if(!file.exists())file.createNewFile();
+		FileWriter myWriter = new FileWriter(file);
+		myWriter.write("Juan");
+		myWriter.close();
+		
+
+
+
+
+
 	}
 }
