@@ -74,7 +74,6 @@ public class MapDesigner extends JPanel   {
 		try {
 			writer.create();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		addMouseListener(new MouseAdapter() {
@@ -85,6 +84,11 @@ public class MapDesigner extends JPanel   {
 				}
 				else if(rec) {
 					trees.add(new Tree(mouseX,mouseY,tree));
+					try {
+						writer.writeTree(mouseX, mouseY, tree);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
 				}
 			}
 		});

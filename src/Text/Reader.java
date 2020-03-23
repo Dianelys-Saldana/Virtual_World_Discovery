@@ -70,7 +70,7 @@ public class Reader
 					}
 					else if (index == 1) {
 						if(isTree)trees.get(trees.size()-1).setVar(Integer.parseInt(data));
-						builds.get(builds.size()-1).setImage(data);;
+						else builds.get(builds.size()-1).setImage(data);;
 						pos++;
 					}
 					index++;

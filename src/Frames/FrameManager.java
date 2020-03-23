@@ -15,9 +15,9 @@ import java.awt.Window;
 
 public class FrameManager extends JFrame{
 	JLayeredPane layeredPane = new JLayeredPane();
-	private InitialMenu menu = new InitialMenu(this);
-	private PlayerInterface player = new PlayerInterface(this);
-	private MapDesigner map = new MapDesigner(this);
+//	private InitialMenu menu = new InitialMenu(this);
+//	private PlayerInterface player = new PlayerInterface(this);
+//	private MapDesigner map = new MapDesigner(this);
 	
 	public FrameManager() {
 		getContentPane().setLayout(null);
@@ -29,26 +29,26 @@ public class FrameManager extends JFrame{
 		getContentPane().add(layeredPane);
 		layeredPane.setLayout(new CardLayout(0, 0));
 		
-		
-		layeredPane.add(menu, "name_597514722666874");
-		menu.setBounds(0, 0, 1024,735);
-		menu.setLayout(null);
-		
-		
-		layeredPane.add(player, "name_597269377797559");
-		player.setBounds(0, 0, 1024,735);
-		player.setLayout(null);
-		
-		
-		layeredPane.add(map, "name_597355690056223");
-		map.setBounds(0, 0, 1024,735);
-		map.setLayout(null);
+//		
+//		layeredPane.add(menu, "name_597514722666874");
+//		menu.setBounds(0, 0, 1024,735);
+//		menu.setLayout(null);
+//		
+//		
+//		layeredPane.add(player, "name_597269377797559");
+//		player.setBounds(0, 0, 1024,735);
+//		player.setLayout(null);
+//		
+//		
+//		layeredPane.add(map, "name_597355690056223");
+//		map.setBounds(0, 0, 1024,735);
+//		map.setLayout(null);
 		
 	}
 	
 	public void menu() {
 		layeredPane.removeAll();
-		layeredPane.add(menu);
+		layeredPane.add(new InitialMenu(this) );
 		layeredPane.repaint();
 		layeredPane.revalidate();
 		this.setVisible(true);
@@ -56,7 +56,7 @@ public class FrameManager extends JFrame{
 	
 	public void player() {
 		layeredPane.removeAll();
-		layeredPane.add(player);
+		layeredPane.add(new PlayerInterface(this));
 		layeredPane.repaint();
 		layeredPane.revalidate();
 		this.setVisible(true);
@@ -64,7 +64,7 @@ public class FrameManager extends JFrame{
 	
 	public void map() {
 		layeredPane.removeAll();
-		layeredPane.add(map);
+		layeredPane.add(new MapDesigner(this));
 		layeredPane.repaint();
 		layeredPane.revalidate();
 		this.setVisible(true);
