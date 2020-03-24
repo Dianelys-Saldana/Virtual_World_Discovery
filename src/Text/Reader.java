@@ -26,7 +26,7 @@ public class Reader
 	public void scan(String s) throws IOException {
 
 		@SuppressWarnings("resource")
-		BufferedReader file = new BufferedReader(new FileReader(cL.getResource("World/"+s+".txt").getFile()));
+		BufferedReader file = new BufferedReader(new FileReader("src/World/"+s+".txt"));
 		String line = null;
 		Scanner scanner = null;
 		int index = 0;

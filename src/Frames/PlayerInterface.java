@@ -65,8 +65,8 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 	public PlayerInterface(FrameManager f) {
 		t.start();
-		worldSize= new File(getClass().getResource("../World").getFile()).listFiles().length;
-
+		//worldSize= new File(getClass().getResource("../World").getFile()).listFiles().length;
+		worldSize= new File("src/World").listFiles().length;
 		this.f = f;
 		initialize();
 
