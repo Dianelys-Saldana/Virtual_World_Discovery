@@ -348,6 +348,27 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 		}
 	}
+	
+	/** Jose A Velazquez Torres 03/24/2020
+	 ** In this method we check if the avatar makes contact with a tree
+	and makes sure the avatar don't walk over the tree.
+	 */
+	public void checkTreeColition() {
+		for(int i=0; i<trees.size(); i++){
+			Tree t1 = trees.get(i);
+			if(player.intersects(t1)){
+				if(this.direction==0)this.moveMegaManLeft();
+				if(this.direction==1)this.moveMegaManRight();
+				if(this.direction==2)this.moveAvatarUp();
+				if(this.direction==3)this.moveMegaManDown();
+				ki.reset();
+			}  
+				ki.reset();
+		}
+	}
+	
+	
+	
 	/**Created by Carlos Rodriguez 03/06/2020
 	 **Make actions in specific times.
 	 */
@@ -357,6 +378,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		ki.tick();
 		movePlayer();
 		checkBuildingColition();
+		checkTreeColition();
 		//		if(sele==0) {
 		//			t.stop();
 		//			worldScan();
