@@ -48,11 +48,6 @@ public class Tree extends Rectangle {
 	}
 
 
-	public Rectangle getCollisionBounds(int i, int j) {
-
-		return null;
-	}
-
 
 	public int getVar() {
 		return var;

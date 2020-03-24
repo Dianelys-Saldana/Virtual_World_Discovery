@@ -357,13 +357,14 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		for(int i=0; i<trees.size(); i++){
 			Tree t1 = trees.get(i);
 			if(player.intersects(t1)){
+				System.out.println("entre");
 				if(this.direction==0)this.moveMegaManLeft();
 				if(this.direction==1)this.moveMegaManRight();
 				if(this.direction==2)this.moveAvatarUp();
 				if(this.direction==3)this.moveMegaManDown();
 				ki.reset();
 			}  
-				ki.reset();
+				
 		}
 	}
 	
