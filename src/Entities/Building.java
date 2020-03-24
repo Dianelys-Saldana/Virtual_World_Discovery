@@ -1,18 +1,18 @@
 package Entities;
 
 import java.awt.Rectangle;
+import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
-/**Jose A Velazquez Torres 03/07/2020
+import Util.Pair;
+
+/**Carlos Rodriguez 03/24/2020
 ** Here we manage the building entities
 */
-public class Building extends Rectangle {
-	private int x;
-	private int y;
-	private int width;
-	private int height;
-	private boolean colition;
+public class Building  {
 	private int visible;
+	private ArrayList<Pair> point;
+	private ArrayList<Line2D> lines= new ArrayList<>();
 	private ArrayList<String> questions;
 	ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>();
 	private String image;
@@ -25,23 +25,43 @@ public class Building extends Rectangle {
 		this.image = image;
 	}
 
-	public boolean getColition() {
-		return colition;
-	}
-
-	public void setColition(boolean colition) {
-		this.colition = colition;
-	}
-
-	public Building(int x, int y, int height, int width) {
-		super(x,y,height,width);
-		 this.x = x;
-	     this.y = y;
-	     this.width = width;
-	     this.height = height;	     
-	     this.colition =false ;
+	public Building(ArrayList<Pair> point) {
 	     this.visible=0;
+	     this.point=point;
+	     createLine();
+	     
 	}
+	
+	public ArrayList<Pair> getPoint() {
+		return point;
+	}
+
+	public void setPoint(ArrayList<Pair> point) {
+		this.point = point;
+	}
+
+	public ArrayList<Line2D> getLines() {
+		return lines;
+	}
+
+	public void setLines(ArrayList<Line2D> lines) {
+		this.lines = lines;
+	}
+
+	public void createLine() {
+		for(int i= point.size()-1;i>0;i--) {
+			lines.add(new Line2D.Double(point.get(i - 1).getX(), point.get(i - 1).getY(),point.get(i).getX(),point.get(i).getY()));
+		}
+	}
+	public boolean intersects(Rectangle r) {
+		if(lines.size()==0)return false;
+		for(int i=0;i<lines.size();i++) {
+			if(lines.get(i).intersects(r))return true;
+		}
+		return false;
+	}
+	
+	
 	
 	public ArrayList<String> getQuestions() {
 		return questions;
@@ -59,37 +79,7 @@ public class Building extends Rectangle {
 		this.answer = answer;
 	}
 
-	public void setX(int x) {
-		this.x = x;
-	}
 
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	public Building() {
-		
-	}
-
-	public double getX() {
-		return x;
-	}
-
-	public double getWidth() {
-		return width;
-	}
-
-	public double getHeight() {
-		return height;
-	}
 
 	public int getVisible() {
 		return visible;
@@ -99,8 +89,5 @@ public class Building extends Rectangle {
 		this.visible = visible;
 	}
 
-	public double getY() {
-		return y;
-	}
 
 }

@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import Entities.Building;
-import Entities.Tree; 
+import Entities.Tree;
+import Util.Pair; 
 //Carlos Rodriguez 3/12/2020
 public class Reader 
 { 
@@ -18,7 +19,7 @@ public class Reader
 	ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>();
 	ArrayList<Building> builds = new ArrayList<>();
 	ArrayList<Tree>trees= new ArrayList<>();
-
+	ArrayList<Pair>points= new ArrayList<>();
 
 	/** Carlos Rodriguez 03/13/2020
 	 * method to scan the answer and questions on the file
@@ -32,6 +33,7 @@ public class Reader
 		int index = 0;
 		boolean isTree=false;
 		int pos = 0;
+		int xpos=0;
 		while ((line = file.readLine()) != null) {
 			
 			scanner = new Scanner(line);
@@ -45,7 +47,7 @@ public class Reader
 						pos++;
 					}
 					else {
-					builds.add(new Building(0,0,80,80));
+					builds.add(new Building(new ArrayList<Pair>()));
 					pos++;
 					}
 				}
@@ -55,12 +57,20 @@ public class Reader
 					}
 					else if (index == 1) {
 						if(isTree)trees.get(trees.size()-1).setX(Integer.parseInt(data));
-						else builds.get(builds.size()-1).setX(Integer.parseInt(data));
+						else if(data.equals("end")) pos++;	
+						else xpos=Integer.parseInt(data);
+						
 					}
 					else {
-						if(isTree)trees.get(trees.size()-1).setY(Integer.parseInt(data));
-						else builds.get(builds.size()-1).setY(Integer.parseInt(data));
-						pos++;
+						if(isTree) {
+							trees.get(trees.size()-1).setY(Integer.parseInt(data));
+							pos++;
+						}
+						else if(data.equals("end")) pos++;
+						else {
+							points.add(new Pair(xpos,Integer.parseInt(data)));
+							index=0;
+						}
 					}
 					index++;
 				}
@@ -93,10 +103,10 @@ public class Reader
 							isTree=false;
 						}
 						else {
-							
-						
+						builds.get(builds.size()-1).setPoint((ArrayList<Pair>) points.clone());
 						builds.get(builds.size()-1).setAnswer((ArrayList<ArrayList<String>>) answer.clone());
 						builds.get(builds.size()-1).setQuestions((ArrayList<String>) questions.clone());;
+						points.clear();
 						answer.clear();
 						questions.clear();
 						pos=0;

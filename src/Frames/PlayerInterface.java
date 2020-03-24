@@ -108,8 +108,10 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				this.gm.drawHouse(buildings.get(i), g2, this);
 			}
 			else if(buildings.get(i).getVisible()==1) {
-				g2.drawRect((int)buildings.get(i).getX(), (int)buildings.get(i).getY(), 
-						(int)buildings.get(i).getWidth(), (int)buildings.get(i).getHeight());
+				for(int j=0;j<buildings.get(i).getLines().size();j++) {
+					g2.drawLine((int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1(),
+							(int)buildings.get(i).getLines().get(j).getX2(),(int) buildings.get(i).getLines().get(j).getY2());
+				}
 			}
 		}
 		for(int i=0;i<trees.size();i++) {
@@ -261,10 +263,11 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 		trees=br.getTrees();
 		for(int i=0;i<br.getBuildings().size();i++) {
-			Building build =  new Building((int)br.getBuildings().get(i).getX(),(int)br.getBuildings().get(i).getY(),80,80);
-
+			Building build =  new Building(br.getBuildings().get(i).getPoint());
+		
 			build.setAnswer(br.getBuildings().get(i).getAnswer());
 			build.setQuestions(br.getBuildings().get(i).getQuestions());
+			build.createLine();
 			buildings.add(build);
 		}
 
@@ -322,7 +325,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	public void checkBuildingColition() {
 		for(int i=0; i<buildings.size(); i++){
 			Building build = buildings.get(i);
-			if(player.intersects(build) && build.getVisible()!=2){
+			if(build.intersects(player) && build.getVisible()!=2){
 				if(this.direction==0)this.moveMegaManLeft();
 				if(this.direction==1)this.moveMegaManRight();
 				if(this.direction==2)this.moveAvatarUp();
@@ -335,7 +338,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				}  
 				ki.reset();
 			}
-			else if(player.intersects(build) && build.getVisible()==2) {
+			else if(build.intersects(player) && build.getVisible()==2) {
 				if(this.direction==0)this.moveMegaManLeft();
 				if(this.direction==1)this.moveMegaManRight();
 				if(this.direction==2)this.moveAvatarUp();

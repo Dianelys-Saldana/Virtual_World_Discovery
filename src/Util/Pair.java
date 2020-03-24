@@ -7,6 +7,9 @@ public class Pair {
 		this.x=x;
 		this.y=y;
 	}
+	public Pair() {
+		
+	}
 	public int getX() {
 		return x;
 	}

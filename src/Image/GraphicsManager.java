@@ -114,7 +114,7 @@ public class GraphicsManager {
 		g2d.drawImage(avatarU2Img, player.x, player.y, observer);	
 	}
 	public void drawHouse (Building build, Graphics2D g2d, ImageObserver observer){
-		g2d.drawImage(house, (int) build.getX(), (int) build.getY(), observer);	
+		g2d.drawImage(house, (int) build.getLines().get(0).getX1(), (int) build.getLines().get(0).getX1(), observer);	
 	}
 	public void drawTree1 (Tree tree, Graphics2D g2d, ImageObserver observer){
 		g2d.drawImage(tree1, (int) tree.getX(), (int) tree.getY(), observer);	
