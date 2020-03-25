@@ -1,35 +1,36 @@
-¿Cuál es el lugar más frío de la tierra? ,La Antártida,no,no,no
-¿Quién escribió La Odisea?, Homero,no,no,no
-¿Cuál es el río más largo del mundo?, Amazonas,no,no,no
-¿Cómo se llama la Reina del Reino Unido? ,Isabel II,no,no,no
-¿En qué continente está Ecuador? ,América,no,no,no
-¿Dónde originaron los juegos olímpicos?, Grecia,no,no,no
-¿Qué tipo de animal es la ballena? ,Mamífero,no,no,no
-¿De qué colores es la bandera de México?, Rojo/verde/blanco,no,no,no
-¿Qué cantidad de huesos en el cuerpo humano?, 206,no,no,no
-¿Cuándo acabó la II Guerra Mundial?, 1945,no,no,no
-¿Quién es el autor de el Quijote? ,Miguel de Cervantes,no,no,no
-¿Quién pintó “la última cena”? ,Leonardo da Vinci,no,non,o
-¿En qué país se encuentra la torre de Pisa?, Italia,no,nonn,no
-¿Qué son los humanos: omnívoros, herbívoros o carnívoros?, Omnívoros,no,no,no
-¿Cuál es el océano más grande?, Pacífico,no,no,no
-¿Qué año llegó Cristóbal Colón a América? ,1942,no,no,no
-¿Cuál es el disco más vendido de la historia? ,Thriller,no,no,no
-¿Cuál es el país más grande del mundo?, Rusia,no,no,no
-Si 50 es el 100%, ¿cuánto es el 90%? ,45,no,no,no
-¿Cuál es tercer planeta en el sistema solar?, La Tierra,no,no,no
-¿Qué país tiene forma de bota? ,Italia,no,no,no
-¿Cual es el país más poblado de la Tierra?, China,no,no,no
-¿En qué lugar del cuerpo se produce la insulina?, Páncreas,no,no,no
-¿Qué rama de la Biología estudia los animales?, Zoología,no,no,no
-¿Con qué se fabricaba el pergamino? ,Piel de animales,no,no,no
-¿Cuántas patas tiene la araña? ,8,no,no,no
-¿Cómo se llama el animal más rápido del mundo? ,Guepardo,no,no,no
-¿A qué país pertenecen los cariocas? ,personas nacidas en Río de Janeiro en Brasil,no,no,no
-¿Quién era el general de los nazis en la Segunda Guerra Mundial? ,Adolf Hitler,no,no,no
-¿Cuál fue el primer metal que empleó el hombre? ,Cobre,no,no,no
-¿Qué instrumento óptico permite ver los astros de cerca?, Telescopio,no,no,no
-¿Cuál es el primero de la lista de los números primos? ,2,no,no,no
-¿Quién ganó el mundial de 2014? ,Alemania,no ,no ,no
-¿Quién escribió “Hamlet”?, William Shakespeare,no ,no ,no
-¿Cuál es la nacionalidad de Pablo Neruda? ,Chile,no, no ,no 
+ï¿½Cuï¿½l es el lugar mï¿½s frï¿½o de la tierra? ,La Antï¿½rtida,Siberia,Alaska,Islandia
+ï¿½Quiï¿½n escribiï¿½ La Odisea?, Homero, Shakespeare, Miguel de Cervantes, Miguel de Unamuno
+ï¿½Cuï¿½l es el rï¿½o mï¿½s largo del mundo?, Amazonas, Nilo, Misisipi, Jordan
+ï¿½Cï¿½mo se llama la Reina del Reino Unido? ,Isabel II,Victoria, Maria Antonieta, Alejandra
+ï¿½En quï¿½ continente estï¿½ Ecuador? ,Amï¿½rica,Ãfrica,OceanÃ­a,Europa
+ï¿½Dï¿½nde originaron los juegos olï¿½mpicos?, Grecia,JapÃ³n,Estados Unidos,Alemania
+ï¿½Quï¿½ tipo de animal es la ballena? ,MamÃ­fero, Anfibio,Vertebrado,Invertebrado
+ï¿½De quï¿½ colores es la bandera de Mï¿½xico?, Rojo/verde/blanco,Azul/ Rojo/ Blanco,Amarillo/ Rojo/ Verde,Rojo/ Amarillo/ Blanco
+ï¿½Quï¿½ cantidad de huesos en el cuerpo humano?, 206,300,210,105
+ï¿½Cuï¿½ndo acabï¿½ la II Guerra Mundial?, 1945,1930,1918,1914
+ï¿½Quiï¿½n es el autor de el Quijote? ,Miguel de Cervantes,Miguel Angel,Lope de Vega,Federico Garcia Lorca
+ï¿½Quiï¿½n pintï¿½ ï¿½la ï¿½ltima cenaï¿½? ,Leonardo da Vinci,Vincent van Gogh,Diego Rivera,Pablo Picasso
+ï¿½En quï¿½ paï¿½s se encuentra la torre de Pisa?, Italia,Espana,Noruega,Francia
+ï¿½Quï¿½ son los humanos: omnï¿½voros, herbï¿½voros o carnï¿½voros?, Omnï¿½voros,CarnÃ­voros,HerbÃ­voros,GranÃ­voros
+ï¿½Cuï¿½l es el ocï¿½ano mï¿½s grande?, Pacï¿½fico,Atlantico,AntÃ¡rtico,Indico
+ï¿½Quï¿½ aï¿½o llegï¿½ Cristï¿½bal Colï¿½n a Amï¿½rica? ,1942,1493,1942,1943
+ï¿½Cuï¿½l es el disco mï¿½s vendido de la historia? ,Thriller,Back in Black,YHLQMDLG,Rumours
+ï¿½Cuï¿½l es el paï¿½s mï¿½s grande del mundo?, Rusia,Groenlandia,India,Estados Unidos
+Si 50 es el 100%, ï¿½cuï¿½nto es el 90%? ,45,40,55,45.5
+ï¿½Cuï¿½l es tercer planeta en el sistema solar?, La Tierra,Saturno,Jupiter,Venus
+ï¿½Quï¿½ paï¿½s tiene forma de bota? ,Italia,MÃ©xico,Suecia,EspaÃ±a
+ï¿½Cual es el paï¿½s mï¿½s poblado de la Tierra?, China,Rusia,India,Brazil
+ï¿½En quï¿½ lugar del cuerpo se produce la insulina?, Pï¿½ncreas,HÃ­gado,ApÃ©ndice,EstÃ³mago
+ï¿½Quï¿½ rama de la Biologï¿½a estudia los animales?, Zoologï¿½a,Ecologia,Fisiologia,Botanica
+ï¿½Con quï¿½ se fabricaba el pergamino? ,Piel de animales,Arcilla,Arbol de Alamo,Cera
+ï¿½Cuï¿½ntas patas tiene la araï¿½a? ,8,16,9,10
+ï¿½Cï¿½mo se llama el animal mï¿½s rï¿½pido del mundo? HalcÃ³n Peregrino,Guepardo,Cienpies,Colibri
+ï¿½A quï¿½ paï¿½s pertenecen los cariocas? ,Brasil,Caracas,Guatemala,Colombia
+ï¿½Quiï¿½n era el general de los nazis en la Segunda Guerra Mundial? ,Adolf Hitler,IÃ³sif Stalin,Isoroku Yamamoto,Benito Mussolini
+ï¿½Cuï¿½l fue el primer metal que empleï¿½ el hombre? ,Cobre,Oro,Hierro,Bronce
+ï¿½Quï¿½ instrumento ï¿½ptico permite ver los astros de cerca?, Telescopio,Microscopio,Binocular,Lupa
+ï¿½Cuï¿½l es el primero de la lista de los nï¿½meros primos? ,2,3,0,1
+ï¿½Quiï¿½n ganï¿½ el mundial de 2014? ,Alemania,Brasil,Colombia,Espana
+ï¿½Quiï¿½n escribiï¿½ ï¿½Hamletï¿½?, William Shakespeare,Homero,Miguel de Cervantes,Neruda
+ï¿½Cuï¿½l es la nacionalidad de Pablo Neruda? ,Chile,Francia,Argentina,Espana
+ 
