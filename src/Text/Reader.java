@@ -34,6 +34,7 @@ public class Reader
 		boolean isTree=false;
 		int pos = 0;
 		int xpos=0;
+		Tree tempTree=new Tree();
 		while ((line = file.readLine()) != null) {
 			
 			scanner = new Scanner(line);
@@ -43,7 +44,7 @@ public class Reader
 				if(data.equals("Tree"))isTree=true;
 				if(pos==0) {
 					if(isTree) {
-						trees.add(new Tree(0,0,0));
+						trees.add(new Tree());
 						pos++;
 					}
 					else {
@@ -56,14 +57,14 @@ public class Reader
 
 					}
 					else if (index == 1) {
-						if(isTree)trees.get(trees.size()-1).setX(Integer.parseInt(data));
+						if(isTree)tempTree.setX(Integer.parseInt(data));
 						else if(data.equals("end")) pos++;	
 						else xpos=Integer.parseInt(data);
 						
 					}
 					else {
 						if(isTree) {
-							trees.get(trees.size()-1).setY(Integer.parseInt(data));
+							tempTree.setY(Integer.parseInt(data));
 							pos++;
 						}
 						else if(data.equals("end")) pos++;
@@ -79,7 +80,7 @@ public class Reader
 
 					}
 					else if (index == 1) {
-						if(isTree)trees.get(trees.size()-1).setVar(Integer.parseInt(data));
+						if(isTree)tempTree.setVar(Integer.parseInt(data));
 						else builds.get(builds.size()-1).setImage(data);;
 						pos++;
 					}
@@ -99,6 +100,7 @@ public class Reader
 					}
 					else {
 						if(isTree) {
+							trees.add(new Tree((int)tempTree.getX(),(int)tempTree.getY(),tempTree.getVar()));
 							pos=0;
 							isTree=false;
 						}

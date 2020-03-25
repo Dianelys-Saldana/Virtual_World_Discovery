@@ -7,34 +7,38 @@ public class Tree extends Rectangle {
 	private static int width=50;
 	private static int height=50 ;
 	private int var;
-	private int x;
-	private int y;
+	private int xPos;
+	private int yPos;
 	
-	public Tree(int xPos, int yPos,int var){
-		super(xPos, yPos,width,height); 
+	public Tree(int x, int y,int var){
+		super(x, y,width,height); 
 		this.var=var;
-		x=xPos;
-		y=yPos;
+		this.xPos=x;
+		this.yPos=y;
+		
+	}
+	public Tree() {
+		
 	}
 	
 
 	public double getX() {
-		return x;
+		return xPos;
 	}
 
 
 	public double getY() {
-		return y;
+		return yPos;
 	}
 
 
 	public void setX(int x) {
-		this.x = x;
+		this.xPos = x;
 	}
 
 
 	public void setY(int y) {
-		this.y = y;
+		this.yPos = y;
 	}
 
 
@@ -46,8 +50,7 @@ public class Tree extends Rectangle {
 	public double getHeight() {
 		return height;
 	}
-
-
+	
 
 	public int getVar() {
 		return var;
