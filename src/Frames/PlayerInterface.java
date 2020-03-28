@@ -107,8 +107,13 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		Graphics2D g2= (Graphics2D)g;
 		for(int i=0;i<buildings.size();i++) {
 			if(buildings.get(i).getVisible()==2) {
-
-				this.gm.drawHouse(buildings.get(i), g2, this);
+				g2.setColor(Color.RED);
+				//this.gm.drawHouse(buildings.get(i), g2, this);
+				for(int j=0;j<buildings.get(i).getLines().size();j++) {
+					g2.drawLine((int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1(),
+							(int)buildings.get(i).getLines().get(j).getX2(),(int) buildings.get(i).getLines().get(j).getY2());
+				}
+				g2.setColor(Color.BLACK);
 			}
 			else if(buildings.get(i).getVisible()==1) {
 				for(int j=0;j<buildings.get(i).getLines().size();j++) {

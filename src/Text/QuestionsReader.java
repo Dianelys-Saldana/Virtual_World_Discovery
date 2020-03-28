@@ -5,7 +5,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
 
 import Entities.Building; 
 //Carlos Rodriguez 3/12/2020
@@ -100,6 +103,7 @@ public class QuestionsReader
 
 		}
 	}
+	
 
 	public ArrayList<ArrayList<String>> getAnswer() {
 		return answer;

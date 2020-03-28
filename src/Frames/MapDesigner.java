@@ -102,7 +102,7 @@ public class MapDesigner extends JPanel   {
 			public void mouseClicked(MouseEvent e) {
 				if(draw) {
 					listPoints.get(listPoints.size()-1).add(new Pair(mouseX,mouseY));
-					if(listPoints.get(listPoints.size()-1).size()%2==0) {
+					if(listPoints.get(listPoints.size()-1).size()>1) {
 						try {
 							ArrayList<Pair>point=listPoints.get(listPoints.size()-1);
 							writer.writeWall(wallIndex++, point.get(point.size()-2), point.get(point.size()-1), wallHeight);

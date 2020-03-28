@@ -29,6 +29,7 @@ public class Questions {
 		
 	}
 	
+	
 	/**Carlos Rodriguez 03/08/2020
 	 * Method to answer yes or no questions
 	 * @param s - question
