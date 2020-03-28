@@ -46,6 +46,8 @@ public class MapDesigner extends JPanel   {
 	private JMenuItem tree1;
 	private JMenuItem tree2;
 	private JMenuItem tree3;
+	private int xFrame;
+	private int yFrame;
 	private JMenuItem building;
 	private JMenuItem home;
 	private ArrayList<JMenuItem> items= new ArrayList<>();
@@ -83,6 +85,8 @@ public class MapDesigner extends JPanel   {
 		items.add(building);
 		items.add(home);
 		this.f = f;
+		xFrame=(int)f.getAlignmentX();
+		yFrame=(int)f.getAlignmentY();
 		f.addWindowListener(new java.awt.event.WindowAdapter() {
 		    @Override
 		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -140,8 +144,8 @@ public class MapDesigner extends JPanel   {
 		addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseMoved(MouseEvent e) {
-				mouseX=e.getXOnScreen();
-				mouseY=e.getYOnScreen();
+				mouseX=e.getX();
+				mouseY=e.getY();
 			}
 		});
 		this.setFocusable(true);
@@ -295,9 +299,9 @@ public class MapDesigner extends JPanel   {
 		Graphics2D g2= (Graphics2D)g;
 		g2.setColor(Color.BLACK);
 		if(rec) {
-			g2.drawRect(mouseX, mouseY, 50, 50);
+			g2.drawRect(mouseX+xFrame, mouseY+yFrame, 50, 50);
 
-			xCoor.setText(""+mouseX);
+			xCoor.setText(""+(mouseX-xFrame));
 			yCoor.setText(""+mouseY);
 			repaint();
 		}

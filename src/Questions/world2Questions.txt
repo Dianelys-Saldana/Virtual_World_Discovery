@@ -1,76 +1,38 @@
+
+
 Building: Juan
+Question: ¿Cuál es el país más poblado de la Tierra?
+Right:  China
+Wrong:  Rusia
+Wrong:  India
+Wrong:  Brazil
 Question: ¿Quién pintó “la última cena”?
 Right:  Leonardo da Vinci
 Wrong:  Vincent van Gogh
 Wrong:  Diego Rivera
 Wrong:  Pablo Picasso
-Question: ¿Cuál es el lugar más frío de la tierra?
-Right:  La Antártida
-Wrong:  Siberia
-Wrong:  Alaska
-Wrong:  Islandia
-Question: ¿Cuál es el río más largo del mundo?
-Right:  Amazonas
-Wrong:  Nilo
-Wrong:  Misisipi
-Wrong:  Jordan
-Question: ¿Cuál es el disco más vendido de la historia?
-Right:  Thriller
-Wrong:  Back in Black
-Wrong:  YHLQMDLG
-Wrong:  The Dark Side of the Moon
-Question: Si 50 es el 100%
-Right:  ¿cuánto es el 90%?
-Wrong:  45
-Wrong:  40
-Wrong:  55
-Wrong:  45.5
-Question: ¿Cuál es el océano más grande?
-Right:  Pacífico
-Wrong:  Atlántico
-Wrong:  Antártico
-Wrong:  Índico
-Question: ¿Cuál es el disco más vendido de la historia?
-Right:  Thriller
-Wrong:  Back in Black
-Wrong:  YHLQMDLG
-Wrong:  The Dark Side of the Moon
-
-Building: Ish
-Question: ¿Cuál es la nacionalidad de Pablo Neruda?
-Right:  Chile
-Wrong:  Francia
-Wrong:  Argentina
+Question: ¿Quién pintó “la última cena”?
+Right:  Leonardo da Vinci
+Wrong:  Vincent van Gogh
+Wrong:  Diego Rivera
+Wrong:  Pablo Picasso
+Question: ¿A qué país pertenecen los cariocas?
+Right:  Brasil
+Wrong:  Caracas
+Wrong:  Guatemala
+Wrong:  Colombia
+Question: ¿Qué país tiene forma de bota?
+Right:  Italia
+Wrong:  México
+Wrong:  Suecia
 Wrong:  España
-Question: ¿Con qué se fabricaba el pergamino?
-Right:  Piel de animales
-Wrong:  Arcilla
-Wrong:  Arbol de Alamo
-Wrong:  Cera
-Question: Si 50 es el 100%
-Right:  ¿cuánto es el 90%?
-Wrong:  45
-Wrong:  40
-Wrong:  55
-Wrong:  45.5
-Question: Si 50 es el 100%
-Right:  ¿cuánto es el 90%?
-Wrong:  45
-Wrong:  40
-Wrong:  55
-Wrong:  45.5
-Question: ¿Cuándo acabó la II Guerra Mundial?
-Right:  1945
-Wrong:  1930
-Wrong:  1918
-Wrong:  1914
-Question: ¿Cuál es el océano más grande?
-Right:  Pacífico
-Wrong:  Atlántico
-Wrong:  Antártico
-Wrong:  Índico
-Question: ¿Cuál es el primero de la lista de los números primos?
-Right:  2
-Wrong:  3
-Wrong:  0
-Wrong:  1
+Question: ¿Cuál es el país más grande del mundo?
+Right:  Rusia
+Wrong:  Groenlandia
+Wrong:  India
+Wrong:  Estados Unidos
+Question: ¿Qué son los humanos?
+Right:  Omnívoros
+Wrong:  Carnívoros
+Wrong:  Herbívoros
+Wrong:  Granívoros
