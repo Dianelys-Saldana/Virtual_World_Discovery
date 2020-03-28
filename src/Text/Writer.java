@@ -25,10 +25,8 @@ public class Writer {
 	}
 	public void writeTree(int x,int y,int var) throws IOException {
 		if (started) myWriter.write("\n");
-		myWriter.write("Tree");
-		myWriter.write("\nPosition,"+x+","+y);
-		myWriter.write("\nType,"+var);
-		myWriter.write("\nend");
+		myWriter.write("TreeType:"+var);
+		myWriter.write(", location: ("+x+","+y+")");
 		started=true;
 		myWriter.flush();
 	}
