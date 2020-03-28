@@ -279,6 +279,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 		trees=br.getTrees();
 		for(int i=0;i<br.getBuildings().size();i++) {
+			if(br.getBuildings().get(i).getPoint().size()<2)continue;
 			Building build =  new Building(br.getBuildings().get(i).getPoint());
 
 			build.setAnswer(br.getBuildings().get(i).getAnswer());
@@ -286,12 +287,15 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			build.createLine();
 			buildings.add(build);
 		}
-		try {
+		if(buildings.size()>0) {
+			try {
 			qr.worldScan("world"+sel, buildings);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		}
+		
 		numBuildings = buildings.size();
 
 	}
