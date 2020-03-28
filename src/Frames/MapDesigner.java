@@ -197,6 +197,7 @@ public class MapDesigner extends JPanel   {
 				tree=1;
 				repaint();
 				resetColor(0);
+				tree1.setBackground(Color.GRAY);
 			}
 		});
 
@@ -221,6 +222,7 @@ public class MapDesigner extends JPanel   {
 				tree=2;
 				repaint();
 				resetColor(1);
+				tree2.setBackground(Color.GRAY);
 			}
 		});
 
@@ -242,6 +244,7 @@ public class MapDesigner extends JPanel   {
 				tree=3;
 				repaint();
 				resetColor(2);
+				tree3.setBackground(Color.GRAY);
 			}
 		});
 
@@ -260,11 +263,23 @@ public class MapDesigner extends JPanel   {
 
 				repaint();
 				try {
-					writer.writeBuilding(question.questionsString("Cual sera el nombre de esta construccion?"));
+					String response =question.questionsString("Cual sera el nombre de esta construccion?");
+					if(response==null) {
+						draw=false;
+						resetColor(4);
+						bttEndBuilding.setVisible(false);
+						
+					}
+					else{
+						writer.writeBuilding(response);
+						
+					
+					int wallHeight=question.wallHeight();
+					}
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				int wallHeight=question.wallHeight();
+				
 			}
 		});
 		menuBar.add(building);

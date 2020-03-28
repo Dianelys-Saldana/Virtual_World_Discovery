@@ -1,5 +1,0 @@
-TreeType:3, location: (143,86)
-BuildingName: Juan
-BuildingImage: ToDo
-Wall1: startsAt: (366,272), endsAt: (361,445), height:0, texture image:ToDo
-end
