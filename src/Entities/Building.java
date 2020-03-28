@@ -20,32 +20,7 @@ public class Building  {
 	private String image;
 	private String name;
 	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public ArrayList<String> getWallsImage() {
-		return wallsImage;
-	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
+	
 
 	public Building(ArrayList<Pair> point) {
 	     this.visible=0;
@@ -54,21 +29,7 @@ public class Building  {
 	     
 	}
 	
-	public ArrayList<Pair> getPoint() {
-		return point;
-	}
-
-	public void setPoint(ArrayList<Pair> point) {
-		this.point = point;
-	}
-
-	public ArrayList<Line2D> getLines() {
-		return lines;
-	}
-
-	public void setLines(ArrayList<Line2D> lines) {
-		this.lines = lines;
-	}
+	
 
 	public void createLine() {
 		for(int i= point.size()-1;i>0;i--) {
@@ -109,6 +70,32 @@ public class Building  {
 
 	public void setVisible(int visible) {
 		this.visible = visible;
+	}
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public ArrayList<String> getWallsImage() {
+		return wallsImage;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 

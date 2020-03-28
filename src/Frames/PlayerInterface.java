@@ -92,7 +92,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 
 
-		player = new Player(0,620);
+		player = new Player(0,620,f.getWidth(),f.getHeight());
 
 	}
 
@@ -339,10 +339,10 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		for(int i=0; i<buildings.size(); i++){
 			Building build = buildings.get(i);
 			if(build.intersects(player) && build.getVisible()!=2){
-				if(this.direction==0)this.moveMegaManLeft();
-				if(this.direction==1)this.moveMegaManRight();
-				if(this.direction==2)this.moveAvatarUp();
-				if(this.direction==3)this.moveMegaManDown();
+				if(this.direction==0)player.moveMegaManLeft();
+				if(this.direction==1)player.moveMegaManRight();
+				if(this.direction==2)player.moveAvatarUp();
+				if(this.direction==3)player.moveMegaManDown();
 				if(build.getVisible()==0)numBuildings--;
 				build.setVisible(1);
 				questions.setBuild(build);
@@ -352,10 +352,10 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				ki.reset();
 			}
 			else if(build.intersects(player) && build.getVisible()==2) {
-				if(this.direction==0)this.moveMegaManLeft();
-				if(this.direction==1)this.moveMegaManRight();
-				if(this.direction==2)this.moveAvatarUp();
-				if(this.direction==3)this.moveMegaManDown();
+				if(this.direction==0)player.moveMegaManLeft();
+				if(this.direction==1)player.moveMegaManRight();
+				if(this.direction==2)player.moveAvatarUp();
+				if(this.direction==3)player.moveMegaManDown();
 				ki.reset();
 			}
 
@@ -370,17 +370,66 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		for(int i=0; i<trees.size(); i++){
 			Tree t1 = trees.get(i);
 			if(t1.intersects(player)){
-				if(this.direction==0)this.moveMegaManLeft();
-				if(this.direction==1)this.moveMegaManRight();
-				if(this.direction==2)this.moveAvatarUp();
-				if(this.direction==3)this.moveMegaManDown();
+				if(this.direction==0)player.moveMegaManLeft();
+				if(this.direction==1)player.moveMegaManRight();
+				if(this.direction==2)player.moveAvatarUp();
+				if(this.direction==3)player.moveMegaManDown();
 				ki.reset();
 			}  
 
 		}
 	}
 
+	/**Created by Carlos Rodriguez 03/06/2020
+	 * Make the Avatar move pressing arrow
+	 */
+	private void movePlayer() {
+		if (this.ki.isRightIsPressed()) {
+			player.moveMegaManRight();
+			this.direction=0;
+			walkingTimer--;
+			if(walkingTimer == 0) {
+				walking=!walking;
+				walkingTimer = 10;
+			}
 
+		}
+
+		if (this.ki.isLeftIsPressed()) {
+			this.direction = 1;
+			player.moveMegaManLeft();
+			walkingTimer--;
+			if(walkingTimer == 0) {
+				walking=!walking;
+				walkingTimer = 10;
+			}
+		}
+
+		if (this.ki.isUpIsPressed()) {
+			this.direction = 3;
+			player.moveAvatarUp();
+			walkingTimer--;
+			if(walkingTimer == 0) {
+				walking=!walking;
+				walkingTimer = 10;
+			}
+		}
+
+		if (this.ki.isDownIsPressed()) {
+			this.direction = 2;
+			player.moveMegaManDown();
+			walkingTimer--;
+			if(walkingTimer == 0) {
+				walking=!walking;
+				walkingTimer = 10;
+			}
+		}
+
+		if(ki.nothingPressed()) {
+			walking=false;
+			walkingTimer = 10;
+		}
+	}
 
 	/**Created by Carlos Rodriguez 03/06/2020
 	 **Make actions in specific times.
@@ -398,100 +447,8 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		//			t.restart();
 		//		}
 	}
-	/**Created by Carlos Rodriguez 03/06/2020
-	 * Move the Avatar up  
-	 */
-	public void moveAvatarUp(){
-		if(player.getY() - player.getSpeed() >= 0){
-			player.translate(0, -player.getSpeed());
-		}
-	}
+	
 
-	/**Created by Carlos Rodriguez 03/06/2020
-	 * Move the Avatar down
-	 */
-	public void moveMegaManDown(){
-		if(player.getY() + player.getSpeed() + player.height < getHeight() ){
-			player.translate(0, player.getSpeed());
-
-		}
-	}
-
-	/**Created by Carlos Rodriguez 03/06/2020
-	 * Move the Avatar to the left
-	 */
-	public void moveMegaManLeft(){
-		if(player.getX() - player.getSpeed() >= 0){
-			player.translate(-player.getSpeed(), 0);
-		}
-	}
-
-	/**Created by Carlos Rodriguez 03/06/2020
-	 * Move the Avatar to the right
-	 */
-	public void moveMegaManRight(){
-		if(player.getX() + player.getSpeed() + player.width < getWidth()){
-			player.translate(player.getSpeed(), 0);
-		}
-	}
-
-	/**Created by Carlos Rodriguez 03/06/2020
-	 * Make the Avatar move pressing arrow
-	 */
-	private void movePlayer() {
-		if (this.ki.isRightIsPressed()) {
-			this.moveMegaManRight();
-			this.direction=0;
-			walkingTimer--;
-			if(walkingTimer == 0) {
-				//ki.onlyPress(KeyEvent.VK_RIGHT);
-
-				walking=!walking;
-				walkingTimer = 10;
-			}
-
-		}
-
-		if (this.ki.isLeftIsPressed()) {
-			this.direction = 1;
-
-			this.moveMegaManLeft();
-			walkingTimer--;
-			if(walkingTimer == 0) {
-				//ki.onlyPress(KeyEvent.VK_LEFT);
-				walking=!walking;
-				walkingTimer = 10;
-			}
-		}
-
-		if (this.ki.isUpIsPressed()) {
-			this.direction = 3;
-
-			this.moveAvatarUp();
-			walkingTimer--;
-			if(walkingTimer == 0) {
-				//ki.onlyPress(KeyEvent.VK_UP);
-				walking=!walking;
-				walkingTimer = 10;
-			}
-		}
-
-		if (this.ki.isDownIsPressed()) {
-			this.direction = 2;
-
-			this.moveMegaManDown();
-			walkingTimer--;
-			if(walkingTimer == 0) {
-				//ki.onlyPress(KeyEvent.VK_DOWN);
-				walking=!walking;
-				walkingTimer = 10;
-			}
-		}
-
-		if(ki.nothingPressed()) {
-			walking=false;
-			walkingTimer = 10;
-		}
-	}
+	
 	
 }
