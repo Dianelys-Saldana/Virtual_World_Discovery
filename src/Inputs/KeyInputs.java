@@ -89,7 +89,14 @@ public class KeyInputs implements KeyListener {
 			cantPress[i] = false;
 		}
 	}
-	
+	public void onlyPress(int keycode) {
+		for(int i =0; i < keys.length;i++){
+			if(i==keycode)continue;
+			keys[i]=false;
+			justPressed[i] = false;
+			cantPress[i] = false;
+		}
+	}
 	/** Carlos Rodriguez 03/06/2020
 	 * Handle a key just pressed event.
 	 */

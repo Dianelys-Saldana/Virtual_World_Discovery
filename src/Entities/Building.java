@@ -13,10 +13,26 @@ public class Building  {
 	private int visible;
 	private ArrayList<Pair> point;
 	private ArrayList<Line2D> lines= new ArrayList<>();
-	private ArrayList<String> questions;
+	private ArrayList<String> questions= new ArrayList<>();
+	private int height;
+	private ArrayList<String> wallsImage =new ArrayList<>();
+	
+	
+
 	ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>();
 	private String image;
 	
+	public ArrayList<String> getWallsImage() {
+		return wallsImage;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
 	public String getImage() {
 		return image;
 	}

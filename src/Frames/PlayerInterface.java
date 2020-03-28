@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 
 import Inputs.KeyInputs;
 import Main.Questions;
+import Text.QuestionsReader;
 import Text.Reader;
 
 import javax.swing.ImageIcon;
@@ -54,6 +56,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	int direction = 0;
 	private GraphicsManager gm = new GraphicsManager();
 	private Player player ;
+	private QuestionsReader qr= new QuestionsReader();
 	private Color bColor = new Color (116, 174, 109);
 	private String worldSelected;
 	private int sele=0;
@@ -97,7 +100,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	 * Draw all the components on the JPanel.
 	 */
 	public void paintComponent(Graphics g){
-	
+
 		super.paintComponent(g);  
 		this.setBackground(bColor);
 
@@ -254,7 +257,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		else return;
 	}
 	private void scan() {
-		
+
 		try {
 			br.scan("world"+sel);
 		} catch (IOException e) {
@@ -264,15 +267,20 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		trees=br.getTrees();
 		for(int i=0;i<br.getBuildings().size();i++) {
 			Building build =  new Building(br.getBuildings().get(i).getPoint());
-		
+
 			build.setAnswer(br.getBuildings().get(i).getAnswer());
 			build.setQuestions(br.getBuildings().get(i).getQuestions());
 			build.createLine();
 			buildings.add(build);
 		}
-
+		try {
+			qr.worldScan("world"+sel, buildings);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		numBuildings = buildings.size();
-		
+
 	}
 
 	//Created by Angel Hernandez 03/16/2020
@@ -348,7 +356,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 		}
 	}
-	
+
 	/** Jose A Velazquez Torres 03/24/2020
 	 ** In this method we check if the avatar makes contact with a tree
 	and makes sure the avatar don't walk over the tree.
@@ -363,12 +371,12 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				if(this.direction==3)this.moveMegaManDown();
 				ki.reset();
 			}  
-				
+
 		}
 	}
-	
-	
-	
+
+
+
 	/**Created by Carlos Rodriguez 03/06/2020
 	 **Make actions in specific times.
 	 */
@@ -431,6 +439,8 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			this.direction=0;
 			walkingTimer--;
 			if(walkingTimer == 0) {
+				//ki.onlyPress(KeyEvent.VK_RIGHT);
+
 				walking=!walking;
 				walkingTimer = 10;
 			}
@@ -439,9 +449,11 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 		if (this.ki.isLeftIsPressed()) {
 			this.direction = 1;
+
 			this.moveMegaManLeft();
 			walkingTimer--;
 			if(walkingTimer == 0) {
+				//ki.onlyPress(KeyEvent.VK_LEFT);
 				walking=!walking;
 				walkingTimer = 10;
 			}
@@ -449,9 +461,11 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 		if (this.ki.isUpIsPressed()) {
 			this.direction = 3;
+
 			this.moveAvatarUp();
 			walkingTimer--;
 			if(walkingTimer == 0) {
+				//ki.onlyPress(KeyEvent.VK_UP);
 				walking=!walking;
 				walkingTimer = 10;
 			}
@@ -459,9 +473,11 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 		if (this.ki.isDownIsPressed()) {
 			this.direction = 2;
+
 			this.moveMegaManDown();
 			walkingTimer--;
 			if(walkingTimer == 0) {
+				//ki.onlyPress(KeyEvent.VK_DOWN);
 				walking=!walking;
 				walkingTimer = 10;
 			}
@@ -472,4 +488,5 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			walkingTimer = 10;
 		}
 	}
+	
 }

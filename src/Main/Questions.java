@@ -19,7 +19,7 @@ import Entities.Building;
 public class Questions {
 	private Component c;
 	private ArrayList<String> questions;
-	private List<String> answer;
+	private List<String> answers;
 	private int correctnum;
 	private Building build;
 	
@@ -44,10 +44,10 @@ public class Questions {
 	public int question1() {
 		questions= build.getQuestions();
 		Random ran= new Random();
-		int num= ran.nextInt(4);
-		answer= build.getAnswer().get(num);
-		String correct = answer.get(0);
-		String[] options = this.shuffle(answer.toArray());
+		int num= ran.nextInt(build.getAnswer().size());
+		answers= build.getAnswer().get(num);
+		String correct = answers.get(0);
+		String[] options = this.shuffle(answers.toArray());
 		correctnum=this.correctAnswer(options, correct);
 		int response = JOptionPane.showOptionDialog(c, questions.get(num), "Question",
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,

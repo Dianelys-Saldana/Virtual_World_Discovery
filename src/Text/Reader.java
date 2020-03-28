@@ -20,10 +20,12 @@ public class Reader
 	ArrayList<Building> builds = new ArrayList<>();
 	ArrayList<Tree>trees= new ArrayList<>();
 	ArrayList<Pair>points= new ArrayList<>();
+	private String questionsFile;
 
 	/** Carlos Rodriguez 03/13/2020
 	 * method to scan the answer and questions on the file
 	 */
+	@SuppressWarnings("unchecked")
 	public void scan(String s) throws IOException {
 
 		@SuppressWarnings("resource")
@@ -32,92 +34,106 @@ public class Reader
 		Scanner scanner = null;
 		int index = 0;
 		boolean isTree=false;
+		boolean qF=false;
 		int pos = 0;
-		int xpos=0;
+		int xPoint=0;
 		Tree tempTree=new Tree();
 		while ((line = file.readLine()) != null) {
-			
+
 			scanner = new Scanner(line);
-			scanner.useDelimiter(","); 
+			scanner.useDelimiter(",|:"); 
 			while (scanner.hasNext()) {
 				String data = scanner.next();
-				if(data.equals("Tree"))isTree=true;
-				if(pos==0) {
-					if(isTree) {
+				if(data.equals("QuestionsFile")) {
+					qF=true;
+					continue;
+				}
+				if(data.equals("TreeType"))isTree=true;
+				if(qF)questionsFile=data;
+				//Work With Trees
+				else if(isTree) {
+					if(index==0) {
 						trees.add(new Tree());
-						pos++;
+						
 					}
-					else {
+					else if(index == 1) {
+						tempTree.setVar(Integer.parseInt(data));
+						
+
+					}
+					else if(index==3) {
+						String replace=data.substring(2);
+						tempTree.setX(Integer.parseInt(replace));
+					
+					}
+					else if(index==4) {
+						String replace=data.substring(0, data.length() - 1);
+						tempTree.setY(Integer.parseInt(replace));
+						trees.add(new Tree((int)tempTree.getX(),(int)tempTree.getY(),tempTree.getVar()));
+						isTree=false;
+					}
+					index++;
+				}
+				//Work with Buildings
+				else if(pos==0) {
+
 					builds.add(new Building(new ArrayList<Pair>()));
-					pos++;
+					index++;
+					if(index==1) {
+						pos++;
+						index=0;
 					}
+
 				}
 				else if(pos==1) {
 					if (index==0) {
-
-					}
-					else if (index == 1) {
-						if(isTree)tempTree.setX(Integer.parseInt(data));
-						else if(data.equals("end")) pos++;	
-						else xpos=Integer.parseInt(data);
-						
-					}
-					else {
-						if(isTree) {
-							tempTree.setY(Integer.parseInt(data));
-							pos++;
-						}
-						else if(data.equals("end")) pos++;
-						else {
-							points.add(new Pair(xpos,Integer.parseInt(data)));
-							index=0;
-						}
-					}
-					index++;
-				}
-				else if(pos==2) {
-					if (index==0) {
-
-					}
-					else if (index == 1) {
-						if(isTree)tempTree.setVar(Integer.parseInt(data));
-						else builds.get(builds.size()-1).setImage(data);;
-						pos++;
-					}
-					index++;
-				}
-				else {
-					if(!data.equals("end")) {
-						if (index == 0) {
-							questions.add(data);
-							answer.add(new ArrayList<String>());
-						}
-						else {
-							answer.get(answer.size()-1).add(data);
-							
-						}
 						index++;
 					}
-					else {
-						if(isTree) {
-							trees.add(new Tree((int)tempTree.getX(),(int)tempTree.getY(),tempTree.getVar()));
-							pos=0;
-							isTree=false;
-						}
-						else {
-						builds.get(builds.size()-1).setPoint((ArrayList<Pair>) points.clone());
-						builds.get(builds.size()-1).setAnswer((ArrayList<ArrayList<String>>) answer.clone());
-						builds.get(builds.size()-1).setQuestions((ArrayList<String>) questions.clone());;
-						points.clear();
-						answer.clear();
-						questions.clear();
-						pos=0;
-						}
+					else if (index == 1) {
+						builds.get(builds.size()-1).setImage(data);
+						pos++;
+						index=0;
 					}
 				}
-				
+				else if(pos==2) {
+					if(data.equals("end")) {
+						builds.get(builds.size()-1).setPoint((ArrayList<Pair>) points.clone());
+						points.clear();
+						pos=0;
+					}
+					else if(index==2) {
+
+						String replace=data.substring(2);
+
+						xPoint= Integer.parseInt(replace);
+
+					}
+					else if(index==3) {
+						String replace=data.substring(0, data.length() - 1);
+						points.add(new Pair(xPoint,Integer.parseInt(replace)));
+					}
+					else if(index==5) {
+						String replace=data.substring(2);
+
+						xPoint= Integer.parseInt(replace);
+					}
+					else if(index==6) {
+						String replace=data.substring(0, data.length() - 1);
+						points.add(new Pair(xPoint,Integer.parseInt(replace)));
+					}
+					else if(index==8) {
+
+						builds.get(builds.size()-1).setHeight(Integer.parseInt(data));
+					}
+					else if(index==10){
+						builds.get(builds.size()-1).getWallsImage().add(data);
+					}
+					index++;
+				}
+
+
 			}
-			
+
 			index = 0;
 
 		}
