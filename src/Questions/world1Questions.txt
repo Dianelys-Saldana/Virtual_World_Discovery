@@ -1,0 +1,51 @@
+Building: Aguas Buenas 
+Question: Año en que se fundó el Colegio
+Right: 1911
+Wrong: 1912
+Wrong: 1492
+Wrong: 1777
+Question: Uno de los fundadores del Colegio:
+Right: José de Diego
+Wrong: Tarzán
+Wrong: Jane
+Wrong: Bull Dog
+Question: Nombre del edificio en donde se encuentra INEL/ICOM
+Right: Stefani
+Wrong: Tesla
+Wrong: Faraday
+Wrong: Ohms
+
+Building: Maya 
+Question: Año en que se fundó el Colegio
+Right: 1911
+Wrong: 1912
+Wrong: 1492
+Wrong: 1777
+Question: Uno de los fundadores del Colegio:
+Right: José de Diego
+Wrong: Tarzán
+Wrong: Jane
+Wrong: Bull Dog
+Question: Nombre del edificio en donde se encuentra INEL/ICOM
+Right: Stefani
+Wrong: Tesla
+Wrong: Faraday
+Wrong: Ohms
+
+Building: Caguas
+Question: Año en que se fundó el Colegio
+Right: 1911
+Wrong: 1912
+Wrong: 1492
+Wrong: 1777
+Question: Uno de los fundadores del Colegio:
+Right: José de Diego
+Wrong: Tarzán
+Wrong: Jane
+Wrong: Bull Dog
+Question: Nombre del edificio en donde se encuentra INEL/ICOM
+Right: Stefani
+Wrong: Tesla
+Wrong: Faraday
+Wrong: Ohms
+
