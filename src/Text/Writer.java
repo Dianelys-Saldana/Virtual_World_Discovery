@@ -14,8 +14,10 @@ public class Writer {
 	File questionFile;
 	FileWriter myWriter=null;
 	FileWriter questionWriter=null;
+	String str;
 	private boolean started=false;
 	public Writer(String str) {
+		this.str=str;
 		try {
 			questionReader.scan();
 		} catch (IOException e1) {
@@ -96,6 +98,10 @@ public class Writer {
 			questionWriter.flush();
 			
 		}
+	}
+	public void questionFile() throws IOException {
+		myWriter.write("QuestionsFile: "+str+"Questions.txt");
+		myWriter.flush();
 	}
 
 }

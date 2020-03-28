@@ -94,6 +94,12 @@ public class MapDesigner extends JPanel   {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+		        	try {
+						writer.questionFile();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 		            System.exit(0);
 		        
 		    }
