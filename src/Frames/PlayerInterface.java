@@ -283,18 +283,18 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		JLabel lblNewLabel = new JLabel("Select a character");
 		lblNewLabel.setForeground(Color.BLACK);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 30));
-		lblNewLabel.setBounds(0, 0, 272, 25);
+		lblNewLabel.setBounds(370, 0, 272, 25);
 		add(lblNewLabel);
 		ImageIcon Character1img = new ImageIcon(getClass().getResource("../Image/Resting.png"));
-		ImageIcon Character2img = new ImageIcon(getClass().getResource("../Image/angel resting.png"));
+		ImageIcon Character2img = new ImageIcon(getClass().getResource("../Image/avatar2D1.png"));
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 30, 350, 54);
+		menuBar.setBounds(370, 30, 260, 54);
 		add(menuBar);
 
 		JMenuItem character1 = new JMenuItem("Link",Character1img);
 		menuBar.add(character1);
 
-		JMenuItem character2 = new JMenuItem("Israfil",Character2img);
+		JMenuItem character2 = new JMenuItem("Marie",Character2img);
 		menuBar.add(character2);
 		character2.addMouseListener(new MouseAdapter() {
 			@Override

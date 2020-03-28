@@ -59,14 +59,14 @@ public class GraphicsManager {
 			this.tree2 = ImageIO.read(getClass().getResource("../Image/Tree2.png"));
 			this.tree3 = ImageIO.read(getClass().getResource("../Image/Tree3.png"));
 			//Angel Hernandez 03/16/2020
-			this.avatar2LRImg = ImageIO.read(getClass().getResource("../Image/angel left resting.png"));
-			this.avatar2L1Img = ImageIO.read(getClass().getResource("../Image/angel left 1.png"));
-			this.avatar2RRImg = ImageIO.read(getClass().getResource("../Image/angel right resting.png"));
-			this.avatar2R1Img = ImageIO.read(getClass().getResource("../Image/angel right 1.png"));
-			this.avatar2URImg = ImageIO.read(getClass().getResource("../Image/angel up resting.png"));
-			this.avatar2U1Img = ImageIO.read(getClass().getResource("../Image/angel up 1.png"));
-			this.avatar2DRImg = ImageIO.read(getClass().getResource("../Image/angel resting.png"));
-			this.avatar2D1Img = ImageIO.read(getClass().getResource("../Image/angel down 1.png"));
+			this.avatar2LRImg = ImageIO.read(getClass().getResource("../Image/avatar2L1.png"));
+			this.avatar2L1Img = ImageIO.read(getClass().getResource("../Image/avatar2L2.png"));
+			this.avatar2RRImg = ImageIO.read(getClass().getResource("../Image/avatar2R1.png"));
+			this.avatar2R1Img = ImageIO.read(getClass().getResource("../Image/avatar2R2.png"));
+			this.avatar2URImg = ImageIO.read(getClass().getResource("../Image/avatar2U1.png"));
+			this.avatar2U1Img = ImageIO.read(getClass().getResource("../Image/avatar2U2.png"));
+			this.avatar2DRImg = ImageIO.read(getClass().getResource("../Image/avatar2D1.png"));
+			this.avatar2D1Img = ImageIO.read(getClass().getResource("../Image/avatar2D2.png"));
 
 
 		} catch (Exception e) {
