@@ -56,12 +56,27 @@ public class MapDesigner extends JPanel   {
 	private String buildingName;
 	private ArrayList<ArrayList<Pair>>listPoints= new ArrayList<>();
 	private int wallIndex=1;
-	private int worldSize= new File(getClass().getResource("../World").getFile()).listFiles().length+1;
+	private int worldIndex= 1;
 	/**
 	 * Create the application.
 	 */
 	public MapDesigner(FrameManager f) {
-		writer= new Writer("world"+worldSize);
+		File folder = new File("src/World");
+		File[] listOfFiles = folder.listFiles();
+		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].isFile()) {
+				String sub= listOfFiles[i].getName().replace("world", "");
+				String sub2= sub.replace(".txt", "");
+				if(Integer.parseInt(sub2)==worldIndex) {
+					worldIndex++;
+				}
+				else {
+					break;
+				}
+				
+			}
+		}
+		writer= new Writer("world"+worldIndex);
 		items.add(tree1);
 		items.add(tree2);
 		items.add(tree3);
