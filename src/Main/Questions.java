@@ -101,7 +101,7 @@ public class Questions {
 	 */
 	public int wallHeight() {
 		String wall_height;
-		 wall_height = JOptionPane.showInputDialog("Wall height in meters");
+		 wall_height = JOptionPane.showInputDialog(c,"Wall height in meters");
 		int height = Integer.parseInt(wall_height);
 		return height;
 	}
@@ -111,6 +111,10 @@ public class Questions {
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
 				null, arr, arr[0]);
 		return response;
+	}
+	public String questionsString(String question) {
+		 return JOptionPane.showInputDialog(c,question);
+		
 	}
 	
 }

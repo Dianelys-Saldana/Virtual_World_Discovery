@@ -16,12 +16,18 @@ public class Building  {
 	private ArrayList<String> questions= new ArrayList<>();
 	private int height;
 	private ArrayList<String> wallsImage =new ArrayList<>();
-	
-	
-
-	ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>();
+	private ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>();
 	private String image;
+	private String name;
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public ArrayList<String> getWallsImage() {
 		return wallsImage;
 	}

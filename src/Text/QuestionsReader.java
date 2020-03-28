@@ -63,10 +63,10 @@ public class QuestionsReader
 			scanner.useDelimiter(":"); 
 			boolean isBuilding=false;
 			boolean isQuestion=false;
-			
-			
+
+
 			while (scanner.hasNext()) {
-				
+
 				String data = scanner.next();
 				if(data.equals("Building")) {
 					buildingIndex++;
@@ -75,26 +75,26 @@ public class QuestionsReader
 				else if(data.equals("Question")) {
 					isQuestion=true;
 				}
-				
+
 				else if(isBuilding) {
-						isBuilding=false;
+					isBuilding=false;
 				}
 				else if(isQuestion) {
-				
+
 					arr.get(buildingIndex).getQuestions().add(data);
 					arr.get(buildingIndex).getAnswer().add(new ArrayList<String>() );
-						isQuestion=false;
-						
+					isQuestion=false;
+
 				}
 
 				else {
 					if(index==1) {
-					empty=false;
-					arr.get(buildingIndex).getAnswer().get(arr.get(buildingIndex).getAnswer().size()-1).add(data);
-				}
+						empty=false;
+						arr.get(buildingIndex).getAnswer().get(arr.get(buildingIndex).getAnswer().size()-1).add(data);
+					}
 					index++;
 				}
-				
+
 			}
 			index = 0;
 
