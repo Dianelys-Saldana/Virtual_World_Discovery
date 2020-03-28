@@ -87,6 +87,36 @@ public class Building  {
 		return height;
 	}
 
+	public ArrayList<Pair> getPoint() {
+		return point;
+	}
+
+
+
+	public void setPoint(ArrayList<Pair> point) {
+		this.point = point;
+	}
+
+
+
+	public ArrayList<Line2D> getLines() {
+		return lines;
+	}
+
+
+
+	public void setLines(ArrayList<Line2D> lines) {
+		this.lines = lines;
+	}
+
+
+
+	public void setWallsImage(ArrayList<String> wallsImage) {
+		this.wallsImage = wallsImage;
+	}
+
+
+
 	public void setHeight(int height) {
 		this.height = height;
 	}

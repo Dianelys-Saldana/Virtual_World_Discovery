@@ -244,8 +244,16 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	private void worldScan() {
 		if(sele==0) {
 			ArrayList<String> arr= new ArrayList<>();
-			for(int i=1;i<this.worldSize+1;i++) {
-				arr.add("world"+i);
+			//			for(int i=1;i<this.worldSize+1;i++) {
+			//				arr.add("world"+i);
+			//			}
+			File folder = new File("src/World");
+			File[] listOfFiles = folder.listFiles();
+			for (int i = 0; i < listOfFiles.length; i++) {
+				if (listOfFiles[i].isFile()) {
+					String sub= listOfFiles[i].getName().replace(".txt", "");
+					arr.add(sub);
+				}
 			}
 			sel=questions.arraySelection(arr.toArray(), "Que mundo desea utilizar");
 			if(sel==JOptionPane.CLOSED_OPTION) {
@@ -447,8 +455,8 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		//			t.restart();
 		//		}
 	}
-	
 
-	
-	
+
+
+
 }
