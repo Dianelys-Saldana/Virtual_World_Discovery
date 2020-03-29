@@ -94,6 +94,20 @@ public class Questions {
 	}
 	
 	
+	/** Jose Velazquez 03/28/2020
+	 * helper method to validate if the value 
+	 * enter contains numbers  
+	 */
+	private boolean hasNum(String s) {
+		for(char c: s.toCharArray()) {
+			if(Character.isDigit(c)) {
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	
 	/** Jose Velazquez 03/21/2020
 	 * creates panel to input the height of the wall to be
 	 * created 
@@ -101,7 +115,18 @@ public class Questions {
 	public int wallHeight() {
 		String wall_height;
 		 wall_height = JOptionPane.showInputDialog(c,"Wall height in meters");
-		int height = Integer.parseInt(wall_height);
+		int height = -1;
+		boolean done = false;
+		while(!done) {
+				if(!this.hasNum(wall_height)) { 
+					 wall_height = JOptionPane.showInputDialog(c,"Re enter the "
+					 		+ "wall height in meters");
+				}
+				else {
+					height = Integer.parseInt(wall_height);
+					done = true;  
+				}			
+		}
 		return height;
 	}
 	/** Carlos Rodriguez 03/08/2020

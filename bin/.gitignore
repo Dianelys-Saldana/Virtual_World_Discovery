@@ -1,13 +1,9 @@
-/Text/
-/Image/
-/World/
 /Entities/
 /Frames/
+/Image/
 /Inputs/
 /Main/
-/Util/
-<<<<<<< HEAD
-=======
-/World/
 /Questions/
->>>>>>> branch 'master' of https://github.com/Dianelys-Saldana/Virtual_World_Discovery.git
+/Text/
+/Util/
+/World/

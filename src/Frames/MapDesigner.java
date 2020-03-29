@@ -3,9 +3,13 @@ package Frames;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import Entities.Tree;
 import Image.GraphicsManager;
@@ -19,6 +23,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,6 +33,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+
 import java.awt.Font;
 
 public class MapDesigner extends JPanel   {
@@ -48,6 +55,8 @@ public class MapDesigner extends JPanel   {
 	private JMenuItem tree3;
 	private JMenuItem building;
 	private JMenuItem home;
+	private String[] backgrounds = {"Background", "Original", "Beach"};
+	private BufferedImage background;
 	private ArrayList<JMenuItem> items= new ArrayList<>();
 	private Questions question = new Questions(this,null);
 	private FrameManager f;
@@ -57,6 +66,7 @@ public class MapDesigner extends JPanel   {
 	private ArrayList<ArrayList<Pair>>listPoints= new ArrayList<>();
 	private int wallIndex=1;
 	private int worldIndex= 1;
+
 	/**
 	 * Create the application.
 	 */
@@ -91,13 +101,13 @@ public class MapDesigner extends JPanel   {
 						try {
 							writer.end();
 						} catch (IOException e) {
-							// TODO Auto-generated catch block
+
 							e.printStackTrace();
 						}
 		        	try {
 						writer.questionFile();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
+
 						e.printStackTrace();
 					}
 		            System.exit(0);
@@ -156,9 +166,8 @@ public class MapDesigner extends JPanel   {
 		ImageIcon Tree2img= new ImageIcon(getClass().getResource("../Image/Tree2.png"));
 		ImageIcon Tree3img= new ImageIcon(getClass().getResource("../Image/Tree3.png"));
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 450, 54);
+		menuBar.setBounds(0, 0, 756, 54);
 		add(menuBar);
-
 
 		xCoor.setBounds(834, 594, 45, 32);
 		add(xCoor);
@@ -307,14 +316,57 @@ public class MapDesigner extends JPanel   {
 			}
 		});
 		menuBar.add(home);
+		
+		
+		JComboBox backCombo = new JComboBox(backgrounds);
+		backCombo.setBounds(756, 0, 150, 54);
+		ActionListener bc = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent ae) {
+				String s = (String) backCombo.getSelectedItem();
 
+                switch (s) {
+					case "Original":
+						try {
+		        			background = ImageIO.read(getClass().getResource("../Image/Map1.png"));
+		        		} catch (IOException e1) {
+		        			e1.printStackTrace();
+		        		}
+		                break;
+		            case "Beach":
+		            	try {
+		        			background = ImageIO.read(getClass().getResource("../Image/Map2.png"));
+		        		} catch (IOException e1) {
+		        			e1.printStackTrace();
+		        		}	
+		                break;
+		            default:
+		            	try {
+		        			background = ImageIO.read(getClass().getResource("../Image/Default.png"));
+		        		} catch (IOException e1) {
+		        			e1.printStackTrace();
+		        		}
+		                break;
+                }
+			}
+		};
+		backCombo.addActionListener(bc);
+		add(backCombo);
+		try {
+			background = ImageIO.read(getClass().getResource("../Image/Default.png"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 	}
+
 	/**Carlos Rodriguez 3/15/2020
 	 * Paint the Jpanel
 	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);  
-		this.setBackground(Color.CYAN); 
+//		this.setBackground(Color.CYAN);
+		g.drawImage(background, 0, 0, 1024, 735, this);
+		
 		Graphics2D g2= (Graphics2D)g;
 		g2.setColor(Color.BLACK);
 		if(rec) {
@@ -351,6 +403,7 @@ public class MapDesigner extends JPanel   {
 				g2.draw(new Line2D.Double(point.get(j - 1).getX(), point.get(j - 1).getY(),point.get(j).getX(),point.get(j).getY()));
 			}
 		}
+
 	}
 
 	/**Carlos Rodriguez 3/23/2020
