@@ -1,0 +1,5 @@
+TreeType:2, location: (386,201)
+TreeType:2, location: (567,170)
+TreeType:2, location: (716,307)
+TreeType:2, location: (493,429)
+TreeType:2, location: (62,215)QuestionsFile: world2Questions.txt
