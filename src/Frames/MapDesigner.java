@@ -289,7 +289,7 @@ public class MapDesigner extends JPanel   {
 						writer.writeBuilding(response);
 						
 					
-					int wallHeight=question.wallHeight();
+					 wallHeight=question.wallHeight();
 					}
 				} catch (IOException e1) {
 					e1.printStackTrace();

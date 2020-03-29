@@ -99,12 +99,13 @@ public class Questions {
 	 * enter contains numbers  
 	 */
 	private boolean hasNum(String s) {
+		if(s==null)return false;
 		for(char c: s.toCharArray()) {
-			if(Character.isDigit(c)) {
-				return true;
+			if(!Character.isDigit(c)) {
+				return false;
 			}
 		}
-		return false;
+		return true;
 		
 	}
 	
