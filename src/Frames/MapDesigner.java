@@ -309,7 +309,9 @@ public class MapDesigner extends JPanel   {
 		menuBar.add(home);
 
 	}
-
+	/**Carlos Rodriguez 3/15/2020
+	 * Paint the Jpanel
+	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);  
 		this.setBackground(Color.CYAN); 
@@ -351,7 +353,10 @@ public class MapDesigner extends JPanel   {
 		}
 	}
 
-
+	/**Carlos Rodriguez 3/23/2020
+	 * Set all the Jpanel with neutral color except the position given.
+	 * @param x the position of Jbutton on the JPanel
+	 */
 	public void resetColor(int x) {
 		if(x==0) {
 			this.tree1.setBackground(Color.GRAY);

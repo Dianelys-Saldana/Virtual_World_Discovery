@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.util.Random;
 
 import Util.Pair;
-
+/**Created by Carlos Rodriguez 03/23/2020
+ * Class created for write files
+ */
 public class Writer {
 	QuestionsReader questionReader= new QuestionsReader();
 	File file;
@@ -16,6 +18,11 @@ public class Writer {
 	FileWriter questionWriter=null;
 	String str;
 	private boolean started=false;
+	
+	/**Created by Carlos Rodriguez 03/23/2020
+	 * Contructor for the Writer class
+	 * @param Str- the name of the file who is going to be write.
+	 */
 	public Writer(String str) {
 		this.str=str;
 		try {
@@ -33,10 +40,19 @@ public class Writer {
 			e.printStackTrace();
 		}
 	}
+	
+	/**Created by Carlos Rodriguez 03/23/2020
+	 * Crea el File si no existe 
+	 */
 	public void create() throws IOException  {
 		if(!file.exists())file.createNewFile();
 		if(!questionFile.exists())questionFile.createNewFile();
 		}
+	
+	/**Created by Carlos Rodriguez 03/27/2020
+	 * Write the name of the building on the file
+	 * @param name the name of the building
+	 */
 	public void writeBuilding(String name) throws IOException {
 		if (started) {
 			myWriter.write("\n");
@@ -50,18 +66,22 @@ public class Writer {
 		myWriter.write("\nBuildingImage: "+"ToDo");
 		myWriter.flush();
 		started=true;
-//		Wall1: startsAt: (750,350), endsAt: (750,400), height:10, texture image:estefaniN.png
-//		Wall2: startsAt: (750,400), endsAt: (800,400), height:10, texture image:estefaniS.png
-//		Wall3: startsAt: (800,400), endsAt: (800,350), height:10, texture image:estefaniW.png
-//		Wall4: startsAt: (800,350), endsAt: (750,350), height:10, texture image:estefaniE.png
-//		end
 	}
+	/**Created by Carlos Rodriguez 03/27/2020
+	 * Write the word end on the file
+	 */
 	public void end() throws IOException {
 		myWriter.write("\n");
 		myWriter.write("end");
 		myWriter.flush();
 	}
-	
+	/**Created by Carlos Rodriguez 03/27/2020
+	 * Write the wall with the atributes in the file 
+	 * @param index what wall is  
+	 * @param start position of the first point  
+	 * @param end position of the last point 
+	 * @param height the height of the wall
+	 */
 	public void writeWall(int index , Pair start, Pair end , int height) throws IOException {
 		myWriter.write("\n");
 		myWriter.write("Wall"+index+": ");
@@ -73,6 +93,12 @@ public class Writer {
 		
 		
 	}
+	/**Created by Carlos Rodriguez 03/27/2020
+	 * Write the tree with the atributes in the file 
+	 * @param x position in x  
+	 * @param y position in y
+	 * @param var what type of tree is
+	 */
 	public void writeTree(int x,int y,int var) throws IOException {
 		if (started) myWriter.write("\n");
 		myWriter.write("TreeType:"+var);
@@ -80,6 +106,10 @@ public class Writer {
 		started=true;
 		myWriter.flush();
 	}
+	
+	/**Created by Carlos Rodriguez 03/27/2020
+	 * Write questions for buildings
+	 */
 	public void writeQuestions() throws IOException {
 		for(int i=0;i<7;i++) {
 			Random ran= new Random();
@@ -99,6 +129,9 @@ public class Writer {
 			
 		}
 	}
+	/**Created by Carlos Rodriguez 03/27/2020
+	 * Write questionsFile on the file
+	 */
 	public void questionFile() throws IOException {
 		myWriter.write("QuestionsFile: "+str+"Questions.txt");
 		myWriter.flush();

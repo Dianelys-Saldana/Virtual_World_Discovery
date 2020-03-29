@@ -1,5 +1,7 @@
 package Util;
-
+/** Carlos Rodriguez 03/24/2020
+ * Class created for save points
+ */
 public class Pair {
 	private int x;
 	private int y;

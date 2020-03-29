@@ -241,6 +241,9 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			}
 		}
 	}
+	/**Carlos Rodriguez 3/28/2020
+	 * Scan the names of worlds on a specific folder
+	 */
 	private void worldScan() {
 		if(sele==0) {
 			ArrayList<String> arr= new ArrayList<>();
@@ -269,6 +272,9 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 		else return;
 	}
+	/**Carlos Rodriguez 3/24/2020
+	 * Scan the world on a specific file
+	 */
 	private void scan() {
 
 		try {
@@ -453,11 +459,6 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		movePlayer();
 		checkBuildingColition();
 		checkTreeColition();
-		//		if(sele==0) {
-		//			t.stop();
-		//			worldScan();
-		//			t.restart();
-		//		}
 	}
 
 

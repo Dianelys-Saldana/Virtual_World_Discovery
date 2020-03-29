@@ -22,8 +22,9 @@ public class Reader
 	ArrayList<Pair>points= new ArrayList<>();
 	private String questionsFile;
 
-	/** Carlos Rodriguez 03/13/2020
-	 * method to scan the answer and questions on the file
+	/** Carlos Rodriguez 03/27/2020
+	 * Method to scan the world on a file 
+	 * @param s the name of the file
 	 */
 	@SuppressWarnings("unchecked")
 	public void scan(String s) throws IOException {

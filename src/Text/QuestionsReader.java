@@ -20,7 +20,7 @@ public class QuestionsReader
 
 
 	/** Carlos Rodriguez 03/13/2020
-	 * method to scan the answer and questions on the file
+	 * Method to scan the answer and questions on the file
 	 */
 	public void scan() throws IOException {
 
@@ -50,6 +50,11 @@ public class QuestionsReader
 
 		}
 	}
+	/** Carlos Rodriguez 03/28/2020
+	 * Method to put the questions on buildings from the file 
+	 * @param s the name of the file
+	 * @param arr the buildings
+	 */
 	public void worldScan(String s, ArrayList<Building> arr) throws IOException {
 
 		@SuppressWarnings("resource")

@@ -92,9 +92,7 @@ public class Questions {
 		}	
 		return 0;
 	}
-	public void setBuild(Building build) {
-		this.build = build;
-	}
+	
 	
 	/** Jose Velazquez 03/21/2020
 	 * creates panel to input the height of the wall to be
@@ -106,16 +104,27 @@ public class Questions {
 		int height = Integer.parseInt(wall_height);
 		return height;
 	}
-	
+	/** Carlos Rodriguez 03/08/2020
+	 * Create panel to choose an answer
+	 * @return Int of the position of the  answer
+	 */
 	public int arraySelection(Object[] arr, String s) {
 		int response = JOptionPane.showOptionDialog(c, s, "Question",
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
 				null, arr, arr[0]);
 		return response;
 	}
+	/** Carlos Rodriguez 03/08/2020
+	 * Create panel with a Specific questions
+	 * @param question the question on the panel
+	 * @return String the answer
+	 */
 	public String questionsString(String question) {
 		 return JOptionPane.showInputDialog(c,question);
 		
+	}
+	public void setBuild(Building build) {
+		this.build = build;
 	}
 	
 }

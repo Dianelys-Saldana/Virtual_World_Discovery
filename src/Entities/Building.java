@@ -30,12 +30,19 @@ public class Building  {
 	}
 	
 	
-
+	/**Created by Carlos Rodriguez 03/24/2020
+	 * Create lines between the points
+	 */
 	public void createLine() {
 		for(int i= point.size()-1;i>0;i--) {
 			lines.add(new Line2D.Double(point.get(i - 1).getX(), point.get(i - 1).getY(),point.get(i).getX(),point.get(i).getY()));
 		}
 	}
+	
+	/**Created by Carlos Rodriguez 03/24/2020
+	 * Check collisions with rectangles
+	 * @param r rectangle collisioned
+	 */
 	public boolean intersects(Rectangle r) {
 		if(lines.size()==0)return false;
 		for(int i=0;i<lines.size();i++) {
