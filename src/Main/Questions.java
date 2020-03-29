@@ -114,17 +114,17 @@ public class Questions {
 	 * created 
 	 */
 	public int wallHeight() {
-		String wall_height;
-		 wall_height = JOptionPane.showInputDialog(c,"Wall height in meters");
+		String wallHeight;
+		 wallHeight = JOptionPane.showInputDialog(c,"Wall height in meters");
 		int height = -1;
 		boolean done = false;
 		while(!done) {
-				if(!this.hasNum(wall_height)) { 
-					 wall_height = JOptionPane.showInputDialog(c,"Re enter the "
+				if(!this.hasNum(wallHeight) || wallHeight.isBlank()) { 
+					 wallHeight = JOptionPane.showInputDialog(c,"Re enter the "
 					 		+ "wall height in meters");
 				}
 				else {
-					height = Integer.parseInt(wall_height);
+					height = Integer.parseInt(wallHeight);
 					done = true;  
 				}			
 		}

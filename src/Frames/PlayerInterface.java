@@ -402,18 +402,19 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	 * Make the Avatar move pressing arrow
 	 */
 	private void movePlayer() {
-		if (this.ki.isRightIsPressed()) {
-			player.moveMegaManRight();
+		if (this.ki.isRightIsPressed() && !this.ki.isDownIsPressed() &&
+				!this.ki.isLeftIsPressed() && !this.ki.isUpIsPressed()) {
 			this.direction=0;
+			player.moveMegaManRight();
 			walkingTimer--;
 			if(walkingTimer == 0) {
 				walking=!walking;
 				walkingTimer = 10;
 			}
-
 		}
 
-		if (this.ki.isLeftIsPressed()) {
+		if (!this.ki.isRightIsPressed() && !this.ki.isDownIsPressed() &&
+				this.ki.isLeftIsPressed() && !this.ki.isUpIsPressed()) {
 			this.direction = 1;
 			player.moveMegaManLeft();
 			walkingTimer--;
@@ -423,7 +424,8 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			}
 		}
 
-		if (this.ki.isUpIsPressed()) {
+		if (!this.ki.isRightIsPressed() && !this.ki.isDownIsPressed() &&
+				!this.ki.isLeftIsPressed() && this.ki.isUpIsPressed()) {
 			this.direction = 3;
 			player.moveAvatarUp();
 			walkingTimer--;
@@ -432,8 +434,9 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				walkingTimer = 10;
 			}
 		}
-
-		if (this.ki.isDownIsPressed()) {
+		
+		if (!this.ki.isRightIsPressed() && this.ki.isDownIsPressed() &&
+				!this.ki.isLeftIsPressed() && !this.ki.isUpIsPressed()) {
 			this.direction = 2;
 			player.moveMegaManDown();
 			walkingTimer--;

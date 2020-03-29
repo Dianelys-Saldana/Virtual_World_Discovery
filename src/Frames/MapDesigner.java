@@ -279,7 +279,7 @@ public class MapDesigner extends JPanel   {
 				repaint();
 				try {
 					String response =question.questionsString("Cual sera el nombre de esta construccion?");
-					if(response==null) {
+					if(response==null || response.isBlank()) {
 						draw=false;
 						resetColor(4);
 						bttEndBuilding.setVisible(false);
