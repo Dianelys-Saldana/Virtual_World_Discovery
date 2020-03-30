@@ -288,8 +288,13 @@ public class MapDesigner extends JPanel   {
 					else{
 						writer.writeBuilding(response);
 						
-					
-					 wallHeight=question.wallHeight();
+					int ans= question.wallHeight();
+					if(ans==-1) {
+						draw=false;
+						resetColor(4);
+						bttEndBuilding.setVisible(false);
+					}
+					else wallHeight=ans;
 					}
 				} catch (IOException e1) {
 					e1.printStackTrace();
