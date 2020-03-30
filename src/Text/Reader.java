@@ -79,11 +79,9 @@ public class Reader
 				
 				// Background
 				else if(data.equals("Map1.png")) {
-					System.out.println("Prueba 1");
 					background = "Map1.png";
 				}
 				else if(data.equals("Map2.png")) {
-					System.out.println("Prueba 2");
 					background = "Map2.png";
 				}
 
