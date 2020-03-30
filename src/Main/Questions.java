@@ -118,7 +118,7 @@ public class Questions {
 		 wallHeight = JOptionPane.showInputDialog(c,"Wall height in meters");
 		int height = -1;
 		boolean done = false;
-		while(!done) {
+		while(!done && wallHeight != null) {
 				if(!this.hasNum(wallHeight) || wallHeight.equals("")) { 
 					 wallHeight = JOptionPane.showInputDialog(c,"Re enter the "
 					 		+ "wall height in meters");
