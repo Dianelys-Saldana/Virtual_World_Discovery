@@ -92,9 +92,6 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 		//		worldScan();
 
-
-
-
 		player = new Player(0,620,f.getWidth(),f.getHeight());
 
 	}
@@ -106,15 +103,14 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 		super.paintComponent(g);  
 //		this.setBackground(bColor);
+		
 		try {
 			background = ImageIO.read(getClass().getResource("../Image/" + br.getBackground()));
-		} catch (IOException e1) {
-			e1.printStackTrace();
+			g.drawImage(background, 0, 0, 1024, 735, this);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		g.drawImage(background, 0, 0, 1024, 735, this);
-
-
-
+		
 		Graphics2D g2= (Graphics2D)g;
 		for(int i=0;i<buildings.size();i++) {
 			if(buildings.get(i).getVisible()==2) {
