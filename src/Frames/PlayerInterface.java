@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.io.File;
 import java.io.FileReader;
@@ -22,6 +23,7 @@ import Main.Questions;
 import Text.QuestionsReader;
 import Text.Reader;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -65,6 +67,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	private int worldSize ;
 	Timer t = new Timer(5,this);
 	FrameManager f;
+	private BufferedImage background;
 
 	public PlayerInterface(FrameManager f) {
 		t.start();
@@ -102,7 +105,15 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	public void paintComponent(Graphics g){
 
 		super.paintComponent(g);  
-		this.setBackground(bColor);
+//		this.setBackground(bColor);
+		try {
+			background = ImageIO.read(getClass().getResource("../Image/" + br.getBackground()));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		g.drawImage(background, 0, 0, 1024, 735, this);
+
+
 
 		Graphics2D g2= (Graphics2D)g;
 		for(int i=0;i<buildings.size();i++) {

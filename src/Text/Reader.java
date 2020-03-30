@@ -21,6 +21,7 @@ public class Reader
 	ArrayList<Tree>trees= new ArrayList<>();
 	ArrayList<Pair>points= new ArrayList<>();
 	private String questionsFile;
+	String background = "Default.png";
 
 	/** Carlos Rodriguez 03/27/2020
 	 * Method to scan the world on a file 
@@ -75,6 +76,18 @@ public class Reader
 					}
 					index++;
 				}
+				
+				// Background
+				else if(data.equals("Map1.png")) {
+					System.out.println("Prueba 1");
+					background = "Map1.png";
+				}
+				else if(data.equals("Map2.png")) {
+					System.out.println("Prueba 2");
+					background = "Map2.png";
+				}
+
+				
 				//Work with Buildings
 				else if(pos==0) {
 
@@ -150,5 +163,10 @@ public class Reader
 
 	public ArrayList<Building> getBuildings() {
 		return builds;
-	} 
+	}
+	
+	public String getBackground() {
+		return background;
+	}
+
 }

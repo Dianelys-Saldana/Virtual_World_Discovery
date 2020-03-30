@@ -136,5 +136,13 @@ public class Writer {
 		myWriter.write("QuestionsFile: "+str+"Questions.txt");
 		myWriter.flush();
 	}
+	
+	public void writeBackground(String background) throws IOException {
+		if (started) myWriter.write("\n");
+		myWriter.write(background);
+		myWriter.flush();
+		started = true;
+	}
+
 
 }

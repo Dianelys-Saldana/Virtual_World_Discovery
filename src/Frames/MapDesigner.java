@@ -329,21 +329,24 @@ public class MapDesigner extends JPanel   {
 					case "Original":
 						try {
 		        			background = ImageIO.read(getClass().getResource("../Image/Map1.png"));
-		        		} catch (IOException e1) {
+		        			writer.writeBackground("Map1.png");
+						} catch (IOException e1) {
 		        			e1.printStackTrace();
 		        		}
 		                break;
 		            case "Beach":
 		            	try {
 		        			background = ImageIO.read(getClass().getResource("../Image/Map2.png"));
-		        		} catch (IOException e1) {
+		        			writer.writeBackground("Map2.png");
+		            	} catch (IOException e1) {
 		        			e1.printStackTrace();
 		        		}	
 		                break;
 		            default:
 		            	try {
 		        			background = ImageIO.read(getClass().getResource("../Image/Default.png"));
-		        		} catch (IOException e1) {
+		        			writer.writeBackground("Default.png");
+		            	} catch (IOException e1) {
 		        			e1.printStackTrace();
 		        		}
 		                break;
@@ -358,6 +361,7 @@ public class MapDesigner extends JPanel   {
 			e1.printStackTrace();
 		}
 	}
+
 
 	/**Carlos Rodriguez 3/15/2020
 	 * Paint the Jpanel
