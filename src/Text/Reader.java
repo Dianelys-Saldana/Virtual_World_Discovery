@@ -77,6 +77,7 @@ public class Reader
 					index++;
 				}
 				
+				// Dianelys Saldana 03/29/2020
 				// Background
 				else if(data.equals("Map1.png")) {
 					background = "Map1.png";

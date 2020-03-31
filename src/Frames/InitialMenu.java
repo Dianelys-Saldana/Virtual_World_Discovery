@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-/**Dianelys Saldana 03/07/2020
+/** Dianelys Saldana 03/07/2020
  ** Class for initial frame of the game
  */
 public class InitialMenu extends JPanel {

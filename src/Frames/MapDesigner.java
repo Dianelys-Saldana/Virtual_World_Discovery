@@ -37,6 +37,7 @@ import javax.swing.JComboBox;
 
 import java.awt.Font;
 
+
 public class MapDesigner extends JPanel   {
 
 	private JFrame frame;
@@ -304,6 +305,9 @@ public class MapDesigner extends JPanel   {
 		});
 		menuBar.add(building);
 
+		/** Dianelys Saldana 03/22/2020
+		 ** Button for returning to home
+		 */
 		home = new JMenuItem("Home");
 		home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
@@ -317,12 +321,13 @@ public class MapDesigner extends JPanel   {
 					}
 				}
 				f.menu();
-
 			}
 		});
 		menuBar.add(home);
 		
-		
+		/** Dianelys Saldana 03/29/2020
+		 ** ComboBox for choosing background
+		 */
 		JComboBox backCombo = new JComboBox(backgrounds);
 		backCombo.setBounds(756, 0, 150, 54);
 		ActionListener bc = new ActionListener() {

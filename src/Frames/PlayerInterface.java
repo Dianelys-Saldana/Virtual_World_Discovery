@@ -104,6 +104,9 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		super.paintComponent(g);  
 //		this.setBackground(bColor);
 		
+		/** Dianelys Saldana 03/29/2020
+		 ** Painting background chosen in MapDesigner
+		 */
 		try {
 			background = ImageIO.read(getClass().getResource("../Image/" + br.getBackground()));
 			g.drawImage(background, 0, 0, 1024, 735, this);
