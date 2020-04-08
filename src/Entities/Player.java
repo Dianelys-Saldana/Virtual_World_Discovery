@@ -16,6 +16,8 @@ public class Player extends Base {
 	public static final int DEFAULT_SPEED = 2;
 	public static final int WIDTH = 42;
 	public static final int HEIGHT = 45;
+	private int barWidth=60;
+	private int rightLimit=20;
 	private int maxX;
 	private int maxY;
 	
@@ -47,7 +49,7 @@ public class Player extends Base {
 	 * Move the Avatar down
 	 */
 	public void moveMegaManDown(){
-		if(getY() + getSpeed() + height < maxY ){
+		if(getY() + getSpeed() + height < maxY-this.barWidth ){
 			translate(0, getSpeed());
 
 		}
@@ -66,7 +68,7 @@ public class Player extends Base {
 	 * Move the Avatar to the right
 	 */
 	public void moveMegaManRight(){
-		if(getX() + getSpeed() + width < maxX){
+		if(getX() + getSpeed() + width < maxX-this.rightLimit){
 			translate(getSpeed(), 0);
 		}
 	}
