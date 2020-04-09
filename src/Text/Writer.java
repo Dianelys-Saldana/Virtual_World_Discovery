@@ -1,6 +1,5 @@
 package Text;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,7 +16,7 @@ public class Writer {
 	FileWriter myWriter=null;
 	FileWriter questionWriter=null;
 	String str;
-	private boolean started=false;
+	private boolean started=true;
 	
 	/**Created by Carlos Rodriguez 03/23/2020
 	 * Contructor for the Writer class
@@ -34,8 +33,8 @@ public class Writer {
 		file = new File("src/World/"+str+".txt");
 		questionFile=new File("src/Questions/"+str+"Questions.txt");
 		 try {
-			myWriter = new FileWriter(file);
-			questionWriter = new FileWriter(questionFile);
+			myWriter = new FileWriter(file,true);
+			questionWriter = new FileWriter(questionFile,true);
 		} catch (IOException e) {			
 			e.printStackTrace();
 		}
@@ -45,7 +44,10 @@ public class Writer {
 	 * Crea el File si no existe 
 	 */
 	public void create() throws IOException  {
-		if(!file.exists())file.createNewFile();
+		if(!file.exists()) {
+			file.createNewFile();
+			started=false;
+		}
 		if(!questionFile.exists())questionFile.createNewFile();
 		}
 	
@@ -133,6 +135,7 @@ public class Writer {
 	 * Write questionsFile on the file
 	 */
 	public void questionFile() throws IOException {
+		if (started) myWriter.write("\n");
 		myWriter.write("QuestionsFile: "+str+"Questions.txt");
 		myWriter.flush();
 	}

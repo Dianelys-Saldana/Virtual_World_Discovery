@@ -269,10 +269,12 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				}
 			}
 			sel=questions.arraySelection(arr.toArray(), "Que mundo desea utilizar");
+			
 			if(sel==JOptionPane.CLOSED_OPTION) {
 				f.menu();
 				return;
 			}
+			worldSelected=arr.get(sel);
 			sel++;
 			sele=1;
 		}
@@ -288,7 +290,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	private void scan() {
 
 		try {
-			br.scan("world"+sel);
+			br.scan(worldSelected);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

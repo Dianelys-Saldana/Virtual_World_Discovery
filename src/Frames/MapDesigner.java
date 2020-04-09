@@ -11,10 +11,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import Entities.Building;
 import Entities.Tree;
 import Image.GraphicsManager;
 import Util.Pair;
 import Main.Questions;
+import Text.Reader;
 import Text.Writer;
 
 import javax.swing.JMenuBar;
@@ -39,11 +42,14 @@ import java.awt.Font;
 
 
 public class MapDesigner extends JPanel   {
-
+	private Reader br= new Reader();
+	private Questions questions = new Questions(this,null);
+	private int sel;
 	private JFrame frame;
 	private ArrayList<Tree> trees=new ArrayList<>();
 	private boolean rec=false;
 	private boolean draw= false;
+	private boolean nuevo=false;
 	private GraphicsManager gm = new GraphicsManager();
 	private int mouseX;
 	private int mouseY;
@@ -67,11 +73,14 @@ public class MapDesigner extends JPanel   {
 	private ArrayList<ArrayList<Pair>>listPoints= new ArrayList<>();
 	private int wallIndex=1;
 	private int worldIndex= 1;
+	private int sele=0;
+	private String worldSelected="";
 
 	/**
 	 * Create the application.
 	 */
 	public MapDesigner(FrameManager f) {
+		this.f=f;
 		File folder = new File("src/World");
 		File[] listOfFiles = folder.listFiles();
 		for (int i = 0; i < listOfFiles.length; i++) {
@@ -84,10 +93,10 @@ public class MapDesigner extends JPanel   {
 				else {
 					break;
 				}
-				
+
 			}
 		}
-		writer= new Writer("world"+worldIndex);
+		worldSelect();
 		items.add(tree1);
 		items.add(tree2);
 		items.add(tree3);
@@ -95,25 +104,26 @@ public class MapDesigner extends JPanel   {
 		items.add(home);
 		this.f = f;
 		f.addWindowListener(new java.awt.event.WindowAdapter() {
-		    @Override
-		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-		      
-		        	if(draw)
-						try {
-							writer.end();
-						} catch (IOException e) {
+			@Override
+			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
 
-							e.printStackTrace();
-						}
-		        	try {
+				if(draw)
+					try {
+						writer.end();
+					} catch (IOException e) {
+
+						e.printStackTrace();
+					}
+				if(nuevo)
+					try {
 						writer.questionFile();
 					} catch (IOException e) {
 
 						e.printStackTrace();
 					}
-		            System.exit(0);
-		        
-		    }
+				System.exit(0);
+
+			}
 		});
 		initialize();
 	}
@@ -124,11 +134,6 @@ public class MapDesigner extends JPanel   {
 	 * @throws IOException 
 	 */
 	private void initialize() {
-		try {
-			writer.create();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -176,7 +181,7 @@ public class MapDesigner extends JPanel   {
 
 		yCoor.setBounds(921, 594, 45, 32);
 		add(yCoor);
-		
+
 		JButton bttEndBuilding = new JButton("End Building");
 		bttEndBuilding.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -284,23 +289,23 @@ public class MapDesigner extends JPanel   {
 						draw=false;
 						resetColor(4);
 						bttEndBuilding.setVisible(false);
-						
+
 					}
 					else{
 						writer.writeBuilding(response);
-						
-					int ans= question.wallHeight();
-					if(ans==-1) {
-						draw=false;
-						resetColor(4);
-						bttEndBuilding.setVisible(false);
-					}
-					else wallHeight=ans;
+
+						int ans= question.wallHeight();
+						if(ans==-1) {
+							draw=false;
+							resetColor(4);
+							bttEndBuilding.setVisible(false);
+						}
+						else wallHeight=ans;
 					}
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				
+
 			}
 		});
 		menuBar.add(building);
@@ -324,7 +329,7 @@ public class MapDesigner extends JPanel   {
 			}
 		});
 		menuBar.add(home);
-		
+
 		/** Dianelys Saldana 03/29/2020
 		 ** ComboBox for choosing background
 		 */
@@ -335,32 +340,32 @@ public class MapDesigner extends JPanel   {
 			public void actionPerformed(ActionEvent ae) {
 				String s = (String) backCombo.getSelectedItem();
 
-                switch (s) {
-					case "Original":
-						try {
-		        			background = ImageIO.read(getClass().getResource("../Image/Map1.png"));
-		        			writer.writeBackground("Map1.png");
-						} catch (IOException e1) {
-		        			e1.printStackTrace();
-		        		}
-		                break;
-		            case "Beach":
-		            	try {
-		        			background = ImageIO.read(getClass().getResource("../Image/Map2.png"));
-		        			writer.writeBackground("Map2.png");
-		            	} catch (IOException e1) {
-		        			e1.printStackTrace();
-		        		}	
-		                break;
-		            default:
-		            	try {
-		        			background = ImageIO.read(getClass().getResource("../Image/Default.png"));
-		        			writer.writeBackground("Default.png");
-		            	} catch (IOException e1) {
-		        			e1.printStackTrace();
-		        		}
-		                break;
-                }
+				switch (s) {
+				case "Original":
+					try {
+						background = ImageIO.read(getClass().getResource("../Image/Map1.png"));
+						writer.writeBackground("Map1.png");
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					break;
+				case "Beach":
+					try {
+						background = ImageIO.read(getClass().getResource("../Image/Map2.png"));
+						writer.writeBackground("Map2.png");
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}	
+					break;
+				default:
+					try {
+						background = ImageIO.read(getClass().getResource("../Image/Default.png"));
+						writer.writeBackground("Default.png");
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					break;
+				}
 			}
 		};
 		backCombo.addActionListener(bc);
@@ -378,9 +383,9 @@ public class MapDesigner extends JPanel   {
 	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);  
-//		this.setBackground(Color.CYAN);
+		//		this.setBackground(Color.CYAN);
 		g.drawImage(background, 0, 0, 1024, 735, this);
-		
+
 		Graphics2D g2= (Graphics2D)g;
 		g2.setColor(Color.BLACK);
 		if(rec) {
@@ -455,5 +460,70 @@ public class MapDesigner extends JPanel   {
 			this.tree3.setBackground(neutralColor);
 			this.building.setBackground(neutralColor);
 		}
+	}
+	public void worldSelect() {
+		int lastIndex=0;
+		if(sele==0) {
+			ArrayList<String> arr= new ArrayList<>();
+			//			for(int i=1;i<this.worldSize+1;i++) {
+			//				arr.add("world"+i);
+			//			}
+			File folder = new File("src/World");
+			File[] listOfFiles = folder.listFiles();
+			for (int i = 0; i < listOfFiles.length; i++) {
+				if (listOfFiles[i].isFile()) {
+					String sub= listOfFiles[i].getName().replace(".txt", "");
+					arr.add(sub);
+
+				}
+			}
+			arr.add("New World");
+			lastIndex=arr.size()-1;
+			sel=questions.arraySelection(arr.toArray(), "Que mundo desea utilizar");
+
+			if(sel==JOptionPane.CLOSED_OPTION) {
+				System.out.println("entre");
+				f.menu();
+				return;
+			}
+			worldSelected=arr.get(sel);
+			if(sel==lastIndex) {
+				writer= new Writer("world"+worldIndex);
+				nuevo=true;
+				try {
+					writer.create();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+				return;
+
+			}
+			writer= new Writer(worldSelected);
+
+			sel++;
+			sele=1;
+		}
+		if(sele==1) {
+			scan();
+			sele=2;
+		}
+		else return;
+
+	}
+	private void scan() {
+
+		try {
+			br.scan(worldSelected);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		trees=br.getTrees();
+		for(int i=0;i<br.getBuildings().size();i++) {
+			if(br.getBuildings().get(i).getPoint().size()<2)continue;
+			this.listPoints.add(br.getBuildings().get(i).getPoint());
+
+		}
+
 	}
 }
