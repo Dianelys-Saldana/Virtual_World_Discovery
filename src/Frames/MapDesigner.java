@@ -27,8 +27,18 @@ import javax.swing.JOptionPane;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 import java.awt.image.BufferedImage;
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.ActionEvent;
@@ -37,6 +47,7 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JTextPane;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 
 import java.awt.Font;
 
@@ -268,8 +279,30 @@ public class MapDesigner extends JPanel   {
 				tree3.setBackground(Color.GRAY);
 			}
 		});
+		JButton button = new JButton("Click Me!");
+	      button.addActionListener(new ActionListener() {
+	         @Override
+	         public void actionPerformed(ActionEvent e) {
+	            JFileChooser fileChooser = new JFileChooser();
+//	            fileChooser.addChoosableFileFilter(new ImageFilter());
+//	            fileChooser.setAcceptAllFileFilterUsed(false);
 
-
+	            int option = fileChooser.showOpenDialog(frame);
+	            if(option == JFileChooser.APPROVE_OPTION){
+	               File file = fileChooser.getSelectedFile();
+	               
+	              
+	               try {
+					writer.copy(file);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+	              
+	            }
+	         }
+	      });
+	    menuBar.add(button);
 		building = new JMenuItem("Building");
 		building.addMouseListener(new MouseAdapter() {
 			@Override
@@ -526,4 +559,6 @@ public class MapDesigner extends JPanel   {
 		}
 
 	}
+	
+	
 }

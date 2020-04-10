@@ -1,0 +1,10 @@
+TreeType:1, location: (328,185)
+TreeType:1, location: (306,380)
+BuildingName: uan
+BuildingImage: ToDo
+Wall1: startsAt: (614,235), endsAt: (586,354), height:2, texture image:ToDo
+Wall2: startsAt: (586,354), endsAt: (679,363), height:2, texture image:ToDo
+Wall3: startsAt: (679,363), endsAt: (722,242), height:2, texture image:ToDo
+Wall4: startsAt: (722,242), endsAt: (614,234), height:2, texture image:ToDo
+end
+QuestionsFile: world2

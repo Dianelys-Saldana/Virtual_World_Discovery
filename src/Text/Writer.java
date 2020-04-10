@@ -1,8 +1,12 @@
 package Text;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Random;
 
 import Util.Pair;
@@ -145,6 +149,23 @@ public class Writer {
 		myWriter.write(background);
 		myWriter.flush();
 		started = true;
+	}
+	public void copy(File input) throws IOException {
+		  InputStream is = null;
+	      OutputStream os = null;
+	        try {
+	        	
+	            is = new FileInputStream(input);
+	            os = new FileOutputStream(new File("src/Image/"+input.getName()));
+	            byte[] buffer = new byte[1024];
+	            int length;
+	            while ((length = is.read(buffer)) > 0) {
+	                os.write(buffer, 0, length);
+	            }
+	        } finally {
+	            is.close();
+	            os.close();
+	        }
 	}
 
 
