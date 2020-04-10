@@ -59,7 +59,7 @@ public class Writer {
 	 * Write the name of the building on the file
 	 * @param name the name of the building
 	 */
-	public void writeBuilding(String name) throws IOException {
+	public void writeBuilding(String name,String image) throws IOException {
 		if (started) {
 			myWriter.write("\n");
 			questionWriter.write("\n");
@@ -69,7 +69,7 @@ public class Writer {
 		questionWriter.write("Building: "+name);
 		questionWriter.flush();
 		this.writeQuestions();
-		myWriter.write("\nBuildingImage: "+"ToDo");
+		myWriter.write("\nBuildingImage: "+image);
 		myWriter.flush();
 		started=true;
 	}
