@@ -309,52 +309,55 @@ public class MapDesigner extends JPanel   {
 							resetColor(4);
 							bttEndBuilding.setVisible(false);	
 						}
-						else wallHeight=ans;
+						else {
 
-						while(true) {
-							String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
-							int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
-							if(imageName==JOptionPane.CLOSED_OPTION) {
-								draw=false;
-								resetColor(4);
-								bttEndBuilding.setVisible(false);
-								break;
-							}
-							else if(imageName==imagesNames.length-1) {
-								JFileChooser fileChooser = new JFileChooser();
+							wallHeight=ans;
 
-								int option = fileChooser.showOpenDialog(frame);
-								if(option == JFileChooser.APPROVE_OPTION){
-									File file = fileChooser.getSelectedFile();
-									String extension= file.getName().substring(file.getName().lastIndexOf(".") + 1);
-									if(!extension.equals("png")) {
+							while(true) {
+								String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
+								int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
+								if(imageName==JOptionPane.CLOSED_OPTION) {
+									draw=false;
+									resetColor(4);
+									bttEndBuilding.setVisible(false);
+									break;
+								}
+								else if(imageName==imagesNames.length-1) {
+									JFileChooser fileChooser = new JFileChooser();
+
+									int option = fileChooser.showOpenDialog(frame);
+									if(option == JFileChooser.APPROVE_OPTION){
+										File file = fileChooser.getSelectedFile();
+										String extension= file.getName().substring(file.getName().lastIndexOf(".") + 1);
+										if(!extension.equals("png")) {
+											JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
+											continue;
+										}
+
+										try {
+											writer.copy(file);
+											writer.writeBuilding(response,file.getName());
+											break;
+										} catch (IOException e1) {
+											// TODO Auto-generated catch block
+											e1.printStackTrace();
+										}
+									}
+									else {
 										JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
 										continue;
+
 									}
 
-									try {
-										writer.copy(file);
-										writer.writeBuilding(response,file.getName());
-										break;
-									} catch (IOException e1) {
-										// TODO Auto-generated catch block
-										e1.printStackTrace();
-									}
+
 								}
 								else {
-									JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
-									continue;
-
+									writer.writeBuilding(response,imagesNames[imageName]);
+									break;
 								}
-
-
 							}
-							else {
-								writer.writeBuilding(response,imagesNames[imageName]);
-								break;
-							}
+
 						}
-
 					}
 				} catch (IOException e1) {
 					e1.printStackTrace();
