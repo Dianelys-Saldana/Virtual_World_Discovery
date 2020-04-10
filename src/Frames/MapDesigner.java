@@ -151,12 +151,52 @@ public class MapDesigner extends JPanel   {
 				if(draw) {
 					listPoints.get(listPoints.size()-1).add(new Pair(mouseX,mouseY));
 					if(listPoints.get(listPoints.size()-1).size()>1) {
-						try {
-							ArrayList<Pair>point=listPoints.get(listPoints.size()-1);
-							writer.writeWall(wallIndex++, point.get(point.size()-2), point.get(point.size()-1), wallHeight);
-						} catch (IOException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
+						ArrayList<Pair>point=listPoints.get(listPoints.size()-1);
+						while(true) {
+							String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
+							int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
+							if(imageName==JOptionPane.CLOSED_OPTION) {
+								JOptionPane.showMessageDialog(f, "Favor de escoger una imagen");
+								continue;
+							}
+							else if(imageName==imagesNames.length-1) {
+								JFileChooser fileChooser = new JFileChooser();
+
+								int option = fileChooser.showOpenDialog(frame);
+								if(option == JFileChooser.APPROVE_OPTION){
+									File file = fileChooser.getSelectedFile();
+									String extension= file.getName().substring(file.getName().lastIndexOf(".") + 1);
+									if(!extension.equals("png")) {
+										JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
+										continue;
+									}
+
+									try {
+										writer.copy(file);
+										writer.writeWall(wallIndex++, point.get(point.size()-2), point.get(point.size()-1), wallHeight,file.getName());
+										break;
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
+								}
+								else {
+									JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
+									continue;
+
+								}
+
+
+							}
+							else {
+								try {
+									writer.writeWall(wallIndex++, point.get(point.size()-2), point.get(point.size()-1), wallHeight,imagesNames[imageName]);
+								} catch (IOException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
+								}
+								break;
+							}
 						}
 					}
 				}

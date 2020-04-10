@@ -88,13 +88,13 @@ public class Writer {
 	 * @param end position of the last point 
 	 * @param height the height of the wall
 	 */
-	public void writeWall(int index , Pair start, Pair end , int height) throws IOException {
+	public void writeWall(int index , Pair start, Pair end , int height,String wallImage) throws IOException {
 		myWriter.write("\n");
 		myWriter.write("Wall"+index+": ");
 		myWriter.write("startsAt: ("+start.getX()+","+start.getY()+")");
 		myWriter.write(", endsAt: ("+end.getX()+","+end.getY()+")");
 		myWriter.write(", height:"+height);
-		myWriter.write(", texture image:"+"ToDo");
+		myWriter.write(", texture image:"+wallImage);
 		myWriter.flush();
 		
 		
