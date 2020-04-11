@@ -1,6 +1,7 @@
 package Frames;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -389,6 +390,32 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				ki.reset();
 			}
 
+			// HERE
+			if(buildings.get(i).getVisible() == 2 && numBuildings == 0) {
+				// JOption Pane
+				this.display3D();
+			}
+
+		}
+	}
+
+	// HERE
+	public void display3D() {
+		int reply = JOptionPane.showConfirmDialog(null, "¡Has desbloqueado exitosamente todos los edificios!"
+				+ " ¿Deseas ver el mapa en 3D?", "3D Map", JOptionPane.YES_NO_OPTION);
+		if (reply == JOptionPane.YES_OPTION) {
+			Desktop ficheroAEjecutar = Desktop.getDesktop();
+			try {
+				ficheroAEjecutar.open(new File("/Users/dianelys.saldana/Documents/Proyecto Virtual World Discovery/Fase 3/house3.wrl"));
+			} catch (IOException e) {
+				JOptionPane.showMessageDialog(null, 
+						e.getMessage(), 
+						"Error", 
+						JOptionPane.ERROR_MESSAGE);
+			}
+		} else {
+			JOptionPane.showMessageDialog(null, "GOODBYE");
+			System.exit(0);
 		}
 	}
 
