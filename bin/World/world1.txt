@@ -18,7 +18,3 @@ Wall1: startsAt: (300,350), endsAt: (300,500), height:10, texture image:estefani
 end
 TreeType:1, location: (400,400)
 TreeType:2, location: (700,500)
-QuestionsFile: world1Questions.txt
-TreeType:3, location: (397,149)
-TreeType:3, location: (627,149)
-TreeType:3, location: (455,304)

@@ -61,6 +61,7 @@ public class MapDesigner extends JPanel   {
 	private boolean rec=false;
 	private boolean draw= false;
 	private boolean nuevo=false;
+	private boolean eliminate=false;
 	private GraphicsManager gm = new GraphicsManager();
 	private int mouseX;
 	private int mouseY;
@@ -73,6 +74,7 @@ public class MapDesigner extends JPanel   {
 	private JMenuItem tree3;
 	private JMenuItem building;
 	private JMenuItem home;
+	private JMenuItem bttEliminateTree;
 	private String[] backgrounds = {"Background", "Original", "Beach"};
 	private BufferedImage background;
 	private ArrayList<JMenuItem> items= new ArrayList<>();
@@ -208,6 +210,14 @@ public class MapDesigner extends JPanel   {
 						e1.printStackTrace();
 					}
 				}
+				else if(eliminate){
+					try {
+						findTree(new Pair(mouseX,mouseY));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
 			}
 		});
 		addMouseMotionListener(new MouseMotionAdapter() {
@@ -252,6 +262,20 @@ public class MapDesigner extends JPanel   {
 		bttEndBuilding.setBounds(0, 51, 141, 35);
 		add(bttEndBuilding);
 		bttEndBuilding.setVisible(false);
+		
+		bttEliminateTree = new JMenuItem("Eliminate Tree");
+		bttEliminateTree.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				eliminate=true;
+				rec=false;
+				draw=false;
+				resetColor(4);
+				bttEliminateTree.setBackground(Color.GRAY);
+			}
+		});
+		
+		menuBar.add(bttEliminateTree);
+		
 		tree1 = new JMenuItem("Tree 1",Tree1img);
 		tree1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -265,6 +289,7 @@ public class MapDesigner extends JPanel   {
 						e1.printStackTrace();
 					}
 				}
+				eliminate=false;
 				rec=true;
 				tree=1;
 				repaint();
@@ -289,7 +314,7 @@ public class MapDesigner extends JPanel   {
 						e1.printStackTrace();
 					}
 				}
-
+				eliminate=false;
 				rec=true;
 				tree=2;
 				repaint();
@@ -312,6 +337,7 @@ public class MapDesigner extends JPanel   {
 						e1.printStackTrace();
 					}
 				}
+				eliminate=false;
 				rec=true;
 				tree=3;
 				repaint();
@@ -325,6 +351,7 @@ public class MapDesigner extends JPanel   {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				bttEndBuilding.setVisible(true);
+				eliminate=false;
 				rec=false;
 				neutralColor= building.getBackground();
 				draw=true;
@@ -532,24 +559,29 @@ public class MapDesigner extends JPanel   {
 			this.tree2.setBackground(neutralColor);
 			this.tree3.setBackground(neutralColor);
 			this.building.setBackground(neutralColor);
+			this.bttEliminateTree.setBackground(neutralColor);
+			
 		}
 		if(x==1) {
 			this.tree1.setBackground(neutralColor);
 			this.tree2.setBackground(Color.GRAY);
 			this.tree3.setBackground(neutralColor);
 			this.building.setBackground(neutralColor);
+			this.bttEliminateTree.setBackground(neutralColor);
 		}
 		if(x==2) {
 			this.tree1.setBackground(neutralColor);
 			this.tree2.setBackground(neutralColor);
 			this.tree3.setBackground(Color.GRAY);
 			this.building.setBackground(neutralColor);
+			this.bttEliminateTree.setBackground(neutralColor);
 		}
 		if(x==3) {
 			this.tree1.setBackground(neutralColor);
 			this.tree2.setBackground(neutralColor);
 			this.tree3.setBackground(neutralColor);
 			this.building.setBackground(Color.GRAY);
+			this.bttEliminateTree.setBackground(neutralColor);
 		}
 		else {
 			this.tree1.setBackground(neutralColor);
@@ -622,6 +654,20 @@ public class MapDesigner extends JPanel   {
 
 		}
 
+	}
+	private void findTree(Pair point) throws IOException {
+		for(int i=0;i<this.trees.size();i++) {
+			if(trees.get(i).getX()<=point.getX()
+					&&point.getX()<=trees.get(i).getX()+trees.get(i).getWidth()
+					&&trees.get(i).getY()<=point.getY()
+					&&point.getY()<=trees.get(i).getY()+trees.get(i).getHeight()) {
+				String target ="TreeType:"+trees.get(i).getVar()+", location: ("+(int)trees.get(i).getX()+","+(int)trees.get(i).getY()+")";
+				writer.deleteLine(target);
+				trees.remove(i);
+				repaint();
+				break;
+			}
+		}
 	}
 
 

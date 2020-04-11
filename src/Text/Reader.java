@@ -55,7 +55,7 @@ public class Reader
 				//Work With Trees
 				else if(isTree) {
 					if(index==0) {
-						trees.add(new Tree());
+						
 						
 					}
 					else if(index == 1) {

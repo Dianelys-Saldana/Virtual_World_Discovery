@@ -1,8 +1,12 @@
 package Text;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -166,6 +170,37 @@ public class Writer {
 	            is.close();
 	            os.close();
 	        }
+	}
+	public void deleteLine(String s) throws IOException {
+		File inputFile = file;
+		File tempFile = new File("Copy.txt");
+		
+		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+		String lineToRemove = s;
+		String currentLine;
+
+		while((currentLine = reader.readLine()) != null) {
+		    // trim newline when comparing with lineToRemove
+		    String trimmedLine = currentLine.trim();
+		    if(trimmedLine.equals(lineToRemove)) {
+		    	continue;
+		    }
+		    writer.write(currentLine + System.getProperty("line.separator"));
+		}
+		writer.flush();
+		this.myWriter= new FileWriter(file, false); //overwrites file
+		reader=new BufferedReader(new FileReader(tempFile));
+		while((currentLine = reader.readLine()) != null) {
+		    myWriter.write(currentLine + System.getProperty("line.separator"));
+		}
+		myWriter.flush();
+		reader.close();
+		writer.close();
+		tempFile.delete();
+	    
+	    
+		
 	}
 
 
