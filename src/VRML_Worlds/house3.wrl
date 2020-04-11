@@ -1,0 +1,111 @@
+#VRML V2.0 utf8
+WorldInfo {
+ title "house"
+ info ["This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
+ "www.mediamachines.com"]
+}
+## Vizthumbnail  Thumb_house3_wrl33353791582593626.jpg
+DEF dad_Box1 Transform {
+ translation -.04575 0 -4.53007
+ scale 8 3 1
+ children [
+  DEF Box1 Shape {
+   appearance Appearance {
+    texture ImageTexture {
+     url [
+      "Sidetexture.png"
+     ]
+    }
+    material DEF Red Material {
+     ambientIntensity 0.200
+     shininess 0.200
+     diffuseColor 1 0 0
+    }
+   }
+   geometry DEF GeoBox1 Box {
+    size 1 1 1
+   }
+  }
+ ]
+}
+DEF dad_Box2 Transform {
+ translation -.04576 0 2.47095
+ scale 8 3 1
+ children [
+  DEF Box2 Shape {
+   appearance Appearance {
+    texture ImageTexture {
+     url [
+      "Sidetexture.png"
+     ]
+    }
+    material USE Red
+   }
+   geometry DEF GeoBox2 Box {
+    size 1 1 1
+   }
+  }
+ ]
+}
+DEF dad_Box3 Transform {
+ translation 3.6149 0 -1.05244
+ scale 1 3 8
+ children [
+  DEF Box3 Shape {
+   appearance Appearance {
+    texture ImageTexture {
+     url [
+      "texture2.png"
+     ]
+    }
+    material USE Red
+   }
+   geometry DEF GeoBox3 Box {
+    size 1 1 1
+   }
+  }
+ ]
+}
+DEF dad_Box4 Transform {
+ translation -3.6149 0 -1.05244
+ scale 1 3 8
+ children [
+  DEF Box4 Shape {
+   appearance Appearance {
+    texture ImageTexture {
+     url [
+      "Sidetexture.png"
+     ]
+    }
+    material USE Red
+   }
+   geometry DEF GeoBox4 Box {
+    size 1 1 1
+   }
+  }
+ ]
+}
+DEF dad_Box8 Transform {
+ translation -.13727 -1.5 -.91516
+ scale 20 .1 20
+ children [
+  DEF Box8 Shape {
+   appearance Appearance {
+    texture ImageTexture {
+     url [
+      "clearGrassTexture.png"
+     ]
+    }
+    material DEF Green Material {
+     ambientIntensity 0.200
+     shininess 0.200
+     diffuseColor 0 0 0
+     emissiveColor .5 .5 .5
+    }
+   }
+   geometry DEF GeoBox8 Box {
+    size 1 1 1
+   }
+  }
+ ]
+}

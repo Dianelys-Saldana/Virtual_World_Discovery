@@ -406,7 +406,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		if (reply == JOptionPane.YES_OPTION) {
 			Desktop ficheroAEjecutar = Desktop.getDesktop();
 			try {
-				ficheroAEjecutar.open(new File("/Users/dianelys.saldana/Documents/Proyecto Virtual World Discovery/Fase 3/house3.wrl"));
+				ficheroAEjecutar.open(new File("src/VRML_Worlds/house3.wrl"));
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, 
 						e.getMessage(), 
