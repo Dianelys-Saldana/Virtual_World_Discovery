@@ -131,6 +131,8 @@ public class Questions {
 		}
 		return height;
 	}
+	
+	
 	/** Carlos Rodriguez 03/08/2020
 	 * Create panel to choose an answer
 	 * @return Int of the position of the  answer

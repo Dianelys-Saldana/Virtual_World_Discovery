@@ -154,6 +154,15 @@ public class MapDesigner extends JPanel   {
 					listPoints.get(listPoints.size()-1).add(new Pair(mouseX,mouseY));
 					if(listPoints.get(listPoints.size()-1).size()>1) {
 						ArrayList<Pair>point=listPoints.get(listPoints.size()-1);
+						int ans= question.wallHeight();
+						if(ans==-1) {
+							draw=false;
+							resetColor(4);
+						}
+						else {
+
+							wallHeight=ans;
+						
 						while(true) {
 							String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
 							int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
@@ -200,6 +209,7 @@ public class MapDesigner extends JPanel   {
 								break;
 							}
 						}
+					  }
 					}
 				}
 				else if(rec) {
@@ -369,16 +379,16 @@ public class MapDesigner extends JPanel   {
 
 					}
 					else{
-
-						int ans= question.wallHeight();
-						if(ans==-1) {
-							draw=false;
-							resetColor(4);
-							bttEndBuilding.setVisible(false);	
-						}
-						else {
-
-							wallHeight=ans;
+//
+//						int ans= question.wallHeight();
+//						if(ans==-1) {
+//							draw=false;
+//							resetColor(4);
+//							bttEndBuilding.setVisible(false);	
+//						}
+//						else {
+//
+//							wallHeight=ans;
 
 							while(true) {
 								String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
@@ -424,7 +434,7 @@ public class MapDesigner extends JPanel   {
 								}
 							}
 
-						}
+						//}
 					}
 				} catch (IOException e1) {
 					e1.printStackTrace();
