@@ -401,7 +401,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 	// Dianelys Saldana 04/11/2020
 	public void display3D() {
-		int reply = JOptionPane.showConfirmDialog(null, "¡Has desbloqueado exitosamente todos los edificios!"
+		int reply = JOptionPane.showConfirmDialog(null, "¡Has desbloqueado todos los edificios!"
 				+ " ¿Deseas ver el mapa en 3D?", "3D Map", JOptionPane.YES_NO_OPTION);
 		if (reply == JOptionPane.YES_OPTION) {
 			Desktop file = Desktop.getDesktop();
