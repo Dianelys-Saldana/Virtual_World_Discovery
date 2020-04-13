@@ -390,7 +390,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				ki.reset();
 			}
 
-			// HERE
+			// Dianelys Saldana 04/11/2020
 			if(buildings.get(i).getVisible() == 2 && numBuildings == 0) {
 				// JOption Pane
 				this.display3D();
@@ -399,14 +399,14 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 	}
 
-	// HERE
+	// Dianelys Saldana 04/11/2020
 	public void display3D() {
 		int reply = JOptionPane.showConfirmDialog(null, "¡Has desbloqueado exitosamente todos los edificios!"
 				+ " ¿Deseas ver el mapa en 3D?", "3D Map", JOptionPane.YES_NO_OPTION);
 		if (reply == JOptionPane.YES_OPTION) {
-			Desktop ficheroAEjecutar = Desktop.getDesktop();
+			Desktop file = Desktop.getDesktop();
 			try {
-				ficheroAEjecutar.open(new File("src/VRML_Worlds/house3.wrl"));
+				file.open(new File("src/VRML_Worlds/house3.wrl"));
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, 
 						e.getMessage(), 
@@ -414,7 +414,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 						JOptionPane.ERROR_MESSAGE);
 			}
 		} else {
-			JOptionPane.showMessageDialog(null, "GOODBYE");
+			JOptionPane.showMessageDialog(null, "Salir");
 			System.exit(0);
 		}
 	}
