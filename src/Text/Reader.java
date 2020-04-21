@@ -14,14 +14,13 @@ import Util.Pair;
 //Carlos Rodriguez 3/12/2020
 public class Reader 
 { 
-	ArrayList<String> questions = new ArrayList<>();
-	ClassLoader cL = ClassLoader.getSystemClassLoader();
-	ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>();
-	ArrayList<Building> builds = new ArrayList<>();
-	ArrayList<Tree>trees= new ArrayList<>();
-	ArrayList<Pair>points= new ArrayList<>();
-	private String questionsFile;
-	String background = "Default.png";
+	ArrayList<String> questions = new ArrayList<>();//Lists of Questions
+	ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>();// Lists of Answers
+	ArrayList<Building> builds = new ArrayList<>();//Lists of Buildings
+	ArrayList<Tree>trees= new ArrayList<>();// Lists of Trees
+	ArrayList<Pair>points= new ArrayList<>();// Lists of points 
+	private String questionsFile;// reference of the question file
+	String background = "Default.png";//Background Choosed
 
 	/** Carlos Rodriguez 03/27/2020
 	 * Method to scan the world on a file 
@@ -31,19 +30,19 @@ public class Reader
 	public void scan(String s) throws IOException {
 
 		@SuppressWarnings("resource")
-		BufferedReader file = new BufferedReader(new FileReader("src/World/"+s+".txt"));
+		BufferedReader file = new BufferedReader(new FileReader("src/World/"+s+".txt"));//file to read
 		String line = null;
 		Scanner scanner = null;
-		int index = 0;
-		boolean isTree=false;
-		boolean qF=false;
-		int pos = 0;
-		int xPoint=0;
+		int index = 0;//used to move horizontally 
+		boolean isTree=false;// used for know if the target is a tree
+		boolean qF=false;// used for know if the target is a tree
+		int pos = 0;// used to move vertically
+		int xPoint=0;// reference of the x position form a point
 		Tree tempTree=new Tree();
 		while ((line = file.readLine()) != null) {
 
 			scanner = new Scanner(line);
-			scanner.useDelimiter(",|:"); 
+			scanner.useDelimiter(",|:"); //delimiter used
 			while (scanner.hasNext()) {
 				String data = scanner.next();
 				if(data.equals("QuestionsFile")) {
