@@ -47,32 +47,30 @@ import javax.swing.JButton;
 
 //Created by Carlos Rodriguez 03/06/2020
 public class PlayerInterface extends JPanel implements ActionListener  {
-	private Reader br= new Reader();
-	private ArrayList<Building> buildings = new ArrayList<>() ;
-	private ArrayList<Tree> trees = new ArrayList<>() ;
-	private boolean walking=false;
-	private Questions questions = new Questions(this,null);
-	private int walkingTimer = 10;
-	private int numBuildings=0 ;
-	private int sel;
-	private KeyInputs ki = new KeyInputs();
-	int direction = 0;
-	private GraphicsManager gm = new GraphicsManager();
-	private Player player ;
-	private QuestionsReader qr= new QuestionsReader();
-	private Color bColor = new Color (116, 174, 109);
-	private String worldSelected;
-	private int sele=0;
-	private boolean avatar1 = false;
-	private boolean avatar2 = false;
-	private int worldSize ;
-	Timer t = new Timer(5,this);
-	FrameManager f;
-	private BufferedImage background;
+	private Reader br= new Reader(); //instance of Reader Class
+	private ArrayList<Building> buildings = new ArrayList<>() ;//list of buildings on the world
+	private ArrayList<Tree> trees = new ArrayList<>() ;// list of trees on the world
+	private boolean walking=false;// parameter to know if the player is walking
+	private Questions questions = new Questions(this,null);//instance of Questions Class
+	private int walkingTimer = 10;//timer used for change image
+	private int numBuildings=0 ;// counter of buildings
+	private int sel;//selected world
+	private KeyInputs ki = new KeyInputs();//instance of KeyInputs Class
+	int direction = 0;// used for know what direction the avatar is moving
+	private GraphicsManager gm = new GraphicsManager();//instance of GraphicManager Class
+	private Player player ;//instance of Player Class
+	private QuestionsReader qr= new QuestionsReader();//instance of QuestionReader Class
+	private String worldSelected;//name of the world selected
+	private int sele=0;// used for create world
+	private boolean avatar1 = false;// used for know what avatar is selected
+	private boolean avatar2 = false;// used for know what avatar is selected
+	private int worldSize ;//length of the folder of worlds
+	Timer t = new Timer(5,this);// make the ticks on this class
+	FrameManager f;//instance of FrameManager Class
+	private BufferedImage background;//background selected
 
 	public PlayerInterface(FrameManager f) {
-		t.start();
-		//worldSize= new File(getClass().getResource("../World").getFile()).listFiles().length;
+		t.start();//tick start to running
 		worldSize= new File("src/World").listFiles().length;
 		this.f = f;
 		initialize();
@@ -90,8 +88,6 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		});
 		back.setBounds(847, 72, 141, 35);
 		add(back);
-
-		//		worldScan();
 
 		player = new Player(0,620,f.getWidth(),f.getHeight());
 
@@ -116,6 +112,8 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 		
 		Graphics2D g2= (Graphics2D)g;
+		//Used for draw the buildings 
+		//Carlos Rodriguez 03/06/2020
 		for(int i=0;i<buildings.size();i++) {
 			if(buildings.get(i).getVisible()==2) {
 				g2.setColor(Color.RED);
@@ -133,13 +131,15 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				}
 			}
 		}
+		//Used for draw the trees
+		//Carlos Rodriguez 03/06/2020
 		for(int i=0;i<trees.size();i++) {
 			int var=trees.get(i).getVar();
 			if(var==1)this.gm.drawTree1(trees.get(i), g2, this);
 			else if(var==2)this.gm.drawTree2(trees.get(i), g2, this);
 			else if(var==3)this.gm.drawTree3(trees.get(i), g2, this);
 		}
-
+		//Used for make the avatar 
 		try {
 			if(avatar1) {
 				drawPlayer(g2,this);

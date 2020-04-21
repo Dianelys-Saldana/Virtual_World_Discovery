@@ -53,41 +53,39 @@ import java.awt.Font;
 
 
 public class MapDesigner extends JPanel   {
-	private Reader br= new Reader();
-	private Questions questions = new Questions(this,null);
-	private int sel;
-	private JFrame frame;
-	private ArrayList<Tree> trees=new ArrayList<>();
-	private boolean rec=false;
-	private boolean draw= false;
-	private boolean nuevo=false;
-	private boolean eliminate=false;
+	private Reader br= new Reader(); // instance of the reader class 
+	private int sel;// selected world index 
+	private JFrame frame; // Jframe used in this class
+	private ArrayList<Tree> trees=new ArrayList<>(); // list of trees on the map 
+	private boolean rec=false; // parameter to make rectangles on the screen when trees are going to be added 
+	private boolean draw= false;//parameter to make circles on the screen when buildings are going to be added 
+	private boolean nuevo=false; //true if new map is selected
+	private boolean eliminate=false; // is true if you are going to eliminate a tree 
 	private GraphicsManager gm = new GraphicsManager();
-	private int mouseX;
-	private int mouseY;
-	private Color neutralColor;
-	private int tree ;
-	private JTextPane xCoor = new JTextPane();
-	private JTextPane yCoor = new JTextPane();
-	private JMenuItem tree1;
-	private JMenuItem tree2;
-	private JMenuItem tree3;
-	private JMenuItem building;
-	private JMenuItem home;
-	private JMenuItem bttEliminateTree;
-	private String[] backgrounds = {"Background", "Original", "Beach"};
-	private BufferedImage background;
-	private ArrayList<JMenuItem> items= new ArrayList<>();
-	private Questions question = new Questions(this,null);
-	private FrameManager f;
-	private Writer writer ;
-	private int wallHeight;
-	private String buildingName;
-	private ArrayList<ArrayList<Pair>>listPoints= new ArrayList<>();
-	private int wallIndex=1;
-	private int worldIndex= 1;
-	private int sele=0;
-	private String worldSelected="";
+	private int mouseX;// position on X of the mouse 
+	private int mouseY;// position on Y of the mouse 
+	private Color neutralColor; // neutral color of the buttons 
+	private int tree ; // posible variations of the trees 
+	private JTextPane xCoor = new JTextPane();//coordinates showing 
+	private JTextPane yCoor = new JTextPane();//coordinates showing 
+	private JMenuItem tree1; // tree button 
+	private JMenuItem tree2;// tree button 
+	private JMenuItem tree3;// tree button 
+	private JMenuItem building;// building button 
+	private JMenuItem home;// home button 
+	private JMenuItem bttEliminateTree;// Eliminate tree button 
+	private String[] backgrounds = {"Background", "Original", "Beach"};// selections of backgrounds
+	private BufferedImage background;//selected background
+	private ArrayList<JMenuItem> items= new ArrayList<>();//list of buttons 
+	private Questions question = new Questions(this,null);// instance of the Questions class 
+	private FrameManager f; // instance of the FrameManagerclass 
+	private Writer writer ;// instance of the Writer class 
+	private int wallHeight;// height inputed of wall
+	private ArrayList<ArrayList<Pair>>listPoints= new ArrayList<>(); //list of points of all the buildings 
+	private int wallIndex=1;// index to know what wall is creating 
+	private int worldIndex= 1;// parameter for read all the worlds 
+	private int sele=0;// parameter to read the selected world 
+	private String worldSelected="";// name of the selected world 
 
 	/**
 	 * Create the application.
@@ -96,6 +94,7 @@ public class MapDesigner extends JPanel   {
 		this.f=f;
 		File folder = new File("src/World");
 		File[] listOfFiles = folder.listFiles();
+		//Used for read all the worlds in the folder
 		for (int i = 0; i < listOfFiles.length; i++) {
 			if (listOfFiles[i].isFile()) {
 				String sub= listOfFiles[i].getName().replace("world", "");
@@ -116,6 +115,7 @@ public class MapDesigner extends JPanel   {
 		items.add(building);
 		items.add(home);
 		this.f = f;
+		
 		f.addWindowListener(new java.awt.event.WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -150,6 +150,8 @@ public class MapDesigner extends JPanel   {
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				//Used when a building's walls  is in process of creation recording all the data 
+				//Carlos Rodriguez 4/10/2020
 				if(draw) {
 					listPoints.get(listPoints.size()-1).add(new Pair(mouseX,mouseY));
 					if(listPoints.get(listPoints.size()-1).size()>1) {
@@ -162,56 +164,57 @@ public class MapDesigner extends JPanel   {
 						else {
 
 							wallHeight=ans;
-						
-						while(true) {
-							String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
-							int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
-							if(imageName==JOptionPane.CLOSED_OPTION) {
-								JOptionPane.showMessageDialog(f, "Favor de escoger una imagen");
-								continue;
-							}
-							else if(imageName==imagesNames.length-1) {
-								JFileChooser fileChooser = new JFileChooser();
 
-								int option = fileChooser.showOpenDialog(frame);
-								if(option == JFileChooser.APPROVE_OPTION){
-									File file = fileChooser.getSelectedFile();
-									String extension= file.getName().substring(file.getName().lastIndexOf(".") + 1);
-									if(!extension.equals("png")) {
+							while(true) {
+								String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
+								int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
+								if(imageName==JOptionPane.CLOSED_OPTION) {
+									JOptionPane.showMessageDialog(f, "Favor de escoger una imagen");
+									continue;
+								}
+								else if(imageName==imagesNames.length-1) {
+									JFileChooser fileChooser = new JFileChooser();
+
+									int option = fileChooser.showOpenDialog(frame);
+									if(option == JFileChooser.APPROVE_OPTION){
+										File file = fileChooser.getSelectedFile();
+										String extension= file.getName().substring(file.getName().lastIndexOf(".") + 1);
+										if(!extension.equals("png")) {
+											JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
+											continue;
+										}
+
+										try {
+											writer.copy(file);
+											writer.writeWall(wallIndex++, point.get(point.size()-2), point.get(point.size()-1), wallHeight,file.getName());
+											break;
+										} catch (IOException e1) {
+											e1.printStackTrace();
+										}
+									}
+									else {
 										JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
 										continue;
+
 									}
 
-									try {
-										writer.copy(file);
-										writer.writeWall(wallIndex++, point.get(point.size()-2), point.get(point.size()-1), wallHeight,file.getName());
-										break;
-									} catch (IOException e1) {
-										// TODO Auto-generated catch block
-										e1.printStackTrace();
-									}
+
 								}
 								else {
-									JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
-									continue;
+									try {
 
+										writer.writeWall(wallIndex++, point.get(point.size()-2), point.get(point.size()-1), wallHeight,imagesNames[imageName]);
+									} catch (IOException e1) {
+
+										e1.printStackTrace();
+									}
+									break;
 								}
-
-
-							}
-							else {
-								try {
-									writer.writeWall(wallIndex++, point.get(point.size()-2), point.get(point.size()-1), wallHeight,imagesNames[imageName]);
-								} catch (IOException e1) {
-									// TODO Auto-generated catch block
-									e1.printStackTrace();
-								}
-								break;
 							}
 						}
-					  }
 					}
 				}
+				//used for create trees  
 				else if(rec) {
 					trees.add(new Tree(mouseX,mouseY,tree));
 					try {
@@ -220,11 +223,12 @@ public class MapDesigner extends JPanel   {
 						e1.printStackTrace();
 					}
 				}
+				//used for eliminate trees
 				else if(eliminate){
 					try {
 						findTree(new Pair(mouseX,mouseY));
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 				}
@@ -239,6 +243,7 @@ public class MapDesigner extends JPanel   {
 		});
 		this.setFocusable(true);
 		setLayout(null);
+		//Trees images 
 		ImageIcon Tree1img= new ImageIcon(getClass().getResource("../Image/Tree1.png"));
 		ImageIcon Tree2img= new ImageIcon(getClass().getResource("../Image/Tree2.png"));
 		ImageIcon Tree3img= new ImageIcon(getClass().getResource("../Image/Tree3.png"));
@@ -252,14 +257,14 @@ public class MapDesigner extends JPanel   {
 
 		yCoor.setBounds(921, 594, 45, 32);
 		add(yCoor);
-
+		//end Button creation 
 		JButton bttEndBuilding = new JButton("End Building");
 		bttEndBuilding.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					writer.end();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 				rec=false;
@@ -272,7 +277,7 @@ public class MapDesigner extends JPanel   {
 		bttEndBuilding.setBounds(0, 51, 141, 35);
 		add(bttEndBuilding);
 		bttEndBuilding.setVisible(false);
-		
+		//Eliminate Tree Button creation 
 		bttEliminateTree = new JMenuItem("Eliminate Tree");
 		bttEliminateTree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -283,10 +288,13 @@ public class MapDesigner extends JPanel   {
 				bttEliminateTree.setBackground(Color.GRAY);
 			}
 		});
-		
+
 		menuBar.add(bttEliminateTree);
 		
+		
+		//Tree Button creation
 		tree1 = new JMenuItem("Tree 1",Tree1img);
+		 
 		tree1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -295,7 +303,7 @@ public class MapDesigner extends JPanel   {
 					try {
 						writer.end();
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 				}
@@ -309,7 +317,7 @@ public class MapDesigner extends JPanel   {
 		});
 
 		menuBar.add(tree1);
-
+		//Tree Button creation 
 		tree2 = new JMenuItem("Tree 2",Tree2img);
 		menuBar.add(tree2);
 		tree2.addMouseListener(new MouseAdapter() {
@@ -332,7 +340,7 @@ public class MapDesigner extends JPanel   {
 				tree2.setBackground(Color.GRAY);
 			}
 		});
-
+		//Tree Button creation 
 		tree3 = new JMenuItem("Tree 3",Tree3img);
 		menuBar.add(tree3);
 		tree3.addMouseListener(new MouseAdapter() {
@@ -355,7 +363,7 @@ public class MapDesigner extends JPanel   {
 				tree3.setBackground(Color.GRAY);
 			}
 		});
-
+		//Building Button creation 
 		building = new JMenuItem("Building");
 		building.addMouseListener(new MouseAdapter() {
 			@Override
@@ -370,6 +378,8 @@ public class MapDesigner extends JPanel   {
 				resetColor(3);
 
 				repaint();
+				//used for save all the data of the buildings 
+				//Carlos Rodriguez 4/10/2020
 				try {
 					String response =question.questionsString("Cual sera el nombre de esta construccion?");
 					if(response==null || response.equals("")) {
@@ -379,60 +389,51 @@ public class MapDesigner extends JPanel   {
 
 					}
 					else{
-//
-//						int ans= question.wallHeight();
-//						if(ans==-1) {
-//							draw=false;
-//							resetColor(4);
-//							bttEndBuilding.setVisible(false);	
-//						}
-//						else {
-//
-//							wallHeight=ans;
+						
+						
+						while(true) {
+							String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
+							int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
+							if(imageName==JOptionPane.CLOSED_OPTION) {
+								draw=false;
+								resetColor(4);
+								bttEndBuilding.setVisible(false);
+								break;
+							}
+							else if(imageName==imagesNames.length-1) {
+								JFileChooser fileChooser = new JFileChooser();
 
-							while(true) {
-								String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
-								int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
-								if(imageName==JOptionPane.CLOSED_OPTION) {
-									draw=false;
-									resetColor(4);
-									bttEndBuilding.setVisible(false);
-									break;
-								}
-								else if(imageName==imagesNames.length-1) {
-									JFileChooser fileChooser = new JFileChooser();
-
-									int option = fileChooser.showOpenDialog(frame);
-									if(option == JFileChooser.APPROVE_OPTION){
-										File file = fileChooser.getSelectedFile();
-										String extension= file.getName().substring(file.getName().lastIndexOf(".") + 1);
-										if(!extension.equals("png")) {
-											JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
-											continue;
-										}
-
-										try {
-											writer.copy(file);
-											writer.writeBuilding(response,file.getName());
-											break;
-										} catch (IOException e1) {
-											// TODO Auto-generated catch block
-											e1.printStackTrace();
-										}
-									}
-									else {
+								int option = fileChooser.showOpenDialog(frame);
+								if(option == JFileChooser.APPROVE_OPTION){
+									File file = fileChooser.getSelectedFile();
+									String extension= file.getName().substring(file.getName().lastIndexOf(".") + 1);
+									if(!extension.equals("png")) {
 										JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
 										continue;
-
 									}
 
-
+									try {
+										writer.copy(file);
+										writer.writeBuilding(response,file.getName());
+										break;
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
 								}
 								else {
-									writer.writeBuilding(response,imagesNames[imageName]);
-									break;
+									JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
+									continue;
+
 								}
+
+
 							}
+							else {
+								writer.writeBuilding(response,imagesNames[imageName]);
+								break;
+							}
+						}
 
 						//}
 					}
@@ -455,7 +456,7 @@ public class MapDesigner extends JPanel   {
 					try {
 						writer.end();
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
+
 						e1.printStackTrace();
 					}
 				}
@@ -570,7 +571,7 @@ public class MapDesigner extends JPanel   {
 			this.tree3.setBackground(neutralColor);
 			this.building.setBackground(neutralColor);
 			this.bttEliminateTree.setBackground(neutralColor);
-			
+
 		}
 		if(x==1) {
 			this.tree1.setBackground(neutralColor);
@@ -600,15 +601,16 @@ public class MapDesigner extends JPanel   {
 			this.building.setBackground(neutralColor);
 		}
 	}
+	/**Carlos Rodriguez 4/10/2020
+	 * Make the option to use any world
+	 */
 	public void worldSelect() {
-		int lastIndex=0;
+		int lastIndex=0;//last world in folder 
 		if(sele==0) {
 			ArrayList<String> arr= new ArrayList<>();
-			//			for(int i=1;i<this.worldSize+1;i++) {
-			//				arr.add("world"+i);
-			//			}
-			File folder = new File("src/World");
-			File[] listOfFiles = folder.listFiles();
+
+			File folder = new File("src/World");// folder of worlds 
+			File[] listOfFiles = folder.listFiles();//list of worlds
 			for (int i = 0; i < listOfFiles.length; i++) {
 				if (listOfFiles[i].isFile()) {
 					String sub= listOfFiles[i].getName().replace(".txt", "");
@@ -618,15 +620,15 @@ public class MapDesigner extends JPanel   {
 			}
 			arr.add("New World");
 			lastIndex=arr.size()-1;
-			sel=questions.arraySelection(arr.toArray(), "Que mundo desea utilizar");
+			sel=question.arraySelection(arr.toArray(), "Que mundo desea utilizar");//selected world
 
-			if(sel==JOptionPane.CLOSED_OPTION) {
+			if(sel==JOptionPane.CLOSED_OPTION) {//closed option case 
 				System.out.println("entre");
 				f.menu();
 				return;
 			}
 			worldSelected=arr.get(sel);
-			if(sel==lastIndex) {
+			if(sel==lastIndex) {// if new world is selected
 				writer= new Writer("world"+worldIndex);
 				nuevo=true;
 				try {
@@ -649,6 +651,9 @@ public class MapDesigner extends JPanel   {
 		else return;
 
 	}
+	/**Carlos Rodriguez 4/10/2020
+	 * Used for scan all the buildings and trees of the world
+	 */
 	private void scan() {
 
 		try {
@@ -665,6 +670,9 @@ public class MapDesigner extends JPanel   {
 		}
 
 	}
+	/**Carlos Rodriguez 4/10/2020
+	 * Used for elimination of trees , give the tree in the position touched
+	 */
 	private void findTree(Pair point) throws IOException {
 		for(int i=0;i<this.trees.size();i++) {
 			if(trees.get(i).getX()<=point.getX()

@@ -17,6 +17,7 @@ import Entities.Tree;
  * Carlos Rodriguez 03/06/2020
  */
 public class GraphicsManager {
+	//All the images in the project
 	private BufferedImage avatarL1Img;
 	private BufferedImage avatarL2Img;
 	private BufferedImage avatarR1Img;

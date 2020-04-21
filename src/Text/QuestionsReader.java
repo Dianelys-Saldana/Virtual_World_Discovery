@@ -20,23 +20,22 @@ public class QuestionsReader
 
 
 	/** Carlos Rodriguez 03/13/2020
-	 * Method to scan the answer and questions on the file
+	 * Method to scan the answer and questions on the file of posible questions
 	 */
 	public void scan() throws IOException {
 
 		@SuppressWarnings("resource")
-		BufferedReader file = new BufferedReader(new FileReader(cL.getResource("Text/Questions.txt").getFile()));
+		BufferedReader file = new BufferedReader(new FileReader(cL.getResource("Text/Questions.txt").getFile()));//file with the data
 		String line = null;
-		Scanner scanner = null;
-		int index = 0;
-		int ans=0;
+		Scanner scanner = null;//instance of Scanner class
+		int index = 0;//index of data in one line 
+		int ans=0;// index of answers
 
-		while ((line = file.readLine()) != null) {
+		while ((line = file.readLine()) != null) {//stop when is nothing more on the file
 			scanner = new Scanner(line);
 			answer.add(new ArrayList<String>());
-			// we just need to use \\Z as delimiter 
-			scanner.useDelimiter(","); 
-			while (scanner.hasNext()) {
+			scanner.useDelimiter(","); // when the scanner stop in a single line
+			while (scanner.hasNext()) {// used to read a single line
 				String data = scanner.next();
 				if (index == 0)
 					questions.add(data);
@@ -62,8 +61,6 @@ public class QuestionsReader
 		String line = null;
 		Scanner scanner = null;
 		int index = 0;
-		int ans=0;
-		boolean empty=true;
 		int buildingIndex=-1;
 		while ((line = file.readLine()) != null) {
 			scanner = new Scanner(line);
@@ -97,7 +94,7 @@ public class QuestionsReader
 
 				else {
 					if(index==1) {
-						empty=false;
+						
 						arr.get(buildingIndex).getAnswer().get(arr.get(buildingIndex).getAnswer().size()-1).add(data);
 					}
 					index++;

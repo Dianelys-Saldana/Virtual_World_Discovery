@@ -17,11 +17,11 @@ import Entities.Building;
  ** Class for make the questions on the PlayerInterface
  */
 public class Questions {
-	private Component c;
-	private ArrayList<String> questions;
-	private List<String> answers;
-	private int correctnum;
-	private Building build;
+	private Component c;// where is going to be showed 
+	private ArrayList<String> questions;//questions of the buildings
+	private List<String> answers;// answers of questions
+	private int correctnum;// correct answer index 
+	private Building build;//target building
 	
 	public Questions(Component C, Building build)  {
 		this.c=C;

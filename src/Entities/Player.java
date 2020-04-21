@@ -13,13 +13,13 @@ import Main.Launch;
 public class Player extends Base {
 	private static final long serialVersionUID = 1L;
 	
-	public static final int DEFAULT_SPEED = 2;
-	public static final int WIDTH = 42;
-	public static final int HEIGHT = 45;
-	private int barWidth=60;
-	private int rightLimit=20;
-	private int maxX;
-	private int maxY;
+	public static final int DEFAULT_SPEED = 2; // the speed of the avatar
+	public static final int WIDTH = 42; // the width of the avatar 
+	public static final int HEIGHT = 45;// the height of the avatar
+	private int barWidth=60; // the standard width of the bar on the game 
+	private int rightLimit=20; // the standard limit to the right side 
+	private int maxX; // the initial position in x plus the width 
+	private int maxY; // the initial position in y plus the height
 	
 	public Player(int xPos, int yPos,int maxX,int maxY){
 		super(xPos, yPos, WIDTH, HEIGHT);

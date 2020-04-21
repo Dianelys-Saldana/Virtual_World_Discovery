@@ -10,15 +10,15 @@ import Util.Pair;
 ** Here we manage the building entities
 */
 public class Building  {
-	private int visible;
-	private ArrayList<Pair> point;
-	private ArrayList<Line2D> lines= new ArrayList<>();
-	private ArrayList<String> questions= new ArrayList<>();
-	private int height;
-	private ArrayList<String> wallsImage =new ArrayList<>();
-	private ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>();
-	private String image;
-	private String name;
+	private int visible; // variable to decide if the building is visible, 0 - not founded, 1 - founded but not question answer, 2- full visible
+	private ArrayList<Pair> point; //list of points of buildings
+	private ArrayList<Line2D> lines= new ArrayList<>();//list of lines of buildings
+	private ArrayList<String> questions= new ArrayList<>(); // questions of the buildings
+	private int height;// height of the building
+	private ArrayList<String> wallsImage =new ArrayList<>(); // image of the walls
+	private ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>(); // list of answers of the buildings
+	private String image;// image of the building
+	private String name; // name of building
 	
 	
 

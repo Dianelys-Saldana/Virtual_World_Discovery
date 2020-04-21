@@ -154,6 +154,8 @@ public class Writer {
 		myWriter.flush();
 		started = true;
 	}
+	//Used for copy one file to other
+	//Carlos Rodriguez 04/10/2020
 	public void copy(File input) throws IOException {
 		  InputStream is = null;
 	      OutputStream os = null;
@@ -171,6 +173,8 @@ public class Writer {
 	            os.close();
 	        }
 	}
+	//Used for delete lines from one file
+	//Carlos Rodriguez 04/10/2020
 	public void deleteLine(String s) throws IOException {
 		File inputFile = file;
 		File tempFile = new File("Copy.txt");
