@@ -117,18 +117,10 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		for(int i=0;i<buildings.size();i++) {
 			if(buildings.get(i).getVisible()==2) {
 				g2.setColor(Color.RED);
-				BufferedImage wall=null;
 				//this.gm.drawHouse(buildings.get(i), g2, this);
 				for(int j=0;j<buildings.get(i).getLines().size();j++) {
-					try {
-						System.out.println(buildings.get(i).getLines().size());
-						wall=ImageIO.read(getClass().getResource("../Image/"+buildings.get(i).getWallsImage().get(j)));
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-					g2.drawImage(wall, (int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1() ,(int)buildings.get(i).getLines().get(j).getX2() ,(int) buildings.get(i).getLines().get(j).getY2(),this);
+					g2.drawLine((int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1(),
+							(int)buildings.get(i).getLines().get(j).getX2(),(int) buildings.get(i).getLines().get(j).getY2());
 				}
 				g2.setColor(Color.BLACK);
 			}
@@ -308,17 +300,14 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		for(int i=0;i<br.getBuildings().size();i++) {
 			if(br.getBuildings().get(i).getPoint().size()<2)continue;
 			Building build =  new Building(br.getBuildings().get(i).getPoint());
-			build.setWallsImage(br.getBuildings().get(i).getWallsImage());
+
 			build.setAnswer(br.getBuildings().get(i).getAnswer());
 			build.setQuestions(br.getBuildings().get(i).getQuestions());
 			build.createLine();
 			buildings.add(build);
-			
-			System.out.println(buildings.get(i).getLines().size());
 		}
 		if(buildings.size()>0) {
 			try {
-			
 			qr.worldScan("world"+sel, buildings);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
