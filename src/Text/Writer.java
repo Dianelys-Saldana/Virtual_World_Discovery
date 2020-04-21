@@ -35,7 +35,7 @@ public class Writer {
 		try {
 			questionReader.scan();
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+			 
 			e1.printStackTrace();
 		}
 		file = new File("src/World/"+str+".txt");
@@ -154,7 +154,7 @@ public class Writer {
 		myWriter.flush();
 		started = true;
 	}
-	//Used for copy one file to other
+	//Used for copy one file to other, create a new copy
 	//Carlos Rodriguez 04/10/2020
 	public void copy(File input) throws IOException {
 		  InputStream is = null;
@@ -206,6 +206,98 @@ public class Writer {
 	    
 		
 	}
+	//Used for delete many lines on a File
+	//Carlos Rodriguez 4/21/2020
+	public void deleteLinesFromFile(String s) throws IOException {
+		File inputFile = file;
+		File tempFile = new File("Copy.txt");
+		boolean found =false;
+		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+		String lineToRemove = s;
+		String currentLine;
+
+		while((currentLine = reader.readLine()) != null) {
+		    // trim newline when comparing with lineToRemove
+		    String trimmedLine = currentLine.trim();
+		    if(trimmedLine.equals(lineToRemove)) {
+		    	found=true;
+		    }
+		    else if(found) {
+		    	if(trimmedLine.equals("end"))found= false;
+		    	continue;
+		    }
+		    else writer.write(currentLine + System.getProperty("line.separator"));
+		}
+		writer.flush();
+		this.myWriter= new FileWriter(file, false); //overwrites file
+		reader=new BufferedReader(new FileReader(tempFile));
+		while((currentLine = reader.readLine()) != null) {
+		    myWriter.write(currentLine + System.getProperty("line.separator"));
+		}
+		myWriter.flush();
+		reader.close();
+		writer.close();
+		tempFile.delete();
+		
+		
+	}
+	
+	//Used for delete many lines on a Question File
+	//Carlos Rodriguez 4/21/2020
+	public void deleteLinesFromQuestionFile(String s) throws IOException {
+		File inputFile = questionFile;
+		File tempFile = new File("Copy.txt");
+		boolean found =false;
+		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+		String lineToRemove = s;
+		String currentLine;
+
+		while((currentLine = reader.readLine()) != null) {
+		    // trim newline when comparing with lineToRemove
+		    String trimmedLine = currentLine.trim();
+		    if(trimmedLine.equals(lineToRemove)) {
+		    	found=true;
+		    }
+		    else if(found) {
+		    	if(trimmedLine.equals(""))found= false;
+		    	continue;
+		    }
+		    else writer.write(currentLine + System.getProperty("line.separator"));
+		}
+		writer.flush();
+		this.questionWriter= new FileWriter(questionFile, false); //overwrites file
+		reader=new BufferedReader(new FileReader(tempFile));
+		while((currentLine = reader.readLine()) != null) {
+		    questionWriter.write(currentLine + System.getProperty("line.separator"));
+		}
+		questionWriter.flush();
+		reader.close();
+		writer.close();
+		tempFile.delete();
+		
+		
+	}
+	//Used for search if a line exist in a file
+	//Carlos Rodriguez 4/21/2020
+	public boolean lineExist(String s) throws IOException {
+		File inputFile = file;
+		
+		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+		String lineToSearch = s;
+		String currentLine;
+
+		while((currentLine = reader.readLine()) != null) {
+		    // trim newline when comparing with lineToRemove
+		    String trimmedLine = currentLine.trim();
+		    if(trimmedLine.equals(lineToSearch)) return true;
+		    
+		}
+		return false;
+		
+	}
+	
 
 
 }

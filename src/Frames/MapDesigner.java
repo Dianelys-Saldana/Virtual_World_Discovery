@@ -74,6 +74,7 @@ public class MapDesigner extends JPanel   {
 	private JMenuItem building;// building button 
 	private JMenuItem home;// home button 
 	private JMenuItem bttEliminateTree;// Eliminate tree button 
+	private JMenuItem bttEliminateBuilding;// Eliminate tree button 
 	private String[] backgrounds = {"Background", "Original", "Beach"};// selections of backgrounds
 	private BufferedImage background;//selected background
 	private ArrayList<JMenuItem> items= new ArrayList<>();//list of buttons 
@@ -277,6 +278,9 @@ public class MapDesigner extends JPanel   {
 		bttEndBuilding.setBounds(0, 51, 141, 35);
 		add(bttEndBuilding);
 		bttEndBuilding.setVisible(false);
+
+		
+
 		//Eliminate Tree Button creation 
 		bttEliminateTree = new JMenuItem("Eliminate Tree");
 		bttEliminateTree.addActionListener(new ActionListener() {
@@ -291,7 +295,29 @@ public class MapDesigner extends JPanel   {
 
 		menuBar.add(bttEliminateTree);
 		
-		
+		//Eliminate Building Button
+		bttEliminateBuilding = new JMenuItem("Eliminate Building");
+		bttEliminateBuilding.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String buildingName = question.questionsString("Cual es el nombre del edificio que desea eliminar ");
+				try {
+					if(findBuilding(buildingName))JOptionPane.showMessageDialog(f, "Construccion eliminada");
+					else JOptionPane.showMessageDialog(f, "El nombre de este edificio no aparece en los archivos ");
+					
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}		
+				eliminate=true;
+				rec=false;
+				draw=false;
+				resetColor(5);
+				
+			}
+		});
+
+		menuBar.add(bttEliminateBuilding);
 		//Tree Button creation
 		tree1 = new JMenuItem("Tree 1",Tree1img);
 		 
@@ -686,6 +712,12 @@ public class MapDesigner extends JPanel   {
 				break;
 			}
 		}
+	}
+	private boolean findBuilding(String s) throws IOException{
+		if(!writer.lineExist("BuildingName: "+s))return false;
+		writer.deleteLinesFromFile("BuildingName: "+s);
+		writer.deleteLinesFromQuestionFile("Building: "+s);
+		return true;
 	}
 
 
