@@ -12,9 +12,10 @@ BuildingImage: Casa.png
 Wall1: startsAt: (241,108), endsAt: (332,185), height:2, texture image:Casa.png
 end
 
-BuildingName: 3
-BuildingImage: Casa.png
-Wall1: startsAt: (643,295), endsAt: (666,384), height:3, texture image:Casa.png
-end
+
+
+TreeType:2, location: (318,365)
+
+
 
 QuestionsFile: world1Questions.txt

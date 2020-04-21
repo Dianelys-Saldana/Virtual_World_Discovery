@@ -155,43 +155,6 @@ Wrong:  Islandia
 
 
 
-Building: 3
-Question: ¿Con qué se fabricaba el pergamino?
-Right:  Piel de animales
-Wrong:  Arcilla
-Wrong:  Arbol de Alamo
-Wrong:  Cera
-Question: ¿Quién escribió “Hamlet”?
-Right:  William Shakespeare
-Wrong:  Homero
-Wrong:  Miguel de Cervantes
-Wrong:  Neruda
-Question: ¿Cuál es el país más grande del mundo?
-Right:  Rusia
-Wrong:  Groenlandia
-Wrong:  India
-Wrong:  Estados Unidos
-Question: ¿En qué lugar del cuerpo se produce la insulina?
-Right:  Páncreas
-Wrong:  Hígado
-Wrong:  Apéndice
-Wrong:  Estómago
-Question: ¿Cuál fue el primer metal que empleó el hombre?
-Right:  Cobre
-Wrong:  Oro
-Wrong:  Hierro
-Wrong:  Bronce
-Question: ¿Qué cantidad de huesos en el cuerpo humano?
-Right:  206
-Wrong:  300
-Wrong:  210
-Wrong:  105
-Question: ¿Cuál es tercer planeta en el sistema solar?
-Right:  La Tierra
-Wrong:  Saturno
-Wrong:  Júpiter
-Wrong:  Venus
-
 
 Building: 4
 Question: ¿Quién escribió “Hamlet”?
@@ -229,3 +192,5 @@ Right:  Adolf Hitler
 Wrong:  Iósif Stalin
 Wrong:  Isoroku Yamamoto
 Wrong:  Benito Mussolini
+
+

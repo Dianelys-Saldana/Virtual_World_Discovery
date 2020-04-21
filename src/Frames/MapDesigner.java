@@ -124,7 +124,7 @@ public class MapDesigner extends JPanel   {
 		items.add(building);
 		items.add(home);
 		this.f = f;
-		
+
 		f.addWindowListener(new java.awt.event.WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
@@ -136,7 +136,7 @@ public class MapDesigner extends JPanel   {
 
 						e.printStackTrace();
 					}
-				
+
 				try {
 					writer.questionFile();
 				} catch (IOException e) {
@@ -182,7 +182,7 @@ public class MapDesigner extends JPanel   {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							}
-							
+
 							return;
 						}
 						else {
@@ -302,7 +302,7 @@ public class MapDesigner extends JPanel   {
 		add(bttEndBuilding);
 		bttEndBuilding.setVisible(false);
 
-		
+
 
 		//Eliminate Tree Button creation 
 		bttEliminateTree = new JMenuItem("Eliminate Tree");
@@ -318,7 +318,7 @@ public class MapDesigner extends JPanel   {
 		});
 
 		menuBar.add(bttEliminateTree);
-		
+
 		//Eliminate Building Button
 		bttEliminateBuilding = new JMenuItem("Eliminate Building");
 		bttEliminateBuilding.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
@@ -327,24 +327,31 @@ public class MapDesigner extends JPanel   {
 				String buildingName = question.questionsString("Cual es el nombre del edificio que desea eliminar ");
 				try {
 					if(findBuilding(buildingName)) {
-						listPoints.clear();
-						scan();
-					
-						repaint();
+
 						JOptionPane.showMessageDialog(f, "Construccion eliminada");
 					}
 					else JOptionPane.showMessageDialog(f, "El nombre de este edificio no aparece en los archivos ");
-					
-					
+
+
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}		
+				}
+				listPoints.clear();
+				try {
+					writer.getMyWriter().flush();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				scan();
+
+				repaint();		
 				eliminate=false;
 				rec=false;
 				draw=false;
 				resetColor(5);
-				
+
 			}
 		});
 
@@ -352,7 +359,7 @@ public class MapDesigner extends JPanel   {
 		//Tree Button creation
 		tree1 = new JMenuItem("Tree 1",Tree1img);
 		tree1.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		 
+
 		tree1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -449,9 +456,10 @@ public class MapDesigner extends JPanel   {
 						bttEndBuilding.setVisible(false);
 
 					}
+					else if(findBuilding(response))JOptionPane.showMessageDialog(f,"Ya existe un edificio con ese nombre");
 					else{
-						
-						
+
+
 						while(true) {
 							String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
 							int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
@@ -685,7 +693,7 @@ public class MapDesigner extends JPanel   {
 			sel=question.arraySelection(arr.toArray(), "Que mundo desea utilizar");//selected world
 
 			if(sel==JOptionPane.CLOSED_OPTION) {//closed option case 
-				
+
 				f.menu();
 				return;
 			}
@@ -701,7 +709,7 @@ public class MapDesigner extends JPanel   {
 				return;
 
 			}
-			
+
 			writer= new Writer(worldSelected);
 			writer.deleteLine("QuestionsFile: "+worldSelected+"Questions.txt");
 			sel++;

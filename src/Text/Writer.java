@@ -143,7 +143,6 @@ public class Writer {
 	 * Write questionsFile on the file
 	 */
 	public void questionFile() throws IOException {
-		if (started) myWriter.write("\n");
 		myWriter.write("QuestionsFile: "+str+"Questions.txt");
 		myWriter.flush();
 	}
@@ -296,6 +295,14 @@ public class Writer {
 		}
 		return false;
 		
+	}
+
+	public FileWriter getMyWriter() {
+		return myWriter;
+	}
+
+	public void setMyWriter(FileWriter myWriter) {
+		this.myWriter = myWriter;
 	}
 	
 
