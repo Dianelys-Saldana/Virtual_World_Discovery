@@ -249,7 +249,7 @@ public class MapDesigner extends JPanel   {
 		ImageIcon Tree2img= new ImageIcon(getClass().getResource("../Image/Tree2.png"));
 		ImageIcon Tree3img= new ImageIcon(getClass().getResource("../Image/Tree3.png"));
 		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 756, 54);
+		menuBar.setBounds(0, 0, 1025, 54);
 		add(menuBar);
 
 		xCoor.setBounds(834, 594, 45, 32);
@@ -274,7 +274,7 @@ public class MapDesigner extends JPanel   {
 				bttEndBuilding.setVisible(false);
 			}
 		});
-		bttEndBuilding.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		bttEndBuilding.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		bttEndBuilding.setBounds(0, 51, 141, 35);
 		add(bttEndBuilding);
 		bttEndBuilding.setVisible(false);
@@ -283,6 +283,7 @@ public class MapDesigner extends JPanel   {
 
 		//Eliminate Tree Button creation 
 		bttEliminateTree = new JMenuItem("Eliminate Tree");
+		bttEliminateTree.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		bttEliminateTree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				eliminate=true;
@@ -297,6 +298,7 @@ public class MapDesigner extends JPanel   {
 		
 		//Eliminate Building Button
 		bttEliminateBuilding = new JMenuItem("Eliminate Building");
+		bttEliminateBuilding.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		bttEliminateBuilding.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String buildingName = question.questionsString("Cual es el nombre del edificio que desea eliminar ");
@@ -320,6 +322,7 @@ public class MapDesigner extends JPanel   {
 		menuBar.add(bttEliminateBuilding);
 		//Tree Button creation
 		tree1 = new JMenuItem("Tree 1",Tree1img);
+		tree1.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		 
 		tree1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -345,6 +348,7 @@ public class MapDesigner extends JPanel   {
 		menuBar.add(tree1);
 		//Tree Button creation 
 		tree2 = new JMenuItem("Tree 2",Tree2img);
+		tree2.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		menuBar.add(tree2);
 		tree2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -368,6 +372,7 @@ public class MapDesigner extends JPanel   {
 		});
 		//Tree Button creation 
 		tree3 = new JMenuItem("Tree 3",Tree3img);
+		tree3.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		menuBar.add(tree3);
 		tree3.addMouseListener(new MouseAdapter() {
 			@Override
@@ -391,6 +396,7 @@ public class MapDesigner extends JPanel   {
 		});
 		//Building Button creation 
 		building = new JMenuItem("Building");
+		building.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		building.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -475,6 +481,7 @@ public class MapDesigner extends JPanel   {
 		 ** Button for returning to home
 		 */
 		home = new JMenuItem("Home");
+		home.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				if(draw) {
@@ -490,12 +497,13 @@ public class MapDesigner extends JPanel   {
 			}
 		});
 		menuBar.add(home);
+		JComboBox backCombo = new JComboBox(backgrounds);
+		menuBar.add(backCombo);
+		backCombo.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 
 		/** Dianelys Saldana 03/29/2020
 		 ** ComboBox for choosing background
 		 */
-		JComboBox backCombo = new JComboBox(backgrounds);
-		backCombo.setBounds(756, 0, 150, 54);
 		ActionListener bc = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
@@ -529,8 +537,6 @@ public class MapDesigner extends JPanel   {
 				}
 			}
 		};
-		backCombo.addActionListener(bc);
-		add(backCombo);
 		try {
 			background = ImageIO.read(getClass().getResource("../Image/Default.png"));
 		} catch (IOException e1) {
