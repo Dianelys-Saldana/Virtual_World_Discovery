@@ -1,21 +1,22 @@
-BuildingName: Aguas Buenas
-BuildingImage: Estefani.png
-Wall1: startsAt: (100,100), endsAt: (100,150), height:10, texture image:estefaniN.png
-Wall2: startsAt: (100,150), endsAt: (150,150), height:10, texture image:estefaniS.png
-Wall3: startsAt: (150,150), endsAt: (150,100), height:10, texture image:estefaniW.png
-Wall4: startsAt: (150,100), endsAt: (100,100), height:10, texture image:estefaniE.png
+BuildingName: test
+BuildingImage: Casa.png
+Wall1: startsAt: (198,505), endsAt: (269,550), height:6, texture image:Casa.png
+Wall2: startsAt: (269,550), endsAt: (208,593), height:4, texture image:Casa.png
+Wall3: startsAt: (208,593), endsAt: (199,506), height:6, texture image:Casa.png
 end
-BuildingName: Maya
-BuildingImage: Estefani.png
-Wall1: startsAt: (750,350), endsAt: (750,400), height:10, texture image:estefaniN.png
-Wall2: startsAt: (750,400), endsAt: (800,400), height:10, texture image:estefaniS.png
-Wall3: startsAt: (800,400), endsAt: (800,350), height:10, texture image:estefaniW.png
-Wall4: startsAt: (800,350), endsAt: (750,350), height:10, texture image:estefaniE.png
+TreeType:1, location: (425,299)
+TreeType:1, location: (541,362)
+
+BuildingName: Le
+BuildingImage: Casa.png
+Wall1: startsAt: (241,108), endsAt: (332,185), height:2, texture image:Casa.png
 end
-BuildingName: Caguas
-BuildingImage: Estefani.png
-Wall1: startsAt: (300,350), endsAt: (300,500), height:10, texture image:estefaniN.png
+
+BuildingName: 3
+BuildingImage: Casa.png
+Wall1: startsAt: (643,295), endsAt: (666,384), height:3, texture image:Casa.png
 end
-TreeType:1, location: (400,400)
-TreeType:2, location: (700,500)
-QuestionsFile: world1
+
+
+TreeType:2, location: (318,365)
+QuestionsFile: world1Questions.txt

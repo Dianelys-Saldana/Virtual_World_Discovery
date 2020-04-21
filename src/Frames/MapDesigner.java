@@ -87,11 +87,14 @@ public class MapDesigner extends JPanel   {
 	private int worldIndex= 1;// parameter for read all the worlds 
 	private int sele=0;// parameter to read the selected world 
 	private String worldSelected="";// name of the selected world 
+	private JButton bttEndBuilding;
+	private String response=null;
 
 	/**
 	 * Create the application.
+	 *
 	 */
-	public MapDesigner(FrameManager f) {
+	public MapDesigner(FrameManager f)  {
 		this.f=f;
 		File folder = new File("src/World");
 		File[] listOfFiles = folder.listFiles();
@@ -109,7 +112,12 @@ public class MapDesigner extends JPanel   {
 
 			}
 		}
-		worldSelect();
+		try {
+			worldSelect();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		items.add(tree1);
 		items.add(tree2);
 		items.add(tree3);
@@ -128,13 +136,13 @@ public class MapDesigner extends JPanel   {
 
 						e.printStackTrace();
 					}
-				if(nuevo)
-					try {
-						writer.questionFile();
-					} catch (IOException e) {
-
-						e.printStackTrace();
-					}
+				
+				try {
+					writer.questionFile();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.exit(0);
 
 			}
@@ -161,6 +169,21 @@ public class MapDesigner extends JPanel   {
 						if(ans==-1) {
 							draw=false;
 							resetColor(4);
+							bttEndBuilding.setVisible(false);
+							try {
+								writer.end();
+							} catch (IOException e2) {
+								// TODO Auto-generated catch block
+								e2.printStackTrace();
+							}
+							try {
+								findBuilding(response);
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							
+							return;
 						}
 						else {
 
@@ -259,7 +282,7 @@ public class MapDesigner extends JPanel   {
 		yCoor.setBounds(921, 594, 45, 32);
 		add(yCoor);
 		//end Button creation 
-		JButton bttEndBuilding = new JButton("End Building");
+		bttEndBuilding = new JButton("End Building");
 		bttEndBuilding.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -303,7 +326,13 @@ public class MapDesigner extends JPanel   {
 			public void actionPerformed(ActionEvent arg0) {
 				String buildingName = question.questionsString("Cual es el nombre del edificio que desea eliminar ");
 				try {
-					if(findBuilding(buildingName))JOptionPane.showMessageDialog(f, "Construccion eliminada");
+					if(findBuilding(buildingName)) {
+						listPoints.clear();
+						scan();
+					
+						repaint();
+						JOptionPane.showMessageDialog(f, "Construccion eliminada");
+					}
 					else JOptionPane.showMessageDialog(f, "El nombre de este edificio no aparece en los archivos ");
 					
 					
@@ -311,7 +340,7 @@ public class MapDesigner extends JPanel   {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}		
-				eliminate=true;
+				eliminate=false;
 				rec=false;
 				draw=false;
 				resetColor(5);
@@ -413,7 +442,7 @@ public class MapDesigner extends JPanel   {
 				//used for save all the data of the buildings 
 				//Carlos Rodriguez 4/10/2020
 				try {
-					String response =question.questionsString("Cual sera el nombre de esta construccion?");
+					response =question.questionsString("Cual sera el nombre de esta construccion?");
 					if(response==null || response.equals("")) {
 						draw=false;
 						resetColor(4);
@@ -635,8 +664,9 @@ public class MapDesigner extends JPanel   {
 	}
 	/**Carlos Rodriguez 4/10/2020
 	 * Make the option to use any world
+	 * @throws IOException 
 	 */
-	public void worldSelect() {
+	public void worldSelect() throws IOException {
 		int lastIndex=0;//last world in folder 
 		if(sele==0) {
 			ArrayList<String> arr= new ArrayList<>();
@@ -655,7 +685,7 @@ public class MapDesigner extends JPanel   {
 			sel=question.arraySelection(arr.toArray(), "Que mundo desea utilizar");//selected world
 
 			if(sel==JOptionPane.CLOSED_OPTION) {//closed option case 
-				System.out.println("entre");
+				
 				f.menu();
 				return;
 			}
@@ -671,8 +701,9 @@ public class MapDesigner extends JPanel   {
 				return;
 
 			}
+			
 			writer= new Writer(worldSelected);
-
+			writer.deleteLine("QuestionsFile: "+worldSelected+"Questions.txt");
 			sel++;
 			sele=1;
 		}

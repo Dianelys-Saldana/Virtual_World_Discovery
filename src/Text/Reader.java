@@ -20,7 +20,7 @@ public class Reader
 	ArrayList<Tree>trees= new ArrayList<>();// Lists of Trees
 	ArrayList<Pair>points= new ArrayList<>();// Lists of points 
 	private String questionsFile;// reference of the question file
-	String background = "Default.png";//Background Choosed
+	String background = "Default.png";//Background Choose
 
 	/** Carlos Rodriguez 03/27/2020
 	 * Method to scan the world on a file 
@@ -139,16 +139,18 @@ public class Reader
 					}
 					else if(index==10){
 						builds.get(builds.size()-1).getWallsImage().add(data);
+						
 					}
 					index++;
 				}
 
 
 			}
-
+			
 			index = 0;
 
 		}
+		
 	}
 
 	public ArrayList<Tree> getTrees() {

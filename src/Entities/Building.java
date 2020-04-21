@@ -36,8 +36,20 @@ public class Building  {
 	public void createLine() {
 		for(int i= point.size()-1;i>0;i--) {
 			lines.add(new Line2D.Double(point.get(i - 1).getX(), point.get(i - 1).getY(),point.get(i).getX(),point.get(i).getY()));
+			
+			
 		}
+	
+		
+		
 	}
+//	public void deleteTwiced(ArrayList<Line2D> lines) {
+//		for(int i=0;i<lines.size();i++) {
+//			for(int j=i+1;j<lines.size();j++) {
+//				if(lines.get(i).equals(lines.get(j)))lines.remove(j);
+//			}
+//		}
+//	}
 	
 	/**Created by Carlos Rodriguez 03/24/2020
 	 * Check collisions with rectangles

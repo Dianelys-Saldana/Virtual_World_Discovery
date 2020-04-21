@@ -16,7 +16,7 @@
 ¿Qué año llegó Cristóbal Colón a América?, 1492, 1493, 1942, 1943
 ¿Cuál es el disco más vendido de la historia?, Thriller, Back in Black, YHLQMDLG, The Dark Side of the Moon
 ¿Cuál es el país más grande del mundo?, Rusia, Groenlandia, India, Estados Unidos
-Si 50 es el 100%, ¿cuánto es el 90%?, 45, 40, 55, 45.5
+Si 50 es el 100% ¿cuánto es el 90%?, 45, 40, 55, 45.5
 ¿Cuál es tercer planeta en el sistema solar?, La Tierra, Saturno, Júpiter, Venus
 ¿Qué país tiene forma de bota?, Italia, México, Suecia, España
 ¿Cuál es el país más poblado de la Tierra?, China, Rusia, India, Brazil

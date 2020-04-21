@@ -1,1 +1,0 @@
-QuestionsFile: world3Questions.txt
