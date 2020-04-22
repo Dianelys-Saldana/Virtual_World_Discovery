@@ -1,0 +1,75 @@
+
+
+Building: Stefani
+Question: �Cu�l es el primero de la lista de los n�meros primos?
+Right:  2
+Wrong:  3
+Wrong:  0
+Wrong:  1
+Question: �De qu� colores es la bandera de M�xico?
+Right:  Rojo/ verde/ blanco
+Wrong:  Azul/ Rojo/ Blanco
+Wrong:  Amarillo/ Rojo/ Verde
+Wrong:  Rojo/ Amarillo/ Blanco
+Question: �Qu� cantidad de huesos en el cuerpo humano?
+Right:  206
+Wrong:  300
+Wrong:  210
+Wrong:  105
+Question: �En qu� pa�s se encuentra la torre de Pisa?
+Right:  Italia
+Wrong:  Espa�a
+Wrong:  Noruega
+Wrong:  Francia
+Question: �Cu�ntas patas tiene la ara�a?
+Right:  8
+Wrong:  16
+Wrong:  9
+Wrong:  10
+Question: �Cu�l es el pa�s m�s grande del mundo?
+Right:  Rusia
+Wrong:  Groenlandia
+Wrong:  India
+Wrong:  Estados Unidos
+Question: �C�mo se llama la Reina del Reino Unido?
+Right:  Isabel II
+Wrong:  Victoria
+Wrong:  Maria Antonieta
+Wrong:  Alejandra
+
+Building: Chardon
+Question: �Qui�n era el general de los nazis en la Segunda Guerra Mundial?
+Right:  Adolf Hitler
+Wrong:  I�sif Stalin
+Wrong:  Isoroku Yamamoto
+Wrong:  Benito Mussolini
+Question: �C�mo se llama el animal m�s r�pido del mundo?
+Right:  Halc�n Peregrino
+Wrong:  Guepardo
+Wrong:  Cienpies
+Wrong:  Colibr�
+Question: �Cu�l es el lugar m�s fr�o de la tierra?
+Right:  La Ant�rtida
+Wrong:  Siberia
+Wrong:  Alaska
+Wrong:  Islandia
+Question: �En qu� continente est� Ecuador?
+Right:  Am�rica
+Wrong:  �frica
+Wrong:  Ocean�a
+Wrong:  Europa
+Question: �En qu� pa�s se encuentra la torre de Pisa?
+Right:  Italia
+Wrong:  Espa�a
+Wrong:  Noruega
+Wrong:  Francia
+Question: �Qu� instrumento �ptico permite ver los astros de cerca?
+Right:  Telescopio
+Wrong:  Microscopio
+Wrong:  Binocular
+Wrong:  Lupa
+Question: �C�mo se llama la Reina del Reino Unido?
+Right:  Isabel II
+Wrong:  Victoria
+Wrong:  Maria Antonieta
+Wrong:  Alejandra

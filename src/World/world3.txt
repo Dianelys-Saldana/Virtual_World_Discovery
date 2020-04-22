@@ -1,0 +1,13 @@
+
+Map2.png
+BuildingName: Joyuda
+BuildingImage: Untitled-3.png
+Wall1: startsAt: (178,458), endsAt: (178,458), height:5, texture image:Untitled-3.png
+Wall2: startsAt: (178,458), endsAt: (383,249), height:5, texture image:Untitled-3.png
+Wall3: startsAt: (383,249), endsAt: (458,511), height:5, texture image:Untitled-3.png
+Wall4: startsAt: (458,511), endsAt: (181,464), height:5, texture image:Untitled-3.png
+end
+TreeType:2, location: (399,206)
+TreeType:2, location: (399,206)
+TreeType:2, location: (479,497)
+TreeType:2, location: (109,440)

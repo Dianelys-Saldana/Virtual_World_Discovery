@@ -1,0 +1,38 @@
+
+
+Building: Joyuda
+Question: �Qu� cantidad de huesos en el cuerpo humano?
+Right:  206
+Wrong:  300
+Wrong:  210
+Wrong:  105
+Question: �Cu�l es tercer planeta en el sistema solar?
+Right:  La Tierra
+Wrong:  Saturno
+Wrong:  J�piter
+Wrong:  Venus
+Question: �Qu� rama de la Biolog�a estudia los animales?
+Right:  Zoolog�a
+Wrong:  Ecolog�a
+Wrong:  Fisiologia
+Wrong:  Bot�nica
+Question: �Cu�l es el lugar m�s fr�o de la tierra?
+Right:  La Ant�rtida
+Wrong:  Siberia
+Wrong:  Alaska
+Wrong:  Islandia
+Question: �Cu�l es tercer planeta en el sistema solar?
+Right:  La Tierra
+Wrong:  Saturno
+Wrong:  J�piter
+Wrong:  Venus
+Question: �Cu�l fue el primer metal que emple� el hombre?
+Right:  Cobre
+Wrong:  Oro
+Wrong:  Hierro
+Wrong:  Bronce
+Question: �Cu�l es el disco m�s vendido de la historia?
+Right:  Thriller
+Wrong:  Back in Black
+Wrong:  YHLQMDLG
+Wrong:  The Dark Side of the Moon
