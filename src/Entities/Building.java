@@ -39,6 +39,8 @@ public class Building  {
 		}
 
 	}
+	//Metodo Que nos devuelve la linea mas baja del building 
+	//Carlos Rodriguez 4/22/2020
 	public Line2D lowerLine() {
 		Line2D lowest= lines.get(0);
 		for(int i=1; i<lines.size();i++) {
@@ -47,6 +49,8 @@ public class Building  {
 		return lowest;
 		
 	}
+	//Metodo Que nos devuelve la linea mas alta del building 
+	//Carlos Rodriguez 4/22/2020
 	public Line2D upperLine() {
 		Line2D top= lines.get(0);
 		for(int i=1; i<lines.size();i++) {

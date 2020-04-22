@@ -89,7 +89,7 @@ public class MapDesigner extends JPanel   {
 	private String worldSelected="";// name of the selected world 
 	private JButton bttEndBuilding;
 	private String response=null;
-
+	private boolean closed=false;
 	/**
 	 * Create the application.
 	 *
@@ -128,20 +128,22 @@ public class MapDesigner extends JPanel   {
 		f.addWindowListener(new java.awt.event.WindowAdapter() {
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+				//closed es el caso donde el usario nisiquiera cogio un mapa 
+				if(!closed) {
+					if(draw)
+						try {
+							writer.end();
+						} catch (IOException e) {
 
-				if(draw)
+							e.printStackTrace();
+						}
+
 					try {
-						writer.end();
+						writer.questionFile();
 					} catch (IOException e) {
-
+						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-
-				try {
-					writer.questionFile();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
 				}
 				System.exit(0);
 
@@ -184,14 +186,14 @@ public class MapDesigner extends JPanel   {
 								e1.printStackTrace();
 							}
 							listPoints.clear();
-							
+
 							try {
 								writer.getMyWriter().flush();
 							} catch (IOException e1) {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							}
-							
+
 							scan();
 
 							return;
@@ -467,9 +469,9 @@ public class MapDesigner extends JPanel   {
 						resetColor(5);
 						bttEndBuilding.setVisible(false);
 						listPoints.clear();
-						
+
 						writer.getMyWriter().flush();
-						
+
 						scan();
 
 					}
@@ -479,13 +481,13 @@ public class MapDesigner extends JPanel   {
 						draw=false;
 						resetColor(5);
 						bttEndBuilding.setVisible(false);
-						
+
 					}
 					else{
 
 
 						while(true) {
-							
+
 							String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
 							int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
 							if(imageName==JOptionPane.CLOSED_OPTION) {
@@ -556,6 +558,7 @@ public class MapDesigner extends JPanel   {
 					}
 				}
 				f.menu();
+
 			}
 		});
 		menuBar.add(home);
@@ -730,6 +733,7 @@ public class MapDesigner extends JPanel   {
 			if(sel==JOptionPane.CLOSED_OPTION) {//closed option case 
 
 				f.menu();
+				closed=true;
 				return;
 			}
 			worldSelected=arr.get(sel);
