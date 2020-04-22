@@ -143,12 +143,13 @@ public class Writer {
 	 * Write questionsFile on the file
 	 */
 	public void questionFile() throws IOException {
+		myWriter.write("\n");
 		myWriter.write("QuestionsFile: "+str+"Questions.txt");
 		myWriter.flush();
 	}
 	
 	public void writeBackground(String background) throws IOException {
-		if (started) myWriter.write("\n");
+		myWriter.write("\n");
 		myWriter.write(background);
 		myWriter.flush();
 		started = true;
@@ -205,6 +206,39 @@ public class Writer {
 	    
 		
 	}
+	//Used for delete lines from one file if contains the String
+	//Carlos Rodriguez 04/22/2020
+		public void deleteLineifContains(String s) throws IOException {
+			File inputFile = file;
+			File tempFile = new File("Copy.txt");
+			
+			BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+			BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+			String lineToRemove = s;
+			String currentLine;
+
+			while((currentLine = reader.readLine()) != null) {
+			    // trim newline when comparing with lineToRemove
+			    String trimmedLine = currentLine.trim();
+			    if(trimmedLine.contains(lineToRemove)) {
+			    	continue;
+			    }
+			    writer.write(currentLine + System.getProperty("line.separator"));
+			}
+			writer.flush();
+			this.myWriter= new FileWriter(file, false); //overwrites file
+			reader=new BufferedReader(new FileReader(tempFile));
+			while((currentLine = reader.readLine()) != null) {
+			    myWriter.write(currentLine + System.getProperty("line.separator"));
+			}
+			myWriter.flush();
+			reader.close();
+			writer.close();
+			tempFile.delete();
+		    
+		    
+			
+		}
 	//Used for delete many lines on a File
 	//Carlos Rodriguez 4/21/2020
 	public void deleteLinesFromFile(String s) throws IOException {

@@ -578,6 +578,7 @@ public class MapDesigner extends JPanel   {
 				case "Original":
 					try {
 						background = ImageIO.read(getClass().getResource("../Image/Map1.png"));
+						findMapAndDelete();
 						writer.writeBackground("Map1.png");
 						repaint();
 					} catch (IOException e1) {
@@ -587,6 +588,7 @@ public class MapDesigner extends JPanel   {
 				case "Beach":
 					try {
 						background = ImageIO.read(getClass().getResource("../Image/Map2.png"));
+						findMapAndDelete();
 						writer.writeBackground("Map2.png");
 						repaint();
 					} catch (IOException e1) {
@@ -597,6 +599,7 @@ public class MapDesigner extends JPanel   {
 					try {
 						background = ImageIO.read(getClass().getResource("../Image/Default.png"));
 						repaint();
+						findMapAndDelete();
 						writer.writeBackground("Default.png");
 					} catch (IOException e1) {
 						e1.printStackTrace();
@@ -801,11 +804,20 @@ public class MapDesigner extends JPanel   {
 			}
 		}
 	}
+	/**Carlos Rodriguez 4/21/2020
+	 * Used for elimination of Buildings , give the name of the building
+	 */
 	private boolean findBuilding(String s) throws IOException{
 		if(!writer.lineExist("BuildingName: "+s))return false;
 		writer.deleteLinesFromFile("BuildingName: "+s);
 		writer.deleteLinesFromQuestionFile("Building: "+s);
 		return true;
+	}
+	/**Carlos Rodriguez 4/22/2020
+	 * Used for elimination of map
+	 */
+	private void findMapAndDelete() throws IOException {
+		writer.deleteLineifContains("Map");
 	}
 
 

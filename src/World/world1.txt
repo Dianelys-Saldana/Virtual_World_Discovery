@@ -1,3 +1,2 @@
-Map1.png
 Map2.png
-Default.pngQuestionsFile: world1Questions.txt
+QuestionsFile: world1Questions.txt
