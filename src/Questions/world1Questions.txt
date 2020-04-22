@@ -76,5 +76,40 @@ Wrong:  Colombia
 Wrong:  España
 
 
-
+Building: 1
+Question: ¿Cuántas patas tiene la araña?
+Right:  8
+Wrong:  16
+Wrong:  9
+Wrong:  10
+Question: ¿Cuál es el disco más vendido de la historia?
+Right:  Thriller
+Wrong:  Back in Black
+Wrong:  YHLQMDLG
+Wrong:  The Dark Side of the Moon
+Question: ¿Quién pintó “la última cena”?
+Right:  Leonardo da Vinci
+Wrong:  Vincent van Gogh
+Wrong:  Diego Rivera
+Wrong:  Pablo Picasso
+Question: ¿En qué país se encuentra la torre de Pisa?
+Right:  Italia
+Wrong:  España
+Wrong:  Noruega
+Wrong:  Francia
+Question: ¿Qué cantidad de huesos en el cuerpo humano?
+Right:  206
+Wrong:  300
+Wrong:  210
+Wrong:  105
+Question: ¿Cuántas patas tiene la araña?
+Right:  8
+Wrong:  16
+Wrong:  9
+Wrong:  10
+Question: ¿Con qué se fabricaba el pergamino?
+Right:  Piel de animales
+Wrong:  Arcilla
+Wrong:  Arbol de Alamo
+Wrong:  Cera
 

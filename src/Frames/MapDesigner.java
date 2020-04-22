@@ -616,6 +616,16 @@ public class MapDesigner extends JPanel   {
 			repaint();
 		}
 		if(draw) {
+			ArrayList<Pair>lastArray=null;
+			if(!listPoints.isEmpty()) lastArray= listPoints.get(listPoints.size()-1);
+			if(lastArray!=null) {
+				if(!lastArray.isEmpty()) {
+					int tempX=  lastArray.get(lastArray.size()-1).getX();
+					int tempY =lastArray.get(lastArray.size()-1).getY();
+					g2.drawLine(tempX, tempY, mouseX, mouseY);
+				}
+			}
+			//g2.drawLine(this.listPoints., y1, x2, y2);
 			g2.drawOval(mouseX, mouseY, 10, 10);
 			xCoor.setText(""+mouseX);
 			yCoor.setText(""+mouseY);
