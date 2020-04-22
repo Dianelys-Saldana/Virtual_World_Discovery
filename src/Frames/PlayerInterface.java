@@ -280,6 +280,12 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 					arr.add(sub);
 				}
 			}
+			//Caso donde no existan mapas
+			if(arr.isEmpty()) {
+				JOptionPane.showMessageDialog(f, "No existen mapas , favor de crear uno");
+				f.menu();
+				return;
+			}
 			sel=questions.arraySelection(arr.toArray(), "Que mundo desea utilizar");
 
 			if(sel==JOptionPane.CLOSED_OPTION) {

@@ -1,5 +1,0 @@
-
-BuildingName: 1
-BuildingImage: Casa.png
-Wall1: startsAt: (454,284), endsAt: (750,393), height:2, texture image:Casa.png
-endQuestionsFile: world2Questions.txt
