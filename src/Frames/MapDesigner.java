@@ -569,16 +569,17 @@ public class MapDesigner extends JPanel   {
 		/** Dianelys Saldana 03/29/2020
 		 ** ComboBox for choosing background
 		 */
-		ActionListener bc = new ActionListener() {
+		backCombo.addActionListener( new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
 				String s = (String) backCombo.getSelectedItem();
-
+				
 				switch (s) {
 				case "Original":
 					try {
 						background = ImageIO.read(getClass().getResource("../Image/Map1.png"));
 						writer.writeBackground("Map1.png");
+						repaint();
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -587,6 +588,7 @@ public class MapDesigner extends JPanel   {
 					try {
 						background = ImageIO.read(getClass().getResource("../Image/Map2.png"));
 						writer.writeBackground("Map2.png");
+						repaint();
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}	
@@ -594,6 +596,7 @@ public class MapDesigner extends JPanel   {
 				default:
 					try {
 						background = ImageIO.read(getClass().getResource("../Image/Default.png"));
+						repaint();
 						writer.writeBackground("Default.png");
 					} catch (IOException e1) {
 						e1.printStackTrace();
@@ -601,9 +604,10 @@ public class MapDesigner extends JPanel   {
 					break;
 				}
 			}
-		};
+		});
 		try {
 			background = ImageIO.read(getClass().getResource("../Image/Default.png"));
+			repaint();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
