@@ -68,9 +68,16 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	Timer t = new Timer(5,this);// make the ticks on this class
 	FrameManager f;//instance of FrameManager Class
 	private BufferedImage background;//background selected
+	private boolean start =true;
 
 	public PlayerInterface(FrameManager f) {
 		t.start();//tick start to running
+		 try {
+			background= ImageIO.read(getClass().getResource("../Image/MapDefault.png" ));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		worldSize= new File("src/World").listFiles().length;
 		this.f = f;
 		initialize();
@@ -99,21 +106,19 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	public void paintComponent(Graphics g){
 
 		super.paintComponent(g);  
-		//		this.setBackground(bColor);
+		//	this.setBackground(bColor);
 
 		/** Dianelys Saldana 03/29/2020
 		 ** Painting background chosen in MapDesigner
 		 */
-
-		try {
-			background = ImageIO.read(getClass().getResource("../Image/" + br.getBackground()));
-			g.drawImage(background, 0, 0, 1024, 735, this);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
+		
+		
+		
+	
+		
 		Graphics2D g2= (Graphics2D)g;
 		//Used for make the avatar 
+		g2.drawImage(background, 0, 0, 1024, 735, this);
 		try {
 			if(avatar1) {
 				drawPlayer(g2,this);
@@ -332,6 +337,8 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 					
 				}
 				
+				repaint();
+				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -370,6 +377,12 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				menuBar.setVisible(false);
 				lblNewLabel.setVisible(false);
 				worldScan();
+				try {
+					background = ImageIO.read(getClass().getResource("../Image/" + br.getBackground()));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		character1.addMouseListener(new MouseAdapter() {
@@ -379,6 +392,12 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				menuBar.setVisible(false);
 				lblNewLabel.setVisible(false);
 				worldScan();
+				try {
+					background = ImageIO.read(getClass().getResource("../Image/" + br.getBackground()));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 
