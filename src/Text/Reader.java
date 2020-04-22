@@ -102,7 +102,8 @@ public class Reader
 						index++;
 					}
 					else if (index == 1) {
-						builds.get(builds.size()-1).setImage(data);
+						String replace=data.substring(1, data.length());
+						builds.get(builds.size()-1).setImage(replace);
 						pos++;
 						index=0;
 					}
@@ -138,7 +139,8 @@ public class Reader
 						builds.get(builds.size()-1).setHeight(Integer.parseInt(data));
 					}
 					else if(index==10){
-						builds.get(builds.size()-1).getWallsImage().add(data);
+						String replace=data.substring(1, data.length() - 1);
+						builds.get(builds.size()-1).getWallsImage().add(replace);
 						
 					}
 					index++;

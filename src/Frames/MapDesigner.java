@@ -166,6 +166,7 @@ public class MapDesigner extends JPanel   {
 					if(listPoints.get(listPoints.size()-1).size()>1) {
 						ArrayList<Pair>point=listPoints.get(listPoints.size()-1);
 						int ans= question.wallHeight();
+						//eliminate de building if you cancel 
 						if(ans==-1) {
 							draw=false;
 							resetColor(4);
@@ -182,6 +183,16 @@ public class MapDesigner extends JPanel   {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							}
+							listPoints.clear();
+							
+							try {
+								writer.getMyWriter().flush();
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+							
+							scan();
 
 							return;
 						}
@@ -454,6 +465,11 @@ public class MapDesigner extends JPanel   {
 						draw=false;
 						resetColor(4);
 						bttEndBuilding.setVisible(false);
+						listPoints.clear();
+						
+						writer.getMyWriter().flush();
+						
+						scan();
 
 					}
 					else if(findBuilding(response))JOptionPane.showMessageDialog(f,"Ya existe un edificio con ese nombre");

@@ -99,28 +99,49 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	public void paintComponent(Graphics g){
 
 		super.paintComponent(g);  
-//		this.setBackground(bColor);
-		
+		//		this.setBackground(bColor);
+
 		/** Dianelys Saldana 03/29/2020
 		 ** Painting background chosen in MapDesigner
 		 */
+
 		try {
 			background = ImageIO.read(getClass().getResource("../Image/" + br.getBackground()));
 			g.drawImage(background, 0, 0, 1024, 735, this);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		Graphics2D g2= (Graphics2D)g;
+		//Used for make the avatar 
+		try {
+			if(avatar1) {
+				drawPlayer(g2,this);
+			}
+			if(avatar2) {
+				drawPlayer2(g2,this);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		//Used for draw the buildings 
 		//Carlos Rodriguez 03/06/2020
 		for(int i=0;i<buildings.size();i++) {
 			if(buildings.get(i).getVisible()==2) {
 				g2.setColor(Color.RED);
 				//this.gm.drawHouse(buildings.get(i), g2, this);
+				BufferedImage img=null;
+				try {
+
+					img = ImageIO.read(getClass().getResource("../Image/"+buildings.get(i).getImage()));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				g2.drawImage(img, buildings.get(i).midX(buildings.get(i).upperLine()),buildings.get(i).midY(buildings.get(i).upperLine()),this);
 				for(int j=0;j<buildings.get(i).getLines().size();j++) {
-					g2.drawLine((int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1(),
-							(int)buildings.get(i).getLines().get(j).getX2(),(int) buildings.get(i).getLines().get(j).getY2());
+					//					g2.drawLine((int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1(),
+					//							(int)buildings.get(i).getLines().get(j).getX2(),(int) buildings.get(i).getLines().get(j).getY2());
 				}
 				g2.setColor(Color.BLACK);
 			}
@@ -139,17 +160,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			else if(var==2)this.gm.drawTree2(trees.get(i), g2, this);
 			else if(var==3)this.gm.drawTree3(trees.get(i), g2, this);
 		}
-		//Used for make the avatar 
-		try {
-			if(avatar1) {
-				drawPlayer(g2,this);
-			}
-			if(avatar2) {
-				drawPlayer2(g2,this);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
 		g2.setColor(Color.black);
 		g2.setFont(new Font("Arial", Font.BOLD, 30)); 
 		if(sele==2)g2.drawString("Buildings left to explore: "+numBuildings, 620, 30);
@@ -270,7 +281,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				}
 			}
 			sel=questions.arraySelection(arr.toArray(), "Que mundo desea utilizar");
-			
+
 			if(sel==JOptionPane.CLOSED_OPTION) {
 				f.menu();
 				return;
@@ -302,19 +313,21 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			Building build =  new Building(br.getBuildings().get(i).getPoint());
 
 			build.setAnswer(br.getBuildings().get(i).getAnswer());
+			build.setImage(br.getBuildings().get(i).getImage());
 			build.setQuestions(br.getBuildings().get(i).getQuestions());
+			build.setName(br.getBuildings().get(i).getName());
 			build.createLine();
 			buildings.add(build);
 		}
 		if(buildings.size()>0) {
 			try {
-			qr.worldScan("world"+sel, buildings);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+				qr.worldScan("world"+sel, buildings);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		}
-		
+
 		numBuildings = buildings.size();
 
 	}
@@ -473,7 +486,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				walkingTimer = 10;
 			}
 		}
-		
+
 		if (!this.ki.isRightIsPressed() && this.ki.isDownIsPressed() &&
 				!this.ki.isLeftIsPressed() && !this.ki.isUpIsPressed()) {
 			this.direction = 2;
