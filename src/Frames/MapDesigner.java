@@ -461,9 +461,10 @@ public class MapDesigner extends JPanel   {
 				//Carlos Rodriguez 4/10/2020
 				try {
 					response =question.questionsString("Cual sera el nombre de esta construccion?");
+					//Caso cuando no se responde adecuadamente
 					if(response==null || response.equals("")) {
 						draw=false;
-						resetColor(4);
+						resetColor(5);
 						bttEndBuilding.setVisible(false);
 						listPoints.clear();
 						
@@ -472,11 +473,19 @@ public class MapDesigner extends JPanel   {
 						scan();
 
 					}
-					else if(findBuilding(response))JOptionPane.showMessageDialog(f,"Ya existe un edificio con ese nombre");
+					//Caso donde el edificio ya exista 
+					else if(writer.lineExist("BuildingName: "+response)) {
+						JOptionPane.showMessageDialog(f,"Ya existe un edificio con ese nombre");
+						draw=false;
+						resetColor(5);
+						bttEndBuilding.setVisible(false);
+						
+					}
 					else{
 
 
 						while(true) {
+							
 							String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
 							int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
 							if(imageName==JOptionPane.CLOSED_OPTION) {

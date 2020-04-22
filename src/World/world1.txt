@@ -21,4 +21,8 @@ BuildingImage: Casa.png
 Wall1: startsAt: (645,239), endsAt: (733,424), height:1, texture image:Casa.png
 Wall2: startsAt: (733,424), endsAt: (823,261), height:3, texture image:Casa.png
 end
+
+
+
+
 QuestionsFile: world1Questions.txt
