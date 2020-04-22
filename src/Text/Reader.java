@@ -20,7 +20,7 @@ public class Reader
 	ArrayList<Tree>trees= new ArrayList<>();// Lists of Trees
 	ArrayList<Pair>points= new ArrayList<>();// Lists of points 
 	private String questionsFile;// reference of the question file
-	String background = "Default.png";//Background Choose
+	String background = "MapDefault.png";//Background Choose
 
 	/** Carlos Rodriguez 03/27/2020
 	 * Method to scan the world on a file 

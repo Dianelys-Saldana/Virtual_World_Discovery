@@ -597,10 +597,10 @@ public class MapDesigner extends JPanel   {
 					break;
 				default:
 					try {
-						background = ImageIO.read(getClass().getResource("../Image/Default.png"));
+						background = ImageIO.read(getClass().getResource("../Image/MapDefault.png"));
 						repaint();
 						findMapAndDelete();
-						writer.writeBackground("Default.png");
+						writer.writeBackground("MapDefault.png");
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -609,7 +609,7 @@ public class MapDesigner extends JPanel   {
 			}
 		});
 		try {
-			background = ImageIO.read(getClass().getResource("../Image/Default.png"));
+			background = ImageIO.read(getClass().getResource("../Image/MapDefault.png"));
 			repaint();
 		} catch (IOException e1) {
 			e1.printStackTrace();
