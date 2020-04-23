@@ -284,6 +284,8 @@ public class MapDesigner extends JPanel   {
 		ImageIcon Tree1img= new ImageIcon(getClass().getResource("../Image/Tree1.png"));
 		ImageIcon Tree2img= new ImageIcon(getClass().getResource("../Image/Tree2.png"));
 		ImageIcon Tree3img= new ImageIcon(getClass().getResource("../Image/Tree3.png"));
+		ImageIcon DeleteTree= new ImageIcon(getClass().getResource("../Image/Delete-Trees.png"));
+		ImageIcon DeleteBuilding= new ImageIcon(getClass().getResource("../Image/Delete-buildings.png"));
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 1025, 54);
 		add(menuBar);
@@ -318,12 +320,13 @@ public class MapDesigner extends JPanel   {
 
 
 		//Eliminate Tree Button creation 
-		bttEliminateTree = new JMenuItem("Eliminate Tree");
+		bttEliminateTree = new JMenuItem("",DeleteTree);
+//		bttEliminateTree = new JMenuItem("Eliminate Tree");
 		bttEliminateTree.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		bttEliminateTree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				eliminate=true;
-				rec=false;
+				rec=false; 
 				draw=false;
 				resetColor(4);
 				bttEliminateTree.setBackground(Color.GRAY);
@@ -333,7 +336,8 @@ public class MapDesigner extends JPanel   {
 		menuBar.add(bttEliminateTree);
 
 		//Eliminate Building Button
-		bttEliminateBuilding = new JMenuItem("Eliminate Building");
+		bttEliminateBuilding = new JMenuItem("",DeleteBuilding);
+//		bttEliminateBuilding = new JMenuItem("Eliminate Building");
 		bttEliminateBuilding.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		bttEliminateBuilding.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
