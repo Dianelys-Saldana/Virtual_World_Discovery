@@ -334,45 +334,6 @@ public class MapDesigner extends JPanel   {
 		});
 
 		menuBar.add(bttEliminateTree);
-
-		//Eliminate Building Button
-		bttEliminateBuilding = new JMenuItem("",DeleteBuilding);
-//		bttEliminateBuilding = new JMenuItem("Eliminate Building");
-		bttEliminateBuilding.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		bttEliminateBuilding.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String buildingName = question.questionsString("Cual es el nombre del edificio que desea eliminar ");
-				try {
-					if(findBuilding(buildingName)) {
-
-						JOptionPane.showMessageDialog(f, "Construccion eliminada");
-					}
-					else JOptionPane.showMessageDialog(f, "El nombre de este edificio no aparece en los archivos ");
-
-
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				listPoints.clear();
-				try {
-					writer.getMyWriter().flush();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				scan();
-
-				repaint();		
-				eliminate=false;
-				rec=false;
-				draw=false;
-				resetColor(5);
-
-			}
-		});
-
-		menuBar.add(bttEliminateBuilding);
 		//Tree Button creation
 		tree1 = new JMenuItem("Tree 1",Tree1img);
 		tree1.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
@@ -423,30 +384,69 @@ public class MapDesigner extends JPanel   {
 				tree2.setBackground(Color.GRAY);
 			}
 		});
-		//Tree Button creation 
-		tree3 = new JMenuItem("Tree 3",Tree3img);
-		tree3.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		menuBar.add(tree3);
-		tree3.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				if(draw) {
-					draw=false;
-					try {
-						writer.end();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}
-				eliminate=false;
-				rec=true;
-				tree=3;
-				repaint();
-				resetColor(2);
-				tree3.setBackground(Color.GRAY);
-			}
-		});
+		
+				//Eliminate Building Button
+				bttEliminateBuilding = new JMenuItem("",DeleteBuilding);
+				//		bttEliminateBuilding = new JMenuItem("Eliminate Building");
+						bttEliminateBuilding.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+						bttEliminateBuilding.addActionListener(new ActionListener() {
+							public void actionPerformed(ActionEvent arg0) {
+								String buildingName = question.questionsString("Cual es el nombre del edificio que desea eliminar ");
+								try {
+									if(findBuilding(buildingName)) {
+
+										JOptionPane.showMessageDialog(f, "Construccion eliminada");
+									}
+									else JOptionPane.showMessageDialog(f, "El nombre de este edificio no aparece en los archivos ");
+
+
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								listPoints.clear();
+								try {
+									writer.getMyWriter().flush();
+								} catch (IOException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								scan();
+
+								repaint();		
+								eliminate=false;
+								rec=false;
+								draw=false;
+								resetColor(5);
+
+							}
+						});
+								//Tree Button creation 
+								tree3 = new JMenuItem("Tree 3",Tree3img);
+								tree3.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+								menuBar.add(tree3);
+								tree3.addMouseListener(new MouseAdapter() {
+									@Override
+									public void mousePressed(MouseEvent e) {
+										if(draw) {
+											draw=false;
+											try {
+												writer.end();
+											} catch (IOException e1) {
+												// TODO Auto-generated catch block
+												e1.printStackTrace();
+											}
+										}
+										eliminate=false;
+										rec=true;
+										tree=3;
+										repaint();
+										resetColor(2);
+										tree3.setBackground(Color.GRAY);
+									}
+								});
+						
+								menuBar.add(bttEliminateBuilding);
 		//Building Button creation 
 		building = new JMenuItem("Building");
 		building.setFont(new Font("Lucida Grande", Font.PLAIN, 13));

@@ -19,4 +19,6 @@ BuildingName: 1
 BuildingImage: Casa.png
 Wall1: startsAt: (518,458), endsAt: (717,451), height:1, texture image:Casa.png
 end
+
+
 QuestionsFile: world1Questions.txt
