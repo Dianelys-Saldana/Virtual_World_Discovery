@@ -1,3 +1,4 @@
+
 package Text;
 
 
@@ -54,18 +55,18 @@ public class Reader
 				//Work With Trees
 				else if(isTree) {
 					if(index==0) {
-						
-						
+
+
 					}
 					else if(index == 1) {
 						tempTree.setVar(Integer.parseInt(data));
-						
+
 
 					}
 					else if(index==3) {
 						String replace=data.substring(2);
 						tempTree.setX(Integer.parseInt(replace));
-					
+
 					}
 					else if(index==4) {
 						String replace=data.substring(0, data.length() - 1);
@@ -75,7 +76,7 @@ public class Reader
 					}
 					index++;
 				}
-				
+
 				// Dianelys Saldana 03/29/2020
 				// Background
 				else if(data.equals("Map1.png")) {
@@ -85,13 +86,17 @@ public class Reader
 					background = "Map2.png";
 				}
 
-				
+
 				//Work with Buildings
 				else if(pos==0) {
 
-					builds.add(new Building(new ArrayList<Pair>()));
-					index++;
-					if(index==1) {
+					if(index==0) {
+						builds.add(new Building(new ArrayList<Pair>()));
+						index++;
+					}
+					else if(index==1) {
+						String replace=data.substring(1, data.length());
+						builds.get(builds.size()-1).setName(replace);
 						pos++;
 						index=0;
 					}
@@ -141,18 +146,18 @@ public class Reader
 					else if(index==10){
 						String replace=data.substring(1, data.length() - 1);
 						builds.get(builds.size()-1).getWallsImage().add(replace);
-						
+
 					}
 					index++;
 				}
 
 
 			}
-			
+
 			index = 0;
 
 		}
-		
+
 	}
 
 	public ArrayList<Tree> getTrees() {
@@ -166,7 +171,7 @@ public class Reader
 	public ArrayList<Building> getBuildings() {
 		return builds;
 	}
-	
+
 	public String getBackground() {
 		return background;
 	}

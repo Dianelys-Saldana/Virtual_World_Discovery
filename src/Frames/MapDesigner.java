@@ -90,6 +90,7 @@ public class MapDesigner extends JPanel   {
 	private JButton bttEndBuilding;
 	private String response=null;
 	private boolean closed=false;
+	private ArrayList<String> buildings= new ArrayList<>();
 	/**
 	 * Create the application.
 	 *
@@ -321,7 +322,7 @@ public class MapDesigner extends JPanel   {
 
 		//Eliminate Tree Button creation 
 		bttEliminateTree = new JMenuItem("",DeleteTree);
-//		bttEliminateTree = new JMenuItem("Eliminate Tree");
+		//		bttEliminateTree = new JMenuItem("Eliminate Tree");
 		bttEliminateTree.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		bttEliminateTree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -334,6 +335,8 @@ public class MapDesigner extends JPanel   {
 		});
 
 		menuBar.add(bttEliminateTree);
+
+
 		//Tree Button creation
 		tree1 = new JMenuItem("Tree 1",Tree1img);
 		tree1.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
@@ -384,69 +387,75 @@ public class MapDesigner extends JPanel   {
 				tree2.setBackground(Color.GRAY);
 			}
 		});
-		
-				//Eliminate Building Button
-				bttEliminateBuilding = new JMenuItem("",DeleteBuilding);
-				//		bttEliminateBuilding = new JMenuItem("Eliminate Building");
-						bttEliminateBuilding.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-						bttEliminateBuilding.addActionListener(new ActionListener() {
-							public void actionPerformed(ActionEvent arg0) {
-								String buildingName = question.questionsString("Cual es el nombre del edificio que desea eliminar ");
-								try {
-									if(findBuilding(buildingName)) {
 
-										JOptionPane.showMessageDialog(f, "Construccion eliminada");
-									}
-									else JOptionPane.showMessageDialog(f, "El nombre de este edificio no aparece en los archivos ");
+		//Eliminate Building Button	
+		bttEliminateBuilding = new JMenuItem("",DeleteBuilding);	
+		//		bttEliminateBuilding = new JMenuItem("Eliminate Building");	
+		bttEliminateBuilding.setFont(new Font("Lucida Grande", Font.PLAIN, 13));	
+		bttEliminateBuilding.addActionListener(new ActionListener() {	
+			public void actionPerformed(ActionEvent arg0) {
+				int buildingIndex=question.arraySelection(buildings.toArray(), "Que edificio desea eliminar");
+				if(buildingIndex==JOptionPane.CLOSED_OPTION) {
+					return;
+				}
+				String buildingName = buildings.get(buildingIndex);
+				System.out.println(buildingName);
+				try {
+					if(findBuilding(buildingName)) {
+
+						JOptionPane.showMessageDialog(f, "Construccion eliminada");
+					}
+					else JOptionPane.showMessageDialog(f, "El nombre de este edificio no aparece en los archivos ");
 
 
-								} catch (IOException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-								listPoints.clear();
-								try {
-									writer.getMyWriter().flush();
-								} catch (IOException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-								}
-								scan();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				buildings.remove(buildingIndex);
+				listPoints.clear();
+				try {
+					writer.getMyWriter().flush();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				scan();
 
-								repaint();		
-								eliminate=false;
-								rec=false;
-								draw=false;
-								resetColor(5);
+				repaint();		
+				eliminate=false;
+				rec=false;
+				draw=false;
+				resetColor(5);
 
-							}
-						});
-								//Tree Button creation 
-								tree3 = new JMenuItem("Tree 3",Tree3img);
-								tree3.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-								menuBar.add(tree3);
-								tree3.addMouseListener(new MouseAdapter() {
-									@Override
-									public void mousePressed(MouseEvent e) {
-										if(draw) {
-											draw=false;
-											try {
-												writer.end();
-											} catch (IOException e1) {
-												// TODO Auto-generated catch block
-												e1.printStackTrace();
-											}
-										}
-										eliminate=false;
-										rec=true;
-										tree=3;
-										repaint();
-										resetColor(2);
-										tree3.setBackground(Color.GRAY);
-									}
-								});
-						
-								menuBar.add(bttEliminateBuilding);
+			}
+		});
+		//Tree Button creation 	
+		tree3 = new JMenuItem("Tree 3",Tree3img);	
+		tree3.setFont(new Font("Lucida Grande", Font.PLAIN, 13));	
+		menuBar.add(tree3);	
+		tree3.addMouseListener(new MouseAdapter() {	
+			@Override	
+			public void mousePressed(MouseEvent e) {	
+				if(draw) {	
+					draw=false;	
+					try {	
+						writer.end();	
+					} catch (IOException e1) {	
+						// TODO Auto-generated catch block	
+						e1.printStackTrace();	
+					}	
+				}	
+				eliminate=false;	
+				rec=true;	
+				tree=3;	
+				repaint();	
+				resetColor(2);	
+				tree3.setBackground(Color.GRAY);	
+			}	
+		});	
+
+		menuBar.add(bttEliminateBuilding);
 		//Building Button creation 
 		building = new JMenuItem("Building");
 		building.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
@@ -500,6 +509,7 @@ public class MapDesigner extends JPanel   {
 								bttEndBuilding.setVisible(false);
 								break;
 							}
+
 							else if(imageName==imagesNames.length-1) {
 								JFileChooser fileChooser = new JFileChooser();
 
@@ -515,6 +525,7 @@ public class MapDesigner extends JPanel   {
 									try {
 										writer.copy(file);
 										writer.writeBuilding(response,file.getName());
+										buildings.add(response);
 										break;
 									} catch (IOException e1) {
 										// TODO Auto-generated catch block
@@ -531,6 +542,7 @@ public class MapDesigner extends JPanel   {
 							}
 							else {
 								writer.writeBuilding(response,imagesNames[imageName]);
+								buildings.add(response);
 								break;
 							}
 						}
@@ -577,7 +589,7 @@ public class MapDesigner extends JPanel   {
 			@Override
 			public void actionPerformed(ActionEvent ae) {
 				String s = (String) backCombo.getSelectedItem();
-				
+
 				switch (s) {
 				case "Original":
 					try {
@@ -768,6 +780,11 @@ public class MapDesigner extends JPanel   {
 		if(sele==1) {
 			scan();
 			sele=2;
+			for(int i=0;i<br.getBuildings().size();i++) {
+
+				this.buildings.add(br.getBuildings().get(i).getName());
+
+			}
 		}
 		else return;
 
@@ -783,12 +800,16 @@ public class MapDesigner extends JPanel   {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		trees=br.getTrees();
 		for(int i=0;i<br.getBuildings().size();i++) {
+
+
 			if(br.getBuildings().get(i).getPoint().size()<2)continue;
 			this.listPoints.add(br.getBuildings().get(i).getPoint());
 
 		}
+
 
 	}
 	/**Carlos Rodriguez 4/10/2020
@@ -826,3 +847,5 @@ public class MapDesigner extends JPanel   {
 
 
 }
+
+
