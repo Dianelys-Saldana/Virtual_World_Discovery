@@ -72,7 +72,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 
 	public PlayerInterface(FrameManager f) {
 		t.start();//tick start to running
-		 try {
+		try {
 			background= ImageIO.read(getClass().getResource("../Image/MapDefault.png" ));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -111,11 +111,11 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		/** Dianelys Saldana 03/29/2020
 		 ** Painting background chosen in MapDesigner
 		 */
-		
-		
-		
-	
-		
+
+
+
+
+
 		Graphics2D g2= (Graphics2D)g;
 		//Used for make the avatar 
 		g2.drawImage(background, 0, 0, 1024, 735, this);
@@ -135,18 +135,18 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			if(buildings.get(i).getVisible()==2) {
 				g2.setColor(Color.RED);
 				//this.gm.drawHouse(buildings.get(i), g2, this);
-				BufferedImage img=null;
-				try {
-
-					img = ImageIO.read(getClass().getResource("../Image/"+buildings.get(i).getImage()));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				g2.drawImage(img, buildings.get(i).midX(buildings.get(i).upperLine()),buildings.get(i).midY(buildings.get(i).upperLine()),this);
+				//				BufferedImage img=null;
+				//				try {
+				//
+				//					img = ImageIO.read(getClass().getResource("../Image/"+buildings.get(i).getImage()));
+				//				} catch (IOException e) {
+				//					// TODO Auto-generated catch block
+				//					e.printStackTrace();
+				//				}
+				//				g2.drawImage(img, buildings.get(i).midX(buildings.get(i).upperLine()),buildings.get(i).midY(buildings.get(i).upperLine()),this);
 				for(int j=0;j<buildings.get(i).getLines().size();j++) {
-					//					g2.drawLine((int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1(),
-					//							(int)buildings.get(i).getLines().get(j).getX2(),(int) buildings.get(i).getLines().get(j).getY2());
+					g2.drawLine((int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1(),
+							(int)buildings.get(i).getLines().get(j).getX2(),(int) buildings.get(i).getLines().get(j).getY2());
 				}
 				g2.setColor(Color.BLACK);
 			}
@@ -334,11 +334,11 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				qr.worldScan("world"+sel, buildings);
 				for(int i=0;i<buildings.size();i++) {
 					if(buildings.get(i).getPoint().size()<2)buildings.remove(i);
-					
+
 				}
-				
+
 				repaint();
-				
+
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
