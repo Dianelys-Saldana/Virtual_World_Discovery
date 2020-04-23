@@ -433,7 +433,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			}
 
 			// Dianelys Saldana 04/11/2020
-			if(buildings.get(i).getVisible() == 2 && numBuildings == 0) {
+			if(this.allVisible() && numBuildings == 0) {
 				// JOption Pane
 				this.display3D();
 			}
@@ -543,6 +543,14 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		movePlayer();
 		checkBuildingColition();
 		checkTreeColition();
+	}
+	
+	
+	public boolean allVisible() {
+		for(int i =0 ; i<this.buildings.size();i++) {
+			if(buildings.get(i).getVisible()!=2)return false;
+		}
+		return true;
 	}
 
 
