@@ -204,7 +204,7 @@ public class MapDesigner extends JPanel   {
 
 							while(true) {
 								String[] imagesNames = {"Casa.png","Desea utilizar una imagen de su computadora?"};
-								int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en el edificio");
+								int imageName =question.arraySelection(imagesNames, "Que imagen desea utilizar en la textura de la pared");
 								if(imageName==JOptionPane.CLOSED_OPTION) {
 									JOptionPane.showMessageDialog(f, "Favor de escoger una imagen");
 									continue;
