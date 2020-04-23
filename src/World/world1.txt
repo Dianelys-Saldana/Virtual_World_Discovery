@@ -6,4 +6,8 @@ TreeType:2, location: (672,295)
 TreeType:3, location: (176,177)
 TreeType:3, location: (549,348)
 
-QuestionsFile: world1Questions.txt
+
+BuildingName: home
+BuildingImage: Casa.png
+Wall1: startsAt: (274,449), endsAt: (525,492), height:1, texture image:Casa.png
+end

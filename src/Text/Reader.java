@@ -32,6 +32,7 @@ public class Reader
 
 		@SuppressWarnings("resource")
 		BufferedReader file = new BufferedReader(new FileReader("src/World/"+s+".txt"));//file to read
+		points.clear();
 		String line = null;
 		Scanner scanner = null;
 		int index = 0;//used to move horizontally 
