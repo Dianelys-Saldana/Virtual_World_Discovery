@@ -19,6 +19,8 @@ public class Building  {
 	private ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>(); // list of answers of the buildings
 	private String image;// image of the building
 	private String name; // name of building
+	private ArrayList<String> remainQuestions= new ArrayList<>();
+	private ArrayList<ArrayList<String>>remainAnswer= new ArrayList<ArrayList<String>>();
 
 
 
@@ -166,6 +168,26 @@ public class Building  {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+
+	public ArrayList<String> getRemainQuestions() {
+		return remainQuestions;
+	}
+
+
+	public void setRemainQuestions(ArrayList<String> remainQuestions) {
+		this.remainQuestions = remainQuestions;
+	}
+
+
+	public ArrayList<ArrayList<String>> getRemainAnswer() {
+		return remainAnswer;
+	}
+
+
+	public void setRemainAnswer(ArrayList<ArrayList<String>> remainAnswer) {
+		this.remainAnswer = remainAnswer;
 	}
 
 

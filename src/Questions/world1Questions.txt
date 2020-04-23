@@ -36,3 +36,42 @@ Right:  La Tierra
 Wrong:  Saturno
 Wrong:  Júpiter
 Wrong:  Venus
+
+
+
+Building: 1
+Question: ¿Cómo se llama la Reina del Reino Unido?
+Right:  Isabel II
+Wrong:  Victoria
+Wrong:  Maria Antonieta
+Wrong:  Alejandra
+Question: ¿Dónde originaron los juegos olímpicos?
+Right:  Grecia
+Wrong:  Japón
+Wrong:  Estados Unidos
+Wrong:  Alemania
+Question: ¿Cuál es la nacionalidad de Pablo Neruda?
+Right:  Chile
+Wrong:  Francia
+Wrong:  Argentina
+Wrong:  España
+Question: ¿Cuál es el lugar más frío de la tierra?
+Right:  La Antártida
+Wrong:  Siberia
+Wrong:  Alaska
+Wrong:  Islandia
+Question: Si 50 es el 100% ¿cuánto es el 90%?
+Right:  45
+Wrong:  40
+Wrong:  55
+Wrong:  45.5
+Question: ¿De qué colores es la bandera de México?
+Right:  Rojo/ verde/ blanco
+Wrong:  Azul/ Rojo/ Blanco
+Wrong:  Amarillo/ Rojo/ Verde
+Wrong:  Rojo/ Amarillo/ Blanco
+Question: ¿En qué continente está Ecuador?
+Right:  América
+Wrong:  África
+Wrong:  Oceanía
+Wrong:  Europa

@@ -12,4 +12,11 @@ Wall2: startsAt: (211,507), endsAt: (392,512), height:2, texture image:Casa.png
 Wall3: startsAt: (392,512), endsAt: (393,341), height:2, texture image:Casa.png
 Wall4: startsAt: (393,341), endsAt: (209,347), height:2, texture image:Casa.png
 end
+
+
+
+BuildingName: 1
+BuildingImage: Casa.png
+Wall1: startsAt: (518,458), endsAt: (717,451), height:1, texture image:Casa.png
+end
 QuestionsFile: world1Questions.txt

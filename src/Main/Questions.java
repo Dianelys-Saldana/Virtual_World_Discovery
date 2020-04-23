@@ -43,16 +43,18 @@ public class Questions {
 	 * method to create a random question
 	 */
 	public int question1() {
-		questions= build.getQuestions();
+		questions= build.getRemainQuestions();
 		Random ran= new Random();
-		int num= ran.nextInt(build.getAnswer().size());
-		answers= build.getAnswer().get(num);
+		int num= ran.nextInt(build.getRemainAnswer().size());
+		answers= build.getRemainAnswer().get(num);
 		String correct = answers.get(0);
 		String[] options = this.shuffle(answers.toArray());
 		correctnum=this.correctAnswer(options, correct);
 		int response = JOptionPane.showOptionDialog(c, questions.get(num), "Question",
 				JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,
 				null, options, options[0]);
+		build.getRemainAnswer().remove(num);
+		build.getRemainQuestions().remove(num);
 		return response;
 	}
 	
@@ -65,6 +67,8 @@ public class Questions {
 	public boolean visible() {
 		int x=0;
 		if(this.basic("Would you like to answer some questions?")==JOptionPane.YES_OPTION) {
+			build.setRemainQuestions((ArrayList<String>) build.getQuestions().clone());
+			build.setRemainAnswer((ArrayList<ArrayList<String>>) build.getAnswer().clone());
 			if(question1()==correctnum)  x++;
 			if(question1()==correctnum)  x++;
 			if(question1()==correctnum)  x++;

@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Random;
 
 import Util.Pair;
@@ -121,9 +122,16 @@ public class Writer {
 	 * Write questions for buildings
 	 */
 	public void writeQuestions() throws IOException {
+		ArrayList<Integer> noPosibles = new ArrayList<>();
+		noPosibles.add(100);
 		for(int i=0;i<7;i++) {
 			Random ran= new Random();
+			
 			int num= ran.nextInt(questionReader.getAnswer().size());
+			while(noPosibles.contains(num)) {
+				 num= ran.nextInt(questionReader.getAnswer().size());
+			}
+			noPosibles.add(num);
 			questionWriter.write("\n");
 			questionWriter.write("Question: "+questionReader.getQuestions().get(num));
 			for(int j=0;j<questionReader.getAnswer().get(num).size();j++) {
