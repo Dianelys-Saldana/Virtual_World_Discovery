@@ -162,6 +162,7 @@ public class MapDesigner extends JPanel   {
 							draw=false;
 							resetColor(4);
 							bttEndBuilding.setVisible(false);
+							buildings.remove(buildings.size()-1);
 							try {
 								writer.end();
 							} catch (IOException e2) {

@@ -36,3 +36,40 @@ Right:  45
 Wrong:  40
 Wrong:  55
 Wrong:  45.5
+
+Building: lol
+Question: ¿Quién ganó el mundial de 2014?
+Right:  Alemania
+Wrong:  Brasil
+Wrong:  Colombia
+Wrong:  España
+Question: ¿Dónde originaron los juegos olímpicos?
+Right:  Grecia
+Wrong:  Japón
+Wrong:  Estados Unidos
+Wrong:  Alemania
+Question: ¿Cuál es el lugar más frío de la tierra?
+Right:  La Antártida
+Wrong:  Siberia
+Wrong:  Alaska
+Wrong:  Islandia
+Question: ¿Quién era el general de los nazis en la Segunda Guerra Mundial?
+Right:  Adolf Hitler
+Wrong:  Iósif Stalin
+Wrong:  Isoroku Yamamoto
+Wrong:  Benito Mussolini
+Question: Si 50 es el 100% ¿cuánto es el 90%?
+Right:  45
+Wrong:  40
+Wrong:  55
+Wrong:  45.5
+Question: ¿En qué país se encuentra la torre de Pisa?
+Right:  Italia
+Wrong:  España
+Wrong:  Noruega
+Wrong:  Francia
+Question: ¿Qué rama de la Biología estudia los animales?
+Right:  Zoología
+Wrong:  Ecología
+Wrong:  Fisiologia
+Wrong:  Botánica

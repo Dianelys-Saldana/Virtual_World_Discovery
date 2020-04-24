@@ -7,4 +7,8 @@ end
 TreeType:1, location: (192,198)
 TreeType:1, location: (311,317)
 TreeType:1, location: (530,202)
+
+BuildingName: lol
+BuildingImage: Casa.png
+end
 QuestionsFile: testingQuestions.txt
