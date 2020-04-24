@@ -19,6 +19,7 @@ import Util.Pair;
 import Main.Questions;
 import Text.Reader;
 import Text.Writer;
+import Text.WriterVRML;
 
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -81,6 +82,7 @@ public class MapDesigner extends JPanel   {
 	private Questions question = new Questions(this,null);// instance of the Questions class 
 	private FrameManager f; // instance of the FrameManagerclass 
 	private Writer writer ;// instance of the Writer class 
+	private WriterVRML writer3D ;// instance of the WriterVRML class 
 	private int wallHeight;// height inputed of wall
 	private ArrayList<ArrayList<Pair>>listPoints= new ArrayList<>(); //list of points of all the buildings 
 	private int wallIndex=1;// index to know what wall is creating 
@@ -739,13 +741,18 @@ public class MapDesigner extends JPanel   {
 		int lastIndex=0;//last world in folder 
 		if(sele==0) {
 			ArrayList<String> arr= new ArrayList<>();
+			ArrayList<String> arr3D = new ArrayList<>();
 
 			File folder = new File("src/World");// folder of worlds 
 			File[] listOfFiles = folder.listFiles();//list of worlds
+			File folder3D = new File("src/VRML_Worlds"); // folder of 3D Worlds
+			File[] list = folder3D.listFiles(); // list of 3D worlds
 			for (int i = 0; i < listOfFiles.length; i++) {
 				if (listOfFiles[i].isFile()) {
 					String sub= listOfFiles[i].getName().replace(".txt", "");
+					String sub3D = listOfFiles[i].getName().replace(".wrl", "");
 					arr.add(sub);
+					arr3D.add(sub3D);
 
 				}
 			}
@@ -762,9 +769,11 @@ public class MapDesigner extends JPanel   {
 			worldSelected=arr.get(sel);
 			if(sel==lastIndex) {// if new world is selected
 				writer= new Writer("world"+worldIndex);
+				writer3D= new WriterVRML("world"+worldIndex); 
 				nuevo=true;
 				try {
 					writer.create();
+					writer3D.create();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -773,6 +782,7 @@ public class MapDesigner extends JPanel   {
 			}
 
 			writer= new Writer(worldSelected);
+			writer3D= new WriterVRML(worldSelected);
 			writer.deleteLine("QuestionsFile: "+worldSelected+"Questions.txt");
 			sel++;
 			sele=1;

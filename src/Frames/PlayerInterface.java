@@ -448,7 +448,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		if (reply == JOptionPane.YES_OPTION) {
 			Desktop file = Desktop.getDesktop();
 			try {
-				file.open(new File("src/VRML_Worlds/house3.wrl"));
+				file.open(new File("src/VRML_Worlds/" + worldSelected + ".wrl"));
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, 
 						e.getMessage(), 
