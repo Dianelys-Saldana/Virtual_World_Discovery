@@ -1,0 +1,10 @@
+
+
+BuildingName: juan
+BuildingImage: Casa.png
+Wall1: startsAt: (389,246), endsAt: (658,385), height:2, texture image:Casa.png
+end
+TreeType:1, location: (192,198)
+TreeType:1, location: (311,317)
+TreeType:1, location: (530,202)
+QuestionsFile: testingQuestions.txt

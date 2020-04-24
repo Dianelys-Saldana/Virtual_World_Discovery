@@ -93,28 +93,14 @@ public class MapDesigner extends JPanel   {
 	private String response=null;
 	private boolean closed=false;
 	private ArrayList<String> buildings= new ArrayList<>();
+	private String worldName =null;
 	/**
 	 * Create the application.
 	 *
 	 */
 	public MapDesigner(FrameManager f)  {
 		this.f=f;
-		File folder = new File("src/World");
-		File[] listOfFiles = folder.listFiles();
-		//Used for read all the worlds in the folder
-		for (int i = 0; i < listOfFiles.length; i++) {
-			if (listOfFiles[i].isFile()) {
-				String sub= listOfFiles[i].getName().replace("world", "");
-				String sub2= sub.replace(".txt", "");
-				if(Integer.parseInt(sub2)==worldIndex) {
-					worldIndex++;
-				}
-				else {
-					break;
-				}
-
-			}
-		}
+		
 		try {
 			worldSelect();
 		} catch (IOException e1) {
@@ -768,8 +754,15 @@ public class MapDesigner extends JPanel   {
 			}
 			worldSelected=arr.get(sel);
 			if(sel==lastIndex) {// if new world is selected
-				writer= new Writer("world"+worldIndex);
-				writer3D= new WriterVRML("world"+worldIndex); 
+				
+				while(worldName==null) {
+					
+					 worldName = question.questionsString("Como desea que se llame el mundo");
+					 System.out.println(worldName);
+				}
+				
+				writer= new Writer(worldName);
+				writer3D= new WriterVRML(worldName); 
 				nuevo=true;
 				try {
 					writer.create();
@@ -780,7 +773,7 @@ public class MapDesigner extends JPanel   {
 				return;
 
 			}
-
+			worldName= worldSelected;
 			writer= new Writer(worldSelected);
 			writer3D= new WriterVRML(worldSelected);
 			writer.deleteLine("QuestionsFile: "+worldSelected+"Questions.txt");
@@ -805,7 +798,7 @@ public class MapDesigner extends JPanel   {
 	private void scan() {
 
 		try {
-			br.scan(worldSelected);
+			br.scan(worldName);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

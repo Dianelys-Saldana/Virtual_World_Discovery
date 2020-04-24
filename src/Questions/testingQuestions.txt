@@ -1,0 +1,38 @@
+
+
+Building: juan
+Question: ¿Qué son los humanos?
+Right:  Omnívoros
+Wrong:  Carnívoros
+Wrong:  Herbívoros
+Wrong:  Granívoros
+Question: ¿Cuál es tercer planeta en el sistema solar?
+Right:  La Tierra
+Wrong:  Saturno
+Wrong:  Júpiter
+Wrong:  Venus
+Question: ¿Quién pintó “la última cena”?
+Right:  Leonardo da Vinci
+Wrong:  Vincent van Gogh
+Wrong:  Diego Rivera
+Wrong:  Pablo Picasso
+Question: ¿Cuál es el océano más grande?
+Right:  Pacífico
+Wrong:  Atlántico
+Wrong:  Antártico
+Wrong:  Índico
+Question: ¿Quién era el general de los nazis en la Segunda Guerra Mundial?
+Right:  Adolf Hitler
+Wrong:  Iósif Stalin
+Wrong:  Isoroku Yamamoto
+Wrong:  Benito Mussolini
+Question: ¿De qué colores es la bandera de México?
+Right:  Rojo/ verde/ blanco
+Wrong:  Azul/ Rojo/ Blanco
+Wrong:  Amarillo/ Rojo/ Verde
+Wrong:  Rojo/ Amarillo/ Blanco
+Question: Si 50 es el 100% ¿cuánto es el 90%?
+Right:  45
+Wrong:  40
+Wrong:  55
+Wrong:  45.5
