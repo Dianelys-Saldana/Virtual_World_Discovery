@@ -156,9 +156,12 @@ public class Writer {
 		myWriter.flush();
 	}
 	
+	/**Angel Hernandez 04/23/2020
+	 * Write the name of the chosen background image in the file
+	 */
 	public void writeBackground(String background) throws IOException {
 		myWriter.write("\n");
-		myWriter.write(background);
+		myWriter.write("Background: "+background);
 		myWriter.flush();
 		started = true;
 	}

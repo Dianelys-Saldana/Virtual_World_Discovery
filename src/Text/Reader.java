@@ -78,13 +78,10 @@ public class Reader
 					index++;
 				}
 
-				// Dianelys Saldana 03/29/2020
-				// Background
-				else if(data.equals("Map1.png")) {
-					background = "Map1.png";
-				}
-				else if(data.equals("Map2.png")) {
-					background = "Map2.png";
+				// Angel Hernandez 04/24/2020
+				// Reads the selected background from the file
+				else if(data.equals("Background")) {
+					background = line.substring(12);
 				}
 
 

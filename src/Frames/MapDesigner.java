@@ -76,7 +76,7 @@ public class MapDesigner extends JPanel   {
 	private JMenuItem home;// home button 
 	private JMenuItem bttEliminateTree;// Eliminate tree button 
 	private JMenuItem bttEliminateBuilding;// Eliminate tree button 
-	private String[] backgrounds = {"Background", "Original", "Beach"};// selections of backgrounds
+//	private String[] backgrounds = {"Background", "Original", "Beach"};// selections of backgrounds
 	private BufferedImage background;//selected background
 	private ArrayList<JMenuItem> items= new ArrayList<>();//list of buttons 
 	private Questions question = new Questions(this,null);// instance of the Questions class 
@@ -567,55 +567,61 @@ public class MapDesigner extends JPanel   {
 			}
 		});
 		menuBar.add(home);
-		JComboBox backCombo = new JComboBox(backgrounds);
+		
+		/** Angel Hernandez 04/23/2020
+		 ** Button for choosing the background
+		 */
+		JMenuItem backCombo = new JMenuItem();
+		backCombo.setText("Background");
 		menuBar.add(backCombo);
 		backCombo.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-
-		/** Dianelys Saldana 03/29/2020
-		 ** ComboBox for choosing background
-		 */
-		backCombo.addActionListener( new ActionListener() {
+		backCombo.addMouseListener(new MouseAdapter() {
 			@Override
-			public void actionPerformed(ActionEvent ae) {
-				String s = (String) backCombo.getSelectedItem();
+			public void mouseClicked(MouseEvent arg0) {
+				while(true) {
 
-				switch (s) {
-				case "Original":
-					try {
-						background = ImageIO.read(getClass().getResource("../Image/Map1.png"));
-						findMapAndDelete();
-						writer.writeBackground("Map1.png");
-						repaint();
-					} catch (IOException e1) {
-						e1.printStackTrace();
+					String[] imagesNames = {"Escoger imagen"};
+					int imageName =question.arraySelection(imagesNames, "Escoga una imagen de su computadora para el background");
+					if(imageName==JOptionPane.CLOSED_OPTION) {
+						draw=false;
+						resetColor(4);
+						break;
 					}
-					break;
-				case "Beach":
-					try {
-						background = ImageIO.read(getClass().getResource("../Image/Map2.png"));
-						findMapAndDelete();
-						writer.writeBackground("Map2.png");
-						repaint();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}	
-					break;
-				default:
-					try {
-						background = ImageIO.read(getClass().getResource("../Image/MapDefault.png"));
-						repaint();
-						findMapAndDelete();
-						writer.writeBackground("MapDefault.png");
-					} catch (IOException e1) {
-						e1.printStackTrace();
+					else if(imageName==imagesNames.length-1) {
+						JFileChooser fileChooser = new JFileChooser();
+
+						int option = fileChooser.showOpenDialog(frame);
+						if(option == JFileChooser.APPROVE_OPTION){
+							File file = fileChooser.getSelectedFile();
+							String extension= file.getName().substring(file.getName().lastIndexOf(".") + 1);
+							if(!extension.equals("png")) {
+								JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
+								continue;
+							}
+							try {
+								writer.copy(file);
+								writer.writeBackground(file.getName());
+								break;
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+						}
+						else if(option == JFileChooser.CANCEL_OPTION) {
+							draw=false;
+							resetColor(4);
+							break;
+						}
 					}
-					break;
 				}
 			}
 		});
+		
 		try {
-			background = ImageIO.read(getClass().getResource("../Image/MapDefault.png"));
-			repaint();
+			background = ImageIO.read(getClass().getResource("../Image/"+br.getBackground()));
+//Si le quitas los comentarios salen los cuadros cuando haces lo que mencione en el chat			
+//			findMapAndDelete();
+//			writer.writeBackground(br.getBackground());
+//			repaint();
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
@@ -842,11 +848,11 @@ public class MapDesigner extends JPanel   {
 		writer.deleteLinesFromQuestionFile("Building: "+s);
 		return true;
 	}
-	/**Carlos Rodriguez 4/22/2020
-	 * Used for elimination of map
+	/**Angel Hernandez 4/24/2020
+	 * Used for elimination of the background
 	 */
 	private void findMapAndDelete() throws IOException {
-		writer.deleteLineifContains("Map");
+		writer.deleteLineifContains("Background");
 	}
 
 
