@@ -94,6 +94,7 @@ public class MapDesigner extends JPanel   {
 	private boolean closed=false;
 	private ArrayList<String> buildings= new ArrayList<>();
 	private String worldName =null;
+	ArrayList<String> worldArr= new ArrayList<>();
 	/**
 	 * Create the application.
 	 *
@@ -742,7 +743,7 @@ public class MapDesigner extends JPanel   {
 	public void worldSelect() throws IOException {
 		int lastIndex=0;//last world in folder 
 		if(sele==0) {
-			ArrayList<String> arr= new ArrayList<>();
+			
 			ArrayList<String> arr3D = new ArrayList<>();
 
 			File folder = new File("src/World");// folder of worlds 
@@ -753,14 +754,14 @@ public class MapDesigner extends JPanel   {
 				if (listOfFiles[i].isFile()) {
 					String sub= listOfFiles[i].getName().replace(".txt", "");
 					String sub3D = listOfFiles[i].getName().replace(".wrl", "");
-					arr.add(sub);
+					worldArr.add(sub);
 					arr3D.add(sub3D);
 
 				}
 			}
-			arr.add("New World");
-			lastIndex=arr.size()-1;
-			sel=question.arraySelection(arr.toArray(), "Que mundo desea utilizar");//selected world
+			worldArr.add("New World");
+			lastIndex=worldArr.size()-1;
+			sel=question.arraySelection(worldArr.toArray(), "Que mundo desea utilizar");//selected world
 
 			if(sel==JOptionPane.CLOSED_OPTION) {//closed option case 
 
@@ -768,13 +769,14 @@ public class MapDesigner extends JPanel   {
 				closed=true;
 				return;
 			}
-			worldSelected=arr.get(sel);
+			worldSelected=worldArr.get(sel);
 			if(sel==lastIndex) {// if new world is selected
 				
-				while(worldName==null) {
+				while(worldName==null||this.findInFile(worldName)) {
 					
 					 worldName = question.questionsString("Como desea que se llame el mundo");
-					 System.out.println(worldName);
+					 if(worldName==null)JOptionPane.showMessageDialog(f, "Favor de utilizar un Nombre");
+					 if(this.findInFile(worldName))JOptionPane.showMessageDialog(f, "Mundo ya existente");
 				}
 				
 				writer= new Writer(worldName);
@@ -864,7 +866,12 @@ public class MapDesigner extends JPanel   {
 	private void findMapAndDelete() throws IOException {
 		writer.deleteLineifContains("Background");
 	}
-
+	
+	private boolean findInFile(String s) {
+		if(worldArr.contains(s))return true;
+		return false;
+		
+	}
 
 }
 
