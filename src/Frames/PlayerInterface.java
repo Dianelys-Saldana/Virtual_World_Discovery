@@ -69,6 +69,8 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	FrameManager f;//instance of FrameManager Class
 	private BufferedImage background;//background selected
 	private boolean start =true;
+	private ArrayList<BufferedImage>imageList= new ArrayList<>();
+	private ArrayList<String> worldArr= new ArrayList<>();
 
 	public PlayerInterface(FrameManager f) {
 		t.start();//tick start to running
@@ -135,19 +137,13 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			if(buildings.get(i).getVisible()==2) {
 				g2.setColor(Color.RED);
 				//this.gm.drawHouse(buildings.get(i), g2, this);
-				//				BufferedImage img=null;
-				//				try {
-				//
-				//					img = ImageIO.read(getClass().getResource("../Image/"+buildings.get(i).getImage()));
-				//				} catch (IOException e) {
-				//					// TODO Auto-generated catch block
-				//					e.printStackTrace();
-				//				}
-				//				g2.drawImage(img, buildings.get(i).midX(buildings.get(i).upperLine()),buildings.get(i).midY(buildings.get(i).upperLine()),this);
-				for(int j=0;j<buildings.get(i).getLines().size();j++) {
-					g2.drawLine((int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1(),
-							(int)buildings.get(i).getLines().get(j).getX2(),(int) buildings.get(i).getLines().get(j).getY2());
-				}
+				BufferedImage img=this.imageList.get(i);
+
+				g2.drawImage(img, buildings.get(i).midX(buildings.get(i).upperLine()),buildings.get(i).midY(buildings.get(i).upperLine()),this);
+//				for(int j=0;j<buildings.get(i).getLines().size();j++) {
+//					g2.drawLine((int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1(),
+//							(int)buildings.get(i).getLines().get(j).getX2(),(int) buildings.get(i).getLines().get(j).getY2());
+//				}
 				g2.setColor(Color.BLACK);
 			}
 			else if(buildings.get(i).getVisible()==1) {
@@ -273,7 +269,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	 */
 	private void worldScan() {
 		if(sele==0) {
-			ArrayList<String> arr= new ArrayList<>();
+
 			//			for(int i=1;i<this.worldSize+1;i++) {
 			//				arr.add("world"+i);
 			//			}
@@ -282,22 +278,22 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			for (int i = 0; i < listOfFiles.length; i++) {
 				if (listOfFiles[i].isFile()) {
 					String sub= listOfFiles[i].getName().replace(".txt", "");
-					arr.add(sub);
+					worldArr.add(sub);
 				}
 			}
 			//Caso donde no existan mapas
-			if(arr.isEmpty()) {
+			if(worldArr.isEmpty()) {
 				JOptionPane.showMessageDialog(f, "No existen mapas , favor de crear uno");
 				f.menu();
 				return;
 			}
-			sel=questions.arraySelection(arr.toArray(), "Que mundo desea utilizar");
+			sel=questions.arraySelection(worldArr.toArray(), "Que mundo desea utilizar");
 
 			if(sel==JOptionPane.CLOSED_OPTION) {
 				f.menu();
 				return;
 			}
-			worldSelected=arr.get(sel);
+			worldSelected=worldArr.get(sel);
 			sel++;
 			sele=1;
 		}
@@ -331,7 +327,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		}
 		if(buildings.size()>0) {
 			try {
-				qr.worldScan("world"+sel, buildings);
+				qr.worldScan(this.worldSelected, buildings);
 				for(int i=0;i<buildings.size();i++) {
 					if(buildings.get(i).getPoint().size()<2)buildings.remove(i);
 
@@ -344,7 +340,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				e.printStackTrace();
 			}
 		}
-
+		this.fillImageList();
 		numBuildings = buildings.size();
 
 	}
@@ -544,8 +540,8 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		checkBuildingColition();
 		checkTreeColition();
 	}
-	
-	
+
+
 	public boolean allVisible() {
 		for(int i =0 ; i<this.buildings.size();i++) {
 			if(buildings.get(i).getVisible()!=2)return false;
@@ -553,6 +549,19 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		return true;
 	}
 
+	public void fillImageList() {
+		for(int i=0;i<this.buildings.size();i++) {
+			BufferedImage img=null;
+			try {
+
+				img = ImageIO.read(getClass().getResource("../Image/"+buildings.get(i).getImage()));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			this.imageList.add(img);
+		}
+	}
 
 
 

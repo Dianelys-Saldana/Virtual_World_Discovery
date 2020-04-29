@@ -73,3 +73,40 @@ Right:  Zoología
 Wrong:  Ecología
 Wrong:  Fisiologia
 Wrong:  Botánica
+
+Building: test
+Question: ¿Cómo se llama la Reina del Reino Unido?
+Right:  Isabel II
+Wrong:  Victoria
+Wrong:  Maria Antonieta
+Wrong:  Alejandra
+Question: ¿Cuál es la nacionalidad de Pablo Neruda?
+Right:  Chile
+Wrong:  Francia
+Wrong:  Argentina
+Wrong:  España
+Question: ¿En qué país se encuentra la torre de Pisa?
+Right:  Italia
+Wrong:  España
+Wrong:  Noruega
+Wrong:  Francia
+Question: ¿Quién escribió La Odisea?
+Right:  Homero
+Wrong:  Shakespeare
+Wrong:  Miguel de Cervantes
+Wrong:  Miguel de Unamuno
+Question: ¿Cuál es el primero de la lista de los números primos?
+Right:  2
+Wrong:  3
+Wrong:  0
+Wrong:  1
+Question: ¿Cuál es el país más grande del mundo?
+Right:  Rusia
+Wrong:  Groenlandia
+Wrong:  India
+Wrong:  Estados Unidos
+Question: ¿Cómo se llama el animal más rápido del mundo?
+Right:  Halcón Peregrino
+Wrong:  Guepardo
+Wrong:  Cienpies
+Wrong:  Colibrí
