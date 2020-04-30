@@ -5,17 +5,25 @@ import java.awt.CardLayout;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Window;
 
+
 // Dianelys Saldana 03/07/2020
 public class FrameManager extends JFrame{
 	JLayeredPane layeredPane = new JLayeredPane();
+	String songPath = "worry -trash.wav";
+	BackgroudMusic song = new BackgroudMusic();
+	
 	
 	public FrameManager() {
 		getContentPane().setLayout(null);
@@ -30,11 +38,13 @@ public class FrameManager extends JFrame{
 	}
 	
 	public void menu() {
+		BackgroudMusic song = new BackgroudMusic();
 		layeredPane.removeAll();
 		layeredPane.add(new InitialMenu(this));
 		layeredPane.repaint();
 		layeredPane.revalidate();
 		this.setVisible(true);
+		song.music(songPath);
 	}
 	
 	public void player() {
@@ -52,4 +62,8 @@ public class FrameManager extends JFrame{
 		layeredPane.revalidate();
 		this.setVisible(true);
 	}
+	
+	
 }
+
+
