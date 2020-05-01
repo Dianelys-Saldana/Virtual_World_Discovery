@@ -19,8 +19,8 @@ public class Building  {
 	private ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>(); // list of answers of the buildings
 	private String image;// image of the building
 	private String name; // name of building
-	private ArrayList<String> remainQuestions= new ArrayList<>();
-	private ArrayList<ArrayList<String>>remainAnswer= new ArrayList<ArrayList<String>>();
+	private ArrayList<String> remainQuestions= new ArrayList<>();//list of remaining questions after one is answer
+	private ArrayList<ArrayList<String>>remainAnswer= new ArrayList<ArrayList<String>>();//list of remaining answer 
 
 
 

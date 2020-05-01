@@ -864,7 +864,9 @@ public class MapDesigner extends JPanel   {
 	private void findMapAndDelete() throws IOException {
 		writer.deleteLineifContains("Background");
 	}
-	
+	/**Carlos Rodriguez 4/24/2020
+	 * Busca una linea en un file especifico y devuelve cierto si la encontro
+	 */
 	private boolean findInFile(String s) {
 		if(worldArr.contains(s))return true;
 		return false;

@@ -541,14 +541,18 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 		checkTreeColition();
 	}
 
-
+	/**Created by Carlos Rodriguez 04/28/2020
+	 **Verifica que todos los edificios esten visibles y contestados
+	 */
 	public boolean allVisible() {
 		for(int i =0 ; i<this.buildings.size();i++) {
 			if(buildings.get(i).getVisible()!=2)return false;
 		}
 		return true;
 	}
-
+	/**Created by Carlos Rodriguez 04/28/2020
+	 **Crea una lista con las imagenes de cada edificio para no estar buscando en el sistema todo el tiempo
+	 */
 	public void fillImageList() {
 		for(int i=0;i<this.buildings.size();i++) {
 			BufferedImage img=null;
