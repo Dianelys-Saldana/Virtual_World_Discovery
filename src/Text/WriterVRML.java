@@ -13,10 +13,8 @@ public class WriterVRML {
 	File file;
 	FileWriter myWriter = null;
 	String str;
-	private boolean started = true;
-	Writer writer = new Writer("");
 
-	/**
+	/**s
 	 * Contructor for the Writer class
 	 * @param Str- the name of the file who is going to be write.
 	 */
@@ -36,7 +34,6 @@ public class WriterVRML {
 	public void create() throws IOException  {
 		if(!file.exists()) {
 			file.createNewFile();
-			started = false;
 		}
 	}
 	
