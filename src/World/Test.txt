@@ -1,2 +1,4 @@
 
+Background: MapTest.png
+TreeType:2, location: (256,183)
 QuestionsFile: TestQuestions.txt

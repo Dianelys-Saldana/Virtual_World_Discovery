@@ -9,7 +9,7 @@ Transform {
 		Shape {
 			appearance Appearance {
 				texture ImageTexture {
-					url "MapDefault.png
+					url "MapDefault.png"
 				}
 			}
 			geometry Box {
@@ -24,7 +24,7 @@ Transform {
 		Shape {
 			appearance Appearance {
 				texture ImageTexture {
-					url "map.png
+					url "MapTest.png"
 				}
 			}
 			geometry Box {
@@ -33,228 +33,23 @@ Transform {
 		}
 	]
 }
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "mapEnhanced.png
+#Tree
+Transform{
+	translation -256.0 50 -184.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree2.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
 				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "map.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "mapEnhanced.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "map.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "map.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "mapEnhanced.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "map.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "mapEnhanced.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "map.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "mapEnhanced.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Sketchpad - Copy.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "fix.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Sketchpad - Copy.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "fix.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Sketchpad - Copy.png
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
+			]
+		}	
 	]
 }
