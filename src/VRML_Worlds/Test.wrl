@@ -183,3 +183,78 @@ Transform {
 		}
 	]
 }
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Sketchpad - Copy.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "fix.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Sketchpad - Copy.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "fix.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Sketchpad - Copy.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}

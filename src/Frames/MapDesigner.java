@@ -607,9 +607,9 @@ public class MapDesigner extends JPanel   {
 								continue;
 							}
 							try {
-								if(writer.lineExist("Background: "+br.getBackground())) {
-									findMapAndDelete();
-								}
+								
+								findMapAndDelete();
+								
 								writer.copy(file);
 								writer.writeBackground(file.getName());
 								writer3D.writeFloor(file.getName());
