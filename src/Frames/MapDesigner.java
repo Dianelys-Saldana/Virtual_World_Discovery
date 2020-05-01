@@ -123,7 +123,6 @@ public class MapDesigner extends JPanel   {
 					if(draw)
 						try {
 							writer.end();
-							writer3D.end();
 						} catch (IOException e) {
 
 							e.printStackTrace();
@@ -159,6 +158,10 @@ public class MapDesigner extends JPanel   {
 					if(listPoints.get(listPoints.size()-1).size()>1) {
 						ArrayList<Pair>point=listPoints.get(listPoints.size()-1);
 						int ans= question.wallHeight();
+						double length = writer3D.length(point.get(point.size()-2), point.get(point.size()-1));
+						double angle = writer3D.angle(point.get(point.size()-2), point.get(point.size()-1));
+						double tx = writer3D.xTrans(point.get(point.size()-2), point.get(point.size()-1));
+						double tz = writer3D.zTrans(point.get(point.size()-2), point.get(point.size()-1));
 						//eliminate de building if you cancel 
 						if(ans==-1) {
 							draw=false;
@@ -167,7 +170,6 @@ public class MapDesigner extends JPanel   {
 							buildings.remove(buildings.size()-1);
 							try {
 								writer.end();
-								writer3D.end();
 							} catch (IOException e2) {
 								// TODO Auto-generated catch block
 								e2.printStackTrace();
@@ -217,7 +219,7 @@ public class MapDesigner extends JPanel   {
 										try {
 											writer.copy(file);
 											writer.writeWall(wallIndex++, point.get(point.size()-2), point.get(point.size()-1), wallHeight,file.getName());
-											writer3D.writeWall(Double.toString(writer3D.length(point.get(point.size()-2), point.get(point.size()-1))), Integer.toString(wallHeight), file.getName());
+											writer3D.writeWall(Double.toString(length), Double.toString(wallHeight), Double.toString(-angle), Double.toString(wallHeight/2), Double.toString(tx), Double.toString(tz), file.getName());
 											break;
 										} catch (IOException e1) {
 											e1.printStackTrace();
@@ -232,8 +234,8 @@ public class MapDesigner extends JPanel   {
 
 								}
 								else {
-									try {
-										writer3D.writeWall(Double.toString(writer3D.length(point.get(point.size()-2), point.get(point.size()-1))), Integer.toString(wallHeight), imagesNames[imageName]);
+									try { 
+										writer3D.writeWall(Double.toString(length), Double.toString(wallHeight), Double.toString(-angle), Double.toString(wallHeight/2), Double.toString(tx), Double.toString(tz), imagesNames[imageName]);
 										writer.writeWall(wallIndex++, point.get(point.size()-2), point.get(point.size()-1), wallHeight,imagesNames[imageName]);
 									} catch (IOException e1) {
 
@@ -248,8 +250,8 @@ public class MapDesigner extends JPanel   {
 				//used for create trees  
 				else if(rec) {
 					trees.add(new Tree(mouseX,mouseY,tree));
-					try {
-						writer3D.writeTree(Integer.toString(mouseX), Integer.toString(mouseY), "Tree1"); // TODO: Change params
+					try { 
+						writer3D.writeTree(Integer.toString(mouseX), Integer.toString(mouseY), tree);
 						writer.writeTree(mouseX, mouseY, tree);
 					} catch (IOException e1) {
 						e1.printStackTrace();
@@ -297,7 +299,6 @@ public class MapDesigner extends JPanel   {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					writer.end();
-					writer3D.end();
 				} catch (IOException e) {
 
 					e.printStackTrace();
@@ -343,7 +344,6 @@ public class MapDesigner extends JPanel   {
 					draw=false;
 					try {
 						writer.end();
-						writer3D.end();
 					} catch (IOException e1) {
 
 						e1.printStackTrace();
@@ -370,7 +370,6 @@ public class MapDesigner extends JPanel   {
 					draw=false;
 					try {
 						writer.end();
-						writer3D.end();
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -438,7 +437,6 @@ public class MapDesigner extends JPanel   {
 					draw=false;	
 					try {	
 						writer.end();
-						writer3D.end();
 					} catch (IOException e1) {	
 						// TODO Auto-generated catch block	
 						e1.printStackTrace();	
@@ -566,7 +564,6 @@ public class MapDesigner extends JPanel   {
 					draw=false;
 					try {
 						writer.end();
-						writer3D.end();
 					} catch (IOException e1) {
 
 						e1.printStackTrace();
@@ -611,6 +608,7 @@ public class MapDesigner extends JPanel   {
 							try {
 								writer.copy(file);
 								writer.writeBackground(file.getName());
+								writer3D.writeFloor(file.getName());
 								break;
 							} catch (IOException e1) {
 								e1.printStackTrace();
