@@ -76,7 +76,6 @@ public class MapDesigner extends JPanel   {
 	private JMenuItem home;// home button 
 	private JMenuItem bttEliminateTree;// Eliminate tree button 
 	private JMenuItem bttEliminateBuilding;// Eliminate tree button 
-//	private String[] backgrounds = {"Background", "Original", "Beach"};// selections of backgrounds
 	private BufferedImage background;//selected background
 	private ArrayList<JMenuItem> items= new ArrayList<>();//list of buttons 
 	private Questions question = new Questions(this,null);// instance of the Questions class 
@@ -576,8 +575,9 @@ public class MapDesigner extends JPanel   {
 		});
 		menuBar.add(home);
 		
-		/** Angel Hernandez 04/23/2020
-		 ** Button for choosing the background
+		/**Autor: Angel D. Hernandez Denis
+		 * Fecha: 04/23/2020
+		 ** Boton para escoger el background
 		 */
 		JMenuItem backCombo = new JMenuItem();
 		backCombo.setText("Background");
@@ -587,7 +587,7 @@ public class MapDesigner extends JPanel   {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				while(true) {
-
+					//Panel que le pregunta al usuario si que escoja una foto
 					String[] imagesNames = {"Escoger imagen"};
 					int imageName = question.arraySelection(imagesNames, "Escoga una imagen de su computadora para el background");
 					if(imageName==JOptionPane.CLOSED_OPTION) {
@@ -596,8 +596,8 @@ public class MapDesigner extends JPanel   {
 						break;
 					}
 					else if(imageName==imagesNames.length-1) {
+						//File Chooser para buscar la el background en la computadora
 						JFileChooser fileChooser = new JFileChooser();
-
 						int option = fileChooser.showOpenDialog(frame);
 						if(option == JFileChooser.APPROVE_OPTION){
 							File file = fileChooser.getSelectedFile();
@@ -606,19 +606,14 @@ public class MapDesigner extends JPanel   {
 								JOptionPane.showMessageDialog(f, "Favor de utilizar un archivo png");
 								continue;
 							}
+							//Escribe el nombre del background en el file y desplega un mensaje diciendo que fue modificado
 							try {
-								
 								findMapAndDelete();
-								
 								writer.copy(file);
 								writer.writeBackground(file.getName());
 								writer3D.writeFloor(file.getName());
 								String[] updatedImage = {"Ok"};
 								int updatedImage1 = question.arraySelection(updatedImage, "        El background a sido actualizado");
-								if(imageName==JOptionPane.CLOSED_OPTION) {
-									draw=false;
-									resetColor(4);
-								}
 								break;
 							} catch (IOException e1) {
 								e1.printStackTrace();
@@ -633,26 +628,13 @@ public class MapDesigner extends JPanel   {
 				}
 			}
 		});
-		
-//		try {
-//			background = ImageIO.read(getClass().getResource("../Image/"+br.getBackground()));
-//			repaint();
-////Si le quitas los comentarios salen los cuadros cuando haces lo que mencione en el chat			
-////			findMapAndDelete();
-////			writer.writeBackground(br.getBackground());
-////			repaint();
-//		} catch (IOException e1) {
-//			e1.printStackTrace();
-//		}
 	}
-
 
 	/**Carlos Rodriguez 3/15/2020
 	 * Paint the Jpanel
 	 */
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);  
-		//		this.setBackground(Color.CYAN);
 		g.drawImage(background, 0, 0, 1024, 735, this);
 
 		Graphics2D g2= (Graphics2D)g;
@@ -674,7 +656,6 @@ public class MapDesigner extends JPanel   {
 					g2.drawLine(tempX, tempY, mouseX, mouseY);
 				}
 			}
-			//g2.drawLine(this.listPoints., y1, x2, y2);
 			g2.drawOval(mouseX, mouseY, 10, 10);
 			xCoor.setText(""+mouseX);
 			yCoor.setText(""+mouseY);
@@ -870,7 +851,8 @@ public class MapDesigner extends JPanel   {
 		writer.deleteLinesFromQuestionFile("Building: "+s);
 		return true;
 	}
-	/**Angel Hernandez 4/24/2020
+	/**Autor: Angel D. Hernandez Denis
+	 * Fecha: 4/24/2020
 	 * Used for elimination of the background
 	 */
 	private void findMapAndDelete() throws IOException {
@@ -884,7 +866,4 @@ public class MapDesigner extends JPanel   {
 		return false;
 		
 	}
-
 }
-
-

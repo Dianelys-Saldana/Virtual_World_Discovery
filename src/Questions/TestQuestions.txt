@@ -1,0 +1,40 @@
+
+
+
+
+Building: Casa
+Question: ¿Cuál es tercer planeta en el sistema solar?
+Right:  La Tierra
+Wrong:  Saturno
+Wrong:  Júpiter
+Wrong:  Venus
+Question: ¿En qué país se encuentra la torre de Pisa?
+Right:  Italia
+Wrong:  España
+Wrong:  Noruega
+Wrong:  Francia
+Question: ¿Quién pintó “la última cena”?
+Right:  Leonardo da Vinci
+Wrong:  Vincent van Gogh
+Wrong:  Diego Rivera
+Wrong:  Pablo Picasso
+Question: ¿Cuál es el lugar más frío de la tierra?
+Right:  La Antártida
+Wrong:  Siberia
+Wrong:  Alaska
+Wrong:  Islandia
+Question: ¿En qué continente está Ecuador?
+Right:  América
+Wrong:  África
+Wrong:  Oceanía
+Wrong:  Europa
+Question: ¿Qué cantidad de huesos en el cuerpo humano?
+Right:  206
+Wrong:  300
+Wrong:  210
+Wrong:  105
+Question: ¿Quién escribió “Hamlet”?
+Right:  William Shakespeare
+Wrong:  Homero
+Wrong:  Miguel de Cervantes
+Wrong:  Neruda

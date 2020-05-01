@@ -108,18 +108,12 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	public void paintComponent(Graphics g){
 
 		super.paintComponent(g);  
-		//	this.setBackground(bColor);
 
 		/** Dianelys Saldana 03/29/2020
 		 ** Painting background chosen in MapDesigner
 		 */
-
-
-
-
-
 		Graphics2D g2= (Graphics2D)g;
-		//Used for make the avatar 
+		//Used for displaying the avatar 
 		g2.drawImage(background, 0, 0, 1024, 735, this);
 		try {
 			if(avatar1) {
@@ -140,10 +134,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				BufferedImage img=this.imageList.get(i);
 
 				g2.drawImage(img, buildings.get(i).midX(buildings.get(i).upperLine()),buildings.get(i).midY(buildings.get(i).upperLine()),this);
-//				for(int j=0;j<buildings.get(i).getLines().size();j++) {
-//					g2.drawLine((int)buildings.get(i).getLines().get(j).getX1(),(int) buildings.get(i).getLines().get(j).getY1(),
-//							(int)buildings.get(i).getLines().get(j).getX2(),(int) buildings.get(i).getLines().get(j).getY2());
-//				}
+
 				g2.setColor(Color.BLACK);
 			}
 			else if(buildings.get(i).getVisible()==1) {
@@ -223,7 +214,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	} 
 
 	/**Created by Angel Hernandez 03/16/2020
-	 **Draw the Avatar.
+	 **Draw the second Avatar.
 	 */
 	private void drawPlayer2(Graphics g, ImageObserver observer) throws IOException {
 		//draw one of three possible poses according to situation
@@ -269,10 +260,6 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	 */
 	private void worldScan() {
 		if(sele==0) {
-
-			//			for(int i=1;i<this.worldSize+1;i++) {
-			//				arr.add("world"+i);
-			//			}
 			File folder = new File("src/World");
 			File[] listOfFiles = folder.listFiles();
 			for (int i = 0; i < listOfFiles.length; i++) {
@@ -330,7 +317,6 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				qr.worldScan(this.worldSelected, buildings);
 				for(int i=0;i<buildings.size();i++) {
 					if(buildings.get(i).getPoint().size()<2)buildings.remove(i);
-
 				}
 
 				repaint();
@@ -346,6 +332,7 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 	}
 
 	//Created by Angel Hernandez 03/16/2020
+	//Creates the GUI were you select a character
 	private void initialize() {
 
 		this.setFocusable(true);
@@ -396,7 +383,6 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				}
 			}
 		});
-
 	}
 
 	/** Jose A Velazquez Torres 03/07/2020
@@ -566,7 +552,4 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 			this.imageList.add(img);
 		}
 	}
-
-
-
 }

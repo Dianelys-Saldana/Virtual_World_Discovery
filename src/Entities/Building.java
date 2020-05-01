@@ -6,87 +6,85 @@ import java.util.ArrayList;
 
 import Util.Pair;
 
-/**Carlos Rodriguez 03/24/2020
- ** Here we manage the building entities
+/**
+ * Carlos Rodriguez 03/24/2020 Here we manage the building entities
  */
-public class Building  {
+public class Building {
 	private int visible; // variable to decide if the building is visible, 0 - not founded, 1 - founded but not question answer, 2- full visible
-	private ArrayList<Pair> point; //list of points of buildings
-	private ArrayList<Line2D> lines= new ArrayList<>();//list of lines of buildings
-	private ArrayList<String> questions= new ArrayList<>(); // questions of the buildings
+	private ArrayList<Pair> point; // list of points of buildings
+	private ArrayList<Line2D> lines = new ArrayList<>();// list of lines of buildings
+	private ArrayList<String> questions = new ArrayList<>(); // questions of the buildings
 	private int height;// height of the building
-	private ArrayList<String> wallsImage =new ArrayList<>(); // image of the walls
-	private ArrayList<ArrayList<String>>answer= new ArrayList<ArrayList<String>>(); // list of answers of the buildings
+	private ArrayList<String> wallsImage = new ArrayList<>(); // image of the walls
+	private ArrayList<ArrayList<String>> answer = new ArrayList<ArrayList<String>>(); // list of answers of the buildings
 	private String image;// image of the building
 	private String name; // name of building
-	private ArrayList<String> remainQuestions= new ArrayList<>();//list of remaining questions after one is answer
-	private ArrayList<ArrayList<String>>remainAnswer= new ArrayList<ArrayList<String>>();//list of remaining answer 
-
-
+	private ArrayList<String> remainQuestions = new ArrayList<>();// list of remaining questions after one is answer
+	private ArrayList<ArrayList<String>> remainAnswer = new ArrayList<ArrayList<String>>();// list of remaining answer
 
 	public Building(ArrayList<Pair> point) {
-		this.visible=0;
-		this.point=point;
+		this.visible = 0;
+		this.point = point;
 		createLine();
 
 	}
 
-
-	/**Created by Carlos Rodriguez 03/24/2020
-	 * Create lines between the points
+	/**
+	 * Created by Carlos Rodriguez 03/24/2020 Create lines between the points
 	 */
 	public void createLine() {
-		for(int i= point.size()-1;i>0;i--) {
-			lines.add(new Line2D.Double(point.get(i - 1).getX(), point.get(i - 1).getY(),point.get(i).getX(),point.get(i).getY()));
+		for (int i = point.size() - 1; i > 0; i--) {
+			lines.add(new Line2D.Double(point.get(i - 1).getX(), point.get(i - 1).getY(), point.get(i).getX(),
+					point.get(i).getY()));
 		}
 
 	}
-	//Metodo Que nos devuelve la linea mas baja del building 
-	//Carlos Rodriguez 4/22/2020
+
+	// Metodo Que nos devuelve la linea mas baja del building
+	// Carlos Rodriguez 4/22/2020
 	public Line2D lowerLine() {
-		Line2D lowest= lines.get(0);
-		for(int i=1; i<lines.size();i++) {
-			if(this.midY(lowest)<this.midY(lines.get(i)))lowest=lines.get(i);
+		Line2D lowest = lines.get(0);
+		for (int i = 1; i < lines.size(); i++) {
+			if (this.midY(lowest) < this.midY(lines.get(i)))
+				lowest = lines.get(i);
 		}
 		return lowest;
-		
 	}
-	//Metodo Que nos devuelve la linea mas alta del building 
-	//Carlos Rodriguez 4/22/2020
+
+	// Metodo Que nos devuelve la linea mas alta del building
+	// Carlos Rodriguez 4/22/2020
 	public Line2D upperLine() {
-		Line2D top= lines.get(0);
-		for(int i=1; i<lines.size();i++) {
-			if(this.midY(top)>this.midY(lines.get(i)))top=lines.get(i);
+		Line2D top = lines.get(0);
+		for (int i = 1; i < lines.size(); i++) {
+			if (this.midY(top) > this.midY(lines.get(i)))
+				top = lines.get(i);
 		}
 		return top;
 	}
-	//	public void deleteTwiced(ArrayList<Line2D> lines) {
-	//		for(int i=0;i<lines.size();i++) {
-	//			for(int j=i+1;j<lines.size();j++) {
-	//				if(lines.get(i).equals(lines.get(j)))lines.remove(j);
-	//			}
-	//		}
-	//	}
 
-	/**Created by Carlos Rodriguez 03/24/2020
-	 * Check collisions with rectangles
-	 * @param r rectangle collisioned
+	/**
+	 * Created by Carlos Rodriguez 03/24/2020 Check collisions with rectangles
+	 * 
+	 * @param r
+	 *            rectangle collisioned
 	 */
 	public boolean intersects(Rectangle r) {
-		if(lines.size()==0)return false;
-		for(int i=0;i<lines.size();i++) {
-			if(lines.get(i).intersects(r))return true;
+		if (lines.size() == 0)
+			return false;
+		for (int i = 0; i < lines.size(); i++) {
+			if (lines.get(i).intersects(r))
+				return true;
 		}
 		return false;
 	}
+
 	public int midY(Line2D line) {
-		return (int) ((line.getY1()+line.getY2())/2);
+		return (int) ((line.getY1() + line.getY2()) / 2);
 	}
+
 	public int midX(Line2D line) {
-		return (int) ((line.getX1()+line.getX2())/2);
+		return (int) ((line.getX1() + line.getX2()) / 2);
 	}
-
-
 
 	public ArrayList<String> getQuestions() {
 		return questions;
@@ -104,8 +102,6 @@ public class Building  {
 		this.answer = answer;
 	}
 
-
-
 	public int getVisible() {
 		return visible;
 	}
@@ -113,6 +109,7 @@ public class Building  {
 	public void setVisible(int visible) {
 		this.visible = visible;
 	}
+
 	public String getName() {
 		return name;
 	}
@@ -133,35 +130,26 @@ public class Building  {
 		return point;
 	}
 
-
-
 	public void setPoint(ArrayList<Pair> point) {
 		this.point = point;
 	}
-
-
 
 	public ArrayList<Line2D> getLines() {
 		return lines;
 	}
 
-
-
 	public void setLines(ArrayList<Line2D> lines) {
 		this.lines = lines;
 	}
-
-
 
 	public void setWallsImage(ArrayList<String> wallsImage) {
 		this.wallsImage = wallsImage;
 	}
 
-
-
 	public void setHeight(int height) {
 		this.height = height;
 	}
+
 	public String getImage() {
 		return image;
 	}
@@ -170,25 +158,20 @@ public class Building  {
 		this.image = image;
 	}
 
-
 	public ArrayList<String> getRemainQuestions() {
 		return remainQuestions;
 	}
-
 
 	public void setRemainQuestions(ArrayList<String> remainQuestions) {
 		this.remainQuestions = remainQuestions;
 	}
 
-
 	public ArrayList<ArrayList<String>> getRemainAnswer() {
 		return remainAnswer;
 	}
 
-
 	public void setRemainAnswer(ArrayList<ArrayList<String>> remainAnswer) {
 		this.remainAnswer = remainAnswer;
 	}
-
 
 }

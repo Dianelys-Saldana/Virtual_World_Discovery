@@ -18,24 +18,9 @@ Transform {
 		}
 	]
 }
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "MapTest.png"
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
 #Tree
 Transform{
-	translation -256.0 50 -184.5
+	translation -215.0 50 -190.5
 	children[
 		Billboard {
 			children [
@@ -53,100 +38,108 @@ Transform{
 		}	
 	]
 }
+#Tree
+Transform{
+	translation 361.0 50 -67.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree3.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
+				}
+			]
+		}	
+	]
+}
+#Tree
+Transform{
+	translation -349.0 50 194.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree1.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
+				}
+			]
+		}	
+	]
+}
+#Wall
+Transform {
+	translation -56.0 2.0 -19.0
+	rotation 0 1 0 0.817350755081928
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 154.93547043850222 5.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -16.5 2.0 37.5
+	rotation 0 1 0 -0.0
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 185.0 5.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation 37.0 2.0 -19.0
+	rotation 0 1 0 -0.9666335139916253
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 137.3062270984095 5.0 0.1
+			}
+		}
+	]
+}
 #Floor
 Transform {
 	children [
 		Shape {
 			appearance Appearance {
 				texture ImageTexture {
-					url "Sketchpad - Copy.png"
+					url "map.png"
 				}
 			}
 			geometry Box {
 			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Floor
-Transform {
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Sketchpad - Copy.png"
-				}
-			}
-			geometry Box {
-			  size 1024 0.1 735
-			}
-		}
-	]
-}
-#Wall
-Transform {
-	translation -192.5 2.0 -25.0
-	rotation 0 1 0 0.6735078972257722
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Casa.png"
-				}
-			}
-			geometry Box {
-			  size 126.65701717630967 5.0 0.1
-			}
-		}
-	]
-}
-#Wall
-Transform {
-	translation -192.5 2.0 -22.5
-	rotation 0 1 0 0.6917502372807489
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Casa.png"
-				}
-			}
-			geometry Box {
-			  size 128.5496013218244 5.0 0.1
-			}
-		}
-	]
-}
-#Wall
-Transform {
-	translation -141.0 2.0 18.0
-	rotation 0 1 0 0.004950454608843443
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Casa.png"
-				}
-			}
-			geometry Box {
-			  size 202.00247523235947 5.0 0.1
-			}
-		}
-	]
-}
-#Wall
-Transform {
-	translation -90.5 2.0 -22.5
-	rotation 0 1 0 -0.6698924953669446
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Casa.png"
-				}
-			}
-			geometry Box {
-			  size 128.84486796143648 5.0 0.1
 			}
 		}
 	]
