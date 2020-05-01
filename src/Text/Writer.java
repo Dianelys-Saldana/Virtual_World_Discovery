@@ -162,6 +162,7 @@ public class Writer {
 	public void writeBackground(String background) throws IOException {
 		myWriter.write("\n");
 		myWriter.write("Background: "+background);
+		myWriter.write("\n");
 		myWriter.flush();
 		started = true;
 	}
