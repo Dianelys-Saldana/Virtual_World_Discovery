@@ -82,7 +82,7 @@ public class WriterVRML {
 	public void writeTree(String x, String y, int url) throws IOException {
 		myWriter.write("\n#Tree\n" + 
 				"Transform{\n" + 
-				"	translation " + x + " 2 " + y + "\n" +
+				"	translation " + x + " 50 " + y + "\n" +
 				"	children[\n" + 
 				"		Billboard {\n" + 
 				"			children [\n" + 
@@ -93,7 +93,7 @@ public class WriterVRML {
 				"						}\n" + 
 				"					}\n" + 
 				"					geometry Box {\n" + 
-				"						size 5 4 0.0001\n" +
+				"						size 60 100 0.0001\n" +
 				"					}\n" + 
 				"				}\n" + 
 				"			]\n" + 
@@ -113,7 +113,7 @@ public class WriterVRML {
 		"		Shape {\n" + 
 		"			appearance Appearance {\n" +
 		"				texture ImageTexture {\n" + 
-		"					url \"" + url + "\n" + 
+		"					url \"" + url + "\"\n" + 
 		"				}\n" + 
 		"			}\n" + 
 		"			geometry Box {\n" + 

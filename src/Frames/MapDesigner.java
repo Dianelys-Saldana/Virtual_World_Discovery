@@ -252,7 +252,7 @@ public class MapDesigner extends JPanel   {
 				else if(rec) {
 					trees.add(new Tree(mouseX,mouseY,tree));
 					try { 
-						writer3D.writeTree(Integer.toString(mouseX), Integer.toString(mouseY), tree);
+						writer3D.writeTree(Double.toString(mouseX-512), Double.toString(mouseY-367.5), tree);
 						writer.writeTree(mouseX, mouseY, tree);
 					} catch (IOException e1) {
 						e1.printStackTrace();
