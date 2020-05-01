@@ -770,10 +770,10 @@ public class MapDesigner extends JPanel   {
 			worldSelected=worldArr.get(sel);
 			if(sel==lastIndex) {// if new world is selected
 				
-				while(worldName==null||this.findInFile(worldName)) {
+				while(worldName==null||this.findInFile(worldName)||worldName.equals("")) {
 					
 					 worldName = question.questionsString("Como desea que se llame el mundo");
-					 if(worldName==null)JOptionPane.showMessageDialog(f, "Favor de utilizar un Nombre");
+					 if(worldName==null||worldName.equals(""))JOptionPane.showMessageDialog(f, "Favor de utilizar un Nombre");
 					 if(this.findInFile(worldName))JOptionPane.showMessageDialog(f, "Mundo ya existente");
 				}
 				
