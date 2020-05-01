@@ -103,6 +103,7 @@ public class MapDesigner extends JPanel   {
 		this.f=f;
 		
 		try {
+			background = ImageIO.read(getClass().getResource("../Image/MapDefault.png"));
 			worldSelect();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -609,6 +610,9 @@ public class MapDesigner extends JPanel   {
 								writer.copy(file);
 								writer.writeBackground(file.getName());
 								writer3D.writeFloor(file.getName());
+								System.out.println(file.getName());
+								background = ImageIO.read(getClass().getResource("../Image/"+file.getName()));
+								repaint();
 								break;
 							} catch (IOException e1) {
 								e1.printStackTrace();
@@ -624,15 +628,16 @@ public class MapDesigner extends JPanel   {
 			}
 		});
 		
-		try {
-			background = ImageIO.read(getClass().getResource("../Image/"+br.getBackground()));
-//Si le quitas los comentarios salen los cuadros cuando haces lo que mencione en el chat			
-//			findMapAndDelete();
-//			writer.writeBackground(br.getBackground());
+//		try {
+//			background = ImageIO.read(getClass().getResource("../Image/"+br.getBackground()));
 //			repaint();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
+////Si le quitas los comentarios salen los cuadros cuando haces lo que mencione en el chat			
+////			findMapAndDelete();
+////			writer.writeBackground(br.getBackground());
+////			repaint();
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		}
 	}
 
 
