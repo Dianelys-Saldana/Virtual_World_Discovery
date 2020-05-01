@@ -102,7 +102,7 @@ public class Questions {
 	 * helper method to validate if the value 
 	 * enter contains numbers  
 	 */
-	private boolean hasNum(String s) {
+	public boolean hasNum(String s) {
 		if(s==null)return false;
 		for(char c: s.toCharArray()) {
 			if(!Character.isDigit(c)) {
@@ -124,7 +124,7 @@ public class Questions {
 		boolean done = false;;
 		while(!done && wallHeight != null) {
 				if(wallHeight.equals("-1"))return -1;
-				if(!this.hasNum(wallHeight) || wallHeight.equals("")) { 
+				if(!this.hasNum(wallHeight) || wallHeight.equals("") || wallHeight.equals("0")) { 
 					 wallHeight = JOptionPane.showInputDialog(c,"Re enter the "
 					 		+ "wall height in meters");
 				}
