@@ -18,3 +18,168 @@ Transform {
 		}
 	]
 }
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "map.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "mapEnhanced.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "map.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "mapEnhanced.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "map.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "map.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "mapEnhanced.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "map.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "mapEnhanced.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "map.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "mapEnhanced.png
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}

@@ -589,7 +589,7 @@ public class MapDesigner extends JPanel   {
 				while(true) {
 
 					String[] imagesNames = {"Escoger imagen"};
-					int imageName =question.arraySelection(imagesNames, "Escoga una imagen de su computadora para el background");
+					int imageName = question.arraySelection(imagesNames, "Escoga una imagen de su computadora para el background");
 					if(imageName==JOptionPane.CLOSED_OPTION) {
 						draw=false;
 						resetColor(4);
@@ -607,10 +607,18 @@ public class MapDesigner extends JPanel   {
 								continue;
 							}
 							try {
+								if(writer.lineExist("Background: "+br.getBackground())) {
+									findMapAndDelete();
+								}
 								writer.copy(file);
 								writer.writeBackground(file.getName());
 								writer3D.writeFloor(file.getName());
-								
+								String[] updatedImage = {"Ok"};
+								int updatedImage1 = question.arraySelection(updatedImage, "        El background a sido actualizado");
+								if(imageName==JOptionPane.CLOSED_OPTION) {
+									draw=false;
+									resetColor(4);
+								}
 								break;
 							} catch (IOException e1) {
 								e1.printStackTrace();
