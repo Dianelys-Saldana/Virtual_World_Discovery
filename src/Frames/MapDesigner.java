@@ -610,9 +610,7 @@ public class MapDesigner extends JPanel   {
 								writer.copy(file);
 								writer.writeBackground(file.getName());
 								writer3D.writeFloor(file.getName());
-								System.out.println(file.getName());
-								background = ImageIO.read(getClass().getResource("../Image/"+file.getName()));
-								repaint();
+								
 								break;
 							} catch (IOException e1) {
 								e1.printStackTrace();
@@ -821,6 +819,7 @@ public class MapDesigner extends JPanel   {
 
 		try {
 			br.scan(worldName);
+			background = ImageIO.read(getClass().getResource("../Image/"+br.getBackground()));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
