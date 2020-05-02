@@ -395,7 +395,7 @@ public class MapDesigner extends JPanel   {
 					return;
 				}
 				String buildingName = buildings.get(buildingIndex);
-				System.out.println(buildingName);
+				
 				try {
 					if(findBuilding(buildingName)) {
 

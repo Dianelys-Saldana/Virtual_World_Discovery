@@ -1,0 +1,182 @@
+#VRML V2.0 utf8
+NavigationInfo {
+  headlight TRUE
+  avatarSize [0.3 1.6 0.5]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MapDefault.png"
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -81.5 0.0 35.0
+	rotation 0 1 0 -0.014491739065500022
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 207.02173798903343 1.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation 16.5 0.0 -31.5
+	rotation 0 1 0 -1.4900896610033396
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 136.444127759314 1.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -54.0 0.0 54.5
+	rotation 0 1 0 -0.019228399099707208
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 208.0384579831335 1.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation 48.5 0.0 -12.5
+	rotation 0 1 0 -1.5490606199531038
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 138.03260484392808 1.0 0.1
+			}
+		}
+	]
+}
+#Tree
+Transform{
+	translation -332.0 50 -216.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree3.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
+				}
+			]
+		}	
+	]
+}
+#Tree
+Transform{
+	translation -58.0 50 -208.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree3.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
+				}
+			]
+		}	
+	]
+}
+#Tree
+Transform{
+	translation 119.0 50 -234.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree3.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
+				}
+			]
+		}	
+	]
+}
+#Wall
+Transform {
+	translation 280.0 0.0 57.5
+	rotation 0 1 0 -0.009174054545109998
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 218.00917411888886 1.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation 390.0 0.0 -10.5
+	rotation 0 1 0 1.5563045877293966
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 138.01449199268893 1.0 0.1
+			}
+		}
+	]
+}

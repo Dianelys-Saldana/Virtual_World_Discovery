@@ -1,0 +1,77 @@
+
+
+
+
+Building: test1
+Question: ¿Cuál es el disco más vendido de la historia?
+Right:  Thriller
+Wrong:  Back in Black
+Wrong:  YHLQMDLG
+Wrong:  The Dark Side of the Moon
+Question: ¿Quién escribió La Odisea?
+Right:  Homero
+Wrong:  Shakespeare
+Wrong:  Miguel de Cervantes
+Wrong:  Miguel de Unamuno
+Question: ¿Cuál es el país más grande del mundo?
+Right:  Rusia
+Wrong:  Groenlandia
+Wrong:  India
+Wrong:  Estados Unidos
+Question: ¿Cuándo acabó la II Guerra Mundial?
+Right:  1945
+Wrong:  1930
+Wrong:  1918
+Wrong:  1914
+Question: ¿Cuántas patas tiene la araña?
+Right:  8
+Wrong:  16
+Wrong:  9
+Wrong:  10
+Question: ¿Qué año llegó Cristóbal Colón a América?
+Right:  1492
+Wrong:  1493
+Wrong:  1942
+Wrong:  1943
+Question: ¿Cuál es el primero de la lista de los números primos?
+Right:  2
+Wrong:  3
+Wrong:  0
+Wrong:  1
+
+Building: test2
+Question: ¿Cuál es el primero de la lista de los números primos?
+Right:  2
+Wrong:  3
+Wrong:  0
+Wrong:  1
+Question: ¿Cuándo acabó la II Guerra Mundial?
+Right:  1945
+Wrong:  1930
+Wrong:  1918
+Wrong:  1914
+Question: ¿Cuál fue el primer metal que empleó el hombre?
+Right:  Cobre
+Wrong:  Oro
+Wrong:  Hierro
+Wrong:  Bronce
+Question: ¿Quién escribió La Odisea?
+Right:  Homero
+Wrong:  Shakespeare
+Wrong:  Miguel de Cervantes
+Wrong:  Miguel de Unamuno
+Question: ¿En qué país se encuentra la torre de Pisa?
+Right:  Italia
+Wrong:  España
+Wrong:  Noruega
+Wrong:  Francia
+Question: ¿Qué cantidad de huesos en el cuerpo humano?
+Right:  206
+Wrong:  300
+Wrong:  210
+Wrong:  105
+Question: ¿Cuál es el país más poblado de la Tierra?
+Right:  China
+Wrong:  Rusia
+Wrong:  India
+Wrong:  Brazil

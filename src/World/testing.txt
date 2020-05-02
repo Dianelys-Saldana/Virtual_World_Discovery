@@ -1,0 +1,15 @@
+
+
+BuildingName: test1
+BuildingImage: Casa.png
+Wall1: startsAt: (354,420), endsAt: (562,424), height:1, texture image:Casa.png
+Wall2: startsAt: (562,424), endsAt: (559,286), height:1, texture image:Casa.png
+end
+TreeType:3, location: (180,151)
+TreeType:3, location: (454,159)
+TreeType:3, location: (631,133)
+BuildingName: test2
+BuildingImage: Casa.png
+Wall1: startsAt: (683,424), endsAt: (901,426), height:1, texture image:Casa.png
+Wall2: startsAt: (901,426), endsAt: (903,288), height:1, texture image:Casa.png
+end
