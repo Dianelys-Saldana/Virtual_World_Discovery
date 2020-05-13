@@ -1,0 +1,38 @@
+
+
+Building: Test1
+Question: ¿En qué continente está Ecuador?
+Right:  América
+Wrong:  África
+Wrong:  Oceanía
+Wrong:  Europa
+Question: ¿Dónde originaron los juegos olímpicos?
+Right:  Grecia
+Wrong:  Japón
+Wrong:  Estados Unidos
+Wrong:  Alemania
+Question: ¿Qué país tiene forma de bota?
+Right:  Italia
+Wrong:  México
+Wrong:  Suecia
+Wrong:  España
+Question: ¿De qué colores es la bandera de México?
+Right:  Rojo/ verde/ blanco
+Wrong:  Azul/ Rojo/ Blanco
+Wrong:  Amarillo/ Rojo/ Verde
+Wrong:  Rojo/ Amarillo/ Blanco
+Question: ¿Qué año llegó Cristóbal Colón a América?
+Right:  1492
+Wrong:  1493
+Wrong:  1942
+Wrong:  1943
+Question: ¿Cuántas patas tiene la araña?
+Right:  8
+Wrong:  16
+Wrong:  9
+Wrong:  10
+Question: ¿Qué cantidad de huesos en el cuerpo humano?
+Right:  206
+Wrong:  300
+Wrong:  210
+Wrong:  105

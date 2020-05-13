@@ -14,6 +14,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
+import Entities.Tree;
 import Util.Pair;
 /**Created by Carlos Rodriguez 03/23/2020
  * Class created for write files
@@ -114,6 +115,13 @@ public class Writer {
 		if (started) myWriter.write("\n");
 		myWriter.write("TreeType:"+var);
 		myWriter.write(", location: ("+x+","+y+")");
+		started=true;
+		myWriter.flush();
+	}
+	public void writeTree(Tree t) throws IOException {
+		if (started) myWriter.write("\n");
+		myWriter.write("TreeType:"+t.getVar());
+		myWriter.write(", location: ("+t.getX()+","+t.getY()+")");
 		started=true;
 		myWriter.flush();
 	}

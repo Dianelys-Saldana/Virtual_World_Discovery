@@ -18,50 +18,31 @@ Transform {
 		}
 	]
 }
-#Wall
+#Floor
 Transform {
-	translation -22.0 0.0 43.5
-	rotation 0 1 0 -0.011764163149758748
 	children [
 		Shape {
 			appearance Appearance {
 				texture ImageTexture {
-					url "Casa.png"
+					url "Sketchpad - Copy.png"
 				}
 			}
 			geometry Box {
-			  size 170.01176429882727 1.0 0.1
-			}
-		}
-	]
-}
-#Wall
-Transform {
-	translation 62.5 0.0 -15.5
-	rotation 0 1 0 -1.5624631863547607
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Casa.png"
-				}
-			}
-			geometry Box {
-			  size 120.00416659433121 1.0 0.1
+			  size 1024 0.1 735
 			}
 		}
 	]
 }
 #Tree
 Transform{
-	translation -360.0 50 -228.5
+	translation -260.0 50 -235.5
 	children[
 		Billboard {
 			children [
 				Shape {
 					appearance Appearance {
 						texture ImageTexture {
-							url "Tree1.png"
+							url "Tree2.png"
 						}
 					}
 					geometry Box {
@@ -74,14 +55,14 @@ Transform{
 }
 #Tree
 Transform{
-	translation -199.0 50 -227.5
+	translation 250.0 50 -280.5
 	children[
 		Billboard {
 			children [
 				Shape {
 					appearance Appearance {
 						texture ImageTexture {
-							url "Tree1.png"
+							url "Tree2.png"
 						}
 					}
 					geometry Box {
@@ -94,14 +75,14 @@ Transform{
 }
 #Tree
 Transform{
-	translation 12.0 50 -234.5
+	translation -319.0 50 5.5
 	children[
 		Billboard {
 			children [
 				Shape {
 					appearance Appearance {
 						texture ImageTexture {
-							url "Tree1.png"
+							url "Tree2.png"
 						}
 					}
 					geometry Box {
@@ -114,8 +95,8 @@ Transform{
 }
 #Wall
 Transform {
-	translation -14.5 45.0 61.0
-	rotation 0 1 0 -0.013952582897227457
+	translation -78.5 44.0 -45.0
+	rotation 0 1 0 0.82847494732121
 	children [
 		Shape {
 			appearance Appearance {
@@ -124,15 +105,15 @@ Transform {
 				}
 			}
 			geometry Box {
-			  size 215.02092921387907 90.0 0.1
+			  size 164.20109622045769 88.0 0.1
 			}
 		}
 	]
 }
 #Wall
 Transform {
-	translation 92.5 45.0 -12.5
-	rotation 0 1 0 -1.5641297588910283
+	translation 22.0 49.0 -41.0
+	rotation 0 1 0 -0.9616328611341242
 	children [
 		Shape {
 			appearance Appearance {
@@ -141,41 +122,7 @@ Transform {
 				}
 			}
 			geometry Box {
-			  size 150.00333329629711 90.0 0.1
-			}
-		}
-	]
-}
-#Wall
-Transform {
-	translation -352.0 45.0 11.5
-	rotation 0 1 0 0.01041628993096966
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Casa.png"
-				}
-			}
-			geometry Box {
-			  size 192.01041638411183 90.0 0.1
-			}
-		}
-	]
-}
-#Wall
-Transform {
-	translation -254.0 45.0 -63.5
-	rotation 0 1 0 1.5437758776076318
-	children [
-		Shape {
-			appearance Appearance {
-				texture ImageTexture {
-					url "Casa.png"
-				}
-			}
-			geometry Box {
-			  size 148.05404418657398 90.0 0.1
+			  size 157.29272074701996 99.0 0.1
 			}
 		}
 	]

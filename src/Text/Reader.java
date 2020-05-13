@@ -41,6 +41,7 @@ public class Reader
 		int pos = 0;// used to move vertically
 		int xPoint=0;// reference of the x position form a point
 		Tree tempTree=new Tree();
+		boolean isBackground=false;
 		while ((line = file.readLine()) != null) {
 
 			scanner = new Scanner(line);
@@ -81,7 +82,13 @@ public class Reader
 				// Angel Hernandez 04/24/2020
 				// Reads the selected background from the file
 				else if(data.equals("Background")) {
-					background = line.substring(12);
+					isBackground=true;
+					
+				}
+				else if(isBackground) {
+					String replace=data.substring(1);
+					background = replace;
+					isBackground=false;
 				}
 
 
