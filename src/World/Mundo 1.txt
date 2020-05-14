@@ -1,0 +1,36 @@
+
+Background: mapasSpecs2.png
+
+
+
+BuildingName: Building B
+BuildingImage: Casa.png
+end
+BuildingName: Building C
+BuildingImage: Casa.png
+Wall1: startsAt: (384,129), endsAt: (322,54), height:15, texture image:MBwhiteBricks.png
+Wall2: startsAt: (322,54), endsAt: (351,89), height:15, texture image:MBwhiteBricks.png
+Wall3: startsAt: (351,89), endsAt: (311,138), height:10, texture image:MAbricks.png
+end
+BuildingName: Building D
+BuildingImage: Casa.png
+Wall1: startsAt: (475,225), endsAt: (456,225), height:5, texture image:MCmotherBoard.png
+Wall2: startsAt: (456,225), endsAt: (482,180), height:5, texture image:MCmotherBoard.png
+Wall3: startsAt: (482,180), endsAt: (507,226), height:5, texture image:MCmotherBoard.png
+Wall4: startsAt: (507,226), endsAt: (486,226), height:5, texture image:MCmotherBoard.png
+end
+BuildingName: Building E
+BuildingImage: Casa.png
+Wall1: startsAt: (484,314), endsAt: (547,314), height:7, texture image:MDwood.png
+Wall2: startsAt: (547,314), endsAt: (548,459), height:10, texture image:MDwood.png
+Wall3: startsAt: (548,459), endsAt: (412,459), height:5, texture image:MDwood.png
+Wall4: startsAt: (412,459), endsAt: (412,313), height:3, texture image:MDtarzan.png
+Wall5: startsAt: (412,313), endsAt: (474,313), height:1, texture image:MDwood.png
+end
+TreeType:2, location: (465,56)
+TreeType:3, location: (739,172)
+
+TreeType:2, location: (415,599)
+TreeType:1, location: (614,361)
+
+QuestionsFile: Mundo 1Questions.txt

@@ -320,7 +320,6 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				for(int i=0;i<buildings.size();i++) {
 					if(buildings.get(i).getPoint().size()<2)buildings.remove(i);
 				}
-				System.out.println(buildings.get(0).getQuestions().size());
 				repaint();
 
 			} catch (IOException e) {
@@ -379,7 +378,6 @@ public class PlayerInterface extends JPanel implements ActionListener  {
 				lblNewLabel.setVisible(false);
 				worldScan();
 				try {
-					System.out.println(br.getBackground());
 					background = ImageIO.read(getClass().getResource("../Image/" + br.getBackground()));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block

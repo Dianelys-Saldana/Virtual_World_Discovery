@@ -1,0 +1,151 @@
+
+
+
+
+Building: Building B
+Question: ¿Qué tipo de animal es la ballena?
+Right:  Mamífero
+Wrong:  Anfibio
+Wrong:  Vertebrado
+Wrong:  Invertebrado
+Question: ¿Cuál es el río más largo del mundo?
+Right:  Amazonas
+Wrong:  Nilo
+Wrong:  Misisipi
+Wrong:  Jordan
+Question: ¿En qué continente está Ecuador?
+Right:  América
+Wrong:  África
+Wrong:  Oceanía
+Wrong:  Europa
+Question: ¿Cómo se llama la Reina del Reino Unido?
+Right:  Isabel II
+Wrong:  Victoria
+Wrong:  Maria Antonieta
+Wrong:  Alejandra
+Question: ¿Quién escribió La Odisea?
+Right:  Homero
+Wrong:  Shakespeare
+Wrong:  Miguel de Cervantes
+Wrong:  Miguel de Unamuno
+Question: ¿Cuál es el lugar más frío de la tierra?
+Right:  La Antártida
+Wrong:  Siberia
+Wrong:  Alaska
+Wrong:  Islandia
+Question: ¿Dónde originaron los juegos olímpicos?
+Right:  Grecia
+Wrong:  Japón
+Wrong:  Estados Unidos
+Wrong:  Alemania
+
+Building: Building C
+Question: ¿Dónde originaron los juegos olímpicos?
+Right:  Grecia
+Wrong:  Japón
+Wrong:  Estados Unidos
+Wrong:  Alemania
+Question: ¿Cuál es el río más largo del mundo?
+Right:  Amazonas
+Wrong:  Nilo
+Wrong:  Misisipi
+Wrong:  Jordan
+Question: ¿Cuál es el lugar más frío de la tierra?
+Right:  La Antártida
+Wrong:  Siberia
+Wrong:  Alaska
+Wrong:  Islandia
+Question: ¿Quién escribió La Odisea?
+Right:  Homero
+Wrong:  Shakespeare
+Wrong:  Miguel de Cervantes
+Wrong:  Miguel de Unamuno
+Question: ¿Qué tipo de animal es la ballena?
+Right:  Mamífero
+Wrong:  Anfibio
+Wrong:  Vertebrado
+Wrong:  Invertebrado
+Question: ¿Cómo se llama la Reina del Reino Unido?
+Right:  Isabel II
+Wrong:  Victoria
+Wrong:  Maria Antonieta
+Wrong:  Alejandra
+Question: ¿En qué continente está Ecuador?
+Right:  América
+Wrong:  África
+Wrong:  Oceanía
+Wrong:  Europa
+
+Building: Building D
+Question: ¿Dónde originaron los juegos olímpicos?
+Right:  Grecia
+Wrong:  Japón
+Wrong:  Estados Unidos
+Wrong:  Alemania
+Question: ¿Cómo se llama la Reina del Reino Unido?
+Right:  Isabel II
+Wrong:  Victoria
+Wrong:  Maria Antonieta
+Wrong:  Alejandra
+Question: ¿Qué tipo de animal es la ballena?
+Right:  Mamífero
+Wrong:  Anfibio
+Wrong:  Vertebrado
+Wrong:  Invertebrado
+Question: ¿Cuál es el lugar más frío de la tierra?
+Right:  La Antártida
+Wrong:  Siberia
+Wrong:  Alaska
+Wrong:  Islandia
+Question: ¿Quién escribió La Odisea?
+Right:  Homero
+Wrong:  Shakespeare
+Wrong:  Miguel de Cervantes
+Wrong:  Miguel de Unamuno
+Question: ¿En qué continente está Ecuador?
+Right:  América
+Wrong:  África
+Wrong:  Oceanía
+Wrong:  Europa
+Question: ¿Cuál es el río más largo del mundo?
+Right:  Amazonas
+Wrong:  Nilo
+Wrong:  Misisipi
+Wrong:  Jordan
+
+Building: Building E
+Question: ¿Cuál es el lugar más frío de la tierra?
+Right:  La Antártida
+Wrong:  Siberia
+Wrong:  Alaska
+Wrong:  Islandia
+Question: ¿Cómo se llama la Reina del Reino Unido?
+Right:  Isabel II
+Wrong:  Victoria
+Wrong:  Maria Antonieta
+Wrong:  Alejandra
+Question: ¿Qué tipo de animal es la ballena?
+Right:  Mamífero
+Wrong:  Anfibio
+Wrong:  Vertebrado
+Wrong:  Invertebrado
+Question: ¿En qué continente está Ecuador?
+Right:  América
+Wrong:  África
+Wrong:  Oceanía
+Wrong:  Europa
+Question: ¿Quién escribió La Odisea?
+Right:  Homero
+Wrong:  Shakespeare
+Wrong:  Miguel de Cervantes
+Wrong:  Miguel de Unamuno
+Question: ¿Cuál es el río más largo del mundo?
+Right:  Amazonas
+Wrong:  Nilo
+Wrong:  Misisipi
+Wrong:  Jordan
+Question: ¿Dónde originaron los juegos olímpicos?
+Right:  Grecia
+Wrong:  Japón
+Wrong:  Estados Unidos
+Wrong:  Alemania

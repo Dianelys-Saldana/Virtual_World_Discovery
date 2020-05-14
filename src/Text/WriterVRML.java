@@ -112,6 +112,10 @@ public class WriterVRML {
 		"	children [\n" + 
 		"		Shape {\n" + 
 		"			appearance Appearance {\n" +
+		"           	material Material {\n" +
+		"					diffuseColor 0 0 0\n" +
+		"					emissiveColor 0 0 0\n" +
+		"				}\n" +
 		"				texture ImageTexture {\n" + 
 		"					url \"" + url + "\"\n" + 
 		"				}\n" + 

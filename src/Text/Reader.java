@@ -79,7 +79,7 @@ public class Reader
 					index++;
 				}
 
-				// Angel Hernandez 04/24/2020
+				// Carlos Rodriguez 13/May/2020
 				// Reads the selected background from the file
 				else if(data.equals("Background")) {
 					isBackground=true;

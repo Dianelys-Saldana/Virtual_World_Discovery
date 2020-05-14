@@ -1,0 +1,390 @@
+#VRML V2.0 utf8
+NavigationInfo {
+  headlight TRUE
+  avatarSize [0.3 1.6 0.5]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MapDefault.png"
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Floor
+Transform {
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "mapasSpecs2.png"
+				}
+			}
+			geometry Box {
+			  size 1024 0.1 735
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -159.5 7.0 -276.0
+	rotation 0 1 0 -0.869704895923655
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 100.7670581092849 15.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -144.5 5.0 -258.0
+	rotation 0 1 0 -0.8641821243865921
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 53.907327887774215 10.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -182.5 5.0 -253.0
+	rotation 0 1 0 0.8936687542579044
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "Casa.png"
+				}
+			}
+			geometry Box {
+			  size 65.43699259593154 10.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -159.0 7.0 -276.0
+	rotation 0 1 0 -0.880005398517178
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MBwhiteBricks.png"
+				}
+			}
+			geometry Box {
+			  size 97.30878685915265 15.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -175.5 7.0 -296.0
+	rotation 0 1 0 -0.8788749445560378
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MBwhiteBricks.png"
+				}
+			}
+			geometry Box {
+			  size 45.45327270945405 15.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -181.0 5.0 -254.0
+	rotation 0 1 0 0.8861791624821161
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MAbricks.png"
+				}
+			}
+			geometry Box {
+			  size 63.25345840347388 10.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -46.5 2.0 -142.5
+	rotation 0 1 0 0.0
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MCmotherBoard.png"
+				}
+			}
+			geometry Box {
+			  size 19.0 5.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -43.0 2.0 -165.0
+	rotation 0 1 0 1.0468769791096977
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MCmotherBoard.png"
+				}
+			}
+			geometry Box {
+			  size 51.97114584074513 5.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -17.5 2.0 -164.5
+	rotation 0 1 0 -1.0729739941778955
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MCmotherBoard.png"
+				}
+			}
+			geometry Box {
+			  size 52.354560450833695 5.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -15.5 2.0 -141.5
+	rotation 0 1 0 0.0
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MCmotherBoard.png"
+				}
+			}
+			geometry Box {
+			  size 21.0 5.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation 3.5 3.0 -53.5
+	rotation 0 1 0 -0.0
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MDwood.png"
+				}
+			}
+			geometry Box {
+			  size 63.0 7.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation 35.5 5.0 19.0
+	rotation 0 1 0 -1.5638998844065481
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MDwood.png"
+				}
+			}
+			geometry Box {
+			  size 145.00344823486094 10.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -32.0 2.0 91.5
+	rotation 0 1 0 0.0
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MDwood.png"
+				}
+			}
+			geometry Box {
+			  size 136.0 5.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -100.0 1.0 18.5
+	rotation 0 1 0 1.5707963267948966
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MDtarzan.png"
+				}
+			}
+			geometry Box {
+			  size 146.0 3.0 0.1
+			}
+		}
+	]
+}
+#Wall
+Transform {
+	translation -69.0 0.0 -54.5
+	rotation 0 1 0 -0.0
+	children [
+		Shape {
+			appearance Appearance {
+				texture ImageTexture {
+					url "MDwood.png"
+				}
+			}
+			geometry Box {
+			  size 62.0 1.0 0.1
+			}
+		}
+	]
+}
+#Tree
+Transform{
+	translation -47.0 50 -311.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree2.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
+				}
+			]
+		}	
+	]
+}
+#Tree
+Transform{
+	translation 227.0 50 -195.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree3.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
+				}
+			]
+		}	
+	]
+}
+#Tree
+Transform{
+	translation -98.0 50 229.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree1.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
+				}
+			]
+		}	
+	]
+}
+#Tree
+Transform{
+	translation -97.0 50 231.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree2.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
+				}
+			]
+		}	
+	]
+}
+#Tree
+Transform{
+	translation 102.0 50 -6.5
+	children[
+		Billboard {
+			children [
+				Shape {
+					appearance Appearance {
+						texture ImageTexture {
+							url "Tree1.png"
+						}
+					}
+					geometry Box {
+						size 60 100 0.0001
+					}
+				}
+			]
+		}	
+	]
+}
